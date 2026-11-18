@@ -1,0 +1,94 @@
+/* =========================================================
+   Layout + utilitaires de base (container, section, label, boutons)
+   ========================================================= */
+
+.container {
+  inline-size: 100%;
+  max-inline-size: calc(var(--container-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.section--cream { background: var(--c-cream); }
+.section--green { background: var(--c-green); color: var(--c-cream); }
+
+/* Label en majuscules avec petit trait doré */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: var(--sp-2);
+  font-family: var(--ff-sans);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-gold-dark);
+}
+.label::before {
+  content: '';
+  inline-size: 36px;
+  block-size: 1px;
+  background: var(--c-gold);
+  flex: none;
+}
+html[lang='ar'] .label {
+  letter-spacing: 0;
+  font-family: var(--ff-ar);
+  font-size: 0.875rem;
+}
+
+/* ---------- Boutons (pilule) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-block-size: var(--btn-height);
+  padding-inline: 28px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease;
+}
+.btn svg { flex: none; }
+
+.btn--primary {
+  background: var(--c-green);
+  color: var(--c-white);
+}
+.btn--secondary {
+  background: transparent;
+  color: var(--c-green);
+  border-color: var(--c-gold);
+}
+.btn--whatsapp {
+  background: var(--c-white);
+  color: var(--c-whatsapp-text);
+  border-color: var(--c-whatsapp);
+}
+.btn--whatsapp-solid {
+  background: var(--c-whatsapp);
+  color: var(--c-white);
+}
+
+@media (hover: hover) {
+  .btn--primary:hover { background: var(--c-green-dark); color: var(--c-white); }
+  .btn--secondary:hover { background: var(--c-gold); color: var(--c-white); }
+  .btn--whatsapp:hover { background: var(--c-whatsapp); color: var(--c-white); }
+}
+
+/* ---------- Carte ---------- */
+.card {
+  background: var(--c-white);
+  border: var(--border-card);
+  border-radius: var(--radius-card);
+}

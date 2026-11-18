@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Sources brutes (originaux lourds) — hors Git
+assets-source/
+maquette/*.zip
+
+# Secrets
+.env
+.env.*
+!.env.example
