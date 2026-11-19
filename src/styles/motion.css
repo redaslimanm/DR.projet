@@ -74,3 +74,35 @@ html.anim .hero__photo {
 
 /* ---------- Citation : mots qui s'éclairent ---------- */
 .quote .word { will-change: opacity; }
+
+/* ---------- Iris doré (Three.js) derrière la photo du hero ----------
+   Carré centré sur le cercle doré ; le canvas apparaît en fondu quand
+   il est prêt. Variante statique : image (reduced-motion, appareil faible). */
+.hero__iris {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(14px + 150px - 210px); /* centre = centre du cercle (mobile) */
+  inline-size: 420px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  pointer-events: none;
+}
+.hero__iris canvas {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero__iris.is-ready canvas { opacity: 1; }
+
+@media (min-width: 64em) {
+  .hero__iris {
+    inset-block-start: calc(30px + 210px - 310px);
+    inline-size: 620px;
+  }
+}
+/* Variante statique : capture du rendu Three.js (fond crème du hero inclus) */
+.hero__iris.is-static {
+  background: url('../assets/images/iris-static.webp') center / contain no-repeat;
+}
