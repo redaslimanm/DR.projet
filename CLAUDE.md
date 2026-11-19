@@ -185,6 +185,11 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 
 **Règle LCP (hero)** : la photo du hero est l'élément LCP. Elle ne doit jamais partir de `opacity: 0` ni d'un masque qui la cache entièrement. Animation autorisée : léger zoom (`scale` 1.06 → 1) et animation du cercle doré autour. Image en `fetchpriority="high"`, sans `loading="lazy"`, avec `<link rel="preload">` et `width`/`height`. Mesurer le LCP dès l'étape 4.
 
+Décisions de performance (étape 9, mesurées avec Lighthouse) :
+- Apparitions simples (fade-up) en **IntersectionObserver + CSS** (`src/js/reveal.js`), jamais `visibility: hidden` (titres accessibles aux lecteurs d'écran). GSAP réservé au titre du hero, compteur, galerie, citation, et sur desktop parallax + section pinnée.
+- **Lenis uniquement avec souris/trackpad** ; écrans tactiles = scroll natif.
+- **Iris Three.js** : image statique (dessinée dans un `<canvas>` 2D, pas candidate LCP) après le chargement ; WebGL ensuite en temps libre sur desktop, **à la première interaction sur mobile**.
+
 Règles : tout respecte `prefers-reduced-motion` (contenu affiché directement) ; animations plus légères sur mobile ; le contenu est toujours présent dans le HTML (rien qui n'existe que via JS) ; en arabe, les animations latérales sont inversées.
 
 ### Three.js : « l'iris doré »

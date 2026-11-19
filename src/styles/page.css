@@ -185,7 +185,9 @@
 /* ---------- Contact (page) ---------- */
 .contact-page { display: flex; flex-direction: column; gap: var(--sp-5); }
 .hours-card { padding: 18px 20px; background: var(--c-cream); border-radius: var(--radius-card); }
-.hours-card h3 { margin-block-end: var(--sp-1); }
+.hours-card h3,
+.hours-card__title { margin-block-end: var(--sp-1); font-family: var(--ff-sans); font-size: var(--fs-h3); }
+html[lang='ar'] .hours-card__title { font-family: var(--ff-ar); }
 .contact-actions { display: flex; flex-direction: column; gap: 10px; }
 
 /* ---------- FAQ (page) ---------- */

@@ -102,7 +102,28 @@ html.anim .hero__photo {
     inline-size: 620px;
   }
 }
-/* Variante statique : capture du rendu Three.js (fond crème du hero inclus) */
-.hero__iris.is-static {
-  background: url('../assets/images/iris-static.webp') center / contain no-repeat;
+/* Image statique (capture du rendu Three.js) dessinée dans un <canvas> 2D :
+   un canvas n'est jamais candidat LCP → la photo du hero reste l'élément LCP.
+   Fondu croisé vers le canvas WebGL quand il est prêt. */
+.hero__iris canvas { position: absolute; inset: 0; }
+.hero__iris .hero__iris-static { opacity: 0; transition: opacity 1.2s ease; }
+.hero__iris.is-static .hero__iris-static { opacity: 1; }
+.hero__iris.is-ready .hero__iris-static { opacity: 0; }
+
+/* ---------- Apparitions au scroll (src/js/reveal.js) ----------
+   opacity + transform uniquement : jamais visibility (les titres restent
+   accessibles aux lecteurs d'écran avant d'apparaître). */
+html.anim .reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 22px), 0);
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0s),
+    transform 0.7s var(--ease-out) var(--reveal-delay, 0s);
 }
+html.anim .reveal.is-in { opacity: 1; transform: none; }
+@media (min-width: 64em) {
+  html.anim .reveal { --reveal-y: 34px; }
+}
+
+/* Native scroll (mobile, sans Lenis) : les ancres s'arrêtent sous le header sticky */
+html { scroll-padding-block-start: calc(var(--header-h) + 8px); }

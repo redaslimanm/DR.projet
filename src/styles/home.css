@@ -736,7 +736,7 @@
 .map-embed__title { font-weight: var(--fw-semibold); color: var(--c-green); }
 .map-embed__btn { min-block-size: 44px; }
 .map-embed__link { text-decoration: underline; text-underline-offset: 2px; }
-.map-embed__note { max-inline-size: 360px; font-size: 0.75rem; color: var(--c-text-3); }
+.map-embed__note { max-inline-size: 360px; font-size: 0.75rem; color: var(--c-text-2); }
 .map-embed.is-loaded { padding: 0; overflow: hidden; background: none; }
 .map-embed iframe { display: block; inline-size: 100%; block-size: 320px; border: 0; }
 @media (min-width: 64em) {

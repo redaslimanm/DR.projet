@@ -24,8 +24,9 @@ function hasWebGL() {
   }
 }
 
+// L'image statique est déjà dessinée par main.js : elle reste affichée si pas de WebGL
 function showStatic(el) {
-  el.classList.add('is-static');
+  el.classList.remove('is-ready');
 }
 
 export async function initIris(el) {

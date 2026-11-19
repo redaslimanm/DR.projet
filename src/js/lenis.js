@@ -15,6 +15,8 @@ const raf = (time) => lenis?.raf(time * 1000);
 
 export function initLenis() {
   if (prefersReducedMotion()) return null;
+  // Écrans tactiles : scroll natif (plus fluide et sans coût CPU) ; Lenis = souris/trackpad
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return null;
 
   lenis = new Lenis({
     lerp: 0.1,

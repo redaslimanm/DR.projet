@@ -111,7 +111,7 @@ export function header(page) {
     </nav>
 
     <div class="site-header__actions">
-      <a class="site-header__lang" href="${altHref}" lang="${t.otherLang}" hreflang="${t.otherLang}" aria-label="${t.otherLangLabel}">${t.otherLangShort}</a>
+      <a class="site-header__lang" href="${altHref}" lang="${t.otherLang}" hreflang="${t.otherLang}" aria-label="${t.otherLangShort} – ${t.otherLangLabel}">${t.otherLangShort}</a>
       <a class="btn btn--primary site-header__rdv" href="${href('contact')}">${icon('calendar', { size: 16 })}${t.rdv}</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="${t.openMenu}" data-label-open="${t.openMenu}" data-label-close="${t.closeMenu}" data-burger>
         <span class="burger__open">${icon('menu', { size: 20 })}</span>
