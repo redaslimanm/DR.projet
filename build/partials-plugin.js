@@ -10,6 +10,7 @@ import { pathToFileURL } from 'node:url';
 const PARTIAL = /<!--\s*@partial\s+([\w-]+)\s*-->/g;
 const ICON = /<!--\s*@icon\s+([\w-]+)(?:\s+(\d+))?(?:\s+([\d.]+))?\s*-->/g;
 const PICTURE = /<!--\s*@picture\s+([\s\S]*?)-->/g;
+const PRELOAD = /<!--\s*@preload-image\s+([\s\S]*?)-->/g;
 const ENTRY = '/src/partials/index.js';
 const IMG_DIR = '/src/assets/images';
 
@@ -36,15 +37,24 @@ function picture(a, manifest) {
   const set = (ext) => meta.widths.map((w) => `${IMG_DIR}/${a.name}-${w}.${ext} ${w}w`).join(', ');
   const fallbackW = meta.widths.find((w) => w >= 800) ?? meta.widths.at(-1);
   const sizes = a.sizes || '100vw';
-  const loading = a.eager ? 'eager" fetchpriority="high' : 'lazy';
+  // Image LCP : chargement immédiat, priorité haute, décodage par défaut (pas async)
+  const loading = a.eager ? 'eager" fetchpriority="high' : 'lazy" decoding="async';
   return (
     `<picture${a.class ? ` class="${a.class}"` : ''}>` +
     `<source type="image/avif" srcset="${set('avif')}" sizes="${sizes}">` +
     `<img src="${IMG_DIR}/${a.name}-${fallbackW}.webp" srcset="${set('webp')}" sizes="${sizes}"` +
-    ` alt="${a.alt}" width="${meta.width}" height="${meta.height}" loading="${loading}" decoding="async"` +
+    ` alt="${a.alt}" width="${meta.width}" height="${meta.height}" loading="${loading}"` +
     `${a['img-class'] ? ` class="${a['img-class']}"` : ''}>` +
     `</picture>`
   );
+}
+
+// Preload de l'image LCP (même srcset/sizes que le <picture>, format AVIF)
+function preloadImage(a, manifest) {
+  const meta = manifest[a.name];
+  if (!meta) throw new Error(`[preload-image] image inconnue : "${a.name}"`);
+  const set = meta.widths.map((w) => `${IMG_DIR}/${a.name}-${w}.avif ${w}w`).join(', ');
+  return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${a.sizes || '100vw'}" fetchpriority="high">`;
 }
 
 export default function partialsPlugin({ root }) {
@@ -89,9 +99,10 @@ export default function partialsPlugin({ root }) {
           );
         }
 
-        if (html.includes('@picture')) {
+        if (html.includes('@picture') || html.includes('@preload-image')) {
           const manifest = JSON.parse(readFileSync(resolve(root, '.' + IMG_DIR, 'manifest.json'), 'utf8'));
           html = html.replace(PICTURE, (_, attrs) => picture(parseAttrs(attrs), manifest));
+          html = html.replace(PRELOAD, (_, attrs) => preloadImage(parseAttrs(attrs), manifest));
         }
 
         return html;

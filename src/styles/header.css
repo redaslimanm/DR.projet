@@ -76,7 +76,7 @@
   display: block;
   flex: none;
 }
-.site-header__logo img {
+.site-header__logo :is(img, svg) {
   block-size: 44px;
   inline-size: auto;
 }
@@ -244,7 +244,7 @@ html.menu-open { overflow: hidden; }
     padding-inline: var(--gutter);
   }
 
-  .site-header__logo img { block-size: 62px; }
+  .site-header__logo :is(img, svg) { block-size: 62px; }
 
   .burger,
   .site-header__lang { display: none; }

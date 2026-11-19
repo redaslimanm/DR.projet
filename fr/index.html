@@ -9,9 +9,15 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon-512.png">
 
+  <!-- Image LCP (photo du hero) : préchargée en priorité haute -->
+  <!-- @preload-image name="dr-hero" sizes="(min-width: 64em) 440px, 290px" -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap">
+  <!-- Google Fonts non bloquant : le texte s'affiche tout de suite avec les polices
+       de secours ajustées (src/styles/fonts.css), sans saut quand la vraie police arrive -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap"></noscript>
 
   <script type="module" src="/src/js/main.js"></script>
 </head>
@@ -201,8 +207,8 @@
         </div>
       </div>
 
-      <div class="container container--bleed-mobile">
-        <ul class="equip-track" role="list">
+      <div class="container container--bleed-mobile carousel" data-carousel>
+        <ul class="equip-track" role="list" tabindex="0" aria-label="Équipements du cabinet (faire défiler horizontalement)">
           <li class="equip-card">
             <!-- @picture name="huvitz" alt="Autoréfractomètre et lampe à fente Huvitz" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
             <div class="equip-card__body">
@@ -225,6 +231,7 @@
             </div>
           </li>
         </ul>
+        <div class="carousel-dots" data-dots role="group" aria-label="Choisir une carte"></div>
       </div>
     </section>
 
@@ -269,8 +276,8 @@
         </div>
       </div>
 
-      <div class="container container--bleed-mobile">
-        <ul class="reviews-track" role="list">
+      <div class="container container--bleed-mobile carousel" data-carousel>
+        <ul class="reviews-track" role="list" tabindex="0" aria-label="Avis patients (faire défiler horizontalement)">
           <li class="review-card">
             <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°1]</span></p>
             <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
@@ -284,6 +291,7 @@
             <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
           </li>
         </ul>
+        <div class="carousel-dots" data-dots role="group" aria-label="Choisir une carte"></div>
       </div>
     </section>
 

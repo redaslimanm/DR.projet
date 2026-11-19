@@ -1,0 +1,76 @@
+/* =========================================================
+   Preloader + états initiaux des animations.
+   Règle d'or : sans JS ou avec prefers-reduced-motion, tout est
+   visible (html.anim n'est jamais ajouté dans ce cas).
+   ========================================================= */
+
+/* ---------- Intro : l'œil du logo se trace dans le header ----------
+   Pas d'overlay : la page est visible dès la 1re peinture (LCP intact).
+   CSS pur, ~0,8 s, 1re visite de l'accueil dans la session (html.intro). */
+html.intro .logo-eye {
+  stroke: var(--c-gold);
+  stroke-width: 40;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  fill-opacity: 0;
+  animation:
+    eye-draw 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    eye-fill 0.3s ease 0.55s forwards;
+}
+@keyframes eye-draw { to { stroke-dashoffset: 0; } }
+@keyframes eye-fill { to { fill-opacity: 1; stroke-opacity: 0; } }
+
+/* ---------- Hero : masqué jusqu'à l'animation d'entrée ----------
+   Filet de sécurité : si le JS ne charge pas, tout réapparaît à 2,5 s. */
+html.anim .hero__content > *,
+html.anim .hero__circle {
+  visibility: hidden;
+  animation: anim-safety 0s linear 2.5s forwards;
+}
+@keyframes anim-safety { to { visibility: visible; } }
+
+/* Photo du hero = élément LCP : toujours visible dès la première peinture
+   (ni opacity 0, ni masque). Seul effet : zoom léger 1.06 → 1, en CSS pur
+   pour ne pas dépendre du JS. */
+html.anim .hero__photo {
+  transform-origin: 50% 100%;
+  animation: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes hero-zoom { from { transform: scale(1.06); } }
+
+/* Lignes du H1 découpées (SplitText, mask: 'lines') : le masque déborde un peu
+   pour ne pas couper les accents (â) ni les jambages (g, y), sans décaler la mise en page */
+.hero__title .split-line-mask {
+  padding-block: 0.12em;
+  /* les marges verticales de 2 masques voisins fusionnent (margin collapsing) :
+     -0.24em en bas compense les 2 paddings entre deux lignes */
+  margin-block: -0.12em -0.24em;
+}
+.hero__title .split-line-mask:last-child { margin-block-end: -0.12em; }
+
+/* À propos : cadre fixe pour le parallax de la photo */
+.about__photo { display: block; overflow: hidden; border-radius: 20px; }
+@media (min-width: 64em) {
+  .about__photo { border-radius: 24px; }
+}
+
+/* ---------- Plateau technique : mode « pinné » (desktop + JS) ---------- */
+.equip-track.is-pinned {
+  display: flex;
+  inline-size: max-content;
+  gap: var(--sp-3);
+  overflow: visible;
+}
+.equip-track.is-pinned .equip-card { flex: 0 0 min(560px, 46vw); }
+.equip-track.is-pinned .equip-card__media img { block-size: 340px; }
+.equip-pin-wrap { overflow: hidden; }
+
+/* ---------- Galerie : images agrandies pour le reveal ---------- */
+.gallery__item { overflow: hidden; border-radius: var(--radius-card); }
+@media (min-width: 64em) {
+  .gallery__item { border-radius: 20px; }
+}
+
+/* ---------- Citation : mots qui s'éclairent ---------- */
+.quote .word { will-change: opacity; }

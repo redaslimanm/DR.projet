@@ -39,8 +39,8 @@
   --g-gold: linear-gradient(90deg, #8A6946 0%, #D3AD85 20%, #9A7752 40%, #957350 60%, #D3AF87 80%, #A88560 100%);
 
   /* ---------- Typographie : familles ---------- */
-  --ff-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --ff-sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ff-serif: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
+  --ff-sans: 'Montserrat', 'Montserrat Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ff-ar: 'Tajawal', system-ui, sans-serif;
 
   /* ---------- Typographie : tailles (mobile) ---------- */
@@ -108,7 +108,6 @@
   --z-header: 50;
   --z-mobile-bar: 60;
   --z-menu: 70;
-  --z-preloader: 100;
 }
 
 /* ---------- Desktop ---------- */

@@ -11,7 +11,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Montserrat:wght@400;600&display=swap">
+  <!-- Google Fonts non bloquant : le texte s'affiche tout de suite avec les polices
+       de secours ajustées (src/styles/fonts.css), sans saut quand la vraie police arrive -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Montserrat:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Montserrat:wght@400;600&display=swap"></noscript>
 
   <script type="module" src="/src/js/main.js"></script>
 </head>

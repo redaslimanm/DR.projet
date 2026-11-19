@@ -1,5 +1,6 @@
 /* Point d'entrée CSS — l'ordre compte */
 @import 'lenis/dist/lenis.css';
+@import './fonts.css';
 @import './tokens.css';
 @import './base.css';
 @import './layout.css';
@@ -7,3 +8,4 @@
 @import './footer.css';
 @import './home.css';
 @import './service.css';
+@import './motion.css';

@@ -677,3 +677,55 @@
   .contact__plan img { border-radius: 20px; }
   .contact__map .btn { align-self: flex-start; inline-size: auto; }
 }
+
+/* =========================================================
+   Carrousels mobiles (CSS scroll-snap) : focus clavier + points
+   ========================================================= */
+.equip-track:focus-visible,
+.reviews-track:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: -2px;
+  border-radius: 20px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 2px;
+  min-block-size: 28px; /* place réservée avant le JS → pas de décalage (CLS) */
+  margin-block-start: 10px;
+  padding-inline: calc(var(--gutter) - 8px);
+}
+.carousel-dots[hidden] { display: none; }
+.reviews-track + .carousel-dots { justify-content: center; }
+
+/* Cible tactile 28 × 28 px, barre visible 8 × 4 px (22 px si active) */
+.carousel-dots__dot {
+  display: grid;
+  place-items: center;
+  min-inline-size: 28px;
+  block-size: 28px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+}
+.carousel-dots__dot::before {
+  content: '';
+  inline-size: 8px;
+  block-size: 4px;
+  border-radius: 4px;
+  background: #D9CBB5;
+  transition: inline-size var(--dur) var(--ease-out), background-color var(--dur) ease;
+}
+.carousel-dots__dot[aria-current]::before {
+  inline-size: 22px;
+  background: var(--c-green);
+}
+.carousel-dots__dot:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 0;
+  border-radius: 6px;
+}
+
+@media (min-width: 64em) {
+  .carousel-dots { display: none; }
+}

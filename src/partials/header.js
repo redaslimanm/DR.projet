@@ -1,7 +1,39 @@
 import { contact, pages, services, t as dict } from '../data/site.js';
 import { icon } from './icons.js';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 const LOGO = '/src/assets/logos/logo-dr-elaouni-couleur.svg';
+
+// Logo en SVG inline (accueil uniquement) : permet de tracer l'œil au trait.
+// Les 3 premiers éléments (cercle, iris, paupière dorée) forment l'œil ;
+// les 2 derniers chemins sont le texte du logo, qui reste affiché tel quel.
+let inlineLogoCache;
+function inlineLogo(label) {
+  if (!inlineLogoCache) {
+    const raw = readFileSync(resolve(process.cwd(), 'src/assets/logos/logo-dr-elaouni-couleur.svg'), 'utf8');
+    let n = 0;
+    inlineLogoCache = raw
+      .replace(/<title>[\s\S]*?<\/title>/, '')
+      .replace(/id="gold"/g, 'id="hl-gold"')
+      .replace(/url\(#gold\)/g, 'url(#hl-gold)')
+      .replace(/id="iris"/g, 'id="hl-iris"')
+      .replace(/url\(#iris\)/g, 'url(#hl-iris)')
+      .replace(/<(circle|path) /g, (m, tag) => (n++ < 3 ? `<${tag} class="logo-eye" pathLength="1" ` : m));
+  }
+  return inlineLogoCache.replace(
+    '<svg ',
+    `<svg class="site-header__logo-svg" role="img" aria-label="${label}" width="112" height="62" `,
+  );
+}
+
+// Script inline (exécuté avant la 1re peinture) :
+// - html.anim  : animations autorisées (JS ok + pas de prefers-reduced-motion)
+// - html.intro : tracé de l'œil du logo, 1re visite de l'accueil dans la session
+const INLINE = (isHome) =>
+  `(function(){var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('anim');${
+    isHome ? "try{if(sessionStorage.getItem('intro'))return;sessionStorage.setItem('intro','1')}catch(e){return}d.classList.add('intro')" : ''
+  }})();`;
 
 // Item de menu actif : accueil = égalité stricte, autres = préfixe
 function current(page, slug) {
@@ -27,7 +59,13 @@ export function header(page) {
 
   const langSwitch = `<a href="${altHref}" lang="${t.otherLang}" hreflang="${t.otherLang}">${t.otherLangName}</a>`;
 
+  const isHome = path === '';
+  const logo = isHome
+    ? inlineLogo(t.logoAlt)
+    : `<img src="${LOGO}" alt="${t.logoAlt}" width="112" height="62">`;
+
   return `
+<script>${INLINE(isHome)}</script>
 <div class="topbar">
   <div class="container topbar__inner">
     <ul class="topbar__info" role="list">
@@ -41,7 +79,7 @@ export function header(page) {
 <header class="site-header" data-header>
   <div class="container site-header__inner">
     <a class="site-header__logo" href="${base}">
-      <img src="${LOGO}" alt="${t.logoAlt}" width="112" height="62" fetchpriority="high">
+      ${logo}
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="${t.navLabel}" data-nav data-lenis-prevent>

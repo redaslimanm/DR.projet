@@ -20,8 +20,9 @@ Ce fichier résume tout le cadrage du projet. Lis-le en entier avant d'écrire d
 | Lenis | Smooth scroll |
 | GSAP + ScrollTrigger + SplitText | Animations au scroll, titres ligne par ligne (GSAP et ses plugins sont gratuits) |
 | Three.js | Un seul effet 3D, dans le hero de l'accueil |
-| Swiper | Sliders (équipements et avis sur mobile) |
 | GLightbox | Lightbox pour la galerie du cabinet |
+
+Carrousels mobiles (équipements, avis) : **CSS scroll-snap**, sans bibliothèque (Swiper retiré de la stack).
 
 Intégration Lenis + ScrollTrigger : `lenis.on('scroll', ScrollTrigger.update)`, `gsap.ticker.add(t => lenis.raf(t * 1000))`, `gsap.ticker.lagSmoothing(0)`.
 
@@ -40,7 +41,7 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 - **Horaires** : lundi – vendredi 9h – 17h · samedi 9h – 13h · dimanche fermé
 - **Consultation** : environ 15 min en moyenne. Urgences acceptées. Adultes et enfants.
 - **Documents à apporter** : CIN + fiche d'adhésion mutuelle
-- **Conventions** (confirmées par la doctora) : CNSS, CNOPS, mutuelles. Ne PAS écrire « assurances ».
+- **Conventions (confirmées)** : CNSS, CNOPS, mutuelles. Ne pas écrire « assurances » (non confirmé).
 - **Tarifs** : ne PAS les afficher (demande de la cliente)
 - **Réseaux sociaux** : `[À CONFIRMER]`
 
@@ -57,13 +58,7 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 
 ### Services (12)
 
-Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · Topographie cornéenne · Laser
-
-(Validé : 12 services, comme sur la carte de visite. L'OCT n'est pas une page service : il est présenté dans « Équipements & examens ».)
-
-Page supplémentaire avec le même template : **Consultation et dépistage** (`/fr/services/consultation-depistage/`), carte 01 de l'accueil. Elle ne compte pas dans les « 12 spécialités ».
-
-Les textes médicaux du site sont regroupés dans `textes-a-valider.md` (racine, hors site) pour validation par la doctora. Tant qu'ils ne sont pas validés, ils restent marqués `[À VALIDER]`.
+Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · OCT · Topographie cornéenne · Laser
 
 AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر
 
@@ -171,15 +166,17 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 
 | Section | Animation |
 |---|---|
-| Preloader | Icône œil du logo tracée en SVG stroke puis fondu, < 1 s, fermeture forcée à 1,5 s max |
-| Hero | H1 ligne par ligne (SplitText), photo révélée par un masque circulaire, Three.js en fond |
+| Intro (pas de preloader) | **Pas d'overlay** qui cache la page (il bloque le LCP). À l'ouverture, l'icône œil du logo dans le header se trace en SVG stroke (~0,8 s) pendant que la page est déjà visible |
+| Hero | H1 ligne par ligne (SplitText), photo du hero **visible dès le premier affichage** (voir règle LCP), Three.js en fond |
 | Bande confiance | Compteurs 0 → 12 |
 | Services | Cartes en stagger ; hover desktop : légère montée + bordure dorée |
 | À propos | Parallax léger sur la photo, diplômes ligne par ligne |
-| Équipements | Desktop : section « pinnée » avec défilement horizontal. Mobile : Swiper (pas de pin) |
+| Équipements | Desktop : section « pinnée » avec défilement horizontal. Mobile : carrousel CSS scroll-snap (pas de pin) |
 | Le cabinet | Reveal des photos en clip-path |
 | Citation | Mots qui s'éclairent au scroll |
 | Autres | Fade-up simple |
+
+**Règle LCP (hero)** : la photo du hero est l'élément LCP. Elle ne doit jamais partir de `opacity: 0` ni d'un masque qui la cache entièrement. Animation autorisée : léger zoom (`scale` 1.06 → 1) et animation du cercle doré autour. Image en `fetchpriority="high"`, sans `loading="lazy"`, avec `<link rel="preload">` et `width`/`height`. Mesurer le LCP dès l'étape 4.
 
 Règles : tout respecte `prefers-reduced-motion` (contenu affiché directement) ; animations plus légères sur mobile ; le contenu est toujours présent dans le HTML (rien qui n'existe que via JS) ; en arabe, les animations latérales sont inversées.
 
@@ -213,8 +210,6 @@ Je les mets dans `assets-source/` :
 - `logo-dr-elaouni-couleur.svg`, `logo-dr-elaouni-blanc.svg` (pour fond vert), `icone-oeil.svg`, `favicon.svg`, `favicon-512.png`
 - Photos (réelles, à convertir en WebP/AVIF) : doctora bras croisés (hero), doctora devant l'OCT (à propos), doctora à la lampe à fente (pages services), réception, salle d'attente « Vision is the art of seeing the invisible », grande salle d'attente, salle d'examen, équipements Huvitz, rétinographe iCare, salle d'échographie, espace diplômes, carte de visite recto/verso (le verso contient le plan d'accès)
 - Manquant : photo de la façade / entrée de la Résidence Oumnia `[À DEMANDER]`
-- Photo « coin canapé vert + cadres » (`salon` dans `scripts/optimize-images.py`) : à utiliser dans la page « Le cabinet ».
-- Attention : les noms de fichiers de `maquette/images/` sont en partie inversés (reception/diplomes, echo/icare). La correspondance correcte est dans `scripts/optimize-images.py`.
 
 ## Maquette validée : `maquette/`
 

@@ -1,0 +1,47 @@
+/* =========================================================
+   Polices de secours « ajustées » (anti-CLS)
+   Pendant le chargement de Google Fonts, le texte s'affiche avec
+   Times New Roman / Arial redimensionnées pour occuper exactement la
+   même place que Cormorant Garamond / Montserrat → pas de saut de mise
+   en page quand la vraie police arrive (font-display: swap).
+   Valeurs mesurées dans Chrome (largeur + ascent/descent du texte du site).
+   ========================================================= */
+
+@font-face {
+  font-family: 'Cormorant Fallback';
+  src: local('Times New Roman Bold'), local('TimesNewRomanPS-BoldMT');
+  font-weight: 600;
+  size-adjust: 91.48%;
+  ascent-override: 100.57%;
+  descent-override: 31.7%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Cormorant Fallback';
+  src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT');
+  font-style: italic;
+  font-weight: 500;
+  size-adjust: 91.48%;
+  ascent-override: 100.57%;
+  descent-override: 31.7%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial'), local('ArialMT');
+  font-weight: 400 500;
+  size-adjust: 110.09%;
+  ascent-override: 88.11%;
+  descent-override: 22.71%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  font-weight: 600 700;
+  size-adjust: 106.97%;
+  ascent-override: 90.68%;
+  descent-override: 23.37%;
+  line-gap-override: 0%;
+}
