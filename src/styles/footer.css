@@ -1,0 +1,153 @@
+/* =========================================================
+   Footer + barre fixe mobile (Appeler / WhatsApp)
+   ========================================================= */
+
+.site-footer {
+  background: var(--c-green-dark);
+  color: var(--c-border-2);
+  font-size: 0.8125rem; /* 13px mobile */
+}
+
+.site-footer a { color: var(--c-border-2); }
+@media (hover: hover) {
+  .site-footer a:hover { color: var(--c-gold-light); }
+}
+
+.site-footer__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px var(--sp-5);
+  justify-content: space-between;
+  padding-block: 44px var(--sp-3);
+}
+
+.site-footer__brand { flex: 1 1 260px; }
+.site-footer__brand img {
+  block-size: 60px;
+  inline-size: auto;
+  margin-block-end: 18px;
+}
+.site-footer__brand p {
+  max-inline-size: 300px;
+  color: var(--c-footer-muted);
+}
+
+.site-footer__title {
+  margin-block-end: var(--sp-1);
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-light);
+}
+
+.site-footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin: 0;
+}
+
+/* Mobile (maquette) : on garde logo + réseaux + mentions ; la nav et les
+   horaires sont déjà dans le menu et la barre d'actions */
+.site-footer__col--nav,
+.site-footer__col--hours { display: none; }
+
+.site-footer__col--social { flex: 1 1 100%; }
+.site-footer__col--social .site-footer__title { display: none; }
+.site-footer__col--social ul { flex-direction: row; flex-wrap: wrap; gap: var(--sp-1) 18px; }
+.site-footer__col--social li { color: var(--c-gold-light); font-weight: var(--fw-semibold); }
+.site-footer__col--social a { color: var(--c-gold-light); }
+
+.site-footer__hours div {
+  display: flex;
+  gap: var(--sp-1);
+}
+.site-footer__hours dt::after { content: '\00a0:'; } /* espace insécable FR */
+html[lang='ar'] .site-footer__hours dt::after { content: ':'; }
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-block: var(--sp-2) var(--sp-6);
+  font-size: 0.75rem;
+  color: var(--c-footer-dim);
+}
+.site-footer__bottom a { color: var(--c-footer-dim); }
+
+/* ---------- Barre fixe mobile ---------- */
+.mobile-bar {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: var(--z-mobile-bar);
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--c-white);
+  border-block-start: 1px solid var(--c-border);
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.mobile-bar__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-1);
+  min-block-size: var(--btn-height);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+}
+html[lang='ar'] .mobile-bar__btn { font-size: 0.9375rem; font-weight: 700; }
+
+.mobile-bar__btn--call,
+.mobile-bar__btn--call:hover {
+  background: var(--c-green);
+  color: var(--c-white);
+}
+.mobile-bar__btn--wa,
+.mobile-bar__btn--wa:hover {
+  background: var(--c-whatsapp);
+  color: var(--c-whatsapp-ink);
+}
+
+/* Le contenu ne passe jamais sous la barre */
+body {
+  padding-block-end: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+}
+
+/* Barre cachée quand le menu est ouvert (le menu a ses propres boutons) */
+html.menu-open .mobile-bar { visibility: hidden; }
+
+/* ---------- Desktop ---------- */
+@media (min-width: 64em) {
+  .site-footer { font-size: var(--fs-small); }
+
+  .site-footer__grid {
+    gap: var(--sp-5);
+    padding-block: var(--sp-8) var(--sp-4);
+  }
+
+  .site-footer__brand img { block-size: 70px; }
+
+  .site-footer__col--nav,
+  .site-footer__col--hours { display: block; }
+  .site-footer__col--nav { flex: 0 1 180px; }
+  .site-footer__col--hours { flex: 0 1 220px; }
+
+  .site-footer__col--social { flex: 0 1 200px; }
+  .site-footer__col--social .site-footer__title { display: block; }
+  .site-footer__col--social ul { flex-direction: column; }
+  .site-footer__col--social li,
+  .site-footer__col--social a { color: var(--c-border-2); font-weight: var(--fw-regular); }
+
+  .site-footer__bottom {
+    padding-block: 20px;
+    border-block-start: 1px solid rgba(217, 179, 138, 0.25);
+    font-size: 0.8125rem;
+  }
+
+  .mobile-bar { display: none; }
+  body { padding-block-end: 0; }
+}

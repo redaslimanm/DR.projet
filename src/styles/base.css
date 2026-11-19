@@ -65,8 +65,8 @@ html[lang='ar'] h1 { font-size: var(--fs-ar-h1); }
 html[lang='ar'] h2 { font-size: var(--fs-ar-h2); }
 html[lang='ar'] h3 { font-weight: 700; }
 
-ul[role='list'],
-ol[role='list'] {
+/* :where() → spécificité 0, les composants peuvent remettre un padding */
+:where(ul, ol)[role='list'] {
   list-style: none;
   padding: 0;
 }

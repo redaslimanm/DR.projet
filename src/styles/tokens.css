@@ -29,6 +29,11 @@
   /* ---------- WhatsApp (uniquement boutons WhatsApp) ---------- */
   --c-whatsapp: #25D366;
   --c-whatsapp-text: #1E6B3A;  /* texte sur bouton WA à bordure */
+  --c-whatsapp-ink: #0B3D1C;   /* texte sur bouton WA plein (barre mobile) */
+
+  /* ---------- Footer ---------- */
+  --c-footer-muted: #CFC6B6;
+  --c-footer-dim: #B8AF9F;
 
   /* ---------- Dégradé or du logo ---------- */
   --g-gold: linear-gradient(90deg, #8A6946 0%, #D3AD85 20%, #9A7752 40%, #957350 60%, #D3AF87 80%, #A88560 100%);
@@ -91,8 +96,8 @@
   --shadow-card: 0 10px 30px rgba(47, 79, 58, 0.08);
 
   /* ---------- Header / barre mobile ---------- */
-  --header-h: 72px;
-  --mobile-bar-h: 64px;
+  --header-h: 68px;
+  --mobile-bar-h: 76px;
 
   /* ---------- Animations ---------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

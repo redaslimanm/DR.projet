@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { readdirSync, statSync } from 'node:fs';
 import { resolve, relative, join } from 'node:path';
+import partialsPlugin from './build/partials-plugin.js';
 
 const root = import.meta.dirname;
 
@@ -25,6 +26,7 @@ const input = {
 };
 
 export default defineConfig({
+  plugins: [partialsPlugin({ root })],
   build: {
     outDir: 'dist',
     emptyOutDir: true,

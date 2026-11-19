@@ -1,0 +1,139 @@
+// =========================================================
+// Données partagées (header, footer, et plus tard SEO/schema).
+// Une seule source : modifier ici met à jour toutes les pages.
+// =========================================================
+
+export const contact = {
+  phone: '05 32 39 18 18',
+  phoneHref: 'tel:+212532391818',
+  whatsapp: '07 62 97 08 15',
+  whatsappHref: 'https://wa.me/212762970815',
+  email: 'dr.elaouni.rajae@gmail.com',
+};
+
+// Réseaux sociaux : [À CONFIRMER] → laisser null tant que non fournis
+export const socials = {
+  instagram: null,
+  facebook: null,
+};
+
+// Pages du site (slug identique en FR et AR → le switch de langue garde la page)
+export const pages = {
+  home: '',
+  about: 'dr-elaouni/',
+  services: 'services/',
+  equipment: 'equipements/',
+  clinic: 'cabinet/',
+  blog: 'conseils/',
+  faq: 'faq/',
+  contact: 'contact/',
+  legal: 'mentions-legales/',
+  privacy: 'confidentialite/',
+};
+
+// Services (12) : FR (CLAUDE.md) + AR (carte de visite).
+// L'OCT n'est pas un service : c'est un examen (page Équipements & examens).
+export const services = [
+  { slug: 'cataracte', fr: 'Chirurgie de la cataracte', ar: 'جراحة الجلالة' },
+  { slug: 'chirurgie-refractive', fr: 'Chirurgie réfractive', ar: 'الجراحة الانكسارية' },
+  { slug: 'strabisme', fr: 'Chirurgie du strabisme', ar: 'جراحة الحَوَل' },
+  { slug: 'lentilles-de-contact', fr: 'Adaptation en lentilles de contact', ar: 'العدسات اللاصقة' },
+  { slug: 'keratocone', fr: 'Kératocône et maladies de la cornée', ar: 'القرنيّة المخروطية وأمراض القرنيّة' },
+  { slug: 'retine', fr: 'Maladies de la rétine', ar: 'أمراض الشبكية' },
+  { slug: 'glaucome', fr: 'Glaucome', ar: 'الزرق' },
+  { slug: 'ophtalmologie-pediatrique', fr: 'Ophtalmologie pédiatrique', ar: 'طب العيون عند الأطفال' },
+  { slug: 'echographie-oculaire', fr: 'Échographie oculaire', ar: 'الإكوغرافيا' },
+  { slug: 'angiographie-retinienne', fr: 'Angiographie rétinienne', ar: 'تصوير الشبكية' },
+  { slug: 'topographie-corneenne', fr: 'Topographie cornéenne', ar: 'تصوير القرنية' },
+  { slug: 'laser', fr: 'Laser', ar: 'الليزر' },
+];
+
+// Textes d'interface
+export const t = {
+  fr: {
+    langName: 'Français',
+    otherLang: 'ar',
+    otherLangName: 'العربية',
+    otherLangShort: 'ع',
+    otherLangLabel: 'Version arabe',
+    skip: 'Aller au contenu',
+    logoAlt: 'Dr Elaouni Rajae, ophtalmologue',
+    hoursShort: 'Lun – Ven 9h – 17h · Sam 9h – 13h',
+    addressShort: 'Avenue des FAR, Résidence Oumnia, Fès',
+    navLabel: 'Menu principal',
+    openMenu: 'Ouvrir le menu',
+    closeMenu: 'Fermer le menu',
+    subToggle: 'Afficher la liste des services',
+    allServices: 'Tous les services',
+    nav: {
+      home: 'Accueil',
+      about: 'Dr Elaouni',
+      services: 'Services',
+      equipment: 'Équipements',
+      clinic: 'Le cabinet',
+      blog: 'Conseils',
+      contact: 'Contact',
+    },
+    rdv: 'Prendre rendez-vous',
+    call: 'Appeler',
+    whatsapp: 'WhatsApp',
+    quickActions: 'Actions rapides',
+    footerTagline: 'Cabinet d’ophtalmologie à Fès. Consultations, dépistage et chirurgie oculaire.',
+    footerCabinet: 'Le cabinet',
+    footerBlog: 'Conseils santé',
+    footerHours: 'Horaires',
+    hours: [
+      ['Lun – Ven', '9h – 17h'],
+      ['Samedi', '9h – 13h'],
+      ['Dimanche', 'fermé'],
+    ],
+    footerFollow: 'Suivez-nous',
+    copyright: 'Cabinet d’ophtalmologie Dr Elaouni Rajae',
+    legal: 'Mentions légales',
+    privacy: 'Confidentialité',
+    footerNavLabel: 'Liens du pied de page',
+  },
+  ar: {
+    langName: 'العربية',
+    otherLang: 'fr',
+    otherLangName: 'Français',
+    otherLangShort: 'FR',
+    otherLangLabel: 'Version française',
+    skip: 'الانتقال إلى المحتوى',
+    logoAlt: 'الدكتورة العوني رجاء، اختصاصية في طب و جراحة العيون',
+    hoursShort: 'الإثنين – الجمعة 9:00 – 17:00 · السبت 9:00 – 13:00',
+    addressShort: 'شارع الجيش الملكي، إقامة أمنية، فاس',
+    navLabel: 'القائمة الرئيسية',
+    openMenu: 'فتح القائمة',
+    closeMenu: 'إغلاق القائمة',
+    subToggle: 'عرض قائمة الخدمات',
+    allServices: 'جميع الخدمات',
+    nav: {
+      home: 'الرئيسية',
+      about: 'الدكتورة العوني',
+      services: 'الخدمات',
+      equipment: 'التجهيزات',
+      clinic: 'العيادة',
+      blog: 'نصائح صحية',
+      contact: 'التواصل',
+    },
+    rdv: 'احجز موعدك',
+    call: 'اتصل بنا',
+    whatsapp: 'واتساب',
+    quickActions: 'إجراءات سريعة',
+    footerTagline: 'عيادة طب وجراحة العيون — فاس',
+    footerCabinet: 'العيادة',
+    footerBlog: 'نصائح صحية',
+    footerHours: 'مواعيد العمل',
+    hours: [
+      ['الإثنين – الجمعة', '9:00 – 17:00'],
+      ['السبت', '9:00 – 13:00'],
+      ['الأحد', 'مغلق'],
+    ],
+    footerFollow: 'تابعونا',
+    copyright: 'عيادة طب العيون الدكتورة العوني رجاء',
+    legal: 'الإشعار القانوني',
+    privacy: 'سياسة الخصوصية',
+    footerNavLabel: 'روابط أسفل الصفحة',
+  },
+};

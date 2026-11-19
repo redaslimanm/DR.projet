@@ -57,7 +57,9 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 
 ### Services (12)
 
-Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · OCT · Topographie cornéenne · Laser
+Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · Topographie cornéenne · Laser
+
+(Validé : 12 services, comme sur la carte de visite. L'OCT n'est pas une page service : il est présenté dans « Équipements & examens ».)
 
 AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر
 
