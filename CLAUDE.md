@@ -26,7 +26,7 @@ Carrousels mobiles (équipements, avis) : **CSS scroll-snap**, sans bibliothèqu
 
 Intégration Lenis + ScrollTrigger : `lenis.on('scroll', ScrollTrigger.update)`, `gsap.ticker.add(t => lenis.raf(t * 1000))`, `gsap.ticker.lagSmoothing(0)`.
 
-Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas de CMS : c'est moi qui ferai les mises à jour (contrat de maintenance).
+Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans `DEPLOIEMENT.md`). Mise en ligne quand le domaine sera choisi. Pas de CMS : c'est moi qui ferai les mises à jour (contrat de maintenance).
 
 ## Le client
 
