@@ -47,6 +47,13 @@ out.push('- **Laser** : quels types de laser sont disponibles au cabinet, pour q
 out.push('- **Page FAQ** : questions médicales fréquentes (3 à 6) et leurs réponses.');
 out.push('- **Conseils santé** : premiers articles (sujets proposés : enfants et écrans ; diabète et fond d’œil ; lentilles de contact, les bons gestes).\n');
 
+out.push('---\n');
+out.push('## 6. Version arabe\n');
+out.push(
+  'Tout le site existe aussi en arabe (`/ar/`). Les textes arabes sont une **traduction** des textes français ci-dessus (fichier `src/data/services-content.ar.js` pour les services, pages dans `ar/`). Une fois les textes français validés, la version arabe devra être **relue par la doctora ou par une personne arabophone** (vocabulaire médical en particulier), puis mise à jour.\n',
+);
+out.push('- [ ] Traduction arabe relue — Corrections :\n');
+
 const src = readFileSync(FILE, 'utf8');
 const cut = src.indexOf(MARKER);
 const head = cut >= 0 ? src.slice(0, cut) : src.slice(0, src.indexOf('## 3. Page « Consultation et dépistage »'));

@@ -2,7 +2,7 @@
 // Le titre et la description viennent de src/data/meta.js (ou des données
 // d'un service pour les pages service). Une page sans meta = erreur de build.
 import { meta } from '../data/meta.js';
-import { serviceBySlug } from '../data/services-content.js';
+import { localizedService } from '../data/services-content.js';
 
 const FONTS = {
   fr: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap',
@@ -16,7 +16,7 @@ function pageMeta(lang, path) {
   if (m) return m;
   const svc = path.match(/^services\/([\w-]+)\/$/);
   if (svc) {
-    const s = serviceBySlug(svc[1]);
+    const s = localizedService(svc[1], lang);
     if (s?.meta) return s.meta;
   }
   throw new Error(`[head] pas de meta pour /${lang}/${path} (src/data/meta.js)`);

@@ -6,6 +6,8 @@
 // Sans JS : le scroll tactile, la molette et les flèches du clavier (track focusable) marchent.
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const isAr = document.documentElement.lang === 'ar';
+const dotLabel = (i, total) => (isAr ? `البطاقة ${i} من ${total}` : `Carte ${i} sur ${total}`);
 
 function setupCarousel(root) {
   const track = root.querySelector('ul');
@@ -19,7 +21,7 @@ function setupCarousel(root) {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'carousel-dots__dot';
-    b.setAttribute('aria-label', `Carte ${i + 1} sur ${total}`);
+    b.setAttribute('aria-label', dotLabel(i + 1, total));
     b.addEventListener('click', () => {
       card.scrollIntoView({
         behavior: reduceMotion.matches ? 'auto' : 'smooth',

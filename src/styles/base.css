@@ -172,3 +172,20 @@ summary::-webkit-details-marker {
     scroll-behavior: auto !important;
   }
 }
+
+/* Arabe : tous les éléments qui forcent Montserrat / Cormorant passent en Tajawal */
+html[lang='ar'] :is(
+  .group-title, .related__title, .article-card h2, .site-nav__link,
+  .service-card__title, .btn, .hero__badge, .quote figcaption, .footer, .topbar
+) {
+  font-family: var(--ff-ar);
+}
+html[lang='ar'] .quote blockquote p {
+  font-family: var(--ff-ar);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+html[lang='ar'] :is(.group-title, .quote figcaption, .article-card__tag) { letter-spacing: 0; }
+/* Les chiffres décoratifs (01, 12…) gardent la serif latine */
+html[lang='ar'] :is(.service-card__num, .trust__number, .step__num) { font-family: var(--ff-serif); }

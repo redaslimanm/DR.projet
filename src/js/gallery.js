@@ -21,7 +21,8 @@ export async function initGallery(list) {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'gallery-page__open';
-    btn.setAttribute('aria-label', `Agrandir la photo : ${elements[i].description || elements[i].alt}`);
+    const name = elements[i].description || elements[i].alt;
+    btn.setAttribute('aria-label', document.documentElement.lang === 'ar' ? `تكبير الصورة: ${name}` : `Agrandir la photo : ${name}`);
     btn.addEventListener('click', () => lightbox.openAt(i));
     fig.append(btn);
   });

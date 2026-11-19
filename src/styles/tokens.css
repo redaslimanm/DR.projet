@@ -41,7 +41,7 @@
   /* ---------- Typographie : familles ---------- */
   --ff-serif: 'Cormorant Garamond', 'Cormorant Fallback', Georgia, serif;
   --ff-sans: 'Montserrat', 'Montserrat Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --ff-ar: 'Tajawal', system-ui, sans-serif;
+  --ff-ar: 'Tajawal', 'Tajawal Fallback', system-ui, sans-serif;
 
   /* ---------- Typographie : tailles (mobile) ---------- */
   --fs-h1: 2.375rem;    /* 38px */

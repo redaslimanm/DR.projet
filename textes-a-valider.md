@@ -978,3 +978,11 @@ Les textes de la lampe à fente, du rétinographe et de l’OCT sont ceux des se
 - **Laser** : quels types de laser sont disponibles au cabinet, pour quelles indications, et comment se déroule une séance.
 - **Page FAQ** : questions médicales fréquentes (3 à 6) et leurs réponses.
 - **Conseils santé** : premiers articles (sujets proposés : enfants et écrans ; diabète et fond d’œil ; lentilles de contact, les bons gestes).
+
+---
+
+## 6. Version arabe
+
+Tout le site existe aussi en arabe (`/ar/`). Les textes arabes sont une **traduction** des textes français ci-dessus (fichier `src/data/services-content.ar.js` pour les services, pages dans `ar/`). Une fois les textes français validés, la version arabe devra être **relue par la doctora ou par une personne arabophone** (vocabulaire médical en particulier), puis mise à jour.
+
+- [ ] Traduction arabe relue — Corrections :

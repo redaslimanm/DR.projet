@@ -536,6 +536,22 @@ export function serviceBySlug(slug) {
   return servicesContent.find((s) => s.slug === slug);
 }
 
+// Version localisée : FR = données ci-dessus ; AR = textes de services-content.ar.js
+// fusionnés avec la structure FR (slug, photo, icônes, liens).
+import { servicesContentAr } from './services-content.ar.js';
+
+export function localizedService(slug, lang = 'fr') {
+  const base = serviceBySlug(slug);
+  if (!base || lang === 'fr') return base;
+  const ar = servicesContentAr[slug];
+  if (!ar) throw new Error(`[services] traduction AR manquante : ${slug}`);
+  return {
+    ...base,
+    ...ar,
+    signs: base.signs.map(([icon], i) => [icon, ar.signs[i]]),
+  };
+}
+
 // Groupes pour la page index /fr/services/
 export const serviceGroups = [
   { title: 'Consultation et suivi', slugs: ['consultation-depistage', 'ophtalmologie-pediatrique', 'glaucome', 'retine'] },

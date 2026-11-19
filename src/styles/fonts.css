@@ -45,3 +45,32 @@
   descent-override: 23.37%;
   line-gap-override: 0%;
 }
+
+/* Arabe : Tajawal ← Arial (glyphes arabes) ajustée */
+@font-face {
+  font-family: 'Tajawal Fallback';
+  src: local('Arial'), local('ArialMT');
+  font-weight: 400 500;
+  size-adjust: 120.58%;
+  ascent-override: 84.59%;
+  descent-override: 31.51%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Tajawal Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  font-weight: 600 700;
+  size-adjust: 127.05%;
+  ascent-override: 84.22%;
+  descent-override: 32.27%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Tajawal Fallback';
+  src: local('Arial Black'), local('Arial Bold'), local('Arial-BoldMT');
+  font-weight: 800 900;
+  size-adjust: 124.05%;
+  ascent-override: 86.26%;
+  descent-override: 33.05%;
+  line-gap-override: 0%;
+}

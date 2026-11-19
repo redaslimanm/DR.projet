@@ -2,35 +2,391 @@
 <html lang="ar" dir="rtl">
 <head>
   <!-- @partial head -->
+  <!-- Image LCP (photo du hero) : préchargée en priorité haute -->
+  <!-- @preload-image name="dr-hero" sizes="(min-width: 64em) 440px, 290px" -->
 </head>
 <body>
   <!-- @partial header -->
 
   <main id="main">
-    <!-- Page de test des tokens (étape 1) — version AR complète à l'étape 7 -->
-    <section class="section section--cream">
-      <div class="container">
-        <p class="label">طبيبة العيون بفاس</p>
-        <h1>نعتني بعيونكم في كل مراحل العمر</h1>
-        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-block-start:32px">
-          <a class="btn btn--primary" href="tel:+212532391818" dir="ltr">05 32 39 18 18</a>
-          <a class="btn btn--whatsapp" href="https://wa.me/212762970815">واتساب</a>
+
+    <!-- ===================== 3. Hero ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="label">طبيبة العيون بفاس</p>
+          <h1 id="hero-title" class="hero__title">نعتني بعيونكم في كل مراحل العمر</h1>
+          <p class="hero__lead">فحص، تشخيص وجراحة العيون للكبار والأطفال، بعيادة الدكتورة العوني رجاء، شارع الجيش الملكي.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="tel:+212532391818">
+              <!-- @icon phone 18 -->
+              <span class="u-mobile-only">اتصل بنا</span>
+              <span class="u-desktop-only"><bdi dir="ltr">05 32 39 18 18</bdi></span>
+            </a>
+            <a class="btn btn--whatsapp" href="https://wa.me/212762970815" target="_blank" rel="noopener">
+              <!-- @icon whatsapp 18 2 -->
+              <span class="u-mobile-only">واتساب</span>
+              <span class="u-desktop-only">موعد عبر واتساب</span>
+            </a>
+          </div>
+
+          <ul class="hero__checks" role="list">
+            <li><!-- @icon check 18 --><span>الكبار والأطفال</span></li>
+            <li><!-- @icon check 18 --><span>استشارات مستعجلة</span></li>
+            <li><!-- @icon check 18 --><span>CNSS · CNOPS · التعاضديات</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <!-- Iris doré (Three.js) : rempli après le chargement, décoratif -->
+          <div class="hero__iris" data-iris aria-hidden="true"></div>
+          <span class="hero__circle" aria-hidden="true"></span>
+          <!-- @picture name="dr-hero" alt="الدكتورة العوني رجاء في عيادتها" sizes="(min-width: 64em) 440px, 290px" class="hero__photo" eager -->
+          <p class="hero__badge">
+            <span class="hero__badge-icon"><!-- @icon award 20 1.6 --></span>
+            <span><strong>تكوين بالمملكة المتحدة</strong>الكلية الملكية لأطباء العيون</span>
+          </p>
         </div>
       </div>
     </section>
-    <div class="container" style="padding-block:24px"><p><a href="#test-4">← رابط نحو القسم 4</a></p></div>
-    <section class="section section--cream" id="test-1">
-      <div class="container"><h2>قسم تجريبي 1</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 4. Bande de confiance ===================== -->
+    <section class="trust" aria-label="نقاط القوة">
+      <ul class="container trust__list" role="list">
+        <li class="trust__item">
+          <span class="trust__number">12</span>
+          <span>تخصصاً وفحصاً<span class="u-desktop-only-inline"> بالعيادة</span></span>
+        </li>
+        <li class="trust__item">
+          <span class="trust__icon"><!-- @icon award 22 1.6 --></span>
+          <span>دبلومات من المملكة المتحدة وإسبانيا</span>
+        </li>
+        <li class="trust__item">
+          <span class="trust__icon"><!-- @icon badgeCheck 22 1.6 --></span>
+          <span>عضوة بالجمعية الفرنسية لطب العيون</span>
+        </li>
+        <li class="trust__item u-desktop-only">
+          <span class="trust__icon"><!-- @icon scanEye 22 1.6 --></span>
+          <span>OCT، تصوير الشبكية والإيكوغرافيا بالعيادة</span>
+        </li>
+        <li class="trust__item u-mobile-only">
+          <span class="trust__icon"><!-- @icon shieldCheck 22 1.6 --></span>
+          <span>CNSS · CNOPS · التعاضديات</span>
+        </li>
+      </ul>
     </section>
-    <section class="section" id="test-2">
-      <div class="container"><h2>قسم تجريبي 2</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 5. Services ===================== -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="label label--plain">خدماتنا</p>
+            <h2 id="services-title">رعاية شاملة لصحة عيونكم</h2>
+          </div>
+          <a class="link-underline u-desktop-only" href="/ar/services/">جميع الخدمات <!-- @icon arrowRight 16 --></a>
+        </div>
+
+        <ul class="services-grid" role="list">
+          <li>
+            <a class="service-card" href="/ar/services/consultation-depistage/">
+              <span class="service-card__num" aria-hidden="true">01</span>
+              <h3 class="service-card__title">الفحص والكشف المبكر</h3>
+              <p class="service-card__text">فحص شامل لصحة العين، كشف مبكر عن اضطرابات الرؤية ومتابعة شخصية.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/ar/services/ophtalmologie-pediatrique/">
+              <span class="service-card__num" aria-hidden="true">02</span>
+              <h3 class="service-card__title">طب العيون عند الأطفال</h3>
+              <p class="service-card__text">كشف ومتابعة قصر النظر وطول النظر واللابؤرية والغمش والحَوَل.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/ar/services/cataracte/">
+              <span class="service-card__num" aria-hidden="true">03</span>
+              <h3 class="service-card__title">جراحة الجلالة</h3>
+              <p class="service-card__text">علاج بتقنية الفاكو، وهي تقنية حديثة لاستعادة رؤية أوضح.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/ar/services/chirurgie-refractive/">
+              <span class="service-card__num" aria-hidden="true">04</span>
+              <h3 class="service-card__title">الجراحة الانكسارية</h3>
+              <p class="service-card__text">تقييم إمكانية التصحيح الجراحي لقصر النظر وطول النظر واللابؤرية.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/ar/services/keratocone/">
+              <span class="service-card__num" aria-hidden="true">05</span>
+              <h3 class="service-card__title">القرنية المخروطية وأمراض القرنية</h3>
+              <p class="service-card__text">تشخيص ومراقبة وعلاج بتقنية تثبيت القرنية (CXL) للحد من تطورها.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/ar/services/glaucome/">
+              <span class="service-card__num" aria-hidden="true">06</span>
+              <h3 class="service-card__title">الزرق (الجلوكوما)</h3>
+              <p class="service-card__text">كشف وتشخيص ومتابعة متخصصة للحفاظ على العصب البصري ووظيفة الإبصار.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li class="u-desktop-only">
+            <a class="service-card" href="/ar/services/retine/">
+              <span class="service-card__num" aria-hidden="true">07</span>
+              <h3 class="service-card__title">أمراض الشبكية</h3>
+              <p class="service-card__text">تشخيص ومتابعة أمراض الشبكية، منها اعتلال الشبكية السكري والتنكس البقعي.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li class="u-desktop-only">
+            <a class="service-card" href="/ar/services/lentilles-de-contact/">
+              <span class="service-card__num" aria-hidden="true">08</span>
+              <h3 class="service-card__title">العدسات اللاصقة</h3>
+              <p class="service-card__text">تكييف شخصي للعدسات اللينة والصلبة والصلبوية، خاصة للقرنية المخروطية.</p>
+              <span class="service-card__more">اكتشف <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+        </ul>
+
+        <a class="btn btn--secondary btn--block u-mobile-only" href="/ar/services/">الخدمات الـ12</a>
+      </div>
     </section>
-    <section class="section section--cream" id="test-3">
-      <div class="container"><h2>قسم تجريبي 3</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 6. À propos ===================== -->
+    <section class="section section--cream" id="apropos" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__media">
+          <!-- @picture name="dr-oct" alt="الدكتورة العوني رجاء أمام فحص OCT" sizes="(min-width: 64em) 560px, calc(100vw - 40px)" class="about__photo" -->
+        </div>
+        <div class="about__content">
+          <p class="label label--plain">طبيبتكم</p>
+          <h2 id="about-title">الدكتورة العوني رجاء</h2>
+          <p class="about__text">وُلدت العيادة من شغف بطب العيون ورغبة في تقديم رعاية ذات جودة، تجمع بين الكفاءة الطبية والتقنيات الحديثة والمقاربة الإنسانية. الإصغاء والثقة وراحة المريض في صميم ممارستنا.</p>
+          <ul class="check-list" role="list">
+            <li><!-- @icon check 18 --><span>خريجة كلية الطب والصيدلة وطب الأسنان بفاس</span></li>
+            <li><!-- @icon check 18 --><span>طبيبة داخلية سابقة بالمستشفى الجامعي الحسن الثاني وطبيبة سابقة بمستشفى عمر الإدريسي، فاس</span></li>
+            <li><!-- @icon check 18 --><span>جراحة الجلالة والجراحة الانكسارية — الكلية الملكية لأطباء العيون، المملكة المتحدة</span></li>
+            <li><!-- @icon check 18 --><span>تكييف العدسات اللاصقة — جامعة إيزابيل الأولى، إسبانيا</span></li>
+            <li><!-- @icon check 18 --><span>عضوة بالجمعية الفرنسية لطب العيون</span></li>
+          </ul>
+          <a class="btn btn--primary" href="/ar/dr-elaouni/">اكتشفوا مسارها</a>
+        </div>
+      </div>
     </section>
-    <section class="section" id="test-4">
-      <div class="container"><h2>قسم تجريبي 4</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 7. Plateau technique ===================== -->
+    <section class="section" id="equipements" aria-labelledby="equip-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="label label--plain">التجهيزات</p>
+          <h2 id="equip-title">تجهيزات حديثة لتشخيص دقيق</h2>
+          <p class="section-head__intro">كشف مبكر ومتابعة شخصية لأمراض العين، مباشرة في العيادة.</p>
+        </div>
+      </div>
+
+      <div class="container container--bleed-mobile carousel" data-carousel>
+        <ul class="equip-track" role="list" tabindex="0" aria-label="تجهيزات العيادة (مرّروا أفقياً)">
+          <li class="equip-card">
+            <!-- @picture name="huvitz" alt="جهاز قياس الانكسار والمصباح الشقي Huvitz" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>المصباح الشقي وجهاز قياس الانكسار</h3>
+              <p>فحص دقيق لبنيات العين وقياس موضوعي لاضطرابات الانكسار.</p>
+            </div>
+          </li>
+          <li class="equip-card">
+            <!-- @picture name="icare" alt="جهاز تصوير الشبكية الرقمي iCare" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>جهاز تصوير الشبكية الرقمي</h3>
+              <p>تصوير قاع العين للكشف عن أمراض الشبكية ومتابعتها.</p>
+            </div>
+          </li>
+          <li class="equip-card">
+            <!-- @picture name="echo" alt="قاعة الإكوغرافيا العينية" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>الإكوغرافيا العينية و OCT</h3>
+              <p>تصوير عالي الدقة للشبكية والبقعة والعصب البصري.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="carousel-dots" data-dots role="group" aria-label="اختيار بطاقة"></div>
+      </div>
     </section>
+
+    <!-- ===================== 8. Le cabinet ===================== -->
+    <section class="section section--cream" id="cabinet" aria-labelledby="cabinet-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="label label--plain">العيادة</p>
+            <h2 id="cabinet-title">فضاء مصمم لراحتكم</h2>
+          </div>
+          <p class="section-head__aside">الطابق الثالث مع مصعد، موقف سيارات قريب، وقاعة انتظار هادئة ومضيئة.</p>
+        </div>
+
+        <div class="gallery">
+          <!-- @picture name="reception" alt="استقبال العيادة" sizes="(min-width: 64em) 600px, 50vw" class="gallery__item gallery__item--reception" -->
+          <!-- @picture name="attente" alt="قاعة الانتظار الكبرى" sizes="(min-width: 64em) 600px, 100vw" class="gallery__item gallery__item--attente" -->
+          <!-- @picture name="attente-vision" alt="ركن بقاعة الانتظار مع عبارة « Vision is the art of seeing the invisible »" sizes="(min-width: 64em) 300px, 50vw" class="gallery__item gallery__item--vision" -->
+          <!-- @picture name="diplomes" alt="فضاء الدبلومات بالعيادة" sizes="(min-width: 64em) 300px, 50vw" class="gallery__item gallery__item--diplomes" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Citation ===================== -->
+    <section class="quote" aria-label="اقتباس">
+      <figure class="container quote__inner">
+        <img class="quote__icon" src="/src/assets/logos/icone-oeil.svg" alt="" width="110" height="54" loading="lazy">
+        <blockquote>
+          <p>« الرؤية هي فن رؤية ما لا يُرى. »</p>
+        </blockquote>
+        <figcaption>جوناثان سويفت</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 10. Avis patients ===================== -->
+    <section class="section" id="avis" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="label label--plain">آراء المرضى</p>
+          <h2 id="reviews-title">يثقون بنا</h2>
+          <p class="section-head__intro">تقييم Google: <span class="placeholder">[À INTÉGRER : note]</span> / 5 · <span class="placeholder">[À INTÉGRER : nombre]</span> رأي</p>
+        </div>
+      </div>
+
+      <div class="container container--bleed-mobile carousel" data-carousel>
+        <ul class="reviews-track" role="list" tabindex="0" aria-label="آراء المرضى (مرّروا أفقياً)">
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°1]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°2]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°3]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+        </ul>
+        <div class="carousel-dots" data-dots role="group" aria-label="اختيار بطاقة"></div>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Infos pratiques + FAQ ===================== -->
+    <section class="section section--cream" id="infos" aria-labelledby="infos-title">
+      <div class="container practical">
+        <div class="practical__info">
+          <p class="label label--plain">معلومات عملية</p>
+          <h2 id="infos-title">تحضير زيارتكم</h2>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>مواعيد العمل</h3>
+              <dl class="hours">
+                <div><dt>الإثنين – الجمعة</dt><dd>9:00 – 17:00</dd></div>
+                <div><dt>السبت</dt><dd>9:00 – 13:00</dd></div>
+                <div><dt>الأحد</dt><dd>مغلق</dd></div>
+              </dl>
+            </div>
+            <div class="info-card">
+              <h3>الاتفاقيات</h3>
+              <p>CNSS و CNOPS والتعاضديات</p>
+            </div>
+            <div class="info-card">
+              <h3>الوثائق المطلوبة</h3>
+              <p>البطاقة الوطنية وورقة الانخراط في التعاضدية</p>
+            </div>
+            <div class="info-card">
+              <h3>إلغاء الموعد</h3>
+              <p>المرجو إخبارنا مسبقاً في حالة إلغاء الموعد.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="practical__faq">
+          <p class="label label--plain">أسئلة شائعة</p>
+          <h2>أسئلة شائعة</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>كيف أحجز موعداً؟<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>اتصلوا بالكتابة على <a href="tel:+212532391818"><bdi dir="ltr">05 32 39 18 18</bdi></a>، أو أرسلوا رسالة واتساب إلى <a href="https://wa.me/212762970815" target="_blank" rel="noopener"><bdi dir="ltr">07 62 97 08 15</bdi></a>، أو تفضلوا مباشرة إلى العيادة.</p>
+            </details>
+            <details class="faq__item">
+              <summary>ما هي الوثائق المطلوبة؟<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>البطاقة الوطنية وورقة الانخراط في التعاضدية.</p>
+            </details>
+            <details class="faq__item">
+              <summary>هل تستقبل العيادة الحالات المستعجلة؟<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>نعم، الاستشارات المستعجلة مضمونة. اتصلوا بالعيادة ليتم توجيهكم بسرعة.</p>
+            </details>
+            <details class="faq__item">
+              <summary>كم يستغرق الفحص؟<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>حوالي 15 دقيقة في المتوسط، حسب الفحوصات التكميلية اللازمة.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Contact ===================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="label label--plain">الاتصال والوصول</p>
+          <h2 id="contact-title">العنوان</h2>
+
+          <ul class="contact-list" role="list">
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon pin 20 --></span>
+              <div>
+                <p class="contact-item__title">العنوان</p>
+                <address>شارع الجيش الملكي، إقامة أمنية، الطابق الثالث، المكتب رقم 17، فاس</address>
+                <p class="contact-item__note">بين بيوغناش و Eight Pool · مصعد، موقف سيارات قريب</p>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon phone 20 --></span>
+              <div>
+                <p class="contact-item__title">الهاتف (الكتابة)</p>
+                <a href="tel:+212532391818"><bdi dir="ltr">05 32 39 18 18</bdi></a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon contact-item__icon--wa"><!-- @icon whatsapp 20 2 --></span>
+              <div>
+                <p class="contact-item__title">واتساب (رسائل فقط)</p>
+                <a href="https://wa.me/212762970815" target="_blank" rel="noopener"><bdi dir="ltr">07 62 97 08 15</bdi></a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon mail 20 --></span>
+              <div>
+                <p class="contact-item__title">البريد الإلكتروني</p>
+                <a href="mailto:dr.elaouni.rajae@gmail.com">dr.elaouni.rajae@gmail.com</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact__map">
+          <div class="map-placeholder">
+            <!-- @icon map 28 1.6 -->
+            <p><span class="placeholder">[À COMPLÉTER : carte Google Maps]</span></p>
+          </div>
+          <!-- @picture name="plan-acces" alt="مخطط الوصول إلى العيادة بشارع الجيش الملكي، بين بيوغناش و Eight Pool" sizes="(min-width: 64em) 680px, calc(100vw - 40px)" class="contact__plan" -->
+          <a class="btn btn--outline btn--block" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A9sidence%20Oumnia%2C%20Avenue%20des%20FAR%2C%20F%C3%A8s" target="_blank" rel="noopener">
+            <!-- @icon navigation 18 -->المسار على Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- @partial footer -->
