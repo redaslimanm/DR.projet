@@ -1,0 +1,232 @@
+/* =========================================================
+   Pages intérieures (hors accueil et services) — composants partagés.
+   Mobile-first, propriétés logiques.
+   ========================================================= */
+
+/* ---------- En-tête de page (fond crème) ---------- */
+.page-hero {
+  padding-block: 26px 40px;
+  background: var(--c-cream);
+}
+.page-hero h1 { margin-block-end: 14px; text-wrap: balance; }
+.page-hero__intro { max-inline-size: 680px; color: var(--c-text-muted); }
+
+.breadcrumb--dark { color: var(--c-text-3); }
+.breadcrumb--dark a { color: var(--c-text-2); }
+.breadcrumb--dark [aria-current] { color: var(--c-green); }
+@media (hover: hover) {
+  .breadcrumb--dark a:hover { color: var(--c-gold-dark); }
+}
+
+/* En-tête avec photo (page Dr Elaouni) */
+.page-hero--media .container { display: flex; flex-direction: column; gap: var(--sp-4); }
+.page-hero__photo img {
+  inline-size: 100%;
+  block-size: 340px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 20px;
+}
+
+/* ---------- Texte courant (pages légales, présentations) ---------- */
+.prose { max-inline-size: 760px; }
+.prose > * + * { margin-block-start: var(--sp-2); }
+.prose h2 { margin-block-start: var(--sp-5); font-size: 1.75rem; }
+.prose h3 { margin-block-start: var(--sp-3); }
+.prose ul { padding-inline-start: 1.2em; }
+.prose li + li { margin-block-start: 6px; }
+.prose a { text-decoration: underline; text-underline-offset: 2px; }
+.prose p, .prose li { color: var(--c-text-muted); }
+
+/* ---------- Parcours (frise) ---------- */
+.timeline { position: relative; margin: 0; padding-inline-start: 28px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset-block: 8px;
+  inset-inline-start: 7px;
+  inline-size: 1.5px;
+  background: var(--c-gold-light);
+}
+.timeline li { position: relative; padding-block-end: var(--sp-3); }
+.timeline li::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-start: -28px;
+  inline-size: 15px;
+  block-size: 15px;
+  border: 1.5px solid var(--c-gold);
+  border-radius: 50%;
+  background: var(--c-white);
+}
+.timeline h3 { margin-block-end: 4px; }
+.timeline p { font-size: var(--fs-small); color: var(--c-text-2); }
+
+/* ---------- Grilles de cartes ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 12px;
+  margin: 0;
+}
+.info-card--bordered { border: var(--border-card); }
+
+.group-title {
+  margin-block: var(--sp-5) var(--sp-2);
+  font-family: var(--ff-sans);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-gold-dark);
+}
+.group-title:first-child { margin-block-start: 0; }
+
+/* Carte service de l'index : même style que l'accueil, avec description visible */
+.services-index .service-card__text { display: block; font-size: var(--fs-small); color: var(--c-text-2); line-height: 1.55; }
+.services-index .service-card { min-block-size: 0; }
+
+/* ---------- Équipements (page) ---------- */
+.equip-list { display: grid; gap: var(--sp-4); margin: 0; }
+.equip-row { display: flex; flex-direction: column; gap: var(--sp-2); }
+.equip-row__media img {
+  inline-size: 100%;
+  block-size: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.equip-row h2 { font-size: 1.75rem; margin-block-end: var(--sp-1); }
+.equip-row p { color: var(--c-text-muted); }
+.equip-row .link-underline { margin-block-start: var(--sp-2); }
+
+/* ---------- Galerie (page cabinet) ----------
+   Lignes de hauteur fixe : chaque photo remplit sa case (object-fit: cover). */
+.gallery-page {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 150px;
+  gap: 10px;
+  margin: 0;
+}
+.gallery-page li:nth-child(3n + 1) { grid-column: span 2; grid-row: span 1; }
+.gallery-page figure,
+.gallery-page picture {
+  position: relative;
+  display: block;
+  block-size: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+.gallery-page img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  transition: transform var(--dur) var(--ease-out);
+}
+/* Bouton « agrandir » ajouté par le JS (GLightbox) : couvre toute la photo */
+.gallery-page__open {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.gallery-page__open:focus-visible { outline-offset: -4px; }
+.gallery-page figcaption {
+  position: absolute;
+  inset-inline-start: 8px;
+  inset-block-end: 8px;
+  z-index: 2;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-green);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .gallery-page figure:hover img { transform: scale(1.04); }
+}
+
+.placeholder-box {
+  display: grid;
+  place-items: center;
+  min-block-size: 180px;
+  padding: var(--sp-3);
+  background: #E8E2D6;
+  border: 1px dashed #CFC6B6;
+  border-radius: var(--radius-card);
+  font-size: var(--fs-small);
+  text-align: center;
+}
+
+/* ---------- Conseils (blog) ---------- */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: 20px;
+  background: var(--c-white);
+  border: 1px dashed var(--c-gold-light);
+  border-radius: var(--radius-card);
+}
+.article-card h2 { font-family: var(--ff-sans); font-size: var(--fs-h3); }
+.article-card__tag {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-gold-dark);
+}
+
+/* ---------- Contact (page) ---------- */
+.contact-page { display: flex; flex-direction: column; gap: var(--sp-5); }
+.hours-card { padding: 18px 20px; background: var(--c-cream); border-radius: var(--radius-card); }
+.hours-card h3 { margin-block-end: var(--sp-1); }
+.contact-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* ---------- FAQ (page) ---------- */
+.faq-page { max-inline-size: 820px; }
+.faq-page .faq + .group-title { margin-block-start: var(--sp-5); }
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+@media (min-width: 64em) {
+  .page-hero { padding-block: var(--sp-6) var(--sp-8); }
+  .page-hero__intro { font-size: var(--fs-lead); }
+
+  .page-hero--media .container { flex-direction: row; align-items: center; gap: var(--sp-8); }
+  .page-hero--media .page-hero__text { flex: 1 1 0; }
+  .page-hero__photo { flex: 0 0 440px; }
+  .page-hero__photo img { block-size: 480px; border-radius: 24px; }
+
+  .card-grid { gap: 20px; }
+
+  .equip-list { gap: var(--sp-8); }
+  .equip-row { flex-direction: row; align-items: center; gap: var(--sp-8); }
+  .equip-row:nth-child(even) { flex-direction: row-reverse; }
+  .equip-row__media { flex: 0 0 48%; }
+  .equip-row__media img { block-size: 360px; border-radius: 22px; }
+  .equip-row h2 { font-size: var(--fs-h2); }
+
+  .gallery-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 250px;
+    gap: var(--sp-2);
+  }
+  .gallery-page li:nth-child(3n + 1) { grid-column: auto; }
+  .gallery-page li:nth-child(1) { grid-column: span 2; grid-row: span 2; } /* accueil */
+  .gallery-page li:nth-child(5) { grid-row: span 2; }                       /* diplômes (portrait) */
+  .gallery-page li:nth-child(4),
+  .gallery-page li:nth-child(6) { grid-column: span 2; }                    /* coin salon, salle d’examen */
+  .gallery-page figure,
+  .gallery-page picture { border-radius: 20px; }
+
+  .contact-page { flex-direction: row; gap: 56px; }
+  .contact-page > * { flex: 1 1 0; min-inline-size: 0; }
+  .contact-actions { flex-direction: row; flex-wrap: wrap; }
+}

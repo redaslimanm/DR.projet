@@ -1,7 +1,10 @@
 import { header } from './header.js';
 import { footer } from './footer.js';
+import { head } from './head.js';
+import { service } from './service.js';
+import { servicesIndex } from './services-index.js';
 
-const partials = { header, footer };
+const partials = { head, header, footer, service, 'services-index': servicesIndex };
 
 export function render(name, page) {
   const fn = partials[name];

@@ -58,7 +58,13 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 
 ### Services (12)
 
-Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · OCT · Topographie cornéenne · Laser
+Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · Topographie cornéenne · Laser
+
+L'OCT n'a pas de page service : il est présenté dans « Équipements & examens » (validé : 12 services, comme sur la carte de visite).
+
+Page supplémentaire avec le même template : **Consultation et dépistage** (`/fr/services/consultation-depistage/`), carte 01 de l'accueil. Elle ne compte pas dans les « 12 spécialités ».
+
+Les textes médicaux du site sont regroupés dans `textes-a-valider.md` (racine, hors site) pour validation par la doctora. Tant qu'ils ne sont pas validés, ils restent marqués `[À VALIDER]` sur le site. La section des pages services est régénérée par `node scripts/export-textes.mjs` à partir de `src/data/services-content.js`.
 
 AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر
 
@@ -210,6 +216,8 @@ Je les mets dans `assets-source/` :
 - `logo-dr-elaouni-couleur.svg`, `logo-dr-elaouni-blanc.svg` (pour fond vert), `icone-oeil.svg`, `favicon.svg`, `favicon-512.png`
 - Photos (réelles, à convertir en WebP/AVIF) : doctora bras croisés (hero), doctora devant l'OCT (à propos), doctora à la lampe à fente (pages services), réception, salle d'attente « Vision is the art of seeing the invisible », grande salle d'attente, salle d'examen, équipements Huvitz, rétinographe iCare, salle d'échographie, espace diplômes, carte de visite recto/verso (le verso contient le plan d'accès)
 - Manquant : photo de la façade / entrée de la Résidence Oumnia `[À DEMANDER]`
+- Photo « coin canapé vert + cadres » (`salon` dans `scripts/optimize-images.py`) : utilisée dans la page « Le cabinet ».
+- Attention : les noms de fichiers de `maquette/images/` sont en partie inversés (reception/diplomes, echo/icare). La correspondance correcte est dans `scripts/optimize-images.py`.
 
 ## Maquette validée : `maquette/`
 

@@ -66,6 +66,7 @@ export function header(page) {
 
   return `
 <script>${INLINE(isHome)}</script>
+<a class="skip-link" href="#main">${t.skip}</a>
 <div class="topbar">
   <div class="container topbar__inner">
     <ul class="topbar__info" role="list">
