@@ -3,7 +3,7 @@
 //   <!-- @icon phone 18 -->                     → icône SVG inline (Lucide)
 //   <!-- @picture name="dr-hero" alt="…" … -->  → <picture> AVIF + WebP responsive
 // Tout est écrit dans le HTML final (SEO, pas de JS requis).
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -57,8 +57,50 @@ function preloadImage(a, manifest) {
   return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${a.sizes || '100vw'}" fetchpriority="high">`;
 }
 
-export default function partialsPlugin({ root }) {
+// FAQPage JSON-LD : construit à partir des <details class="faq__item"> de la page
+// (seulement les réponses rédigées, jamais les placeholders)
+function faqJsonLd(html) {
+  const strip = (x) => x.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  const items = [...html.matchAll(/<details class="faq__item">\s*<summary>([\s\S]*?)<span class="faq__icon">[\s\S]*?<\/summary>\s*<p>([\s\S]*?)<\/p>/g)]
+    .filter((m) => !m[2].includes('placeholder'))
+    .map((m) => ({ '@type': 'Question', name: strip(m[1]), acceptedAnswer: { '@type': 'Answer', text: strip(m[2]) } }));
+  if (!items.length) return '';
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items }).replace(/</g, '\\u003c');
+  return `  <script type="application/ld+json">${json}</script>\n`;
+}
+
+// sitemap.xml (avec alternates hreflang FR/AR) + robots.txt, écrits dans dist/
+function writeSeoFiles(outDir, pageKeys, siteUrl) {
+  const today = new Date().toISOString().slice(0, 10);
+  const paths = [...new Set(pageKeys
+    .filter((k) => /^(fr|ar)\//.test(k))
+    .map((k) => k.replace(/^(fr|ar)\//, '').replace(/index$/, '')))].sort();
+  const url = (lang, path) => `${siteUrl}/${lang}/${path}`;
+  const has = (lang, path) => pageKeys.includes(`${lang}/${path}index`);
+  const entries = [];
+  for (const path of paths) {
+    for (const lang of ['fr', 'ar']) {
+      if (!has(lang, path)) continue;
+      const alts = ['fr', 'ar'].filter((l) => has(l, path))
+        .map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${url(l, path)}"/>`)
+        .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${url('fr', path)}"/>`);
+      const priority = path === '' ? '1.0' : path.startsWith('services/') || path === 'contact/' ? '0.8' : /mentions|confidentialite/.test(path) ? '0.2' : '0.6';
+      entries.push(
+        `  <url>\n    <loc>${url(lang, path)}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n${alts.join('\n')}\n  </url>`,
+      );
+    }
+  }
+  writeFileSync(
+    resolve(outDir, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`,
+  );
+  writeFileSync(resolve(outDir, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
+  return entries.length;
+}
+
+export default function partialsPlugin({ root, pages = [] }) {
   let server;
+  let outDir;
 
   async function load(entry) {
     if (server) return server.ssrLoadModule(entry);
@@ -70,6 +112,20 @@ export default function partialsPlugin({ root }) {
 
     configureServer(s) {
       server = s;
+    },
+
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir);
+    },
+
+    async closeBundle() {
+      if (server || !outDir) return;
+      const { SITE_URL, SITE_URL_PLACEHOLDER } = await load('/src/data/site.js');
+      const n = writeSeoFiles(outDir, pages, SITE_URL);
+      console.log(`\n  [seo] sitemap.xml (${n} URL) + robots.txt écrits pour ${SITE_URL}`);
+      if (SITE_URL === SITE_URL_PLACEHOLDER) {
+        console.warn('  [seo] ⚠ domaine provisoire : définir SITE_URL (src/data/site.js ou variable d’environnement) avant la mise en ligne\n');
+      }
     },
 
     // Modif d'un partial, des données ou des images → rechargement complet
@@ -103,6 +159,10 @@ export default function partialsPlugin({ root }) {
           const manifest = JSON.parse(readFileSync(resolve(root, '.' + IMG_DIR, 'manifest.json'), 'utf8'));
           html = html.replace(PICTURE, (_, attrs) => picture(parseAttrs(attrs), manifest));
           html = html.replace(PRELOAD, (_, attrs) => preloadImage(parseAttrs(attrs), manifest));
+        }
+
+        if (/^(fr|ar)\/faq\/(index\.html)?$/.test(ctx.path.replace(/^\//, '')) && html.includes('faq__item')) {
+          html = html.replace('</head>', `${faqJsonLd(html)}</head>`);
         }
 
         return html;

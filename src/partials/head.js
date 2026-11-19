@@ -3,6 +3,7 @@
 // d'un service pour les pages service). Une page sans meta = erreur de build.
 import { meta } from '../data/meta.js';
 import { localizedService } from '../data/services-content.js';
+import { seoTags } from './seo.js';
 
 const FONTS = {
   fr: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap',
@@ -30,6 +31,7 @@ export function head(page) {
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${esc(m.title)}</title>
   <meta name="description" content="${esc(m.description)}">
+  ${seoTags(page, m)}
   <meta name="theme-color" content="#2F4F3A">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon-512.png">

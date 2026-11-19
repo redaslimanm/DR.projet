@@ -450,21 +450,6 @@
   gap: 12px;
 }
 
-.map-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-block-size: 180px;
-  padding: var(--sp-3);
-  background: #E8E2D6;
-  border: 1px solid #DDD3C2;
-  border-radius: 20px;
-  color: var(--c-text-2);
-  font-size: var(--fs-small);
-  text-align: center;
-}
 
 /* Plan affiché en entier : on ne recadre pas (repères + emplacement du cabinet) */
 .contact__plan img {
@@ -673,7 +658,6 @@
   .contact-item { gap: var(--sp-2); }
   .contact-item__icon { inline-size: 46px; block-size: 46px; }
   .contact__map { flex: 1.4 1 520px; min-inline-size: 0; gap: var(--sp-2); }
-  .map-placeholder { min-block-size: 260px; }
   .contact__plan img { border-radius: 20px; }
   .contact__map .btn { align-self: flex-start; inline-size: auto; }
 }
@@ -729,3 +713,34 @@
 @media (min-width: 64em) {
   .carousel-dots { display: none; }
 }
+
+/* =========================================================
+   Carte Google Maps au clic (remplace l'ancien placeholder)
+   ========================================================= */
+.map-embed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-block-size: 220px;
+  padding: var(--sp-3);
+  background: #E8E2D6;
+  border: 1px solid #DDD3C2;
+  border-radius: 20px;
+  color: var(--c-text-2);
+  font-size: var(--fs-small);
+  text-align: center;
+}
+.map-embed .icon { color: var(--c-gold); }
+.map-embed__title { font-weight: var(--fw-semibold); color: var(--c-green); }
+.map-embed__btn { min-block-size: 44px; }
+.map-embed__link { text-decoration: underline; text-underline-offset: 2px; }
+.map-embed__note { max-inline-size: 360px; font-size: 0.75rem; color: var(--c-text-3); }
+.map-embed.is-loaded { padding: 0; overflow: hidden; background: none; }
+.map-embed iframe { display: block; inline-size: 100%; block-size: 320px; border: 0; }
+@media (min-width: 64em) {
+  .map-embed { min-block-size: 260px; }
+  .map-embed iframe { block-size: 360px; }
+}
+.contact__map .map-embed .btn { align-self: center; }

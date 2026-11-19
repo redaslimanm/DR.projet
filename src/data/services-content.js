@@ -56,7 +56,7 @@ export const servicesContent = [
     ctaTitle: 'Besoin d’un contrôle de la vue ?',
     related: ['ophtalmologie-pediatrique', 'glaucome', '@equipements'],
     meta: {
-      title: 'Consultation et dépistage ophtalmologique à Fès – Dr Elaouni Rajae',
+      title: 'Consultation et dépistage à Fès – Dr Elaouni Rajae',
       description:
         'Consultation ophtalmologique et dépistage des troubles visuels à Fès, adultes et enfants. Cabinet du Dr Elaouni Rajae, Avenue des FAR. Tél. 05 32 39 18 18.',
     },
@@ -97,7 +97,7 @@ export const servicesContent = [
     meta: {
       title: 'Chirurgie de la cataracte à Fès – Dr Elaouni Rajae, ophtalmologue',
       description:
-        'Prise en charge de la cataracte par phacoémulsification à Fès. Dr Elaouni Rajae, diplômée du Collège Royal des Ophtalmologues (Royaume-Uni). Tél. 05 32 39 18 18.',
+        'Cataracte : prise en charge par phacoémulsification à Fès. Dr Elaouni Rajae, diplômée du Collège Royal des Ophtalmologues (Royaume-Uni).',
     },
   },
   {
@@ -134,7 +134,7 @@ export const servicesContent = [
     ctaTitle: 'Envie de vous renseigner ?',
     related: ['topographie-corneenne', 'lentilles-de-contact', 'keratocone'],
     meta: {
-      title: 'Chirurgie réfractive à Fès (myopie, astigmatisme) – Dr Elaouni Rajae',
+      title: 'Chirurgie réfractive à Fès – Dr Elaouni Rajae',
       description:
         'Bilan de chirurgie réfractive à Fès : myopie, hypermétropie, astigmatisme. Dr Elaouni Rajae, diplômée du Collège Royal des Ophtalmologues (Royaume-Uni).',
     },
@@ -212,9 +212,9 @@ export const servicesContent = [
     ctaTitle: 'Envie de passer aux lentilles ?',
     related: ['keratocone', 'topographie-corneenne', 'chirurgie-refractive'],
     meta: {
-      title: 'Lentilles de contact à Fès : souples, rigides, sclérales – Dr Elaouni',
+      title: 'Lentilles de contact à Fès – Dr Elaouni Rajae',
       description:
-        'Adaptation en lentilles de contact souples, rigides et sclérales à Fès, y compris pour le kératocône. Dr Elaouni Rajae, diplômée de l’Université Isabel I (Espagne).',
+        'Lentilles souples, rigides et sclérales à Fès, y compris pour le kératocône. Dr Elaouni Rajae, diplômée de l’Université Isabel I (Espagne).',
     },
   },
   {
@@ -290,7 +290,7 @@ export const servicesContent = [
     ctaTitle: 'Diabétique ou plus de 50 ans ?',
     related: ['angiographie-retinienne', '@equipements', 'glaucome'],
     meta: {
-      title: 'Maladies de la rétine à Fès : rétinopathie diabétique, DMLA – Dr Elaouni',
+      title: 'Maladies de la rétine à Fès (diabète, DMLA) – Dr Elaouni',
       description:
         'Diagnostic et suivi des maladies de la rétine à Fès : rétinopathie diabétique, DMLA. Rétinographie et OCT au cabinet du Dr Elaouni Rajae.',
     },

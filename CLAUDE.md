@@ -31,9 +31,9 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 ## Le client
 
 - **Nom** : Dr Elaouni Rajae — Spécialiste en ophtalmologie (الدكتورة العوني رجاء — اختصاصية في طب و جراحة العيون)
-- **Adresse** : Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès
+- **Adresse** : 69, Avenue des FAR (Av. des Forces Armées Royales), Résidence Oumnia, 3ème étage, Bureau N°17, Fès 30000 (comme sur la fiche Google Maps)
   - Repères : entre Biougnach (électroménager) et **Eight Pool Academy** (salle de billard, pas un café)
-  - AR : شارع الجيش الملكي، إقامة أمنية (بين بيوغناش و Eight Pool)، الطابق الثالث، المكتب رقم 17، فاس
+  - AR : 69، شارع الجيش الملكي، إقامة أمنية (بين بيوغناش و Eight Pool)، الطابق الثالث، المكتب رقم 17، فاس 30000
   - Ascenseur disponible, parking à proximité
 - **Téléphone fixe (secrétariat, appels)** : 05 32 39 18 18 → `tel:+212532391818`
 - **WhatsApp (messages uniquement, PAS d'appels)** : 07 62 97 08 15 → `https://wa.me/212762970815`
@@ -43,7 +43,8 @@ Hébergement prévu : Netlify, Vercel ou Cloudflare Pages (site statique). Pas d
 - **Documents à apporter** : CIN + fiche d'adhésion mutuelle
 - **Conventions (confirmées)** : CNSS, CNOPS, mutuelles. Ne pas écrire « assurances » (non confirmé).
 - **Tarifs** : ne PAS les afficher (demande de la cliente)
-- **Réseaux sociaux** : `[À CONFIRMER]`
+- **Réseaux sociaux** : Instagram https://www.instagram.com/dr.rajaeelaouni/ · Facebook https://www.facebook.com/profile.php?id=61591732495481
+- **Fiche Google Maps** : https://maps.app.goo.gl/p44UvxS9aQ613Bay7 (carte intégrée chargée au clic). Avis Google : à brancher automatiquement plus tard (le client fera le lien site ↔ fiche) — jamais d’avis saisis à la main.
 
 ### Parcours (texte validé, issu de sa carte de visite)
 
@@ -206,7 +207,9 @@ Particules dorées disposées en anneau façon iris (rappel du logo), rotation l
 
 Performance ≥ 90 · Accessibilité ≥ 95 · SEO = 100 · accueil < 1,5 Mo · images WebP/AVIF avec `width`/`height` et `loading="lazy"` (sauf hero) · `alt` sur chaque image · HTML sémantique (`<header>`, `<nav>`, `<main>`, `<section>`, vrais `<button>` et `<a>`).
 
-SEO local : schema.org `Physician` / `MedicalClinic` (adresse, téléphone, horaires, géo), `sitemap.xml`, `robots.txt`, titres et meta descriptions par page. Exemple accueil :
+SEO local : schema.org `Physician` / `MedicalClinic` (adresse, téléphone, horaires, géo), `sitemap.xml`, `robots.txt`, titres et meta descriptions par page.
+
+Mise en place (étape 8) : domaine dans `SITE_URL` (`src/data/site.js`, ou variable d'environnement `SITE_URL`) — provisoire tant que le domaine n'est pas choisi. Le build génère `sitemap.xml` et `robots.txt` ; contrôle avec `npm run check:seo`. Coordonnées GPS et réseaux sociaux non renseignés dans le schema tant qu'ils ne sont pas fournis. Exemple accueil :
 - Title : `Ophtalmologue à Fès – Dr Elaouni Rajae | Avenue des FAR`
 - Description : `Cabinet d'ophtalmologie à Fès : consultation, dépistage, chirurgie de la cataracte, kératocône, glaucome. Adultes et enfants. Tél. 05 32 39 18 18.`
 

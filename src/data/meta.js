@@ -10,12 +10,12 @@ export const meta = {
     'dr-elaouni/': {
       title: 'Dr Elaouni Rajae – Ophtalmologue à Fès | Parcours et diplômes',
       description:
-        'Parcours du Dr Elaouni Rajae, ophtalmologue à Fès : Faculté de Médecine de Fès, CHU Hassan II, diplômes du Collège Royal des Ophtalmologues (Royaume-Uni) et de l’Université Isabel I (Espagne).',
+        'Parcours du Dr Elaouni Rajae, ophtalmologue à Fès : Faculté de Médecine de Fès, CHU Hassan II, diplômes obtenus au Royaume-Uni et en Espagne.',
     },
     'services/': {
       title: 'Services d’ophtalmologie à Fès – Dr Elaouni Rajae',
       description:
-        'Consultation, chirurgie de la cataracte, chirurgie réfractive, strabisme, lentilles de contact, kératocône, rétine, glaucome, ophtalmologie pédiatrique et examens au cabinet à Fès.',
+        'Consultation, cataracte, chirurgie réfractive, strabisme, lentilles, kératocône, rétine, glaucome, enfants et examens au cabinet d’ophtalmologie à Fès.',
     },
     'equipements/': {
       title: 'Équipements et examens – Cabinet d’ophtalmologie Dr Elaouni, Fès',
@@ -25,7 +25,7 @@ export const meta = {
     'cabinet/': {
       title: 'Le cabinet – Ophtalmologue Dr Elaouni Rajae, Avenue des FAR, Fès',
       description:
-        'Découvrez le cabinet d’ophtalmologie du Dr Elaouni Rajae : accueil, salles d’attente, salle d’examen. 3ème étage avec ascenseur, Résidence Oumnia, Avenue des FAR, Fès.',
+        'Le cabinet d’ophtalmologie du Dr Elaouni Rajae : accueil, salles d’attente, salle d’examen. 3ème étage avec ascenseur, Résidence Oumnia, Fès.',
     },
     'conseils/': {
       title: 'Conseils santé des yeux – Dr Elaouni Rajae, ophtalmologue à Fès',
@@ -39,7 +39,7 @@ export const meta = {
     'contact/': {
       title: 'Contact et accès – Ophtalmologue Dr Elaouni Rajae, Fès',
       description:
-        'Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès. Tél. 05 32 39 18 18 · WhatsApp 07 62 97 08 15. Lun–Ven 9h–17h, Sam 9h–13h.',
+        '69, Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès 30000. Tél. 05 32 39 18 18 · WhatsApp 07 62 97 08 15. Lun–Ven 9h–17h, Sam 9h–13h.',
     },
     'mentions-legales/': {
       title: 'Mentions légales – Cabinet Dr Elaouni Rajae',
@@ -60,7 +60,7 @@ export const meta = {
     'dr-elaouni/': {
       title: 'الدكتورة العوني رجاء – طبيبة العيون بفاس | المسار والدبلومات',
       description:
-        'مسار الدكتورة العوني رجاء، طبيبة العيون بفاس: كلية الطب بفاس، المستشفى الجامعي الحسن الثاني، دبلومات الكلية الملكية لأطباء العيون (المملكة المتحدة) وجامعة إيزابيل الأولى (إسبانيا).',
+        'مسار الدكتورة العوني رجاء، طبيبة العيون بفاس: كلية الطب بفاس، المستشفى الجامعي الحسن الثاني، ودبلومات من المملكة المتحدة وإسبانيا.',
     },
     'services/': {
       title: 'خدمات طب العيون بفاس – الدكتورة العوني رجاء',
@@ -73,7 +73,7 @@ export const meta = {
         'تجهيزات العيادة: المصباح الشقي، جهاز قياس الانكسار، جهاز قياس النظارات، تصوير الشبكية، الإكوغرافيا و OCT، مباشرة بالعيادة بفاس.',
     },
     'cabinet/': {
-      title: 'العيادة – طبيبة العيون الدكتورة العوني رجاء، شارع الجيش الملكي، فاس',
+      title: 'العيادة – الدكتورة العوني رجاء، شارع الجيش الملكي، فاس',
       description:
         'اكتشفوا عيادة طب العيون للدكتورة العوني رجاء: الاستقبال، قاعات الانتظار، قاعة الفحص. الطابق الثالث مع مصعد، إقامة أمنية، شارع الجيش الملكي، فاس.',
     },
@@ -89,11 +89,11 @@ export const meta = {
     'contact/': {
       title: 'الاتصال والوصول – طبيبة العيون الدكتورة العوني رجاء، فاس',
       description:
-        'شارع الجيش الملكي، إقامة أمنية، الطابق الثالث، المكتب رقم 17، فاس. الهاتف 05 32 39 18 18 · واتساب 07 62 97 08 15. من الإثنين إلى الجمعة 9:00–17:00، السبت 9:00–13:00.',
+        '69، شارع الجيش الملكي، إقامة أمنية، الطابق 3، المكتب 17، فاس 30000. الهاتف 05 32 39 18 18 · واتساب 07 62 97 08 15. الإثنين–الجمعة 9:00–17:00، السبت 9:00–13:00.',
     },
     'mentions-legales/': {
       title: 'الإشعار القانوني – عيادة الدكتورة العوني رجاء',
-      description: 'الإشعار القانوني لموقع عيادة طب العيون للدكتورة العوني رجاء بفاس.',
+      description: 'الإشعار القانوني لموقع عيادة طب وجراحة العيون للدكتورة العوني رجاء، شارع الجيش الملكي، فاس.',
     },
     'confidentialite/': {
       title: 'سياسة الخصوصية – عيادة الدكتورة العوني رجاء',

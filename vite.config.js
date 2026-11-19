@@ -21,12 +21,13 @@ function collectPages(dir, pages = {}) {
 
 const input = {
   index: resolve(root, 'index.html'),
+  404: resolve(root, '404.html'), // page d'erreur (Netlify, Cloudflare Pages, Vercel)
   ...collectPages(resolve(root, 'fr')),
   ...collectPages(resolve(root, 'ar')),
 };
 
 export default defineConfig({
-  plugins: [partialsPlugin({ root })],
+  plugins: [partialsPlugin({ root, pages: Object.keys(input) })],
   build: {
     outDir: 'dist',
     emptyOutDir: true,

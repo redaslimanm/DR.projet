@@ -30,3 +30,6 @@ if (iris) {
 // Galerie (page Le cabinet) : GLightbox chargé à la demande
 const gallery = document.querySelector('[data-gallery]');
 if (gallery) import('./gallery.js').then((m) => m.initGallery(gallery));
+
+// Carte Google Maps au clic (accueil, contact)
+if (document.querySelector('[data-map-embed]')) import('./map.js').then((m) => m.initMaps());
