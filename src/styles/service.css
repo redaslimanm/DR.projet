@@ -1,0 +1,201 @@
+/* =========================================================
+   Template page service (référence : maquette 03 mobile).
+   Réutilisé par les 12 services + Consultation et dépistage.
+   ========================================================= */
+
+/* Colonne de lecture confortable sur desktop */
+.svc-container { max-inline-size: calc(860px + 2 * var(--gutter)); }
+
+/* ---------- Boutons spécifiques ---------- */
+.btn--gold { background: var(--c-gold-light); color: var(--c-green-dark); }
+.btn--white { background: var(--c-white); color: var(--c-green); }
+@media (hover: hover) {
+  .btn--gold:hover { background: var(--c-white); color: var(--c-green-dark); }
+  .btn--white:hover { background: var(--c-cream); color: var(--c-green); }
+  .btn--whatsapp-solid:hover { color: var(--c-white); filter: brightness(0.95); }
+}
+.btn--whatsapp-solid { color: var(--c-whatsapp-ink); }
+
+/* ---------- 1. Hero vert ---------- */
+.svc-hero {
+  padding-block: 26px 34px;
+  background: var(--c-green);
+  color: var(--c-white);
+}
+.svc-hero h1 { margin-block-end: 14px; color: var(--c-white); line-height: 1.05; }
+.svc-hero__label { color: var(--c-gold-light); }
+.svc-hero__intro { margin-block-end: 22px; color: #E3DACB; }
+.svc-hero .btn { inline-size: 100%; }
+.svc-hero .placeholder { font-size: 0.8125rem; }
+
+.breadcrumb { margin-block-end: 18px; font-size: 0.75rem; color: #D9CDB8; }
+.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; }
+.breadcrumb li + li::before { content: '›'; margin-inline-end: 4px; }
+html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
+.breadcrumb a { color: #D9CDB8; }
+.breadcrumb [aria-current] { color: var(--c-white); }
+@media (hover: hover) {
+  .breadcrumb a:hover { color: var(--c-white); }
+}
+
+/* ---------- 2. Photo ---------- */
+.svc-photo img {
+  inline-size: 100%;
+  block-size: 300px;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* ---------- Sections ---------- */
+.svc-section { padding-block: 40px 8px; }
+.svc-photo + .svc-section { padding-block-start: 48px; }
+.svc-section--tight { padding-block-start: 24px; }
+.svc-section--last { padding-block-end: 56px; }
+.svc-section h2 { margin-block-end: 14px; font-size: 1.875rem; }
+
+.svc-text { color: var(--c-text-muted); }
+.svc-note { margin-block-end: 12px; font-size: 0.8125rem; }
+
+/* ---------- 4. Signes / pour qui ---------- */
+.sign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+.sign-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--sp-2);
+  background: var(--c-cream);
+  border-radius: 14px;
+  font-size: 0.84375rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--c-green);
+}
+.sign-card .icon { color: var(--c-gold); }
+
+/* ---------- 5. Étapes ---------- */
+.steps { display: flex; flex-direction: column; margin: 0; }
+.step { display: flex; gap: var(--sp-2); padding-block-end: 22px; }
+.step__num {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 38px;
+  block-size: 38px;
+  border: 1.5px solid var(--c-gold);
+  border-radius: 50%;
+  font-family: var(--ff-serif);
+  font-size: 1.1875rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-dark);
+}
+.step h3 { margin-block: 6px 4px; font-size: 0.96875rem; }
+.step p { font-size: var(--fs-small); color: var(--c-text-2); }
+
+/* ---------- 6. Encart médecin ---------- */
+.doctor-box {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) 20px;
+  background: var(--c-cream);
+  border-radius: 20px;
+  font-size: 0.84375rem;
+  color: var(--c-text-muted);
+}
+.doctor-box__photo { flex: none; }
+.doctor-box__photo img {
+  inline-size: 72px;
+  block-size: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.doctor-box strong { display: block; font-size: 0.90625rem; color: var(--c-green); }
+
+/* ---------- 7. FAQ bordée (fond blanc) ---------- */
+.faq--bordered .faq__item { border: var(--border-card); }
+
+/* ---------- 8. CTA ---------- */
+.cta-box {
+  margin-block-start: var(--sp-2);
+  padding: 30px 22px;
+  background: var(--c-green);
+  border-radius: 22px;
+  color: var(--c-white);
+  text-align: center;
+}
+.cta-box h2 { margin-block-end: var(--sp-1); font-size: 1.75rem; line-height: 1.15; color: var(--c-white); }
+.cta-box p { margin-block-end: 20px; font-size: var(--fs-small); color: #E3DACB; }
+.cta-box__actions { display: flex; flex-direction: column; gap: 10px; }
+.cta-box .btn { min-block-size: 50px; font-size: var(--fs-small); }
+
+/* ---------- 9. Services liés ---------- */
+.svc-section h2.related__title {
+  font-family: var(--ff-sans);
+  font-size: 1rem;
+}
+.related { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-block-size: var(--tap-min);
+  padding: var(--sp-2) 18px;
+  border: var(--border-card);
+  border-radius: 14px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+}
+.related .icon { flex: none; color: var(--c-gold); }
+html[dir='rtl'] .related .icon,
+html[dir='rtl'] .service-card__more .icon,
+html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
+@media (hover: hover) {
+  .related a:hover { border-color: var(--c-gold-light); }
+}
+
+/* =========================================================
+   Desktop
+   ========================================================= */
+@media (min-width: 64em) {
+  .svc-hero { padding-block: var(--sp-6) var(--sp-8); }
+  .svc-hero__intro { max-inline-size: 640px; font-size: var(--fs-lead); }
+  .svc-hero .btn { inline-size: auto; }
+
+  /* Photo dans le conteneur (l'original fait ~1000 px : pas de pleine largeur) */
+  .svc-photo {
+    display: block;
+    max-inline-size: calc(var(--container-max) + 2 * var(--gutter));
+    margin: calc(-1 * var(--sp-6)) auto 0;
+    padding-inline: var(--gutter);
+  }
+  .svc-photo img { block-size: 480px; border-radius: 24px; object-position: center 30%; }
+  .svc-hero { padding-block-end: calc(var(--sp-8) + var(--sp-6)); }
+
+  .svc-section { padding-block: var(--sp-8) 0; }
+  .svc-photo + .svc-section { padding-block-start: var(--sp-10); }
+  .svc-section--tight { padding-block-start: var(--sp-6); }
+  .svc-section--last { padding-block-end: var(--sp-12); }
+  .svc-section h2 { margin-block-end: 20px; font-size: var(--fs-h2); }
+
+  .sign-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); }
+  .sign-card { padding: 20px; font-size: var(--fs-small); }
+
+  .step h3 { font-size: var(--fs-h3); }
+  .step p { font-size: 0.9375rem; }
+
+  .doctor-box { padding: var(--sp-4); font-size: 0.9375rem; }
+  .doctor-box__photo img { inline-size: 96px; block-size: 96px; }
+
+  .cta-box { padding: var(--sp-6) var(--sp-5); }
+  .cta-box h2 { font-size: 2.25rem; }
+  .cta-box__actions { flex-direction: row; justify-content: center; }
+  .cta-box .btn { padding-inline: 28px; }
+
+  .related { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

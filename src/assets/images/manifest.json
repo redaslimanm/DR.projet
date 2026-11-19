@@ -1,0 +1,125 @@
+{
+  "dr-hero": {
+    "width": 790,
+    "height": 1122,
+    "widths": [
+      480,
+      790
+    ]
+  },
+  "dr-oct": {
+    "width": 1024,
+    "height": 952,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
+  "dr-lampe": {
+    "width": 1023,
+    "height": 1537,
+    "widths": [
+      480,
+      800,
+      1023
+    ]
+  },
+  "reception": {
+    "width": 1086,
+    "height": 1354,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
+  },
+  "attente": {
+    "width": 1536,
+    "height": 995,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "attente-vision": {
+    "width": 1086,
+    "height": 1413,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
+  },
+  "diplomes": {
+    "width": 1024,
+    "height": 1504,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
+  "salon": {
+    "width": 1009,
+    "height": 1344,
+    "widths": [
+      480,
+      800,
+      1009
+    ]
+  },
+  "salle-examen": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "huvitz": {
+    "width": 1086,
+    "height": 1417,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
+  },
+  "frontofocometre": {
+    "width": 1086,
+    "height": 1394,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
+  },
+  "icare": {
+    "width": 680,
+    "height": 455,
+    "widths": [
+      480,
+      680
+    ]
+  },
+  "echo": {
+    "width": 680,
+    "height": 501,
+    "widths": [
+      480,
+      680
+    ]
+  },
+  "plan-acces": {
+    "width": 1400,
+    "height": 987,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  }
+}

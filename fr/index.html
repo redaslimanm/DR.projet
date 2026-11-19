@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Montserrat:wght@400;500;600&display=swap">
 
   <script type="module" src="/src/js/main.js"></script>
 </head>
@@ -21,39 +21,380 @@
   <!-- @partial header -->
 
   <main id="main">
-    <!-- Page de test des tokens (étape 1) — sera remplacée à l'étape 3 -->
-    <section class="section section--cream">
-      <div class="container">
-        <p class="label">Ophtalmologue à Fès</p>
-        <h1>Prendre soin de vos yeux, à chaque âge de la vie</h1>
-        <p style="margin-block: 24px 32px; color: var(--c-text-muted); font-size: var(--fs-lead);">Setup étape 1 — test des tokens.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:14px">
-          <a class="btn btn--primary" href="tel:+212532391818">05 32 39 18 18</a>
-          <a class="btn btn--whatsapp" href="https://wa.me/212762970815">RDV par WhatsApp</a>
-          <a class="btn btn--secondary" href="#">Bouton secondaire</a>
+
+    <!-- ===================== 3. Hero ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="label">Ophtalmologue à Fès</p>
+          <h1 id="hero-title" class="hero__title">Prendre soin de vos yeux, à chaque âge de la vie</h1>
+          <p class="hero__lead">Consultation, dépistage et chirurgie oculaire pour adultes et enfants, au cabinet du Dr Elaouni Rajae, Avenue des FAR.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="tel:+212532391818">
+              <!-- @icon phone 18 -->
+              <span class="u-mobile-only">Appeler</span>
+              <span class="u-desktop-only">05 32 39 18 18</span>
+            </a>
+            <a class="btn btn--whatsapp" href="https://wa.me/212762970815" target="_blank" rel="noopener">
+              <!-- @icon whatsapp 18 2 -->
+              <span class="u-mobile-only">WhatsApp</span>
+              <span class="u-desktop-only">RDV par WhatsApp</span>
+            </a>
+          </div>
+
+          <ul class="hero__checks" role="list">
+            <li><!-- @icon check 18 --><span>Adultes et enfants</span></li>
+            <li><!-- @icon check 18 --><span>Consultations d’urgence</span></li>
+            <li><!-- @icon check 18 --><span>CNSS · CNOPS · Mutuelles</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__media">
+          <span class="hero__circle" aria-hidden="true"></span>
+          <!-- @picture name="dr-hero" alt="Dr Elaouni Rajae dans son cabinet" sizes="(min-width: 64em) 440px, 290px" class="hero__photo" eager -->
+          <p class="hero__badge">
+            <span class="hero__badge-icon"><!-- @icon award 20 1.6 --></span>
+            <span><strong>Formée au Royaume-Uni</strong>Collège Royal des Ophtalmologues</span>
+          </p>
         </div>
       </div>
     </section>
-    <section class="section">
+
+    <!-- ===================== 4. Bande de confiance ===================== -->
+    <section class="trust" aria-label="Points forts">
+      <ul class="container trust__list" role="list">
+        <li class="trust__item">
+          <span class="trust__number">12</span>
+          <span>spécialités et examens<span class="u-desktop-only-inline"> au cabinet</span></span>
+        </li>
+        <li class="trust__item">
+          <span class="trust__icon"><!-- @icon award 22 1.6 --></span>
+          <span>Diplômes Royaume-Uni et Espagne</span>
+        </li>
+        <li class="trust__item">
+          <span class="trust__icon"><!-- @icon badgeCheck 22 1.6 --></span>
+          <span>Membre de la Société Française d’Ophtalmologie</span>
+        </li>
+        <li class="trust__item u-desktop-only">
+          <span class="trust__icon"><!-- @icon scanEye 22 1.6 --></span>
+          <span>OCT, rétinographe et échographie sur place</span>
+        </li>
+        <li class="trust__item u-mobile-only">
+          <span class="trust__icon"><!-- @icon shieldCheck 22 1.6 --></span>
+          <span>CNSS · CNOPS · Mutuelles</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================== 5. Services ===================== -->
+    <section class="section" id="services" aria-labelledby="services-title">
       <div class="container">
-        <h2>Titre H2 de section</h2>
-        <h3 style="margin-block:16px 8px">Titre H3 Montserrat</h3>
-        <p>Texte courant Montserrat. <span class="placeholder">[À COMPLÉTER : exemple de placeholder]</span></p>
+        <div class="section-head section-head--split">
+          <div>
+            <p class="label label--plain">Nos services</p>
+            <h2 id="services-title">Une prise en charge complète de la santé de vos yeux</h2>
+          </div>
+          <a class="link-underline u-desktop-only" href="/fr/services/">Voir tous les services <!-- @icon arrowRight 16 --></a>
+        </div>
+
+        <ul class="services-grid" role="list">
+          <li>
+            <a class="service-card" href="/fr/services/consultation-depistage/">
+              <span class="service-card__num" aria-hidden="true">01</span>
+              <h3 class="service-card__title">Consultation et dépistage</h3>
+              <p class="service-card__text">Examen complet de la santé oculaire, dépistage des troubles visuels et prise en charge personnalisée.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/fr/services/ophtalmologie-pediatrique/">
+              <span class="service-card__num" aria-hidden="true">02</span>
+              <h3 class="service-card__title">Ophtalmologie pédiatrique</h3>
+              <p class="service-card__text">Dépistage et suivi de la myopie, de l’hypermétropie, de l’astigmatisme, de l’amblyopie et du strabisme.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/fr/services/cataracte/">
+              <span class="service-card__num" aria-hidden="true">03</span>
+              <h3 class="service-card__title">Chirurgie de la cataracte</h3>
+              <p class="service-card__text">Prise en charge par phacoémulsification, une technique moderne pour retrouver une vision plus claire.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/fr/services/chirurgie-refractive/">
+              <span class="service-card__num" aria-hidden="true">04</span>
+              <h3 class="service-card__title">Chirurgie réfractive</h3>
+              <p class="service-card__text">Évaluation des possibilités de correction chirurgicale de la myopie, de l’hypermétropie et de l’astigmatisme.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/fr/services/keratocone/">
+              <span class="service-card__num" aria-hidden="true">05</span>
+              <h3 class="service-card__title">Kératocône et cornée</h3>
+              <p class="service-card__text">Diagnostic, surveillance et traitement par Cross-Linking cornéen (CXL) pour freiner son évolution.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li>
+            <a class="service-card" href="/fr/services/glaucome/">
+              <span class="service-card__num" aria-hidden="true">06</span>
+              <h3 class="service-card__title">Glaucome</h3>
+              <p class="service-card__text">Dépistage, diagnostic et suivi spécialisé pour préserver le nerf optique et la fonction visuelle.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li class="u-desktop-only">
+            <a class="service-card" href="/fr/services/retine/">
+              <span class="service-card__num" aria-hidden="true">07</span>
+              <h3 class="service-card__title">Maladies de la rétine</h3>
+              <p class="service-card__text">Diagnostic et suivi des pathologies rétiniennes, dont la rétinopathie diabétique et la DMLA.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+          <li class="u-desktop-only">
+            <a class="service-card" href="/fr/services/lentilles-de-contact/">
+              <span class="service-card__num" aria-hidden="true">08</span>
+              <h3 class="service-card__title">Lentilles de contact</h3>
+              <p class="service-card__text">Adaptation personnalisée en lentilles souples, rigides et sclérales, notamment pour le kératocône.</p>
+              <span class="service-card__more">En savoir plus <!-- @icon arrowRight 14 --></span>
+            </a>
+          </li>
+        </ul>
+
+        <a class="btn btn--secondary btn--block u-mobile-only" href="/fr/services/">Voir les 12 services</a>
       </div>
     </section>
-    <div class="container" style="padding-block:24px"><p><a href="#test-4">→ Ancre vers la section 4 (test offset header)</a></p></div>
-    <section class="section section--cream" id="test-1">
-      <div class="container"><h2>Section de test 1</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 6. À propos ===================== -->
+    <section class="section section--cream" id="apropos" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__media">
+          <!-- @picture name="dr-oct" alt="Dr Elaouni Rajae devant un examen OCT" sizes="(min-width: 64em) 560px, calc(100vw - 40px)" class="about__photo" -->
+        </div>
+        <div class="about__content">
+          <p class="label label--plain">Votre ophtalmologue</p>
+          <h2 id="about-title">Dr Elaouni Rajae</h2>
+          <p class="about__text">Le cabinet est né d’une passion pour l’ophtalmologie et d’une volonté d’offrir des soins de qualité, alliant compétences médicales, technologies modernes et approche humaine. L’écoute, la confiance et le bien-être du patient sont au cœur de notre pratique.</p>
+          <ul class="check-list" role="list">
+            <li><!-- @icon check 18 --><span>Lauréate de la Faculté de Médecine, de Pharmacie et de Médecine Dentaire de Fès</span></li>
+            <li><!-- @icon check 18 --><span>Ancienne médecin interne au CHU Hassan II et médecin à l’Hôpital Omar Drissi, Fès</span></li>
+            <li><!-- @icon check 18 --><span>Chirurgie de la cataracte et chirurgie réfractive — Collège Royal des Ophtalmologues, Royaume-Uni</span></li>
+            <li><!-- @icon check 18 --><span>Adaptation en lentilles de contact — Université Isabel I, Espagne</span></li>
+            <li><!-- @icon check 18 --><span>Membre de la Société Française d’Ophtalmologie</span></li>
+          </ul>
+          <a class="btn btn--primary" href="/fr/dr-elaouni/">Découvrir son parcours</a>
+        </div>
+      </div>
     </section>
-    <section class="section" id="test-2">
-      <div class="container"><h2>Section de test 2</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 7. Plateau technique ===================== -->
+    <section class="section" id="equipements" aria-labelledby="equip-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="label label--plain">Plateau technique</p>
+          <h2 id="equip-title">Des équipements modernes pour un diagnostic précis</h2>
+          <p class="section-head__intro">Dépistage précoce et suivi personnalisé des pathologies oculaires, directement au cabinet.</p>
+        </div>
+      </div>
+
+      <div class="container container--bleed-mobile">
+        <ul class="equip-track" role="list">
+          <li class="equip-card">
+            <!-- @picture name="huvitz" alt="Autoréfractomètre et lampe à fente Huvitz" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>Lampe à fente et autoréfractomètre</h3>
+              <p>Examen détaillé des structures de l’œil et mesure objective des troubles de la réfraction.</p>
+            </div>
+          </li>
+          <li class="equip-card">
+            <!-- @picture name="icare" alt="Rétinographe numérique iCare" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>Rétinographe numérique</h3>
+              <p>Photographie du fond d’œil pour le dépistage et le suivi des maladies de la rétine.</p>
+            </div>
+          </li>
+          <li class="equip-card">
+            <!-- @picture name="echo" alt="Salle d’échographie oculaire" sizes="(min-width: 64em) 384px, 260px" class="equip-card__media" -->
+            <div class="equip-card__body">
+              <h3>Échographie oculaire et OCT</h3>
+              <p>Imagerie haute résolution de la rétine, de la macula et du nerf optique.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
-    <section class="section section--cream" id="test-3">
-      <div class="container"><h2>Section de test 3</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 8. Le cabinet ===================== -->
+    <section class="section section--cream" id="cabinet" aria-labelledby="cabinet-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="label label--plain">Le cabinet</p>
+            <h2 id="cabinet-title">Un lieu pensé pour votre confort</h2>
+          </div>
+          <p class="section-head__aside">3ème étage avec ascenseur, parking à proximité, salle d’attente calme et lumineuse.</p>
+        </div>
+
+        <div class="gallery">
+          <!-- @picture name="reception" alt="Accueil du cabinet" sizes="(min-width: 64em) 600px, 50vw" class="gallery__item gallery__item--reception" -->
+          <!-- @picture name="attente" alt="Grande salle d’attente" sizes="(min-width: 64em) 600px, 100vw" class="gallery__item gallery__item--attente" -->
+          <!-- @picture name="attente-vision" alt="Coin salle d’attente avec l’inscription « Vision is the art of seeing the invisible »" sizes="(min-width: 64em) 300px, 50vw" class="gallery__item gallery__item--vision" -->
+          <!-- @picture name="diplomes" alt="Espace diplômes du cabinet" sizes="(min-width: 64em) 300px, 50vw" class="gallery__item gallery__item--diplomes" -->
+        </div>
+      </div>
     </section>
-    <section class="section" id="test-4">
-      <div class="container"><h2>Section de test 4</h2><p style="min-height:40vh">Lorem ipsum — test Lenis.</p></div>
+
+    <!-- ===================== 9. Citation ===================== -->
+    <section class="quote" aria-label="Citation">
+      <figure class="container quote__inner">
+        <img class="quote__icon" src="/src/assets/logos/icone-oeil.svg" alt="" width="110" height="54" loading="lazy">
+        <blockquote>
+          <p>« La vision est l’art de voir l’invisible. »</p>
+        </blockquote>
+        <figcaption>Jonathan Swift</figcaption>
+      </figure>
     </section>
+
+    <!-- ===================== 10. Avis patients ===================== -->
+    <section class="section" id="avis" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="label label--plain">Avis patients</p>
+          <h2 id="reviews-title">Ils nous font confiance</h2>
+          <p class="section-head__intro">Note Google : <span class="placeholder">[À INTÉGRER : note]</span> / 5 · <span class="placeholder">[À INTÉGRER : nombre]</span> avis</p>
+        </div>
+      </div>
+
+      <div class="container container--bleed-mobile">
+        <ul class="reviews-track" role="list">
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°1]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°2]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+          <li class="review-card">
+            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°3]</span></p>
+            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Infos pratiques + FAQ ===================== -->
+    <section class="section section--cream" id="infos" aria-labelledby="infos-title">
+      <div class="container practical">
+        <div class="practical__info">
+          <p class="label label--plain">Infos pratiques</p>
+          <h2 id="infos-title">Préparer votre visite</h2>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Horaires</h3>
+              <dl class="hours">
+                <div><dt>Lundi – vendredi</dt><dd>9h – 17h</dd></div>
+                <div><dt>Samedi</dt><dd>9h – 13h</dd></div>
+                <div><dt>Dimanche</dt><dd>Fermé</dd></div>
+              </dl>
+            </div>
+            <div class="info-card">
+              <h3>Conventions</h3>
+              <p>CNSS, CNOPS et mutuelles</p>
+            </div>
+            <div class="info-card">
+              <h3>À apporter</h3>
+              <p>Carte d’identité (CIN) et fiche d’adhésion à votre mutuelle</p>
+            </div>
+            <div class="info-card">
+              <h3>Annulation</h3>
+              <p>Merci de nous prévenir à l’avance en cas d’annulation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="practical__faq">
+          <p class="label label--plain">FAQ</p>
+          <h2>Questions fréquentes</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>Comment prendre rendez-vous ?<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>Appelez le secrétariat au <a href="tel:+212532391818">05 32 39 18 18</a>, envoyez un message WhatsApp au <a href="https://wa.me/212762970815" target="_blank" rel="noopener">07 62 97 08 15</a> ou passez directement au cabinet.</p>
+            </details>
+            <details class="faq__item">
+              <summary>Quels documents dois-je apporter ?<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>Votre carte d’identité (CIN) et la fiche d’adhésion de votre mutuelle.</p>
+            </details>
+            <details class="faq__item">
+              <summary>Le cabinet reçoit-il les urgences ?<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>Oui, les consultations d’urgence sont assurées. Appelez le cabinet pour être orienté rapidement.</p>
+            </details>
+            <details class="faq__item">
+              <summary>Combien de temps dure une consultation ?<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+              <p>Environ 15 minutes en moyenne, selon les examens complémentaires nécessaires.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Contact ===================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="label label--plain">Contact et accès</p>
+          <h2 id="contact-title">Nous trouver</h2>
+
+          <ul class="contact-list" role="list">
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon pin 20 --></span>
+              <div>
+                <p class="contact-item__title">Adresse</p>
+                <address>Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès</address>
+                <p class="contact-item__note">Entre Biougnach et Eight Pool Academy · Ascenseur, parking à proximité</p>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon phone 20 --></span>
+              <div>
+                <p class="contact-item__title">Téléphone (secrétariat)</p>
+                <a href="tel:+212532391818">05 32 39 18 18</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon contact-item__icon--wa"><!-- @icon whatsapp 20 2 --></span>
+              <div>
+                <p class="contact-item__title">WhatsApp (messages uniquement)</p>
+                <a href="https://wa.me/212762970815" target="_blank" rel="noopener">07 62 97 08 15</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <span class="contact-item__icon"><!-- @icon mail 20 --></span>
+              <div>
+                <p class="contact-item__title">Email</p>
+                <a href="mailto:dr.elaouni.rajae@gmail.com">dr.elaouni.rajae@gmail.com</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact__map">
+          <div class="map-placeholder">
+            <!-- @icon map 28 1.6 -->
+            <p><span class="placeholder">[À COMPLÉTER : carte Google Maps (lien d’intégration de la fiche du cabinet)]</span></p>
+          </div>
+          <!-- @picture name="plan-acces" alt="Plan d’accès au cabinet sur l’Avenue des FAR, entre Biougnach et Eight Pool Academy" sizes="(min-width: 64em) 680px, calc(100vw - 40px)" class="contact__plan" -->
+          <a class="btn btn--outline btn--block" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%A9sidence%20Oumnia%2C%20Avenue%20des%20FAR%2C%20F%C3%A8s" target="_blank" rel="noopener">
+            <!-- @icon navigation 18 -->Itinéraire Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- @partial footer -->

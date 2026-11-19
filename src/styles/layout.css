@@ -92,3 +92,84 @@ html[lang='ar'] .label {
   border: var(--border-card);
   border-radius: var(--radius-card);
 }
+
+/* ---------- Variantes boutons ---------- */
+.btn--block { display: flex; inline-size: 100%; }
+.btn--outline {
+  background: transparent;
+  color: var(--c-green);
+  border-color: var(--c-green);
+}
+@media (hover: hover) {
+  .btn--outline:hover { background: var(--c-green); color: var(--c-white); }
+}
+
+/* Lien souligné doré (« Voir tous les services ») */
+.link-underline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding-block-end: 4px;
+  border-block-end: 1.5px solid var(--c-gold-light);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+
+/* Label de section sans le trait (le trait est réservé au hero) */
+.label--plain::before { content: none; }
+.label--plain { margin-block-end: 10px; }
+
+/* ---------- En-têtes de section ---------- */
+.section-head {
+  margin-block-end: 26px;
+}
+.section-head h2 { text-wrap: balance; }
+.section-head__intro,
+.section-head__aside {
+  margin-block-start: var(--sp-2);
+  color: var(--c-text-2);
+}
+.section-head--center { text-align: center; max-inline-size: 680px; margin-inline: auto; }
+.section-head--center .label { justify-content: center; }
+
+/* ---------- Liste à coches dorées ---------- */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  font-size: var(--fs-small);
+}
+.check-list li { display: flex; gap: 10px; align-items: flex-start; }
+.check-list .icon { flex: none; margin-block-start: 2px; color: var(--c-gold); }
+
+/* Conteneur qui laisse dépasser un carrousel jusqu'au bord en mobile */
+.container--bleed-mobile { padding-inline: 0; }
+
+/* ---------- Visibilité mobile / desktop ---------- */
+@media (max-width: 63.99em) {
+  .u-desktop-only,
+  .u-desktop-only-inline { display: none !important; }
+}
+@media (min-width: 64em) {
+  .u-mobile-only { display: none !important; }
+
+  .section-head { margin-block-end: 52px; }
+  .section-head__intro { font-size: var(--fs-body); }
+
+  .section-head--split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .section-head--split > div { max-inline-size: 620px; }
+  .section-head__aside { max-inline-size: 380px; margin: 0; font-size: 0.9375rem; }
+
+  .check-list { gap: 12px; font-size: 0.9375rem; }
+  .check-list li { gap: 12px; }
+
+  .container--bleed-mobile { padding-inline: var(--gutter); }
+}
