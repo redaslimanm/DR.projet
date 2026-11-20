@@ -10,9 +10,10 @@ Sortie : src/assets/images/<nom>-<largeur>.{avif,webp} + manifest.json
 Outil de dev uniquement (Pillow), rien n'est ajouté au site.
 """
 import json
+import sys
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "src" / "assets" / "images"
@@ -43,6 +44,11 @@ CROP = {
     "dr-hero": (0, 0, 9, 0),  # bande noire de 9 px sur le bord droit de l'original
 }
 
+# Qualité renforcée pour les portraits très visibles (source petite → moins de compression)
+QUALITY = {
+    "dr-oct": {"avif": 74, "webp": 90, "sharpen": True},
+}
+
 WIDTHS = [480, 800, 1200]
 AVIF_Q = 52
 WEBP_Q = 78
@@ -52,7 +58,13 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = {}
     total = 0
+    only = set(sys.argv[1:])  # ex. python scripts/optimize-images.py dr-oct
+    if only and (OUT / "manifest.json").exists():
+        manifest = json.loads((OUT / "manifest.json").read_text(encoding="utf-8"))
     for name, src in IMAGES.items():
+        if only and name not in only:
+            continue
+        q = QUALITY.get(name, {})
         im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
         if name in CROP:
             l, t, r, b = CROP[name]
@@ -62,7 +74,12 @@ def main():
         for w in widths:
             h = round(h0 * w / w0)
             resized = im.resize((w, h), Image.LANCZOS) if w != w0 else im
-            for ext, opts in (("avif", {"quality": AVIF_Q}), ("webp", {"quality": WEBP_Q, "method": 6})):
+            if q.get("sharpen"):
+                resized = resized.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
+            for ext, opts in (
+                ("avif", {"quality": q.get("avif", AVIF_Q)}),
+                ("webp", {"quality": q.get("webp", WEBP_Q), "method": 6}),
+            ):
                 path = OUT / f"{name}-{w}.{ext}"
                 resized.save(path, **opts)
                 total += path.stat().st_size
