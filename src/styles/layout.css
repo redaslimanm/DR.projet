@@ -61,6 +61,14 @@ html[lang='ar'] .label {
 }
 .btn svg { flex: none; }
 
+/* Logo WhatsApp : vert WhatsApp sur fond clair, blanc sur fond vert WhatsApp */
+.icon--wa { color: var(--c-whatsapp); transition: color var(--dur-fast) ease; }
+.btn--whatsapp-solid .icon--wa,
+.mobile-bar__btn--wa .icon--wa { color: var(--c-white); }
+@media (hover: hover) {
+  .btn--whatsapp:hover .icon--wa { color: var(--c-white); }
+}
+
 .btn--primary {
   background: var(--c-green);
   color: var(--c-white);
