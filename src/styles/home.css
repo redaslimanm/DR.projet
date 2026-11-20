@@ -748,3 +748,40 @@
   .map-embed iframe { block-size: 360px; }
 }
 .contact__map .map-embed .btn { align-self: center; }
+
+/* ---------- Formation et affiliations (logos) ---------- */
+.logos-band {
+  padding-block: var(--sp-5);
+  background: var(--c-white);
+  border-block-end: 1px solid var(--c-border);
+}
+.logos-band__title {
+  display: flex;
+  justify-content: center;
+  margin-block-end: var(--sp-3);
+  text-align: center;
+}
+.logos-band__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3) var(--sp-4);
+  margin: 0;
+}
+.logos-band__list img {
+  block-size: 46px;
+  inline-size: auto;
+  max-inline-size: 150px;
+  object-fit: contain;
+}
+/* équilibre visuel : logos hauts (blasons) plus grands, logo très large réduit */
+.logos-band__list img.is-tall { block-size: 62px; }
+.logos-band__list img.is-wide { block-size: 38px; }
+@media (min-width: 64em) {
+  .logos-band { padding-block: var(--sp-6); }
+  .logos-band__list { flex-wrap: nowrap; justify-content: space-between; gap: var(--sp-5); }
+  .logos-band__list img { block-size: 68px; max-inline-size: 220px; }
+  .logos-band__list img.is-tall { block-size: 92px; }
+  .logos-band__list img.is-wide { block-size: 54px; }
+}

@@ -180,7 +180,7 @@ export function initHomeAnimations() {
     [
       '.trust__item', '.section-head', '.services-grid > li', '#services .btn--block',
       '.about__content > *', '.equip-card', '.review-card', '.info-card', '.faq__item',
-      '.contact-item', '.contact__map > *', '.quote__icon', '.quote figcaption',
+      '.contact-item', '.contact__map > *', '.quote__icon', '.quote figcaption', '.logos-band__list li',
     ].join(', '),
     { exclude: '.hero' },
   );
