@@ -41,8 +41,9 @@ const solids = {
     '<path fill-rule="evenodd" d="M12 1.8a7.7 7.7 0 0 0-7.7 7.7C4.3 15.3 12 22.4 12 22.4s7.7-7.1 7.7-12.9A7.7 7.7 0 0 0 12 1.8Zm0 10.6a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8Z"/>',
   'phone-solid':
     '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  // Logo Gmail (couleurs fixes)
   'mail-solid':
-    '<rect x="2" y="4" width="20" height="16" rx="2.6"/><path d="m4.5 7.5 7.5 5.2 7.5-5.2" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>',
+    '<path fill="#4285F4" d="M1.5 6.6V18A1.5 1.5 0 0 0 3 19.5h3v-9.4Z"/><path fill="#34A853" d="M22.5 6.6V18a1.5 1.5 0 0 1-1.5 1.5h-3v-9.4Z"/><path fill="#EA4335" d="M6 10.1 12 14.6l6-4.5V5.6l-6 4.5-6-4.5Z"/><path fill="#FBBC04" d="M18 5.6v4.5l4.5-3.5V6a1.9 1.9 0 0 0-3.05-1.5Z"/><path fill="#C5221F" d="M6 5.6v4.5L1.5 6.6V6a1.9 1.9 0 0 1 3.05-1.5Z"/>',
 };
 
 export function brandIcon(name, { size = 20 } = {}) {
