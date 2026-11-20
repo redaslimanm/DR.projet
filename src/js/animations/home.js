@@ -67,6 +67,31 @@ function trustCounter() {
 }
 
 /* ---------------------------------------------------------
+   Le cabinet en chiffres : compteurs 0 → valeur finale, une seule fois.
+   La valeur finale est dans le HTML (SEO, sans JS). Le chiffre animé est
+   aria-hidden ; le lecteur d'écran lit la copie .visually-hidden (pas
+   d'annonce de chaque étape). Le placeholder [X] n'a pas data-count.
+   --------------------------------------------------------- */
+function statsCounters() {
+  const nums = $$('.stats [data-count]');
+  if (!nums.length) return;
+  const targets = nums.map((el) => ({ el, end: parseInt(el.textContent, 10), v: 0 }));
+  targets.forEach((t) => (t.el.textContent = '0'));
+  const run = () =>
+    targets.forEach((t, i) =>
+      gsap.to(t, {
+        v: t.end,
+        duration: 1.2,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        snap: { v: 1 },
+        onUpdate: () => (t.el.textContent = String(t.v)),
+      }),
+    );
+  ScrollTrigger.create({ trigger: '.stats', start: 'top 80%', once: true, onEnter: run });
+}
+
+/* ---------------------------------------------------------
    À propos (desktop) : parallax léger sur la photo
    --------------------------------------------------------- */
 function aboutParallax() {
@@ -187,6 +212,8 @@ export function initHomeAnimations() {
   );
 
   trustCounter();
+  // hors matchMedia : ne doit pas repartir de 0 quand on change de breakpoint
+  if (!window.matchMedia(REDUCE).matches) statsCounters();
   initLogosMarquee();
 
   const mm = gsap.matchMedia();

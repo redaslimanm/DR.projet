@@ -819,3 +819,60 @@ html[dir='rtl'] .logos-band__list.is-marquee { animation-name: logos-marquee-rtl
   .logos-band__list img.is-tall { block-size: 92px; }
   .logos-band__list img.is-wide { block-size: 54px; }
 }
+
+/* ---------- Chiffres (section « Le cabinet en chiffres ») ---------- */
+.stats-section { padding-block-end: var(--section-space); }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4) var(--sp-2);
+  margin: 0;
+  padding: var(--sp-5) var(--sp-3);
+  background: var(--c-green-dark);
+  border-radius: var(--radius-card-lg);
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column-reverse; /* chiffre au-dessus, label (dt) en dessous */
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sp-1);
+  text-align: center;
+}
+
+.stats__num {
+  margin: 0;
+  font-family: var(--ff-serif);
+  font-size: 2rem; /* 32px */
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  color: var(--c-gold-light);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+html[lang='ar'] .stats__num { font-family: var(--ff-ar); font-weight: 800; }
+
+.stats__label {
+  max-inline-size: 18ch;
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.4;
+  color: var(--c-cream);
+}
+.stats__label .placeholder { display: inline-block; margin-block-start: 4px; font-size: 0.6875rem; }
+
+@media (min-width: 48em) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding: var(--sp-6) var(--sp-3);
+  }
+  .stats__item { padding-inline: var(--sp-2); }
+  .stats__item + .stats__item { border-inline-start: 1px solid color-mix(in srgb, var(--c-cream) 20%, transparent); }
+}
+
+@media (min-width: 64em) {
+  .stats { padding: var(--sp-8) var(--sp-4); }
+  .stats__num { font-size: 2.75rem; } /* 44px */
+  .stats__label { font-size: var(--fs-small); } /* 14px */
+}
