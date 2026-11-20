@@ -778,7 +778,41 @@
 /* équilibre visuel : logos hauts (blasons) plus grands, logo très large réduit */
 .logos-band__list img.is-tall { block-size: 62px; }
 .logos-band__list img.is-wide { block-size: 38px; }
+
+/* Mobile : défilement continu (classe posée par src/js/logos-marquee.js) */
+@media (max-width: 63.99em) {
+  .logos-band { overflow: hidden; }
+  .logos-band .container { padding-inline: 0; }
+  .logos-band__title { padding-inline: 20px; }
+  .logos-band__list.is-marquee {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+    inline-size: max-content;
+    animation: logos-marquee 28s linear infinite;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .logos-band__list.is-marquee li { flex: none; padding-inline-end: 44px; }
+  .logos-band__list.is-marquee img { -webkit-user-drag: none; pointer-events: none; }
+  .logos-band__list.is-paused { animation-play-state: paused; }
+  .logos-band:has(.is-marquee) {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+@keyframes logos-marquee {
+  to { transform: translateX(-50%); }
+}
+html[dir='rtl'] .logos-band__list.is-marquee { animation-name: logos-marquee-rtl; }
+@keyframes logos-marquee-rtl {
+  to { transform: translateX(50%); }
+}
+
 @media (min-width: 64em) {
+  .logos-band__list .is-clone { display: none; }
   .logos-band { padding-block: var(--sp-6); }
   .logos-band__list { flex-wrap: nowrap; justify-content: space-between; gap: var(--sp-5); }
   .logos-band__list img { block-size: 68px; max-inline-size: 220px; }

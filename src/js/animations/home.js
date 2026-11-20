@@ -7,6 +7,7 @@
 import { gsap, ScrollTrigger, dirX } from '../motion.js';
 import { SplitText } from 'gsap/SplitText';
 import { initReveal } from '../reveal.js';
+import { initLogosMarquee } from '../logos-marquee.js';
 
 gsap.registerPlugin(SplitText);
 
@@ -180,12 +181,13 @@ export function initHomeAnimations() {
     [
       '.trust__item', '.section-head', '.services-grid > li', '#services .btn--block',
       '.about__content > *', '.equip-card', '.review-card', '.info-card', '.faq__item',
-      '.contact-item', '.contact__map > *', '.quote__icon', '.quote figcaption', '.logos-band__list li',
+      '.contact-item', '.contact__map > *', '.quote__icon', '.quote figcaption', '.logos-band__title',
     ].join(', '),
     { exclude: '.hero' },
   );
 
   trustCounter();
+  initLogosMarquee();
 
   const mm = gsap.matchMedia();
   mm.add({ isDesktop: DESKTOP, reduce: REDUCE }, ({ conditions }) => {
