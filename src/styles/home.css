@@ -434,7 +434,11 @@
   border-radius: 50%;
   color: var(--c-gold);
 }
-.contact-item__icon--wa { color: var(--c-whatsapp-text); }
+.contact-item__icon--wa { color: var(--c-whatsapp); }
+/* Couleurs « réelles » : rouge Google Maps, vert appel, bleu e-mail */
+.contact-item__icon--pin { color: #EA4335; }
+.contact-item__icon--phone { color: #34A853; }
+.contact-item__icon--mail { color: #1A73E8; }
 
 .contact-item__title {
   font-weight: var(--fw-semibold);

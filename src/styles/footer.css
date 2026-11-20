@@ -61,16 +61,16 @@
   justify-content: center;
   inline-size: 44px;
   block-size: 44px;
-  border: 1px solid rgba(217, 179, 138, 0.45);
+  background: var(--c-white);
   border-radius: 50%;
-  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.site-footer .social-link { color: var(--c-gold-light); }
+/* Logos aux couleurs officielles sur pastille blanche */
+.social-link .icon--facebook { color: #1877F2; }
 @media (hover: hover) {
   .site-footer .social-link:hover {
-    background: var(--c-gold-light);
-    border-color: var(--c-gold-light);
-    color: var(--c-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   }
 }
 
