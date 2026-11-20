@@ -12,10 +12,16 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Mobile : pas de zoom au double-tap (le zoom à deux doigts reste possible,
+     indispensable pour l'accessibilité) */
+  touch-action: manipulation;
 }
 
 body {
   margin: 0;
+  /* Sécurité : aucun élément décoratif ne peut élargir la page (sinon le
+     navigateur mobile dézoome pour l'afficher en entier) */
+  overflow-x: clip;
   min-height: 100vh;
   font-family: var(--ff-sans);
   font-size: var(--fs-body);
