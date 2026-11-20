@@ -1,12 +1,10 @@
 import { contact, pages, socials, t as dict } from '../data/site.js';
-import { icon } from './icons.js';
+import { icon, brandIcon } from './icons.js';
 
 const LOGO_WHITE = '/src/assets/logos/logo-dr-elaouni-blanc.svg';
 
-function social(name, url) {
-  return url
-    ? `<li><a href="${url}" target="_blank" rel="noopener">${name}</a></li>`
-    : `<li>${name} <span class="placeholder">[À CONFIRMER : lien ${name}]</span></li>`;
+function social(name, url, key) {
+  return `<li><a class="social-link" href="${url}" target="_blank" rel="noopener" aria-label="${name}" title="${name}">${brandIcon(key)}</a></li>`;
 }
 
 export function footer(page) {
@@ -42,9 +40,10 @@ export function footer(page) {
 
     <div class="site-footer__col site-footer__col--social">
       <p class="site-footer__title">${t.footerFollow}</p>
-      <ul role="list">
-        ${social('Instagram', socials.instagram)}
-        ${social('Facebook', socials.facebook)}
+      <ul class="social-list" role="list">
+        ${social('Instagram', socials.instagram, 'instagram')}
+        ${social('Facebook', socials.facebook, 'facebook')}
+        ${social(t.whatsapp, contact.whatsappHref, 'whatsapp')}
       </ul>
     </div>
   </div>
