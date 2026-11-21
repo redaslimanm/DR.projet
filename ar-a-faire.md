@@ -258,3 +258,9 @@ Clé : `'lentilles-de-contact'`.
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`). La 1re réponse
       est une **liste à puces** (sous-tableau) avec libellés en `<strong>`.
 - [ ] Badge `[À VALIDER]` à retirer sur `what`, `signs`, `steps`.
+
+## Étape 15 — Page « Échographie oculaire »
+
+Clé : `'echographie-oculaire'`.
+
+- [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).

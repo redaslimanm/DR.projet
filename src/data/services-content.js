@@ -610,9 +610,18 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      { q: 'L’échographie oculaire est-elle douloureuse ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Faut-il une préparation particulière ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Combien de temps dure l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'L’échographie oculaire est-elle douloureuse ?',
+        a: 'Non, l’échographie oculaire est un examen indolore et non invasif. Elle peut être réalisée à travers la paupière fermée après instillation de gouttes anesthésiantes.',
+      },
+      {
+        q: 'Faut-il une préparation particulière ?',
+        a: 'Non, aucune préparation particulière n’est nécessaire. L’examen peut être réalisé lors d’une consultation ophtalmologique.',
+      },
+      {
+        q: 'Combien de temps dure l’examen ?',
+        a: 'L’échographie oculaire est un examen rapide, qui dure généralement entre 5 et 15 minutes, selon les structures à examiner et les mesures nécessaires.',
+      },
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
     related: ['cataracte', 'retine', '@equipements'],

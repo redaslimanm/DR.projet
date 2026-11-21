@@ -890,17 +890,23 @@ Adresse prévue : `/fr/services/echographie-oculaire/`
 
 **Questions fréquentes**
 
-**L’échographie oculaire est-elle douloureuse ?** (non affichée sur le site)
+**L’échographie oculaire est-elle douloureuse ?**
 
-Réponse à rédiger :
+> Non, l’échographie oculaire est un examen indolore et non invasif. Elle peut être réalisée à travers la paupière fermée après instillation de gouttes anesthésiantes.
 
-**Faut-il une préparation particulière ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Faut-il une préparation particulière ?**
 
-**Combien de temps dure l’examen ?** (non affichée sur le site)
+> Non, aucune préparation particulière n’est nécessaire. L’examen peut être réalisé lors d’une consultation ophtalmologique.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Combien de temps dure l’examen ?**
+
+> L’échographie oculaire est un examen rapide, qui dure généralement entre 5 et 15 minutes, selon les structures à examiner et les mesures nécessaires.
+
+(texte fourni par la doctoresse)
 
 ---
 
