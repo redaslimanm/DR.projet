@@ -159,6 +159,8 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 
 Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر ».
 
+**Fond du hero** (`src/js/hero-bg.js`, nov. 2026) : 2 photos du cabinet (`attente` = grande salle d'attente, `coin-salon`) en fondu enchaîné toutes les 3 s, sous un voile crème (contraste du texte vérifié au pire pixel ≥ 4.5:1). Dessinées dans des `<canvas>` après `load` → jamais candidates LCP. Une seule photo avec `prefers-reduced-motion` ; pause hors écran / onglet masqué. L'image statique de l'iris (fond crème opaque) est en `mix-blend-mode: darken` pour ne pas faire de rectangle sur ce fond.
+
 ### Template page service
 
 1. Hero vert : fil d'Ariane, label, H1, intro, bouton RDV

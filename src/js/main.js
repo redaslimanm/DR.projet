@@ -63,6 +63,14 @@ if (iris) {
   else window.addEventListener('load', onLoad, { once: true });
 }
 
+// Fond du hero (accueil) : photos du cabinet en fondu, chargées après la page (hors LCP)
+const heroBg = document.querySelector('[data-hero-bg]');
+if (heroBg) {
+  const startBg = () => import('./hero-bg.js').then((m) => m.initHeroBg(heroBg));
+  if (document.readyState === 'complete') startBg();
+  else window.addEventListener('load', startBg, { once: true });
+}
+
 // Galerie (page Le cabinet) : GLightbox chargé à la demande
 const gallery = document.querySelector('[data-gallery]');
 if (gallery) import('./gallery.js').then((m) => m.initGallery(gallery));

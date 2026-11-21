@@ -106,7 +106,13 @@ html.anim .hero__photo {
    un canvas n'est jamais candidat LCP → la photo du hero reste l'élément LCP.
    Fondu croisé vers le canvas WebGL quand il est prêt. */
 .hero__iris canvas { position: absolute; inset: 0; }
-.hero__iris .hero__iris-static { opacity: 0; transition: opacity 1.2s ease; }
+.hero__iris .hero__iris-static {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  /* L'image a un fond crème opaque : « darken » ne garde que ce qui est plus sombre que
+     le fond du hero (photos du cabinet sous un voile crème) → seules les particules restent. */
+  mix-blend-mode: darken;
+}
 .hero__iris.is-static .hero__iris-static { opacity: 1; }
 .hero__iris.is-ready .hero__iris-static { opacity: 0; }
 
