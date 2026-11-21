@@ -1,0 +1,599 @@
+/* =========================================================
+   Modale « Réserver RDV » (src/partials/rdv.js + src/js/rdv.js)
+   Mobile (< 600px) : bottom sheet avec poignée. Desktop : boîte centrée.
+   Contrastes vérifiés : texte ≥ 4.5:1, contours/états ≥ 3:1 (voir commit).
+   ========================================================= */
+
+.rdv {
+  --rdv-line: #8A8172;       /* contours des champs/radios : 3.9:1 sur blanc */
+  --rdv-error: #B3261E;      /* erreurs : 6.5:1 sur blanc */
+  --rdv-selected: #EEF3EF;   /* fond d'un choix sélectionné */
+  --rdv-in: 280ms;
+  --rdv-out: 180ms;
+  position: fixed;
+  inset: 0;
+  z-index: 1200; /* au-dessus du FAB */
+  display: grid;
+  align-items: end;
+  justify-items: center;
+}
+.rdv[hidden] { display: none; }
+
+.rdv__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 32, 25, 0.55);
+  opacity: 0;
+  transition: opacity var(--rdv-out) ease-in;
+  touch-action: none;
+}
+.rdv.is-open .rdv__backdrop { opacity: 1; transition: opacity var(--rdv-in) ease-out; }
+
+.rdv__dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: min(88dvh, 760px);
+  background: var(--c-white);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 40px rgba(20, 32, 25, 0.18);
+  transform: translateY(100%);
+  transition: transform var(--rdv-out) cubic-bezier(0.4, 0, 1, 1);
+  outline: none;
+}
+.rdv.is-open .rdv__dialog {
+  transform: none;
+  transition: transform var(--rdv-in) var(--ease-out);
+}
+
+/* Poignée (glisser vers le bas pour fermer) */
+.rdv__handle {
+  display: grid;
+  place-items: center;
+  block-size: 22px;
+  flex: none;
+  cursor: grab;
+  touch-action: none;
+}
+.rdv__handle span {
+  inline-size: 40px;
+  block-size: 5px;
+  border-radius: 999px;
+  background: #CFC6B6;
+}
+
+/* ---------- En-tête ---------- */
+.rdv__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 20px 4px;
+  flex: none;
+}
+.rdv__title {
+  margin: 0;
+  font-family: var(--ff-serif);
+  font-size: 1.75rem;
+  line-height: 1.15;
+  color: var(--c-green);
+}
+html[lang='ar'] .rdv__title { font-family: var(--ff-ar); font-size: 1.5rem; font-weight: 700; }
+.rdv__count {
+  margin: 4px 0 0;
+  font-size: 0.8125rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-gold-dark);
+}
+.rdv__close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 44px;
+  block-size: 44px;
+  margin-block-start: -2px;
+  border: 1px solid var(--c-border);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-green);
+  cursor: pointer;
+}
+
+/* ---------- Stepper ---------- */
+.rdv-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 12px 12px 14px;
+  list-style: none;
+  flex: none;
+  border-block-end: 1px solid var(--c-border);
+}
+.rdv-stepper__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--c-text-2);
+  text-align: center;
+}
+/* trait de liaison entre les points */
+.rdv-stepper__item + .rdv-stepper__item::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: calc(50% + 14px);
+  inline-size: calc(100% - 28px);
+  block-size: 2px;
+  background: var(--c-border);
+}
+.rdv-stepper__item.is-done + .rdv-stepper__item::before,
+.rdv-stepper__item.is-done + .rdv-stepper__item.is-current::before { background: var(--c-green); }
+.rdv-stepper__dot {
+  display: grid;
+  place-items: center;
+  inline-size: 22px;
+  block-size: 22px;
+  border: 2px solid var(--rdv-line);
+  border-radius: 50%;
+  background: var(--c-white);
+  color: var(--c-white);
+}
+.rdv-stepper__dot svg { opacity: 0; }
+.rdv-stepper__item.is-current .rdv-stepper__dot { border-color: var(--c-green); box-shadow: inset 0 0 0 4px var(--c-white); background: var(--c-green); }
+.rdv-stepper__item.is-done .rdv-stepper__dot { border-color: var(--c-green); background: var(--c-green); }
+.rdv-stepper__item.is-done .rdv-stepper__dot svg { opacity: 1; }
+.rdv-stepper__item.is-current,
+.rdv-stepper__item.is-done { color: var(--c-green); }
+.rdv-stepper__item.is-current .rdv-stepper__label { font-weight: var(--fw-semibold); }
+
+/* ---------- Corps (seule zone qui défile) ---------- */
+.rdv__body {
+  flex: 1;
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px 20px 24px;
+}
+.rdv-step { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.rdv-step[hidden] { display: none; }
+.rdv-sub { margin: 0 0 22px; padding: 0; border: 0; min-inline-size: 0; }
+.rdv-step__title {
+  display: block;
+  margin: 0 0 14px;
+  padding: 0;
+  font-size: 1.0625rem;
+  font-weight: var(--fw-semibold);
+  line-height: 1.35;
+  color: var(--c-text);
+}
+.rdv-step__title--sm { font-size: 1rem; }
+.rdv-step__title:focus { outline: none; }
+.rdv-step__title:focus-visible { outline: 2px solid var(--c-gold-dark); outline-offset: 4px; border-radius: 4px; }
+
+/* Urgence */
+.rdv-urgent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-block-size: 48px;
+  margin-block-end: 18px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-inline-start: 4px solid var(--c-gold-dark);
+  background: var(--c-cream);
+  color: var(--c-text);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.rdv-urgent svg { color: var(--c-green); flex: none; }
+.rdv-urgent span { flex: 1 1 12em; }
+.rdv-urgent__num { font-weight: var(--fw-semibold); color: var(--c-green); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
+/* Groupes de motifs */
+.rdv-group + .rdv-group,
+.rdv-list--other { margin-block-start: 18px; }
+.rdv-group__title {
+  margin: 0 0 8px;
+  font-size: 0.6875rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--c-gold-dark);
+}
+html[lang='ar'] .rdv-group__title { font-size: 0.875rem; letter-spacing: 0; font-weight: 700; }
+.rdv-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+
+/* ---------- Choix (radio custom) ---------- */
+.rdv-choice {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-block-size: 52px;
+  padding: 8px 14px;
+  border: 1px solid var(--c-border);
+  border-radius: 14px;
+  background: var(--c-white);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.rdv-choice input,
+.rdv-day input,
+.rdv-seg__opt input {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.rdv-choice__icon {
+  display: grid;
+  place-items: center;
+  inline-size: 36px;
+  block-size: 36px;
+  border-radius: 50%;
+  background: var(--c-cream);
+  color: var(--c-green);
+}
+.rdv-choice__text { display: flex; flex-direction: column; gap: 2px; }
+.rdv-choice__label { font-size: 0.9375rem; font-weight: var(--fw-medium); line-height: 1.3; color: var(--c-text); }
+.rdv-choice__help { font-size: 0.8125rem; color: var(--c-text-2); }
+.rdv-slot__hours { display: block; font-size: 0.8125rem; font-weight: 400; color: var(--c-text-2); }
+.rdv-choice__radio {
+  inline-size: 22px;
+  block-size: 22px;
+  border: 2px solid var(--rdv-line);
+  border-radius: 50%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rdv-choice:has(input:checked) {
+  border-color: var(--c-green);
+  background: var(--rdv-selected);
+  box-shadow: inset 0 0 0 1px var(--c-green);
+}
+.rdv-choice:has(input:checked) .rdv-choice__radio {
+  border-color: var(--c-green);
+  box-shadow: inset 0 0 0 4px var(--c-white), inset 0 0 0 12px var(--c-green);
+}
+.rdv-choice:has(input:checked) .rdv-choice__icon { background: var(--c-green); color: var(--c-white); }
+
+/* Consultation et dépistage : légèrement mis en avant (cas le plus fréquent) */
+.rdv-choice--featured {
+  min-block-size: 60px;
+  border-color: var(--c-gold-light);
+  background: var(--c-cream-soft);
+}
+.rdv-choice--featured .rdv-choice__label { font-weight: var(--fw-semibold); color: var(--c-green); }
+.rdv-choice--featured .rdv-choice__icon { inline-size: 40px; block-size: 40px; background: var(--c-gold-dark); color: var(--c-white); }
+
+.rdv-choice.is-disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ---------- Jours ---------- */
+.rdv-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rdv-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-block-size: 72px;
+  padding: 6px 4px;
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  background: var(--c-white);
+  cursor: pointer;
+  line-height: 1.15;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.rdv-day__wd,
+.rdv-day__mo { font-size: 0.75rem; color: var(--c-text-2); text-transform: capitalize; }
+.rdv-day__num { font-size: 1.25rem; font-weight: var(--fw-semibold); color: var(--c-text); }
+.rdv-day:has(input:checked) { background: var(--c-green); border-color: var(--c-green); }
+.rdv-day:has(input:checked) span { color: var(--c-white); }
+
+.rdv-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rdv-choice--slot { padding-inline: 12px; gap: 10px; }
+
+.rdv-note { margin: 10px 0 0; font-size: 0.8125rem; color: var(--c-text-2); }
+.rdv-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--c-cream);
+  font-size: 0.875rem;
+  color: var(--c-text);
+}
+.rdv-info svg { flex: none; margin-block-start: 1px; color: var(--c-green); }
+.rdv-info .icon--wa { color: var(--c-whatsapp-text); }
+
+/* ---------- Champs ---------- */
+.rdv-field { margin: 0 0 18px; padding: 0; border: 0; min-inline-size: 0; }
+.rdv-field__label {
+  display: block;
+  margin-block-end: 6px;
+  padding: 0;
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text);
+}
+.rdv-field__opt { font-weight: 400; color: var(--c-text-2); }
+.rdv-field__hint { margin: 6px 0 0; font-size: 0.8125rem; color: var(--c-text-2); }
+.rdv-input {
+  display: block;
+  inline-size: 100%;
+  min-block-size: 52px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--rdv-line);
+  border-radius: 12px;
+  background: var(--c-white);
+  color: var(--c-text);
+  font: inherit;
+  font-size: 1rem; /* ≥ 16px : pas de zoom auto sur iOS */
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.rdv-input--area { min-block-size: 96px; resize: vertical; }
+.rdv-input--ltr { direction: ltr; text-align: left; }
+html[dir='rtl'] .rdv-input--ltr { text-align: right; }
+.rdv-input:focus { outline: none; border-color: var(--c-green); box-shadow: 0 0 0 3px rgba(47, 79, 58, 0.25); }
+.rdv-input:focus-visible { outline: 2px solid var(--c-gold-dark); outline-offset: 2px; }
+.rdv-input[aria-invalid='true'] { border-color: var(--rdv-error); }
+.rdv-input[aria-invalid='true']:focus { box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.2); }
+
+.rdv-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 6px 0 10px;
+  font-size: 0.875rem;
+  font-weight: var(--fw-medium);
+  color: var(--rdv-error);
+}
+.rdv-error[hidden] { display: none; }
+.rdv-error::before {
+  content: '!';
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 18px;
+  block-size: 18px;
+  margin-block-start: 1px;
+  border-radius: 50%;
+  background: var(--rdv-error);
+  color: var(--c-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Oui / Déjà patient */
+.rdv-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rdv-seg__opt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-block-size: 48px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--rdv-line);
+  border-radius: 12px;
+  background: var(--c-white);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.rdv-seg__opt:has(input:checked) { background: var(--c-green); border-color: var(--c-green); color: var(--c-white); }
+
+/* Focus visible (clavier) sur les choix */
+.rdv-choice:has(input:focus-visible),
+.rdv-day:has(input:focus-visible),
+.rdv-seg__opt:has(input:focus-visible) {
+  outline: 3px solid var(--c-gold-dark);
+  outline-offset: 2px;
+}
+.rdv__close:focus-visible,
+.rdv-btn:focus-visible,
+.rdv-urgent:focus-visible,
+.rdv-recap__edit:focus-visible,
+.rdv-success__retry:focus-visible {
+  outline: 3px solid var(--c-gold-dark);
+  outline-offset: 2px;
+}
+
+/* ---------- Récapitulatif ---------- */
+.rdv-recap { margin: 0 0 18px; border: 1px solid var(--c-border); border-radius: 14px; }
+.rdv-recap__row { padding: 10px 14px; }
+.rdv-recap__row + .rdv-recap__row { border-block-start: 1px solid var(--c-border); }
+.rdv-recap dt { font-size: 0.8125rem; color: var(--c-text-2); }
+.rdv-recap dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text);
+  overflow-wrap: anywhere;
+}
+.rdv-recap__edit {
+  flex: none;
+  min-block-size: 44px;
+  margin-block: -8px;
+  padding-inline: 8px;
+  border: 0;
+  background: none;
+  color: var(--c-green);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: var(--fw-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* ---------- Succès ---------- */
+.rdv-success { padding-block: 24px 8px; text-align: center; }
+.rdv-success__icon {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 72px;
+  block-size: 72px;
+  margin-block-end: 14px;
+  border-radius: 50%;
+  background: var(--rdv-selected);
+  color: var(--c-green);
+}
+.rdv-success__title {
+  margin: 0 0 8px;
+  font-family: var(--ff-serif);
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--c-green);
+}
+html[lang='ar'] .rdv-success__title { font-family: var(--ff-ar); font-size: 1.375rem; font-weight: 700; color: var(--c-green); }
+.rdv-success__title:focus { outline: none; }
+.rdv-success p { margin: 0 auto 16px; max-inline-size: 34em; color: var(--c-text-muted); }
+.rdv-success__retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-block-size: 44px;
+  color: var(--c-green);
+  font-weight: var(--fw-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Pied (boutons) ---------- */
+.rdv__foot {
+  display: flex;
+  gap: 10px;
+  flex: none;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  border-block-start: 1px solid var(--c-border);
+  background: var(--c-white);
+}
+.rdv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 52px;
+  padding-inline: 20px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.rdv-btn[hidden] { display: none; }
+.rdv-btn--primary,
+.rdv-btn--wa { flex: 1; }
+.rdv-btn--primary { background: var(--c-green); color: var(--c-white); }
+.rdv-btn--ghost { background: var(--c-white); color: var(--c-green); border-color: var(--rdv-line); }
+.rdv-btn--wa { background: var(--c-whatsapp); color: var(--c-whatsapp-ink); }
+.rdv-btn--wa .icon--wa { color: var(--c-whatsapp-ink); }
+.rdv-btn:active { transform: scale(0.98); }
+@media (hover: hover) {
+  .rdv-btn--primary:hover { background: var(--c-green-dark); }
+  .rdv-btn--ghost:hover { border-color: var(--c-green); }
+  .rdv-btn--wa:hover { filter: brightness(0.95); }
+  .rdv-choice:hover,
+  .rdv-day:hover { border-color: var(--c-gold); }
+  .rdv-choice.is-disabled:hover { border-color: var(--c-border); }
+  .rdv__close:hover { border-color: var(--c-gold); }
+}
+
+/* Flèches « Retour / Suivant » inversées en arabe */
+html[dir='rtl'] .rdv-flip { transform: scaleX(-1); }
+
+/* ---------- Page verrouillée pendant l'ouverture ---------- */
+html.rdv-open,
+html.rdv-open body { overflow: hidden; }
+html.rdv-open body { padding-right: var(--rdv-sbw, 0); }
+
+/* ---------- Desktop / tablette : boîte centrée ---------- */
+@media (min-width: 600px) {
+  .rdv { align-items: center; padding: 24px; }
+  .rdv__dialog {
+    inline-size: min(560px, 100%);
+    block-size: min(740px, calc(100dvh - 48px));
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(20, 32, 25, 0.25);
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    transition: opacity var(--rdv-out) ease-in, transform var(--rdv-out) ease-in;
+  }
+  .rdv.is-open .rdv__dialog {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--rdv-in) ease-out, transform var(--rdv-in) var(--ease-out);
+  }
+  .rdv__handle { display: none; }
+  .rdv__head { padding-block-start: 22px; padding-inline: 28px; }
+  .rdv__body { padding: 22px 28px 28px; }
+  .rdv__foot { padding: 14px 28px 18px; }
+  .rdv-days { grid-template-columns: repeat(7, 1fr); }
+  .rdv-stepper__item { font-size: 0.8125rem; }
+}
+
+/* ---------- Animations réduites ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rdv__dialog,
+  .rdv.is-open .rdv__dialog {
+    transform: none;
+    transition: opacity 0.01ms;
+  }
+  .rdv__dialog { opacity: 0; }
+  .rdv.is-open .rdv__dialog { opacity: 1; }
+  .rdv__backdrop,
+  .rdv.is-open .rdv__backdrop { transition-duration: 0.01ms; }
+  .rdv-choice,
+  .rdv-day,
+  .rdv-seg__opt,
+  .rdv-btn { transition: none; }
+}
+
+/* ---------- Ajustements mobile (après captures 390 px) ---------- */
+.rdv-choice--slot .rdv-choice__label { white-space: nowrap; }
+.rdv-choice--slot { grid-template-columns: auto 1fr; }
+.rdv-success__retry svg { flex: none; }
+.rdv-btn--wa { white-space: nowrap; }
+@media (max-width: 599.98px) {
+  .rdv__title { font-size: 1.5rem; }
+  html[lang='ar'] .rdv__title { font-size: 1.375rem; }
+  .rdv-stepper { padding-block: 10px 12px; }
+  /* « Retour » : flèche seule (texte gardé pour les lecteurs d'écran) */
+  .rdv-btn--ghost { inline-size: 52px; padding: 0; flex: none; }
+  .rdv-btn--ghost .rdv-btn__text {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+.rdv-recap__nowrap { white-space: nowrap; }

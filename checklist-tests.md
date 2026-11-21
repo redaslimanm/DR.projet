@@ -31,7 +31,8 @@ Lancer `npm run build` puis `npx vite preview --host` : le terminal affiche une 
 - [ ] Contact : « Afficher la carte » charge la carte Google ; « Itinéraire » ouvre Google Maps
 - [ ] Le cabinet : toucher une photo l'ouvre en grand (glisser pour passer à la suivante, fermer)
 - [ ] FAQ : les questions s'ouvrent et se ferment
-- [ ] Une page service (ex. cataracte) : bouton « Prendre rendez-vous » descend vers les boutons d'appel
+- [ ] Une page service (ex. cataracte) : « Prendre rendez-vous » ouvre la modale avec le service déjà coché
+- [ ] Modale RDV (FAB « Réserver RDV », header, `#rdv`) : parcours complet jusqu'à WhatsApp ; sur iPhone, WhatsApp s'ouvre bien (pas de pop-up bloqué) ; la poignée se glisse vers le bas pour fermer ; le clavier numérique s'affiche pour le téléphone
 
 ## 5. Réglages du téléphone
 - [ ] Avec « Réduire les animations » activé (iOS : Accessibilité › Mouvement ; Android : Accessibilité › Supprimer les animations) : tout le contenu est visible, sans animation

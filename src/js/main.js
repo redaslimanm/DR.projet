@@ -4,12 +4,14 @@ import { initLenis } from './lenis.js';
 import { initHeader } from './header.js';
 import { initCarousels } from './carousel.js';
 import { initFab } from './fab.js';
+import { initRdv } from './rdv.js';
 import irisStaticUrl from '../assets/images/iris-static.webp?url';
 
 initLenis();
 initHeader();
 initCarousels();
 initFab();
+initRdv();
 
 // Animations de l'accueil : chargées uniquement sur l'accueil (chunk séparé)
 const animOk = document.documentElement.classList.contains('anim');

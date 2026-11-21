@@ -1,5 +1,6 @@
 import { contact, pages, socials, t as dict } from '../data/site.js';
 import { icon, brandIcon } from './icons.js';
+import { rdvModal } from './rdv.js';
 
 const LOGO_WHITE = '/src/assets/logos/logo-dr-elaouni-blanc.svg';
 
@@ -57,12 +58,13 @@ export function footer(page) {
 <div class="fab" data-fab>
   <div class="fab__backdrop" data-fab-backdrop hidden></div>
   <nav class="fab__menu" id="fab-menu" aria-label="${t.quickActions}" aria-hidden="true" inert>
-    <a class="fab__action fab__action--rdv" href="${href('contact')}"><span class="fab__label">${t.fabRdv}</span><span class="fab__mini">${icon('calendar', { size: 22, stroke: 2 })}</span></a>
+    <a class="fab__action fab__action--rdv" href="${href('contact')}" data-open-rdv aria-haspopup="dialog"><span class="fab__label">${t.fabRdv}</span><span class="fab__mini">${icon('calendar', { size: 22, stroke: 2 })}</span></a>
     <a class="fab__action fab__action--wa" href="${contact.whatsappHref}" target="_blank" rel="noopener"><span class="fab__label">${t.fabWa}</span><span class="fab__mini">${icon('whatsapp', { size: 24 })}</span></a>
     <a class="fab__action fab__action--call" href="${contact.phoneHref}"><span class="fab__label">${t.fabCall}</span><span class="fab__mini">${icon('phone', { size: 22, stroke: 2 })}</span></a>
   </nav>
   <button class="fab__toggle" type="button" aria-expanded="false" aria-controls="fab-menu" aria-label="${t.fabOpen}" data-label-open="${t.fabOpen}" data-label-close="${t.fabClose}">
     <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
   </button>
-</div>`;
+</div>
+${rdvModal(page)}`;
 }

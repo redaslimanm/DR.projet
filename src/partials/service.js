@@ -166,7 +166,7 @@ export function service(page) {
         <p class="label label--plain svc-hero__label">${s.label}</p>
         <h1 id="svc-title">${s.name}</h1>
         <p class="svc-hero__intro">${todo(s, 'intro')}${ph(s.intro)}</p>
-        <a class="btn btn--gold" href="#rdv">${u.rdv}</a>
+        <a class="btn btn--gold" href="#contact-rdv" data-open-rdv="${s.slug}" aria-haspopup="dialog">${u.rdv}</a>
       </div>
     </section>
 
@@ -241,7 +241,7 @@ export function service(page) {
 
     ${faqSection(s, u)}
 
-    <section class="svc-section" id="rdv" aria-labelledby="svc-cta">
+    <section class="svc-section" id="contact-rdv" aria-labelledby="svc-cta">
       <div class="container svc-container">
         <div class="cta-box">
           <h2 id="svc-cta">${s.ctaTitle}</h2>

@@ -24,6 +24,7 @@ const CTA_TEXT = 'Le secrétariat vous répond du lundi au vendredi de 9h à 17h
 export const servicesContent = [
   {
     slug: 'consultation-depistage',
+    icon: 'eye', // icône Lucide (modale RDV)
     name: 'Consultation et dépistage',
     label: 'Consultation',
     photo: 'dr-lampe',
@@ -116,6 +117,7 @@ export const servicesContent = [
   },
   {
     slug: 'cataracte',
+    icon: 'aperture', // icône Lucide (modale RDV)
     name: 'Chirurgie de la cataracte',
     label: 'Chirurgie',
     photo: 'dr-lampe',
@@ -169,6 +171,7 @@ export const servicesContent = [
   },
   {
     slug: 'chirurgie-refractive',
+    icon: 'glasses', // icône Lucide (modale RDV)
     name: 'Chirurgie réfractive',
     label: 'Chirurgie',
     photo: 'chirurgie-refractive',
@@ -232,6 +235,7 @@ export const servicesContent = [
   },
   {
     slug: 'strabisme',
+    icon: 'moveHorizontal', // icône Lucide (modale RDV)
     name: 'Chirurgie du strabisme',
     label: 'Chirurgie',
     photo: 'strabisme-hero',
@@ -282,6 +286,7 @@ export const servicesContent = [
   },
   {
     slug: 'lentilles-de-contact',
+    icon: 'circleDot', // icône Lucide (modale RDV)
     name: 'Adaptation en lentilles de contact',
     label: 'Contactologie',
     photo: 'adaptation-lentilles',
@@ -362,6 +367,7 @@ export const servicesContent = [
   },
   {
     slug: 'keratocone',
+    icon: 'focus', // icône Lucide (modale RDV)
     name: 'Kératocône et maladies de la cornée',
     label: 'Cornée',
     // TODO client (point 4) : keratocone-hero (version HD) provient du site du laboratoire Dencott.
@@ -436,6 +442,7 @@ export const servicesContent = [
   },
   {
     slug: 'retine',
+    icon: 'scanEye', // icône Lucide (modale RDV)
     name: 'Maladies de la rétine',
     label: 'Rétine',
     photo: 'icare',
@@ -494,6 +501,7 @@ export const servicesContent = [
   },
   {
     slug: 'glaucome',
+    icon: 'gauge', // icône Lucide (modale RDV)
     name: 'Glaucome',
     label: 'Glaucome',
     photo: 'dr-oct',
@@ -532,6 +540,7 @@ export const servicesContent = [
   },
   {
     slug: 'ophtalmologie-pediatrique',
+    icon: 'baby', // icône Lucide (modale RDV)
     name: 'Ophtalmologie pédiatrique',
     label: 'Enfants',
     photo: 'pediatrie-hero',
@@ -584,6 +593,7 @@ export const servicesContent = [
   },
   {
     slug: 'echographie-oculaire',
+    icon: 'audioWaveform', // icône Lucide (modale RDV)
     name: 'Échographie oculaire',
     label: 'Examen',
     photo: 'echo',
@@ -633,6 +643,7 @@ export const servicesContent = [
   },
   {
     slug: 'retinographie',
+    icon: 'camera', // icône Lucide (modale RDV)
     name: 'Rétinographie',
     label: 'Examen',
     photo: 'icare',
@@ -697,6 +708,7 @@ export const servicesContent = [
   },
   {
     slug: 'oct',
+    icon: 'layers', // icône Lucide (modale RDV)
     name: 'OCT',
     label: 'Examen',
     photo: 'dr-oct',
@@ -761,6 +773,7 @@ export const servicesContent = [
   },
   {
     slug: 'laser',
+    icon: 'zap', // icône Lucide (modale RDV)
     name: 'Laser',
     label: 'Traitement',
     photo: 'salle-examen',

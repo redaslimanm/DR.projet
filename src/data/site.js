@@ -16,6 +16,22 @@ export const contact = {
   email: 'dr.elaouni.rajae@gmail.com',
 };
 
+// Prise de rendez-vous (modale « Réserver RDV ») : demande envoyée sur WhatsApp,
+// le cabinet confirme ensuite l'heure exacte. Numéros : ceux de `contact` ci-dessus.
+// Jours : 0 = dimanche … 6 = samedi (horaires : lun – ven 9h – 17h, sam 9h – 13h).
+export const rdv = {
+  whatsappNumber: '212762970815', // pour wa.me (sans + ni 0)
+  daysAhead: 14, // nombre de jours OUVERTS proposés, à partir de demain
+  closedDays: [0], // dimanche fermé
+  morningOnlyDays: [6], // samedi : matin uniquement
+  // Heures des créneaux : null = non affichées. Exemple : { from: '9h', to: '13h' }
+  // [À COMPLÉTER : heures exactes si la doctoresse souhaite les afficher]
+  slots: {
+    morning: null,
+    afternoon: null,
+  },
+};
+
 // Réseaux sociaux (fournis par le client)
 export const socials = {
   instagram: 'https://www.instagram.com/dr.rajaeelaouni/',
