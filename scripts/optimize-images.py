@@ -63,6 +63,7 @@ IMAGES = {
     # Schéma œil normal / kératocône : SVG FR et AR copiés tels quels dans src/assets/images/
     # (pas de conversion AVIF/WebP), sources : assets-source/schema-keratocone/
     "cross-linking": TS / "10-keratocone" / "cross-linking.png",
+    "adaptation-lentilles": TS / "11-lentilles-adaptation" / "adaptation-lentilles-hero.png",  # lentille sur le doigt
     "lentille-sclerale-pose": TS / "10-keratocone" / "lentille-sclerale-pose.png",
     "lentille-sclerale": TS / "10-keratocone" / "lentille-sclerale.png",
 }

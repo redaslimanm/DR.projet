@@ -285,13 +285,19 @@ export const servicesContent = [
     slug: 'lentilles-de-contact',
     name: 'Adaptation en lentilles de contact',
     label: 'Contactologie',
-    photo: 'dr-lampe',
-    photoAlt: 'Dr Elaouni Rajae à la lampe à fente',
+    photo: 'adaptation-lentilles',
+    photoAlt: 'Lentille de contact posée sur le bout du doigt, devant une lampe à fente',
+    // Textes fournis par la doctoresse (PDF, étape 14) : pas de badge [À VALIDER]
+    validated: ['what', 'signs', 'steps'],
     card: 'Adaptation personnalisée en lentilles souples, rigides et sclérales, notamment pour le kératocône.',
     intro:
       'Une adaptation personnalisée en lentilles souples, rigides ou sclérales, y compris pour les cornées irrégulières comme le kératocône.',
     whatTitle: 'Pourquoi une adaptation ?',
-    what: 'Chaque œil est différent : la forme de la cornée, la qualité des larmes et vos habitudes influencent le choix de la lentille. L’adaptation permet de choisir le type de lentille, de vérifier son confort et d’apprendre à la manipuler.',
+    what: [
+      'Chaque œil possède des caractéristiques spécifiques : courbure de la cornée, qualité du film lacrymal et besoins visuels.',
+      'L’adaptation des lentilles permet de choisir le type de lentille le mieux adapté, d’évaluer sa stabilité, son confort et sa qualité visuelle, tout en préservant la santé oculaire.',
+      'Elle comprend également un apprentissage de la pose, du retrait et des règles d’hygiène et d’entretien des lentilles.',
+    ],
     signsTitle: 'Pour qui ?',
     signs: [
       ['scanEye', 'Myopie, hypermétropie, astigmatisme'],
@@ -299,18 +305,53 @@ export const servicesContent = [
       ['badgeCheck', 'Kératocône et cornées irrégulières'],
       ['shieldCheck', 'Sport et activités sans lunettes'],
     ],
+    // FR : 3 cartes titre + texte (PDF, étape 14.3) à la place des 4 cartes ci-dessus (gardées en AR)
+    signCards: [
+      ['scanEye', 'Myopie, hypermétropie et astigmatisme', 'Correction des défauts visuels par des lentilles adaptées à la réfraction et aux caractéristiques de l’œil.'],
+      ['badgeCheck', 'Kératocône et cornées irrégulières', 'Adaptation de lentilles spécialisées, notamment rigides et sclérales, permettant d’améliorer la qualité visuelle lorsque les lunettes ne suffisent plus.'],
+      ['shieldCheck', 'Sport et activités quotidiennes', 'Une alternative aux lunettes offrant une plus grande liberté de mouvement, selon l’activité pratiquée.'],
+    ],
     stepsTitle: 'Comment se déroule l’adaptation ?',
     steps: [
-      ['Bilan', 'Examen de la cornée et mesure de la réfraction.'],
-      ['Essai', 'Pose de lentilles d’essai et vérification de la vision et du confort.'],
-      ['Apprentissage', 'Pose, retrait et entretien des lentilles.'],
-      ['Contrôle', 'Visite de contrôle pour ajuster si nécessaire.'],
+      ['Bilan initial', 'Examen ophtalmologique, évaluation de la réfraction, de la cornée et du film lacrymal afin de déterminer le type de lentille adapté.'],
+      ['Essai des lentilles', 'Pose de lentilles d’essai pour évaluer leur centrage, leur stabilité, leur confort et leur adaptation à la surface oculaire.'],
+      ['Optimisation de la correction', 'Réalisation d’une surréfraction et ajustement des paramètres de la lentille afin d’obtenir la meilleure qualité visuelle possible.'],
+      ['Apprentissage et suivi', 'Apprentissage de la manipulation, de l’hygiène et de l’entretien des lentilles, suivi de contrôles réguliers pour vérifier leur tolérance et préserver la santé des yeux.'],
     ],
+    // Nouvelle rubrique de mise en garde (PDF, étape 14.6)
+    warnings: {
+      title: 'Les gestes à ne jamais faire avec vos lentilles',
+      items: [
+        ['Ne dormez jamais avec vos lentilles.', 'Dormir avec des lentilles augmente le risque d’infection cornéenne, parfois grave.'],
+        ['Ne rincez jamais vos lentilles à l’eau du robinet.', 'L’eau, même potable, peut contenir des micro-organismes, notamment des amibes responsables de kératites graves. Utilisez uniquement les solutions adaptées à votre type de lentilles.'],
+        ['Ne nagez pas et ne prenez pas de douche avec vos lentilles.', 'Le contact avec l’eau de piscine, de mer ou de douche augmente le risque d’infections oculaires, notamment de kératite à Acanthamoeba.'],
+        ['Ne réutilisez jamais une ancienne solution d’entretien.', 'Renouvelez entièrement la solution après chaque utilisation et respectez les consignes de nettoyage, de désinfection et de remplacement de l’étui.'],
+      ],
+      note: {
+        lead: 'À retenir :',
+        text: 'en cas de douleur, rougeur, photophobie ou baisse de vision, retirez immédiatement vos lentilles et consultez rapidement un ophtalmologue. Une infection cornéenne peut évoluer rapidement et menacer la vision.',
+      },
+    },
     doctor: ES_LENTILLES,
     faq: [
-      { q: 'Quelle différence entre lentilles souples, rigides et sclérales ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Les lentilles sclérales sont-elles adaptées au kératocône ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Combien de temps dure l’adaptation ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Quelle différence entre lentilles souples, rigides et sclérales ?',
+        a: [
+          [
+            '<strong>Lentilles souples :</strong> flexibles et généralement confortables dès les premières utilisations, elles corrigent notamment la myopie, l’hypermétropie, l’astigmatisme et la presbytie.',
+            '<strong>Lentilles rigides :</strong> perméables à l’oxygène, elles offrent une excellente qualité optique et peuvent être particulièrement utiles en cas d’astigmatisme irrégulier.',
+            '<strong>Lentilles sclérales :</strong> de plus grand diamètre, elles reposent sur la sclère et passent au-dessus de la cornée, avec un réservoir de liquide entre la lentille et l’œil. Elles sont particulièrement adaptées à certaines cornées irrégulières, notamment en cas de kératocône.',
+          ],
+        ],
+      },
+      {
+        q: 'Les lentilles sclérales sont-elles adaptées au kératocône ?',
+        a: 'Oui. Les lentilles sclérales constituent une excellente option pour améliorer la vision des patients atteints de kératocône, notamment lorsque les lunettes ou les lentilles classiques ne permettent plus d’obtenir une vision satisfaisante. Elles permettent de compenser les irrégularités optiques de la cornée tout en offrant souvent un bon confort. Cependant, elles ne stoppent pas l’évolution du kératocône. Un suivi régulier reste indispensable.',
+      },
+      {
+        q: 'Combien de temps dure l’adaptation ?',
+        a: 'La durée varie selon le type de lentille et les caractéristiques de chaque œil. L’adaptation comprend un bilan initial, des essais de lentilles, une évaluation du confort et de la vision, ainsi qu’un apprentissage de leur manipulation. Pour les lentilles spécialisées, notamment sclérales, plusieurs rendez-vous et ajustements peuvent être nécessaires afin d’obtenir une adaptation optimale.',
+      },
     ],
     ctaTitle: 'Envie de passer aux lentilles ?',
     related: ['keratocone', 'topographie-corneenne', 'chirurgie-refractive'],
@@ -743,7 +784,7 @@ import { servicesContentAr } from './services-content.ar.js';
 // encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
 // avec du texte français gardent l'ancienne image AR via `photoAr`.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts', 'situations'];
+const FR_ONLY = ['validated', 'callouts', 'situations', 'signCards', 'warnings'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);

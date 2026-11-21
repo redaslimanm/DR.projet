@@ -13,7 +13,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   `src/data/services-content.ar.js` (fonction `localizedService`).
 - `FR_ONLY` (dans `services-content.js`) : champs FR jamais affichés en AR tant qu'ils
   ne sont pas traduits. Quand un champ est traduit dans `services-content.ar.js`, le
-  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`.
+  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`, `signCards`, `warnings`.
 - **Règle images (en vigueur depuis l'étape 9)** :
   - photos **sans texte** → affichées en AR **dès maintenant** (alt AR existant réutilisé
     quand il décrit bien la photo, sinon alt AR **provisoire** marqué `TODO AR`) ;
@@ -32,6 +32,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   - `src/data/services-content.ar.js` → `'chirurgie-refractive'.photoAlt` (nouvelle photo).
   - `src/data/services-content.ar.js` → `laser.photosAlt` (2 alt).
   - `src/data/services-content.ar.js` → `keratocone.photoAlt` (nouvelle photo).
+  - `src/data/services-content.ar.js` → `'lentilles-de-contact'.photoAlt` (nouvelle photo).
 - FAQ AR : actuellement des chaînes (questions sans réponse, placeholder affiché). À
   passer au format FR `{ q, a }` (réponses traduites). Le JSON-LD FAQPage des pages
   services est aujourd'hui limité au FR (`build/partials-plugin.js`) : l'ouvrir à l'AR
@@ -239,3 +240,21 @@ Clé : `keratocone`.
       `lentille-sclerale`, sans texte) → les reprendre en AR avec **3 alt à traduire**.
       Badge `[À VALIDER]` à retirer sur `steps`.
 - [ ] `faq` : 4 questions **avec réponses** à traduire (format `{ q, a }`).
+
+## Étape 14 — Page « Lentilles de contact »
+
+Clé : `'lentilles-de-contact'`.
+
+- [x] **Photo** `adaptation-lentilles` (sans texte) : **déjà affichée en AR**.
+- [ ] `photoAlt` : alt AR **provisoire** à remplacer (`TODO AR`).
+- [ ] `what` (« Pourquoi une adaptation ? ») : 3 paragraphes à traduire.
+- [ ] `signCards` (**nouveau champ**, 3 cartes titre + texte) : à traduire, puis retirer
+      `signCards` de `FR_ONLY` ; les 4 cartes AR actuelles (`signs`) disparaissent alors.
+- [ ] `steps` : 4 étapes à traduire (Bilan initial, Essai des lentilles, Optimisation de la
+      correction, Apprentissage et suivi).
+- [ ] `warnings` (**nouvelle rubrique** « Les gestes à ne jamais faire avec vos lentilles ») :
+      titre, 4 cartes (titre + texte) et encadré « À retenir » à traduire, puis retirer
+      `warnings` de `FR_ONLY`.
+- [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`). La 1re réponse
+      est une **liste à puces** (sous-tableau) avec libellés en `<strong>`.
+- [ ] Badge `[À VALIDER]` à retirer sur `what`, `signs`, `steps`.

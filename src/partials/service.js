@@ -115,6 +115,26 @@ const figure = (f) =>
     ? `<figure class="svc-figure"><img src="/src/assets/images/${f.src}" alt="${f.alt}" width="${f.width}" height="${f.height}" loading="lazy" decoding="async"></figure>`
     : '';
 
+// Rubrique de mise en garde : cartes numérotées + encadré « À retenir »
+// w = { title, items: [[titre, texte]], note: { lead, text } }
+function warningsSection(w) {
+  if (!w) return '';
+  return `<section class="svc-section" aria-labelledby="svc-warnings">
+      <div class="container svc-container">
+        <h2 id="svc-warnings">${w.title}</h2>
+        <ol class="warn-grid" role="list">
+          ${w.items
+            .map(
+              ([t, d], i) =>
+                `<li class="warn-card"><span class="step__num" aria-hidden="true">${i + 1}</span><div><h3>${t}</h3><p>${d}</p></div></li>`,
+            )
+            .join('\n          ')}
+        </ol>
+        ${callout({ type: 'alert', ...w.note })}
+      </div>
+    </section>`;
+}
+
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
 function faqSection(s, u) {
   const items = s.faq.filter((q) => typeof q === 'string' || !q.draft);
@@ -191,6 +211,12 @@ export function service(page) {
         ${
           s.situations
             ? stepsList(s.situations)
+            : s.signCards
+            ? `<ul class="sign-grid sign-grid--3" role="list">
+          ${s.signCards
+            .map(([icon, title, text]) => `<li class="sign-card"><!-- @icon ${icon} 22 1.6 --><strong>${title}</strong><span>${text}</span></li>`)
+            .join('\n          ')}
+        </ul>`
             : `<ul class="sign-grid" role="list">
           ${s.signs.map(([icon, text]) => `<li class="sign-card"><!-- @icon ${icon} 22 1.6 --><span>${ph(text)}</span></li>`).join('\n          ')}
         </ul>`
@@ -206,6 +232,8 @@ export function service(page) {
         ${stepsList(s.steps)}
       </div>
     </section>
+
+    ${warningsSection(s.warnings)}
 
     <section class="svc-section svc-section--tight" aria-label="${u.doctorAria}">
       <div class="container svc-container">

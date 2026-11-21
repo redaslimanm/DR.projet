@@ -138,6 +138,24 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
 }
 .doctor-box strong { display: block; font-size: 0.90625rem; color: var(--c-green); }
 
+/* Cartes « Pour qui ? » avec titre + texte (3 cartes) */
+.sign-grid--3 { grid-template-columns: 1fr; }
+.sign-grid--3 .sign-card { font-weight: var(--fw-regular); color: var(--c-text-2); }
+.sign-grid--3 .sign-card strong { font-weight: var(--fw-semibold); color: var(--c-green); }
+
+/* Rubrique de mise en garde : cartes numérotées */
+.warn-grid { display: grid; gap: 10px; margin: 0; }
+.warn-card {
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-2) 18px;
+  background: var(--c-white);
+  border: var(--border-card);
+  border-radius: 16px;
+}
+.warn-card h3 { margin-block: 6px 4px; font-size: 0.96875rem; }
+.warn-card p { font-size: var(--fs-small); color: var(--c-text-2); }
+
 /* ---------- 4 bis. Encadrés beiges (alerte, surveillance) ---------- */
 .svc-callout {
   margin-block-start: var(--sp-2);
@@ -243,6 +261,10 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
   .svc-section h2 { margin-block-end: 20px; font-size: var(--fs-h2); }
 
   .sign-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-2); }
+  .sign-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .warn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
+  .warn-card { padding: 20px 22px; }
+  .warn-card h3 { font-size: var(--fs-h3); }
   .sign-card { padding: 20px; font-size: var(--fs-small); }
 
   .step h3 { font-size: var(--fs-h3); }

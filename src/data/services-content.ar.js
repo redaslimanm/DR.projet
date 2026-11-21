@@ -121,7 +121,8 @@ export const servicesContentAr = {
   'lentilles-de-contact': {
     name: 'تكييف العدسات اللاصقة',
     label: 'العدسات',
-    photoAlt: 'الدكتورة العوني رجاء أمام المصباح الشقي',
+    // TODO AR (étape 18) : alt provisoire de la nouvelle photo, à remplacer par la traduction validée
+    photoAlt: 'عدسة لاصقة على طرف الإصبع أمام المصباح الشقي',
     card: 'تكييف شخصي للعدسات اللينة والصلبة والصلبوية، خاصة للقرنية المخروطية.',
     intro: 'تكييف شخصي للعدسات اللاصقة اللينة أو الصلبة أو الصلبوية، بما في ذلك القرنيات غير المنتظمة مثل القرنية المخروطية.',
     whatTitle: 'لماذا التكييف؟',

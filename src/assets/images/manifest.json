@@ -335,5 +335,14 @@
       800,
       1200
     ]
+  },
+  "adaptation-lentilles": {
+    "width": 1584,
+    "height": 993,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
   }
 }

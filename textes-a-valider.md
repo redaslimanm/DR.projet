@@ -506,7 +506,11 @@ Adresse prévue : `/fr/services/lentilles-de-contact/`
 
 **« Pourquoi une adaptation ? »**
 
-> Chaque œil est différent : la forme de la cornée, la qualité des larmes et vos habitudes influencent le choix de la lentille. L’adaptation permet de choisir le type de lentille, de vérifier son confort et d’apprendre à la manipuler.
+> Chaque œil possède des caractéristiques spécifiques : courbure de la cornée, qualité du film lacrymal et besoins visuels.
+>
+> L’adaptation des lentilles permet de choisir le type de lentille le mieux adapté, d’évaluer sa stabilité, son confort et sa qualité visuelle, tout en préservant la santé oculaire.
+>
+> Elle comprend également un apprentissage de la pose, du retrait et des règles d’hygiène et d’entretien des lentilles.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -523,27 +527,35 @@ Adresse prévue : `/fr/services/lentilles-de-contact/`
 
 **« Comment se déroule l’adaptation ? » (4 étapes)**
 
-1. **Bilan** — Examen de la cornée et mesure de la réfraction.
-2. **Essai** — Pose de lentilles d’essai et vérification de la vision et du confort.
-3. **Apprentissage** — Pose, retrait et entretien des lentilles.
-4. **Contrôle** — Visite de contrôle pour ajuster si nécessaire.
+1. **Bilan initial** — Examen ophtalmologique, évaluation de la réfraction, de la cornée et du film lacrymal afin de déterminer le type de lentille adapté.
+2. **Essai des lentilles** — Pose de lentilles d’essai pour évaluer leur centrage, leur stabilité, leur confort et leur adaptation à la surface oculaire.
+3. **Optimisation de la correction** — Réalisation d’une surréfraction et ajustement des paramètres de la lentille afin d’obtenir la meilleure qualité visuelle possible.
+4. **Apprentissage et suivi** — Apprentissage de la manipulation, de l’hygiène et de l’entretien des lentilles, suivi de contrôles réguliers pour vérifier leur tolérance et préserver la santé des yeux.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Questions fréquentes**
 
-**Quelle différence entre lentilles souples, rigides et sclérales ?** (non affichée sur le site)
+**Quelle différence entre lentilles souples, rigides et sclérales ?**
 
-Réponse à rédiger :
+> - <strong>Lentilles souples :</strong> flexibles et généralement confortables dès les premières utilisations, elles corrigent notamment la myopie, l’hypermétropie, l’astigmatisme et la presbytie.
+> - <strong>Lentilles rigides :</strong> perméables à l’oxygène, elles offrent une excellente qualité optique et peuvent être particulièrement utiles en cas d’astigmatisme irrégulier.
+> - <strong>Lentilles sclérales :</strong> de plus grand diamètre, elles reposent sur la sclère et passent au-dessus de la cornée, avec un réservoir de liquide entre la lentille et l’œil. Elles sont particulièrement adaptées à certaines cornées irrégulières, notamment en cas de kératocône.
 
-**Les lentilles sclérales sont-elles adaptées au kératocône ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Les lentilles sclérales sont-elles adaptées au kératocône ?**
 
-**Combien de temps dure l’adaptation ?** (non affichée sur le site)
+> Oui. Les lentilles sclérales constituent une excellente option pour améliorer la vision des patients atteints de kératocône, notamment lorsque les lunettes ou les lentilles classiques ne permettent plus d’obtenir une vision satisfaisante. Elles permettent de compenser les irrégularités optiques de la cornée tout en offrant souvent un bon confort. Cependant, elles ne stoppent pas l’évolution du kératocône. Un suivi régulier reste indispensable.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Combien de temps dure l’adaptation ?**
+
+> La durée varie selon le type de lentille et les caractéristiques de chaque œil. L’adaptation comprend un bilan initial, des essais de lentilles, une évaluation du confort et de la vision, ainsi qu’un apprentissage de leur manipulation. Pour les lentilles spécialisées, notamment sclérales, plusieurs rendez-vous et ajustements peuvent être nécessaires afin d’obtenir une adaptation optimale.
+
+(texte fourni par la doctoresse)
 
 ---
 
