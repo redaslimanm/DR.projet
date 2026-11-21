@@ -196,8 +196,11 @@ export const servicesContent = [
     slug: 'strabisme',
     name: 'Chirurgie du strabisme',
     label: 'Chirurgie',
-    photo: 'salle-examen',
-    photoAlt: 'Salle d’examen du cabinet',
+    photo: 'strabisme-hero',
+    photoAlt:
+      'Enfant portant des lunettes, un œil qui dévie. Texte : « Le strabisme chez l’enfant. Un œil qui dévie de l’axe visuel. Plus il est dépisté tôt, plus la prise en charge est efficace et la vision de l’enfant mieux protégée. »',
+    photoFit: 'full',
+    photoAr: 'salle-examen', // image avec texte FR : ancienne photo gardée en AR (TODO traduction AR)
     card: 'Bilan et prise en charge du strabisme chez l’enfant et l’adulte, y compris par la chirurgie lorsqu’elle est indiquée.',
     intro:
       'Bilan et prise en charge du strabisme chez l’enfant et l’adulte, y compris par la chirurgie lorsqu’elle est indiquée.',
@@ -219,9 +222,18 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      { q: 'À quel âge consulter pour un strabisme ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Le strabisme se corrige-t-il tout seul ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'La chirurgie est-elle toujours nécessaire ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'À quel âge consulter pour un strabisme ?',
+        a: 'Dès qu’une déviation des yeux est remarquée, quel que soit l’âge de l’enfant. Un strabisme persistant, même chez un nourrisson, nécessite un examen ophtalmologique. Une prise en charge précoce permet notamment de prévenir l’amblyopie (œil paresseux) et de favoriser le bon développement de la vision.',
+      },
+      {
+        q: 'Le strabisme se corrige-t-il tout seul ?',
+        a: 'Un strabisme véritable ne disparaît généralement pas spontanément. Certaines déviations apparentes chez le nourrisson peuvent être liées à un pseudo-strabisme. Seul un examen ophtalmologique permet de faire la différence et de déterminer si un traitement est nécessaire.',
+      },
+      {
+        q: 'La chirurgie est-elle toujours nécessaire ?',
+        a: 'Non, la chirurgie n’est pas systématique. Selon le type de strabisme, le traitement peut reposer sur le port de lunettes, une correction de l’amblyopie par occlusion ou d’autres traitements adaptés. Une intervention chirurgicale peut être proposée dans certains cas pour améliorer l’alignement des yeux.',
+      },
     ],
     ctaTitle: 'Un doute sur l’alignement des yeux ?',
     related: ['ophtalmologie-pediatrique', 'consultation-depistage', '@equipements'],

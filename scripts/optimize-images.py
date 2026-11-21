@@ -40,6 +40,7 @@ IMAGES = {
     "plan-acces": SRC_MAQ / "plan-acces.jpg",                         # verso carte de visite (recadré)
     # --- Cahier des modifications (tsawer-site/) ---
     "pediatrie-hero": TS / "02-pediatrie" / "pediatrie-hero.png",     # affiche dépistage enfant (texte FR)
+    "strabisme-hero": TS / "03-strabisme" / "strabisme-hero.jpg",     # affiche strabisme enfant (texte FR)
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

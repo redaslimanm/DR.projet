@@ -432,17 +432,23 @@ Adresse prévue : `/fr/services/strabisme/`
 
 **Questions fréquentes**
 
-**À quel âge consulter pour un strabisme ?** (non affichée sur le site)
+**À quel âge consulter pour un strabisme ?**
 
-Réponse à rédiger :
+> Dès qu’une déviation des yeux est remarquée, quel que soit l’âge de l’enfant. Un strabisme persistant, même chez un nourrisson, nécessite un examen ophtalmologique. Une prise en charge précoce permet notamment de prévenir l’amblyopie (œil paresseux) et de favoriser le bon développement de la vision.
 
-**Le strabisme se corrige-t-il tout seul ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Le strabisme se corrige-t-il tout seul ?**
 
-**La chirurgie est-elle toujours nécessaire ?** (non affichée sur le site)
+> Un strabisme véritable ne disparaît généralement pas spontanément. Certaines déviations apparentes chez le nourrisson peuvent être liées à un pseudo-strabisme. Seul un examen ophtalmologique permet de faire la différence et de déterminer si un traitement est nécessaire.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**La chirurgie est-elle toujours nécessaire ?**
+
+> Non, la chirurgie n’est pas systématique. Selon le type de strabisme, le traitement peut reposer sur le port de lunettes, une correction de l’amblyopie par occlusion ou d’autres traitements adaptés. Une intervention chirurgicale peut être proposée dans certains cas pour améliorer l’alignement des yeux.
+
+(texte fourni par la doctoresse)
 
 ---
 
