@@ -634,9 +634,11 @@ export function serviceBySlug(slug) {
 import { servicesContentAr } from './services-content.ar.js';
 
 // Champs ajoutés en FR (demandes de la doctoresse) et pas encore traduits :
-// jamais affichés en AR, qui garde son contenu actuel.
+// jamais affichés en AR, qui garde son contenu actuel (textes, sections, FAQ,
+// encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
+// avec du texte français gardent l'ancienne image AR via `photoAr`.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts', 'photos'];
+const FR_ONLY = ['validated', 'callouts'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
@@ -652,6 +654,14 @@ export function localizedService(slug, lang = 'fr') {
   };
   for (const key of FR_ONLY) delete out[key];
   if (base.photoAr) delete out.photoFit; // l'ancienne photo AR garde l'affichage recadré
+  // Photos sans texte : affichées en AR, avec les alt arabes (`photosAlt` dans le fichier AR)
+  if (base.photos) {
+    if (base.photoAr) delete out.photos;
+    else {
+      if (ar.photosAlt?.length !== base.photos.length) throw new Error(`[services] alt AR manquants (photosAlt) : ${slug}`);
+      out.photos = base.photos.map((p, i) => ({ ...p, alt: ar.photosAlt[i] }));
+    }
+  }
   return out;
 }
 

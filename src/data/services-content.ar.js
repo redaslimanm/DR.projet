@@ -38,6 +38,11 @@ export const servicesContentAr = {
     },
   },
   cataracte: {
+    // TODO AR (étape 18) : alt provisoires des 2 photos (champ FR `photos`), à remplacer par la traduction validée
+    photosAlt: [
+      'الدكتورة العوني رجاء أمام المجهر الجراحي أثناء عملية جراحة الجلالة',
+      'الدكتورة العوني رجاء بلباس غرفة العمليات أمام المجهر الجراحي وجهاز الفاكو',
+    ],
     name: 'جراحة الجلالة',
     label: 'جراحة',
     photoAlt: 'الدكتورة العوني رجاء أمام المصباح الشقي',

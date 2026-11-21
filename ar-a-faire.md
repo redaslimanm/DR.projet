@@ -14,8 +14,21 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
 - `FR_ONLY` (dans `services-content.js`) : champs FR jamais affichés en AR tant qu'ils
   ne sont pas traduits. Quand un champ est traduit dans `services-content.ar.js`, le
   **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`.
+- **Règle images (en vigueur depuis l'étape 9)** :
+  - photos **sans texte** → affichées en AR **dès maintenant** (alt AR existant réutilisé
+    quand il décrit bien la photo, sinon alt AR **provisoire** marqué `TODO AR`) ;
+  - photos **avec du texte français** → ancienne photo gardée en AR via `photoAr`
+    jusqu'à l'étape 18 ;
+  - images placées dans une **section FR uniquement** → affichées en AR à l'étape 18,
+    avec leur section.
 - `photoAr` : ancienne photo gardée en AR parce que la nouvelle contient du texte en
   français. À **supprimer** quand la version arabe de l'image est intégrée.
+- `photos` (2 photos côte à côte) : affiché en AR avec les alt de `photosAlt` dans
+  `services-content.ar.js` (le build échoue s'il en manque un).
+- **Alt / légendes AR provisoires** (à remplacer par la traduction validée) : chercher
+  `TODO AR` dans le code. Liste à jour :
+  - `src/data/services-content.ar.js` → `cataracte.photosAlt` (2 alt) ;
+  - `ar/cabinet/index.html` → photo `cabinet-deco` (alt + légende « ديكور العيادة »).
 - FAQ AR : actuellement des chaînes (questions sans réponse, placeholder affiché). À
   passer au format FR `{ q, a }` (réponses traduites). Le JSON-LD FAQPage des pages
   services est aujourd'hui limité au FR (`build/partials-plugin.js`) : l'ouvrir à l'AR
@@ -34,7 +47,9 @@ Fichiers : `ar/index.html`, `ar/faq/index.html`, `ar/contact/index.html`, `src/d
 - [ ] **Logo** « CHU Hassan II – Fès, Service d’ophtalmologie » à ajouter dans la bande
       « Formation et affiliations » de `ar/index.html` (après le logo CHU existant) :
       `/src/assets/logos/parcours/chu-hassan2-fes-ophtalmologie.webp`, 286×160,
-      `class="is-tall"`, **alt à traduire**.
+      `class="is-tall"`, **alt à traduire**. **Image avec texte français** (logo officiel,
+      pas de version arabe possible) : pas encore affichée en AR ; à décider avec la
+      doctoresse (les autres logos en lettres latines, comme SFO, sont déjà affichés en AR).
 - [ ] **Chiffres clés** (`ar/index.html`, section `.stats`) : « 5 » → « 3 » examens
       d’imagerie (le libellé AR reste à vérifier). Le bug des compteurs en double est
       déjà corrigé en AR (HTML).
@@ -107,54 +122,58 @@ Clé : `glaucome`.
 Fichier : `ar/equipements/index.html` (page HTML, pas de données partagées). Reprendre
 la structure de `fr/equipements/index.html` (même ordre des 7 blocs).
 
-- [ ] **Nouveau bloc** « Autoréfractomètre, phoroptère et écran d’acuité visuelle » :
-      titre + 5 paragraphes à traduire ; grille de 4 photos
+- [x] **Frontofocomètre** : photo `frontofocometre-huvitz` **déjà affichée en AR** (même
+      appareil, alt AR existant « جهاز قياس النظارات Huvitz » conservé).
+- [ ] L'image `frontofocometre` ne sert plus : la retirer de `scripts/optimize-images.py`
+      et de `src/assets/images/`.
+- [ ] **Nouveau bloc** « Autoréfractomètre, phoroptère et écran d’acuité visuelle »
+      (section FR uniquement) : titre + 5 paragraphes à traduire ; grille de 4 photos
       (`autorefractometre`, `phoropteur`, `phoropteur-console`, `ecran-acuite-visuelle`,
       classe `equip-row__media--grid`) ; 4 alt à traduire ; lien Consultation.
-- [ ] **Frontofocomètre** : remplacer la photo `frontofocometre` par
-      `frontofocometre-huvitz` (alt à traduire). Ensuite, l'image `frontofocometre`
-      ne sert plus : la retirer de `scripts/optimize-images.py` et de `src/assets/images/`.
 - [ ] **Lampe à fente** : le bloc AR « المصباح الشقي وجهاز قياس الانكسار » (photo
-      `huvitz`) devient « Lampe à fente » : titre + 3 paragraphes à traduire ;
-      grille de 2 photos (`lampe-a-fente`, `lampe-a-fente-volk`), 2 alt à traduire.
-- [ ] **Nouveau bloc** « Le tonomètre – Mesure de la pression intraoculaire » :
-      titre + 2 paragraphes à traduire ; photo `tonometre` (alt à traduire) ; lien Glaucome.
-- [ ] Images : aucune ne contient de texte en français (écrans d'appareils seulement).
+      `huvitz`, qui correspond encore à son texte AR) devient « Lampe à fente » : titre +
+      3 paragraphes à traduire ; grille de 2 photos (`lampe-a-fente`, `lampe-a-fente-volk`),
+      2 alt à traduire. Les photos passent en AR avec la section.
+- [ ] **Nouveau bloc** « Le tonomètre – Mesure de la pression intraoculaire » (section FR
+      uniquement) : titre + 2 paragraphes à traduire ; photo `tonometre` (alt à traduire) ;
+      lien Glaucome.
+- Images : aucune ne contient de texte en français (écrans d'appareils seulement).
 
 ## Étape 7 — Page « Le cabinet »
 
-Fichier : `ar/cabinet/index.html`. Reprendre la structure de `fr/cabinet/index.html`.
+Fichier : `ar/cabinet/index.html`.
 
-- [ ] **Galerie (8 photos, même ordre qu'en FR)** : passer `<ul class="gallery-page">` en
-      `gallery-page gallery-page--8` (mise en page sans trou). Photos : `reception`,
-      `attente`, `attente-vision`, `coin-salon` (remplace `salon`), `diplomes`,
-      `cabinet-deco` (nouvelle), `salle-examen-2` (nouvelle, fichier source
-      « coin-salon-1 » qui montre la salle d'examen), `salle-examen`.
-      **Alt et légendes à traduire** pour `coin-salon`, `cabinet-deco`, `salle-examen-2`.
-- [ ] Ensuite l'image `salon` ne sert plus nulle part : la retirer de
-      `scripts/optimize-images.py` et de `src/assets/images/`.
-- [ ] **Section Accès** : remplacer l'encadré « [À DEMANDER : photo de la façade] » par la
-      mise en page `about about--access` du FR (photo `facade` à gauche, `about__photo--full`,
-      contenu à droite). **Alt à traduire.**
-- [ ] Images : `facade` montre la plaque réelle du cabinet (texte en français sur la plaque,
-      c'est une vraie photo) → pas de version arabe à prévoir. Aucune autre image avec texte.
+- [x] **Galerie** : **déjà à parité** (8 photos, même ordre, `gallery-page--8`). Alt et
+      légendes AR existants réutilisés pour `coin-salon` (= ركن الصالون) et
+      `salle-examen-2` (= قاعة الفحص).
+- [ ] **Alt + légende provisoires** de `cabinet-deco` (« ديكور العيادة ») : à remplacer par
+      la traduction validée (`TODO AR` dans le fichier).
+- [ ] L'image `salon` ne sert plus nulle part : la retirer de `scripts/optimize-images.py`
+      et de `src/assets/images/`.
+- [ ] **Section Accès** : remplacer l'encadré « [À DEMANDER : photo de la façade] » (en
+      français, encore affiché en AR) par la mise en page `about about--access` du FR
+      (photo `facade`, `about__photo--full`). **Alt à traduire.** Bloc « Accès » en AR à
+      reprendre (label, titre, 3 cartes, bouton dans `about__content`).
+- [ ] **Image avec texte français à décider avec la doctoresse** : `facade` est une vraie
+      photo, mais la plaque du cabinet y est en français. Pas encore affichée en AR.
+      L'afficher telle quelle (pas de version arabe possible d'une photo réelle) ?
 
 ## Étape 8 — Page « Dr Elaouni »
 
 Fichier : `ar/dr-elaouni/index.html`.
 
-- [ ] **Photo du haut de page** : remplacer `dr-oct` par `dr-elaouni-hero` (même balise
-      `@picture`, `eager`). **Alt à traduire.** Pas de texte sur l'image.
-- [ ] `dr-oct` reste utilisée ailleurs (accueil « Votre ophtalmologue », encart médecin des
-      pages services, page Équipements) : ne pas la supprimer.
+- [x] **Photo du haut de page** : `dr-elaouni-hero` **déjà affichée en AR**, avec l'alt AR
+      existant « الدكتورة العوني رجاء أمام المصباح الشقي » (déjà utilisé sur le site
+      pour la même scène). Pas de texte sur l'image.
+- `dr-oct` reste utilisée ailleurs (accueil, encart médecin des services, Équipements) :
+  ne pas la supprimer.
 
 ## Étape 9 — Page « Cataracte »
 
 Clé : `cataracte`.
 
-- [ ] **Photos** : en FR, la photo unique (`dr-lampe`) est remplacée par 2 photos côte à
-      côte (champ `photos` : `cataracte-1`, `cataracte-2`). En AR, `photos` est dans
-      `FR_ONLY` → l'AR affiche encore `dr-lampe`. Ajouter `photos` en AR (mêmes noms,
-      **2 alt à traduire**) puis retirer `photos` de `FR_ONLY` (à faire une fois toutes
-      les pages concernées traduites, le champ est partagé). Pas de texte sur les images.
+- [x] **Photos** (`cataracte-1`, `cataracte-2`, champ `photos`) : **déjà affichées en AR**.
+- [ ] `photosAlt` : **2 alt AR provisoires** à remplacer par la traduction validée
+      (`TODO AR`). Le champ `photoAlt` AR (ancienne photo `dr-lampe`) ne sert plus sur
+      cette page.
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
