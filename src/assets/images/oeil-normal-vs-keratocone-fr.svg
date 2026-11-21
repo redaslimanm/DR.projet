@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Œil normal et kératocône : comparaison de la forme de la cornée">
+<title>Œil normal et kératocône : comparaison de la forme de la cornée</title>
+<defs><radialGradient id="lens" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D9DBDE"/></radialGradient>
+<clipPath id="clipN"><rect x="0" y="0" width="600" height="600"/></clipPath>
+<clipPath id="clipK"><rect x="600" y="0" width="600" height="600"/></clipPath></defs>
+<rect width="1200" height="600" fill="#FFFFFF"/>
+<line x1="600" y1="60" x2="600" y2="540" stroke="#E6DccE" stroke-width="2"/>
+<g clip-path="url(#clipN)">
+<circle cx="40" cy="300" r="250" fill="#F4E9DA"/>
+<circle cx="40" cy="300" r="236" fill="#E8A35C"/>
+<circle cx="40" cy="300" r="224" fill="#B84A33"/>
+<circle cx="40" cy="300" r="212" fill="#FBF6EF"/>
+</g>
+<path d="M212,201 L260,195 L260,405 L212,399 Z" fill="#E3F2F8"/>
+<path d="M260,195 C330,215 375,245 375,300 C375,355 330,385 260,405 Z" fill="#CFE8F2"/>
+<path d="M260,211 C320,229 357,252 357,300 C357,348 320,371 260,389 L240,389 L240,211 Z" fill="#E3F2F8"/>
+<path d="M260,195 C330,215 375,245 375,300 C375,355 330,385 260,405" fill="none" stroke="#5FA8C8" stroke-width="5" stroke-linecap="round"/>
+<path d="M260,211 C320,229 357,252 357,300 C357,348 320,371 260,389" fill="none" stroke="#8CC3DA" stroke-width="2"/>
+<path d="M254,195 L270,195 L268,252 L258,252 Z" fill="#7A3B2A"/>
+<path d="M254,405 L270,405 L268,348 L258,348 Z" fill="#7A3B2A"/>
+<path d="M230,188 Q210,205 220,220 L246,205 Z" fill="#C9673F"/>
+<path d="M230,412 Q210,395 220,380 L246,395 Z" fill="#C9673F"/>
+<ellipse cx="226" cy="300" rx="34" ry="82" fill="url(#lens)" stroke="#B9BCC0" stroke-width="1.5"/>
+<circle cx="465" cy="120" r="100" fill="#F3ECE0"/>
+<text x="465" y="129" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#2B3D33">ŒIL NORMAL</text>
+<text x="300" y="570" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#5B5B5B">Cornée régulière, en forme de dôme</text>
+<g clip-path="url(#clipK)">
+<circle cx="640" cy="300" r="250" fill="#F4E9DA"/>
+<circle cx="640" cy="300" r="236" fill="#E8A35C"/>
+<circle cx="640" cy="300" r="224" fill="#B84A33"/>
+<circle cx="640" cy="300" r="212" fill="#FBF6EF"/>
+</g>
+<path d="M812,201 L860,195 L860,405 L812,399 Z" fill="#E3F2F8"/>
+<path d="M860,195 C900,203 970,274 1010,322 C980,362 900,399 860,405 Z" fill="#CFE8F2"/>
+<path d="M860,209 C894,217 962,278 998,322 C970,358 894,385 860,391 L840,389 L840,211 Z" fill="#E3F2F8"/>
+<path d="M860,195 C900,203 970,274 1010,322 C980,362 900,399 860,405" fill="none" stroke="#5FA8C8" stroke-width="3" stroke-linecap="round"/>
+<path d="M860,209 C894,217 962,278 998,322 C970,358 894,385 860,391" fill="none" stroke="#8CC3DA" stroke-width="2"/>
+<path d="M854,195 L870,195 L868,252 L858,252 Z" fill="#7A3B2A"/>
+<path d="M854,405 L870,405 L868,348 L858,348 Z" fill="#7A3B2A"/>
+<path d="M830,188 Q810,205 820,220 L846,205 Z" fill="#C9673F"/>
+<path d="M830,412 Q810,395 820,380 L846,395 Z" fill="#C9673F"/>
+<ellipse cx="826" cy="300" rx="34" ry="82" fill="url(#lens)" stroke="#B9BCC0" stroke-width="1.5"/>
+<circle cx="1065" cy="120" r="100" fill="#F3ECE0"/>
+<text x="1065" y="129" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#2B3D33">KÉRATOCÔNE</text>
+<text x="900" y="570" text-anchor="middle" font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif" font-size="21" fill="#5B5B5B">Cornée amincie, déformée en cône</text>
+</svg>

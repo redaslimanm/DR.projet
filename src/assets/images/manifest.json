@@ -303,19 +303,12 @@
     ]
   },
   "keratocone-hero": {
-    "width": 1141,
-    "height": 742,
+    "width": 2400,
+    "height": 1561,
     "widths": [
       480,
       800,
-      1141
-    ]
-  },
-  "oeil-normal-vs-keratocone": {
-    "width": 398,
-    "height": 219,
-    "widths": [
-      398
+      1200
     ]
   },
   "cross-linking": {

@@ -114,9 +114,9 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
 }
 .step__media img { inline-size: 100%; block-size: 160px; object-fit: cover; border-radius: 14px; }
 
-/* Schéma sous « Qu'est-ce que… ? » : taille naturelle, jamais agrandi */
+/* Schéma SVG sous « Qu'est-ce que… ? » : pleine largeur sur mobile, 640 px au plus */
 .svc-figure { margin: var(--sp-3) 0 0; }
-.svc-figure img { inline-size: auto; max-inline-size: 100%; block-size: auto; border-radius: 14px; }
+.svc-figure img { inline-size: 100%; max-inline-size: 640px; block-size: auto; border: var(--border-card); border-radius: 14px; }
 
 /* ---------- 6. Encart médecin ---------- */
 .doctor-box {

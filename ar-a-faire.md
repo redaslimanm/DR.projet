@@ -13,7 +13,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   `src/data/services-content.ar.js` (fonction `localizedService`).
 - `FR_ONLY` (dans `services-content.js`) : champs FR jamais affichés en AR tant qu'ils
   ne sont pas traduits. Quand un champ est traduit dans `services-content.ar.js`, le
-  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`, `whatFigure`.
+  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`.
 - **Règle images (en vigueur depuis l'étape 9)** :
   - photos **sans texte** → affichées en AR **dès maintenant** (alt AR existant réutilisé
     quand il décrit bien la photo, sinon alt AR **provisoire** marqué `TODO AR`) ;
@@ -225,14 +225,14 @@ Clé : `laser`.
 
 Clé : `keratocone`.
 
-- [x] **Photo principale** `keratocone-hero` (sans texte) : **déjà affichée en AR**.
+- [x] **Photo principale** `keratocone-hero` (version HD, sans texte) : **déjà affichée en AR**.
       ⚠ Droits non confirmés (point client 4, image du laboratoire Dencott) : même décision
       en FR et en AR.
 - [ ] `photoAlt` : alt AR **provisoire** à remplacer (`TODO AR`).
-- [ ] **Schéma** `oeil-normal-vs-keratocone` (champ `whatFigure`, FR uniquement) : l'image
-      contient du **texte en français** (« OEIL NORMAL », « KÉRATOCÔNE ») → **version
-      arabe du schéma à fournir**, puis ajouter `whatFigure` en AR (alt à traduire) et
-      retirer `whatFigure` de `FR_ONLY`.
+- [x] **Schéma** œil normal / kératocône : **réglé**. Version arabe fournie
+      (`oeil-normal-vs-keratocone-ar.svg`), déjà affichée en AR via `whatFigure` dans
+      `services-content.ar.js` (alt arabe repris du titre du SVG). Le build échoue si une
+      page avec schéma n'a pas sa version AR.
 - [ ] `steps` : 4 étapes à traduire (Diagnostic, Surveillance de l’évolution, Stabilisation
       du kératocône, Réhabilitation visuelle). Les étapes 3 et 4 portent des images
       (3e élément du tableau : `cross-linking` ; `lentille-sclerale-pose` +

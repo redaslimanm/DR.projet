@@ -144,6 +144,13 @@ export const servicesContentAr = {
     },
   },
   keratocone: {
+    // Schéma œil normal / kératocône, version arabe (fourni, déjà traduit)
+    whatFigure: {
+      src: 'oeil-normal-vs-keratocone-ar.svg',
+      alt: 'مقارنة بين العين السليمة والقرنية المخروطية',
+      width: 1200,
+      height: 600,
+    },
     name: 'القرنيّة المخروطية وأمراض القرنيّة',
     label: 'القرنية',
     // TODO AR (étape 18) : alt provisoire de la nouvelle photo, à remplacer par la traduction validée

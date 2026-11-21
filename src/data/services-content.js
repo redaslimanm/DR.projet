@@ -324,16 +324,16 @@ export const servicesContent = [
     slug: 'keratocone',
     name: 'Kératocône et maladies de la cornée',
     label: 'Cornée',
-    // TODO client (point 4) : keratocone-hero.jpg provient du site du laboratoire Dencott.
+    // TODO client (point 4) : keratocone-hero (version HD) provient du site du laboratoire Dencott.
     // Droits d'utilisation NON confirmés : à obtenir (ou remplacer l'image) AVANT la mise en ligne.
-    // Source de faible qualité (1141×742, 18 Ko) : une version plus nette serait préférable.
     photo: 'keratocone-hero',
     photoAlt: 'Œil vu de profil : la cornée, amincie, prend une forme de cône',
-    // Schéma œil normal / kératocône (texte FR sur l'image → FR uniquement)
+    // Schéma œil normal / kératocône (SVG ; version arabe dans services-content.ar.js)
     whatFigure: {
-      name: 'oeil-normal-vs-keratocone',
-      alt: 'Schéma comparant un œil normal, à la cornée arrondie, et un œil atteint de kératocône, à la cornée déformée en cône',
-      width: 398,
+      src: 'oeil-normal-vs-keratocone-fr.svg',
+      alt: 'Schéma comparant un œil normal, à la cornée régulière en forme de dôme, et un œil atteint de kératocône, à la cornée amincie et déformée en cône',
+      width: 1200,
+      height: 600,
     },
     // Déroulement fourni par la doctoresse (PDF, étape 13.2) : pas de badge [À VALIDER]
     validated: ['steps'],
@@ -743,7 +743,7 @@ import { servicesContentAr } from './services-content.ar.js';
 // encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
 // avec du texte français gardent l'ancienne image AR via `photoAr`.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts', 'situations', 'whatFigure'];
+const FR_ONLY = ['validated', 'callouts', 'situations'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
@@ -758,6 +758,8 @@ export function localizedService(slug, lang = 'fr') {
     signs: base.signs.map(([icon], i) => [icon, ar.signs[i]]),
   };
   for (const key of FR_ONLY) delete out[key];
+  // Schéma : la version AR (fichier et alt arabes) doit être fournie, jamais la version FR
+  if (base.whatFigure && !ar.whatFigure) throw new Error(`[services] schéma AR manquant (whatFigure) : ${slug}`);
   if (base.photoAr) delete out.photoFit; // l'ancienne photo AR garde l'affichage recadré
   // Photos sans texte : affichées en AR, avec les alt arabes (`photosAlt` dans le fichier AR)
   if (base.photos) {

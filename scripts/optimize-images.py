@@ -59,8 +59,9 @@ IMAGES = {
     "chirurgie-refractive": TS / "08-chirurgie-refractive" / "chirurgie-refractive.jpg",  # patiente sous le laser
     "laser-1": TS / "09-laser" / "laser-1.png",                       # schéma en coupe, faisceau laser
     "laser-2": TS / "09-laser" / "laser-2.jpg",                       # patient à la lampe à fente, lentille laser
-    "keratocone-hero": TS / "10-keratocone" / "keratocone-hero.jpg",  # TODO client : droits (laboratoire Dencott)
-    "oeil-normal-vs-keratocone": TS / "10-keratocone" / "oeil-normal-vs-keratocone.png",  # schéma (texte FR)
+    "keratocone-hero": TS / "10-keratocone" / "keratocone-hero-hd.jpg",  # version HD ; TODO client : droits (laboratoire Dencott)
+    # Schéma œil normal / kératocône : SVG FR et AR copiés tels quels dans src/assets/images/
+    # (pas de conversion AVIF/WebP), sources : assets-source/schema-keratocone/
     "cross-linking": TS / "10-keratocone" / "cross-linking.png",
     "lentille-sclerale-pose": TS / "10-keratocone" / "lentille-sclerale-pose.png",
     "lentille-sclerale": TS / "10-keratocone" / "lentille-sclerale.png",

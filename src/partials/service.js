@@ -108,10 +108,11 @@ function stepsList(items) {
         </ol>`;
 }
 
-// Schéma illustrant « Qu'est-ce que… ? » : { name, alt, width } (image entière, taille naturelle)
+// Schéma illustrant « Qu'est-ce que… ? » : { src, alt, width, height } — fichier SVG de
+// src/assets/images/, affiché tel quel (vectoriel : net à toutes les tailles)
 const figure = (f) =>
   f
-    ? `<figure class="svc-figure"><!-- @picture name="${f.name}" alt="${f.alt}" sizes="${f.width}px" --></figure>`
+    ? `<figure class="svc-figure"><img src="/src/assets/images/${f.src}" alt="${f.alt}" width="${f.width}" height="${f.height}" loading="lazy" decoding="async"></figure>`
     : '';
 
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
