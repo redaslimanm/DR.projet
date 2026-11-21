@@ -910,125 +910,163 @@ Adresse prévue : `/fr/services/echographie-oculaire/`
 
 ---
 
-### 3.11 Angiographie rétinienne
+### 3.11 Rétinographie
 
-Adresse prévue : `/fr/services/angiographie-retinienne/`
+Adresse prévue : `/fr/services/retinographie/`
 
 **Résumé (carte de la page Services)**
 
-> Photographies des vaisseaux de la rétine pour le diagnostic et le suivi de certaines maladies rétiniennes.
+> La rétinographie est un examen rapide, indolore et non invasif qui permet de photographier le fond d’œil, notamment la rétine, la macula et le nerf optique.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Introduction (haut de page)**
 
-> Un examen d’imagerie des vaisseaux de la rétine, utile pour le diagnostic et le suivi de certaines maladies rétiniennes.
+> Elle permet de dépister certaines maladies oculaires, de documenter les anomalies et de suivre leur évolution au fil du temps.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Qu’est-ce que l’angiographie rétinienne ? »**
+**« Qu’est-ce que la rétinographie ? »**
 
-> L’angiographie consiste à photographier la rétine après l’injection d’un colorant dans une veine du bras. Le colorant permet de visualiser la circulation dans les vaisseaux de la rétine.
+> La rétinographie est un examen rapide, indolore et non invasif qui permet de photographier le fond d’œil, notamment la rétine, la macula et le nerf optique.
+>
+> Elle permet de dépister certaines maladies oculaires, de documenter les anomalies et de suivre leur évolution au fil du temps.
+>
+> Grâce au rétinographe disponible au cabinet, cet examen peut être réalisé sans dilatation des pupilles dans de nombreuses situations.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **« Quand est-elle prescrite ? » (4 cartes)**
 
-1. Rétinopathie diabétique
-2. DMLA
-3. Occlusion d’une veine ou d’une artère de la rétine
-4. Bilan d’une baisse de vision inexpliquée
+
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **« Comment se déroule l’examen ? » (4 étapes)**
 
-1. **Préparation** — Dilatation des pupilles avec des gouttes.
-2. **Injection** — Injection d’un colorant dans une veine du bras.
-3. **Photographies** — Série de photographies de la rétine.
-4. **Après l’examen** — Vision gênée par la dilatation pendant quelques heures.
+1. **Préparation** — Le patient est installé devant le rétinographe. Une dilatation des pupilles n’est pas nécessaire.
+2. **Prise des photographies** — Le patient fixe une cible lumineuse pendant que l’appareil capture des images de la rétine. L’examen est rapide, sans contact avec l’œil et indolore.
+3. **Analyse des images** — Les photographies sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de la rétine, de la macula ou du nerf optique.
+4. **Après l’examen** — Le patient peut généralement reprendre immédiatement ses activités habituelles. Selon les résultats, un examen complémentaire, notamment un OCT ou un fond d’œil après dilatation, peut être nécessaire.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Questions fréquentes**
 
-**Faut-il être à jeun ?** (non affichée sur le site)
+**Faut-il dilater les pupilles pour réaliser une rétinographie ?**
 
-Réponse à rédiger :
+> Pas systématiquement. Le rétinographe disponible au cabinet permet de photographier la rétine sans dilatation dans de nombreuses situations. Cependant, une dilatation peut être nécessaire pour obtenir de meilleures images ou réaliser un examen plus complet du fond d’œil.
 
-**Puis-je conduire après l’examen ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**La rétinographie est-elle douloureuse ?**
 
-**Y a-t-il des contre-indications ?** (non affichée sur le site)
+> Non, la rétinographie est un examen indolore, rapide et sans contact avec l’œil. Le patient doit simplement fixer une cible lumineuse pendant la prise des photographies.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Combien de temps dure l’examen ?**
+
+> La prise des photographies ne dure généralement que quelques minutes. La durée peut être prolongée si une dilatation pupillaire est nécessaire.
+
+(texte fourni par la doctoresse)
+
+**Peut-on conduire après une rétinographie ?**
+
+> Oui, généralement, si l’examen est réalisé sans dilatation. En revanche, si des gouttes dilatatrices sont utilisées, il est préférable de ne pas conduire tant que la vision n’est pas redevenue normale.
+
+(texte fourni par la doctoresse)
+
+**La rétinographie remplace-t-elle l’examen du fond d’œil ?**
+
+> Non, pas systématiquement. Elle permet de photographier et de surveiller certaines structures de la rétine, mais un examen après dilatation peut être nécessaire, notamment pour explorer la périphérie rétinienne.
+
+(texte fourni par la doctoresse)
 
 ---
 
-### 3.12 Topographie cornéenne
+### 3.12 OCT
 
-Adresse prévue : `/fr/services/topographie-corneenne/`
+Adresse prévue : `/fr/services/oct/`
 
 **Résumé (carte de la page Services)**
 
-> Cartographie de la surface de la cornée, utile pour le kératocône, les lentilles et la chirurgie réfractive.
+> L’OCT (Tomographie par Cohérence Optique) est un examen rapide, indolore et non invasif qui permet d’obtenir des images en coupe très détaillées des différentes structures de l’œil.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Introduction (haut de page)**
 
-> Une cartographie précise de la surface de la cornée, rapide et sans contact.
+> Il permet de détecter précocement certaines anomalies, parfois avant l’apparition de symptômes, et de suivre leur évolution avec précision.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Qu’est-ce que la topographie cornéenne ? »**
+**« Qu’est-ce que l’OCT ? »**
 
-> La topographie cornéenne mesure la forme et la courbure de la cornée, la surface transparente à l’avant de l’œil. Elle produit une carte en couleurs qui aide au diagnostic et aux décisions de traitement.
+> L’OCT (Tomographie par Cohérence Optique) est un examen rapide, indolore et non invasif qui permet d’obtenir des images en coupe très détaillées des différentes structures de l’œil, notamment de la rétine, de la macula et du nerf optique.
+>
+> Il permet de détecter précocement certaines anomalies, parfois avant l’apparition de symptômes, et de suivre leur évolution avec précision.
+>
+> Cet examen peut être réalisé sans contact avec l’œil et, dans de nombreuses situations, sans dilatation des pupilles.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Quand est-elle utile ? » (4 cartes)**
+**« Quand est-il prescrit ? » (4 cartes)**
 
-1. Dépistage et suivi du kératocône
-2. Bilan avant chirurgie réfractive
-3. Adaptation de lentilles de contact
-4. Astigmatisme important ou irrégulier
+
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **« Comment se déroule l’examen ? » (4 étapes)**
 
-1. **Installation** — Vous posez le menton sur l’appareil.
-2. **Mesure** — Vous fixez une lumière quelques secondes, sans contact avec l’œil.
-3. **Analyse** — La carte de la cornée est calculée.
-4. **Résultats** — Les résultats sont expliqués et intégrés au bilan.
+1. **Préparation** — Le patient est installé devant l’appareil OCT. Une dilatation des pupilles n’est généralement pas nécessaire.
+2. **Acquisition des images** — Le patient fixe une cible lumineuse pendant que l’appareil réalise des images en coupe des structures oculaires. L’examen est rapide, sans contact avec l’œil et indolore.
+3. **Analyse des résultats** — Les images sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de la rétine, de la macula ou du nerf optique et de comparer les résultats aux examens précédents.
+4. **Après l’examen** — Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, des examens complémentaires ou une surveillance régulière peuvent être nécessaires.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Questions fréquentes**
 
-**L’examen est-il douloureux ?** (non affichée sur le site)
+**L’OCT est-il douloureux ?**
 
-Réponse à rédiger :
+> Non, l’OCT est un examen totalement indolore, non invasif et sans contact avec l’œil. Il utilise un faisceau lumineux pour obtenir des images détaillées de la rétine et du nerf optique.
 
-**Faut-il retirer ses lentilles avant l’examen ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Faut-il dilater les pupilles pour un OCT ?**
 
-**Combien de temps dure l’examen ?** (non affichée sur le site)
+> Pas systématiquement. L’OCT peut généralement être réalisé sans dilatation. Cependant, des gouttes dilatatrices peuvent être nécessaires dans certaines situations pour améliorer la qualité des images.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Combien de temps dure un OCT ?**
+
+> L’examen dure généralement entre 5 et 10 minutes, selon les zones à analyser et la coopération du patient.
+
+(texte fourni par la doctoresse)
+
+**Peut-on conduire après un OCT ?**
+
+> Oui, si aucune dilatation pupillaire n’a été réalisée et que votre vision le permet. En cas de dilatation, il est recommandé d’attendre le retour à une vision normale avant de conduire.
+
+(texte fourni par la doctoresse)
+
+**L’OCT présente-t-il des contre-indications ?**
+
+> L’OCT est un examen très sûr, utilisant de la lumière et non des rayons X. Il ne présente pas de contre-indication majeure connue. Certaines situations, comme une opacité importante des milieux oculaires ou une difficulté à fixer, peuvent toutefois limiter la qualité des images.
+
+(texte fourni par la doctoresse)
 
 ---
 

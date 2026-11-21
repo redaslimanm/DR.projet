@@ -1,5 +1,5 @@
 // Page /fr/services/ : cartes groupées, générées depuis src/data/services-content.js
-import { localizedService, serviceGroups } from '../data/services-content.js';
+import { localizedService, serviceAvailable, serviceGroups } from '../data/services-content.js';
 import { serviceGroupsAr } from '../data/services-content.ar.js';
 import { ph, UI } from './service.js';
 
@@ -7,6 +7,8 @@ const VALIDATED_CARDS = new Set([
   // textes déjà présents sur l'accueil (maquette validée), affichés sans badge
   'consultation-depistage', 'ophtalmologie-pediatrique', 'cataracte', 'chirurgie-refractive',
   'keratocone', 'glaucome', 'retine', 'lentilles-de-contact',
+  // textes fournis par la doctoresse (cahier de modifications, étape 16)
+  'retinographie', 'oct',
 ]);
 
 export function servicesIndex(page) {
@@ -16,6 +18,7 @@ export function servicesIndex(page) {
     .map(({ title: titleFr, slugs }, gi) => {
       const title = lang === 'ar' ? serviceGroupsAr[gi] : titleFr;
       const cards = slugs
+        .filter((slug) => serviceAvailable(slug, lang)) // AR : pas de carte pour un service non traduit
         .map((slug) => {
           const s = localizedService(slug, lang);
           n += 1;

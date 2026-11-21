@@ -3,7 +3,7 @@
 // Toutes les infos viennent de CLAUDE.md / src/data — rien d'inventé :
 // pas de coordonnées GPS (la fiche Google Maps est liée via hasMap).
 import { SITE_URL, contact, socials, maps, pages as PAGES, t as dict } from '../data/site.js';
-import { localizedService } from '../data/services-content.js';
+import { localizedService, serviceAvailable } from '../data/services-content.js';
 
 const OG_IMAGE = '/og-image.jpg'; // public/og-image.jpg (1200 × 630)
 
@@ -93,8 +93,23 @@ function organization(lang) {
   return [clinic, physician];
 }
 
+// La page existe-t-elle dans l'autre langue ? Seules les pages service peuvent manquer
+// (Rétinographie et OCT : FR seulement jusqu'à l'étape 18).
+export function hasTranslation({ lang, path }) {
+  const other = lang === 'fr' ? 'ar' : 'fr';
+  const svc = path.match(/^services\/([\w-]+)\/$/);
+  return !svc || serviceAvailable(svc[1], other);
+}
+
+// Lien vers la même page dans l'autre langue, ou vers sa liste des services à défaut
+export function otherLangHref(page) {
+  const other = page.lang === 'fr' ? 'ar' : 'fr';
+  return hasTranslation(page) ? `/${other}/${page.path}` : `/${other}/${PAGES.services}`;
+}
+
 export function seoTags({ lang, path }, { title, description }) {
   const other = lang === 'fr' ? 'ar' : 'fr';
+  const translated = hasTranslation({ lang, path });
   const url = abs(lang, path);
   const graph = [...organization(lang)];
   const bc = breadcrumb(lang, path);
@@ -102,13 +117,15 @@ export function seoTags({ lang, path }, { title, description }) {
   const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 
   return `<link rel="canonical" href="${url}">
-  <link rel="alternate" hreflang="${lang}" href="${url}">
-  <link rel="alternate" hreflang="${other}" href="${abs(other, path)}">
+  <link rel="alternate" hreflang="${lang}" href="${url}">${
+    translated ? `\n  <link rel="alternate" hreflang="${other}" href="${abs(other, path)}">` : ''
+  }
   <link rel="alternate" hreflang="x-default" href="${abs('fr', path)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${lang === 'ar' ? 'الدكتورة العوني رجاء – طبيبة العيون' : 'Dr Elaouni Rajae – Ophtalmologue'}">
-  <meta property="og:locale" content="${lang === 'ar' ? 'ar_MA' : 'fr_MA'}">
-  <meta property="og:locale:alternate" content="${lang === 'ar' ? 'fr_MA' : 'ar_MA'}">
+  <meta property="og:locale" content="${lang === 'ar' ? 'ar_MA' : 'fr_MA'}">${
+    translated ? `\n  <meta property="og:locale:alternate" content="${lang === 'ar' ? 'fr_MA' : 'ar_MA'}">` : ''
+  }
   <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">

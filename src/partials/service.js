@@ -1,6 +1,6 @@
 // Template page service (maquette 03) — rendu à partir de src/data/services-content.js.
 // Les marqueurs @picture / @icon produits ici sont traités ensuite par le plugin.
-import { servicesContent, localizedService } from '../data/services-content.js';
+import { servicesContent, localizedService, serviceAvailable, serviceBySlug } from '../data/services-content.js';
 import { contact } from '../data/site.js';
 
 // Textes d'interface du template
@@ -84,8 +84,9 @@ function relatedLink(key, lang) {
   if (key === '@equipements') {
     return `<li><a href="/${lang}/equipements/">${UI[lang].equip} <!-- @icon arrowRight 16 --></a></li>`;
   }
+  if (!serviceBySlug(key)) throw new Error(`[service] service lié inconnu : ${key}`);
+  if (!serviceAvailable(key, lang)) return ''; // service pas encore traduit dans cette langue
   const s = localizedService(key, lang);
-  if (!s) throw new Error(`[service] service lié inconnu : ${key}`);
   return `<li><a href="/${lang}/services/${s.slug}/">${s.name} <!-- @icon arrowRight 16 --></a></li>`;
 }
 

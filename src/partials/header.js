@@ -1,5 +1,6 @@
 import { contact, pages, services, t as dict } from '../data/site.js';
 import { icon } from './icons.js';
+import { otherLangHref } from './seo.js';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -42,7 +43,10 @@ function current(page, slug) {
 }
 
 export function header(page) {
-  const { lang, path, altHref } = page;
+  const { lang, path } = page;
+  // Page sans équivalent dans l'autre langue (service pas encore traduit) :
+  // le sélecteur de langue mène à la liste des services de l'autre langue.
+  const altHref = otherLangHref(page);
   const t = dict[lang];
   const base = `/${lang}/`;
   const href = (key) => base + pages[key];
@@ -50,7 +54,9 @@ export function header(page) {
   const navLink = (key) =>
     `<li class="site-nav__item"><a class="site-nav__link" href="${href(key)}"${current(page, pages[key])}>${t.nav[key]}</a></li>`;
 
+  // Services sans nom dans cette langue (`ar: null`) : absents du menu (AR à 10 jusqu'à l'étape 18)
   const serviceLinks = services
+    .filter((s) => s[lang])
     .map(
       (s) =>
         `<li><a class="site-nav__sublink" href="${href('services')}${s.slug}/"${current(page, `${pages.services}${s.slug}/`)}>${s[lang]}</a></li>`,

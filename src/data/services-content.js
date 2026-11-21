@@ -1,6 +1,6 @@
 // =========================================================
 // Contenu des pages service (FR) — une seule source pour :
-//   - les 13 pages /fr/services/<slug>/ (template src/partials/service.js)
+//   - les 13 pages /fr/services/<slug>/ (11 en AR tant que Rétinographie et OCT ne sont pas traduits) (template src/partials/service.js)
 //   - la page index /fr/services/
 //   - la section « Pages services » de textes-a-valider.md
 //     (régénérée par : node scripts/export-textes.mjs)
@@ -223,7 +223,7 @@ export const servicesContent = [
       { q: 'Combien de temps dure le bilan ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Envie de vous renseigner ?',
-    related: ['topographie-corneenne', 'lentilles-de-contact', 'keratocone'],
+    related: ['keratocone', 'lentilles-de-contact', '@equipements'],
     meta: {
       title: 'Chirurgie réfractive à Fès – Dr Elaouni Rajae',
       description:
@@ -354,7 +354,7 @@ export const servicesContent = [
       },
     ],
     ctaTitle: 'Envie de passer aux lentilles ?',
-    related: ['keratocone', 'topographie-corneenne', 'chirurgie-refractive'],
+    related: ['keratocone', 'chirurgie-refractive', '@equipements'],
     meta: {
       title: 'Lentilles de contact à Fès – Dr Elaouni Rajae',
       description:
@@ -428,7 +428,7 @@ export const servicesContent = [
       },
     ],
     ctaTitle: 'Votre astigmatisme augmente ?',
-    related: ['topographie-corneenne', 'lentilles-de-contact', 'chirurgie-refractive'],
+    related: ['lentilles-de-contact', 'chirurgie-refractive', '@equipements'],
     meta: {
       title: 'Kératocône et Cross-Linking (CXL) à Fès – Dr Elaouni Rajae',
       description:
@@ -485,7 +485,7 @@ export const servicesContent = [
       { q: 'Qu’est-ce que la DMLA ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Diabétique ou plus de 50 ans ?',
-    related: ['angiographie-retinienne', '@equipements', 'glaucome'],
+    related: ['retinographie', 'oct', 'glaucome'],
     meta: {
       title: 'Maladies de la rétine à Fès (diabète, DMLA) – Dr Elaouni',
       description:
@@ -633,81 +633,131 @@ export const servicesContent = [
     },
   },
   {
-    slug: 'angiographie-retinienne',
-    name: 'Angiographie rétinienne',
+    slug: 'retinographie',
+    name: 'Rétinographie',
     label: 'Examen',
     photo: 'icare',
     photoAlt: 'Rétinographe numérique iCare du cabinet',
-    card: 'Photographies des vaisseaux de la rétine pour le diagnostic et le suivi de certaines maladies rétiniennes.',
+    card: 'La rétinographie est un examen rapide, indolore et non invasif qui permet de photographier le fond d’œil, notamment la rétine, la macula et le nerf optique.',
     intro:
-      'Un examen d’imagerie des vaisseaux de la rétine, utile pour le diagnostic et le suivi de certaines maladies rétiniennes.',
-    whatTitle: 'Qu’est-ce que l’angiographie rétinienne ?',
-    what: 'L’angiographie consiste à photographier la rétine après l’injection d’un colorant dans une veine du bras. Le colorant permet de visualiser la circulation dans les vaisseaux de la rétine.',
+      'Elle permet de dépister certaines maladies oculaires, de documenter les anomalies et de suivre leur évolution au fil du temps.',
+    // Textes fournis par la doctoresse (PDF, étape 16.3) : pas de badge [À VALIDER]
+    validated: ['intro', 'what', 'signs', 'steps'],
+    whatTitle: 'Qu’est-ce que la rétinographie ?',
+    what: [
+      'La rétinographie est un examen rapide, indolore et non invasif qui permet de photographier le fond d’œil, notamment la rétine, la macula et le nerf optique.',
+      'Elle permet de dépister certaines maladies oculaires, de documenter les anomalies et de suivre leur évolution au fil du temps.',
+      'Grâce au rétinographe disponible au cabinet, cet examen peut être réalisé sans dilatation des pupilles dans de nombreuses situations.',
+    ],
     signsTitle: 'Quand est-elle prescrite ?',
-    signs: [
-      ['scanEye', 'Rétinopathie diabétique'],
-      ['shieldCheck', 'DMLA'],
-      ['check', 'Occlusion d’une veine ou d’une artère de la rétine'],
-      ['badgeCheck', 'Bilan d’une baisse de vision inexpliquée'],
+    signs: [],
+    signCards: [
+      ['droplet', 'Rétinopathie diabétique', 'Dépistage et surveillance des anomalies rétiniennes liées au diabète.'],
+      ['scanEye', 'DMLA', 'Détection et suivi de certaines anomalies de la macula.'],
+      ['shieldCheck', 'Glaucome', 'Photographie de la papille optique pour documenter et surveiller son aspect.'],
+      ['badgeCheck', 'Maladies vasculaires rétiniennes', 'Recherche d’hémorragies et d’autres anomalies visibles des vaisseaux rétiniens.'],
+      ['check', 'Bilan ophtalmologique', 'Documentation de l’état du fond d’œil et comparaison des images au cours du suivi.'],
     ],
     stepsTitle: 'Comment se déroule l’examen ?',
     steps: [
-      ['Préparation', 'Dilatation des pupilles avec des gouttes.'],
-      ['Injection', 'Injection d’un colorant dans une veine du bras.'],
-      ['Photographies', 'Série de photographies de la rétine.'],
-      ['Après l’examen', 'Vision gênée par la dilatation pendant quelques heures.'],
+      ['Préparation', 'Le patient est installé devant le rétinographe. Une dilatation des pupilles n’est pas nécessaire.'],
+      ['Prise des photographies', 'Le patient fixe une cible lumineuse pendant que l’appareil capture des images de la rétine. L’examen est rapide, sans contact avec l’œil et indolore.'],
+      ['Analyse des images', 'Les photographies sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de la rétine, de la macula ou du nerf optique.'],
+      ['Après l’examen', 'Le patient peut généralement reprendre immédiatement ses activités habituelles. Selon les résultats, un examen complémentaire, notamment un OCT ou un fond d’œil après dilatation, peut être nécessaire.'],
     ],
     doctor: SFO,
     faq: [
-      { q: 'Faut-il être à jeun ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Puis-je conduire après l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Y a-t-il des contre-indications ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Faut-il dilater les pupilles pour réaliser une rétinographie ?',
+        a: 'Pas systématiquement. Le rétinographe disponible au cabinet permet de photographier la rétine sans dilatation dans de nombreuses situations. Cependant, une dilatation peut être nécessaire pour obtenir de meilleures images ou réaliser un examen plus complet du fond d’œil.',
+      },
+      {
+        q: 'La rétinographie est-elle douloureuse ?',
+        a: 'Non, la rétinographie est un examen indolore, rapide et sans contact avec l’œil. Le patient doit simplement fixer une cible lumineuse pendant la prise des photographies.',
+      },
+      {
+        q: 'Combien de temps dure l’examen ?',
+        a: 'La prise des photographies ne dure généralement que quelques minutes. La durée peut être prolongée si une dilatation pupillaire est nécessaire.',
+      },
+      {
+        q: 'Peut-on conduire après une rétinographie ?',
+        a: 'Oui, généralement, si l’examen est réalisé sans dilatation. En revanche, si des gouttes dilatatrices sont utilisées, il est préférable de ne pas conduire tant que la vision n’est pas redevenue normale.',
+      },
+      {
+        q: 'La rétinographie remplace-t-elle l’examen du fond d’œil ?',
+        a: 'Non, pas systématiquement. Elle permet de photographier et de surveiller certaines structures de la rétine, mais un examen après dilatation peut être nécessaire, notamment pour explorer la périphérie rétinienne.',
+      },
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
-    related: ['retine', '@equipements', 'glaucome'],
+    related: ['retine', 'oct', 'glaucome'],
     meta: {
-      title: 'Angiographie rétinienne à Fès – Cabinet Dr Elaouni Rajae',
+      title: 'Rétinographie à Fès – Cabinet Dr Elaouni Rajae',
       description:
-        'Angiographie rétinienne au cabinet d’ophtalmologie du Dr Elaouni Rajae à Fès : examen des vaisseaux de la rétine. Tél. 05 32 39 18 18.',
+        'Rétinographie au cabinet du Dr Elaouni Rajae à Fès : photographie du fond d’œil, souvent sans dilatation des pupilles. Tél. 05 32 39 18 18.',
     },
   },
   {
-    slug: 'topographie-corneenne',
-    name: 'Topographie cornéenne',
+    slug: 'oct',
+    name: 'OCT',
     label: 'Examen',
-    photo: 'huvitz',
-    photoAlt: 'Équipement d’examen de l’œil du cabinet',
-    card: 'Cartographie de la surface de la cornée, utile pour le kératocône, les lentilles et la chirurgie réfractive.',
+    photo: 'dr-oct',
+    photoAlt: 'Dr Elaouni Rajae devant un examen OCT',
+    card: 'L’OCT (Tomographie par Cohérence Optique) est un examen rapide, indolore et non invasif qui permet d’obtenir des images en coupe très détaillées des différentes structures de l’œil.',
     intro:
-      'Une cartographie précise de la surface de la cornée, rapide et sans contact.',
-    whatTitle: 'Qu’est-ce que la topographie cornéenne ?',
-    what: 'La topographie cornéenne mesure la forme et la courbure de la cornée, la surface transparente à l’avant de l’œil. Elle produit une carte en couleurs qui aide au diagnostic et aux décisions de traitement.',
-    signsTitle: 'Quand est-elle utile ?',
-    signs: [
-      ['badgeCheck', 'Dépistage et suivi du kératocône'],
-      ['check', 'Bilan avant chirurgie réfractive'],
-      ['scanEye', 'Adaptation de lentilles de contact'],
-      ['shieldCheck', 'Astigmatisme important ou irrégulier'],
+      'Il permet de détecter précocement certaines anomalies, parfois avant l’apparition de symptômes, et de suivre leur évolution avec précision.',
+    // Textes fournis par la doctoresse (PDF, étape 16.4) : pas de badge [À VALIDER]
+    validated: ['intro', 'what', 'signs', 'steps'],
+    whatTitle: 'Qu’est-ce que l’OCT ?',
+    what: [
+      'L’OCT (Tomographie par Cohérence Optique) est un examen rapide, indolore et non invasif qui permet d’obtenir des images en coupe très détaillées des différentes structures de l’œil, notamment de la rétine, de la macula et du nerf optique.',
+      'Il permet de détecter précocement certaines anomalies, parfois avant l’apparition de symptômes, et de suivre leur évolution avec précision.',
+      'Cet examen peut être réalisé sans contact avec l’œil et, dans de nombreuses situations, sans dilatation des pupilles.',
+    ],
+    signsTitle: 'Quand est-il prescrit ?',
+    signs: [],
+    signCards: [
+      ['scanEye', 'DMLA', 'Diagnostic et surveillance des anomalies maculaires, notamment la présence de liquide rétinien.'],
+      ['droplet', 'Rétinopathie diabétique', 'Dépistage et suivi de l’œdème maculaire diabétique.'],
+      ['shieldCheck', 'Glaucome', 'Analyse de l’épaisseur des fibres nerveuses rétiniennes (RNFL) et des cellules ganglionnaires pour aider au diagnostic et au suivi.'],
+      ['badgeCheck', 'Maladies de la macula', 'Diagnostic et surveillance des membranes épirétiniennes, trous maculaires et autres anomalies maculaires.'],
+      ['check', 'Baisse de vision inexpliquée', 'Recherche d’anomalies structurelles de la rétine ou du nerf optique.'],
     ],
     stepsTitle: 'Comment se déroule l’examen ?',
     steps: [
-      ['Installation', 'Vous posez le menton sur l’appareil.'],
-      ['Mesure', 'Vous fixez une lumière quelques secondes, sans contact avec l’œil.'],
-      ['Analyse', 'La carte de la cornée est calculée.'],
-      ['Résultats', 'Les résultats sont expliqués et intégrés au bilan.'],
+      ['Préparation', 'Le patient est installé devant l’appareil OCT. Une dilatation des pupilles n’est généralement pas nécessaire.'],
+      ['Acquisition des images', 'Le patient fixe une cible lumineuse pendant que l’appareil réalise des images en coupe des structures oculaires. L’examen est rapide, sans contact avec l’œil et indolore.'],
+      ['Analyse des résultats', 'Les images sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de la rétine, de la macula ou du nerf optique et de comparer les résultats aux examens précédents.'],
+      ['Après l’examen', 'Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, des examens complémentaires ou une surveillance régulière peuvent être nécessaires.'],
     ],
-    doctor: ES_LENTILLES,
+    doctor: SFO,
     faq: [
-      { q: 'L’examen est-il douloureux ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Faut-il retirer ses lentilles avant l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Combien de temps dure l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'L’OCT est-il douloureux ?',
+        a: 'Non, l’OCT est un examen totalement indolore, non invasif et sans contact avec l’œil. Il utilise un faisceau lumineux pour obtenir des images détaillées de la rétine et du nerf optique.',
+      },
+      {
+        q: 'Faut-il dilater les pupilles pour un OCT ?',
+        a: 'Pas systématiquement. L’OCT peut généralement être réalisé sans dilatation. Cependant, des gouttes dilatatrices peuvent être nécessaires dans certaines situations pour améliorer la qualité des images.',
+      },
+      {
+        q: 'Combien de temps dure un OCT ?',
+        a: 'L’examen dure généralement entre 5 et 10 minutes, selon les zones à analyser et la coopération du patient.',
+      },
+      {
+        q: 'Peut-on conduire après un OCT ?',
+        a: 'Oui, si aucune dilatation pupillaire n’a été réalisée et que votre vision le permet. En cas de dilatation, il est recommandé d’attendre le retour à une vision normale avant de conduire.',
+      },
+      {
+        q: 'L’OCT présente-t-il des contre-indications ?',
+        a: 'L’OCT est un examen très sûr, utilisant de la lumière et non des rayons X. Il ne présente pas de contre-indication majeure connue. Certaines situations, comme une opacité importante des milieux oculaires ou une difficulté à fixer, peuvent toutefois limiter la qualité des images.',
+      },
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
-    related: ['keratocone', 'lentilles-de-contact', 'chirurgie-refractive'],
+    related: ['glaucome', 'retine', 'retinographie'],
     meta: {
-      title: 'Topographie cornéenne à Fès – Cabinet Dr Elaouni Rajae',
+      title: 'OCT (tomographie par cohérence optique) à Fès – Dr Elaouni',
       description:
-        'Topographie cornéenne au cabinet du Dr Elaouni Rajae à Fès : kératocône, lentilles de contact, bilan de chirurgie réfractive.',
+        'OCT au cabinet du Dr Elaouni Rajae à Fès : images en coupe de la rétine, de la macula et du nerf optique, sans contact. Tél. 05 32 39 18 18.',
     },
   },
   {
@@ -796,6 +846,12 @@ import { servicesContentAr } from './services-content.ar.js';
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
 const FR_ONLY = ['validated', 'callouts', 'situations', 'signCards', 'warnings'];
 
+// Un service existe-t-il dans cette langue ? (Rétinographie et OCT : FR seulement
+// jusqu'à l'étape 18 — TODO AR : ajouter leur traduction dans services-content.ar.js)
+export function serviceAvailable(slug, lang = 'fr') {
+  return Boolean(serviceBySlug(slug) && (lang === 'fr' || servicesContentAr[slug]));
+}
+
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
   if (!base || lang === 'fr') return base;
@@ -828,5 +884,5 @@ export const serviceGroups = [
   { title: 'Consultation et suivi', slugs: ['consultation-depistage', 'ophtalmologie-pediatrique', 'glaucome', 'retine'] },
   { title: 'Chirurgie et traitements', slugs: ['cataracte', 'chirurgie-refractive', 'strabisme', 'laser'] },
   { title: 'Cornée et lentilles', slugs: ['keratocone', 'lentilles-de-contact'] },
-  { title: 'Examens au cabinet', slugs: ['echographie-oculaire', 'angiographie-retinienne', 'topographie-corneenne'] },
+  { title: 'Examens au cabinet', slugs: ['echographie-oculaire', 'retinographie', 'oct'] },
 ];

@@ -266,3 +266,32 @@ Clé : `'echographie-oculaire'`.
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
 - [ ] `steps[2]` (« Durée ») : traduire « L’examen dure généralement entre 5 et 15 minutes,
       selon les structures à examiner et les mesures nécessaires. » (aligné sur la FAQ).
+
+## Étape 16 — Services : Angiographie et Topographie → Rétinographie et OCT
+
+Déjà fait en AR (pour ne laisser aucun lien cassé) :
+- [x] Pages `ar/services/angiographie-retinienne/` et `ar/services/topographie-corneenne/`
+      supprimées, redirections **301** vers `/ar/services/` (`vercel.json`).
+- [x] Menu AR à **10 services** ; page « الخدمات » à 11 cartes ; services liés AR sans
+      lien mort ; liens retirés de « Examens réalisés au cabinet » (`ar/equipements/`).
+- [x] Accueil AR : compteurs passés de 12 à **10** (bande verte, bouton mobile, chiffres).
+
+À faire à l'étape 18 :
+- [ ] **Traduire** les deux nouveaux services dans `src/data/services-content.ar.js`
+      (nouvelles clés `retinographie` et `oct`) : `name`, `label`, `photoAlt`, `card`,
+      `intro`, `whatTitle`, `what` (3 paragraphes), `signsTitle`, `signCards`
+      (5 cartes titre + texte), `stepsTitle`, `steps` (4), `doctor`, `faq` (5 questions
+      avec réponses), `ctaTitle`, `meta` (title ≤ 65 car., description 70–160).
+- [ ] **Créer les pages** `ar/services/retinographie/index.html` et `ar/services/oct/index.html`
+      (copie d'une page service AR, même gabarit).
+- [ ] **Menu** : noms arabes dans `src/data/site.js` (`services` → `ar: null` à remplacer)
+      → le menu AR repasse à 12.
+- [ ] **Accueil AR** (`ar/index.html`) : remettre **12** aux 3 endroits marqués
+      `TODO AR (étape 18)`.
+- [ ] **Équipements AR** : ajouter Rétinographie et OCT dans « Examens réalisés au cabinet »
+      (emplacement marqué `TODO AR`) ; liens des blocs rétinographe → `/ar/services/retinographie/`
+      et OCT → `/ar/services/oct/` (comme en FR).
+- [ ] **Services liés** : `retine.related` AR → retirer la surcharge (`TODO AR`) pour
+      reprendre le FR (`retinographie`, `oct`, `glaucome`).
+- [ ] Vérifier ensuite : hreflang FR ↔ AR et sélecteur de langue des 2 pages (aujourd'hui
+      ils mènent à `/ar/services/`), sitemap (46 URL), JSON-LD FAQ AR.
