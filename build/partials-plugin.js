@@ -105,9 +105,25 @@ function writeSeoFiles(outDir, pageKeys, siteUrl) {
   return entries.length;
 }
 
+// Badges de travail [À VALIDER …] et [À COMPLÉTER …] (FR et AR).
+// SHOW_DRAFT_BADGES=true → affichés ; =false → retirés. Sans variable : affichés
+// en dev (npm run dev), retirés au build (production). Les textes restent dans le
+// code et dans textes-a-valider.md.
+const DRAFT_BADGE = /[ \t]?<span class="placeholder">\[À (?:VALIDER|COMPLÉTER)\b[^\]]*\]<\/span>[ \t]?/g;
+function stripDraftBadges(html) {
+  return html
+    // blocs qui ne contiennent qu'un placeholder (titre + texte à compléter) : retirés en entier
+    .replace(/[ \t]*<(div|p)\b[^>]*\sdata-draft\b[^>]*>[\s\S]*?<\/\1>[ \t]*\n?/g, '')
+    .replace(DRAFT_BADGE, (m) => (/^\s/.test(m) && /\s$/.test(m) ? ' ' : ''))
+    .replace(/<p class="svc-note">\s*<\/p>\s*/g, '') // note de section devenue vide
+    .replace(/<p>\s*<\/p>/g, ''); // paragraphe dont le seul contenu était le badge
+}
+
 export default function partialsPlugin({ root, pages = [] }) {
   let server;
   let outDir;
+  const showDraftBadges = () =>
+    process.env.SHOW_DRAFT_BADGES ? process.env.SHOW_DRAFT_BADGES === 'true' : Boolean(server);
 
   async function load(entry) {
     if (server) return server.ssrLoadModule(entry);
@@ -149,7 +165,7 @@ export default function partialsPlugin({ root, pages = [] }) {
       async handler(html, ctx) {
         // Notes internes (« <!-- TODO … --> ») : gardées dans les sources, jamais publiées
         html = html.replace(/[ \t]*<!--\s*TODO[\s\S]*?-->[ \t]*\n?/g, '');
-        if (!html.includes('<!-- @')) return html;
+        if (!html.includes('<!-- @')) return showDraftBadges() ? html : stripDraftBadges(html);
         const page = pageInfo(ctx.path);
 
         if (html.includes('@partial') &&(page.lang === 'fr' || page.lang === 'ar')) {
@@ -180,7 +196,7 @@ export default function partialsPlugin({ root, pages = [] }) {
           html = html.replace('</head>', `${faqJsonLd(html, exclude)}</head>`);
         }
 
-        return html;
+        return showDraftBadges() ? html : stripDraftBadges(html);
       },
     },
   };

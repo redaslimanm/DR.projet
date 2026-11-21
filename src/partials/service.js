@@ -8,7 +8,6 @@ export const UI = {
   fr: {
     home: 'Accueil', services: 'Services', crumb: 'Fil d’Ariane', rdv: 'Prendre rendez-vous',
     doctorAria: 'Le médecin', doctorName: 'Dr Elaouni Rajae', faq: 'Questions fréquentes',
-    faqTodo: '[À VALIDER : réponse à rédiger par le Dr Elaouni]',
     ctaText: 'Le secrétariat vous répond du lundi au vendredi de 9h à 17h et le samedi de 9h à 13h.',
     call: 'Appeler le', wa: 'Écrire sur WhatsApp', related: 'Services liés',
     equip: 'Examens complémentaires (OCT, échographie)', more: 'En savoir plus',
@@ -16,7 +15,6 @@ export const UI = {
   ar: {
     home: 'الرئيسية', services: 'الخدمات', crumb: 'مسار التنقل', rdv: 'احجز موعدك',
     doctorAria: 'الطبيبة', doctorName: 'الدكتورة العوني رجاء', faq: 'أسئلة شائعة',
-    faqTodo: '[À VALIDER : réponse à rédiger par le Dr Elaouni]',
     ctaText: 'تجيبكم الكتابة من الإثنين إلى الجمعة من 9:00 إلى 17:00، ويوم السبت من 9:00 إلى 13:00.',
     call: 'اتصلوا على', wa: 'راسلونا عبر واتساب', related: 'خدمات ذات صلة',
     equip: 'فحوصات تكميلية (OCT، الإكوغرافيا)', more: 'اكتشف',
@@ -36,14 +34,10 @@ const paras = (text) => (Array.isArray(text) ? text : [text]);
 
 // FAQ : { q, a } = question avec réponse ; { q, draft: true } = question sans
 // réponse, NON affichée (en attente de la doctoresse) ; chaîne = ancien format
-// (AR) affiché avec la réponse placeholder. { schema: false } = exclue du JSON-LD.
-function faqItem(item, u) {
-  if (typeof item === 'string') {
-    return `<details class="faq__item">
-            <summary>${item}<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
-            <p><span class="placeholder">${u.faqTodo}</span></p>
-          </details>`;
-  }
+// AR (question sans réponse) : NON affichée non plus. { schema: false } = exclue du JSON-LD.
+const isPublished = (q) => typeof q !== 'string' && !q.draft;
+
+function faqItem(item) {
   const attr = item.schema === false ? ' data-schema="off"' : '';
   // réponse : chaîne, ou tableau de paragraphes (un sous-tableau = liste à puces)
   const body = paras(item.a)
@@ -138,13 +132,13 @@ function warningsSection(w) {
 
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
 function faqSection(s, u) {
-  const items = s.faq.filter((q) => typeof q === 'string' || !q.draft);
+  const items = s.faq.filter(isPublished);
   if (!items.length) return '';
   return `<section class="svc-section" aria-labelledby="svc-faq">
       <div class="container svc-container">
         <h2 id="svc-faq">${u.faq}</h2>
         <div class="faq faq--bordered">
-          ${items.map((q) => faqItem(q, u)).join('\n          ')}
+          ${items.map(faqItem).join('\n          ')}
         </div>
       </div>
     </section>`;
@@ -205,7 +199,7 @@ export function service(page) {
       </div>
     </section>
 
-    <section class="svc-section" aria-labelledby="svc-signs">
+    ${s.hideSigns ? '' : `<section class="svc-section" aria-labelledby="svc-signs">
       <div class="container svc-container">
         <h2 id="svc-signs">${s.signsTitle}</h2>
         ${todo(s, 'signs') && `<p class="svc-note">${TODO}</p>`}
@@ -224,7 +218,7 @@ export function service(page) {
         }
         ${(s.callouts || []).map(callout).join('\n        ')}
       </div>
-    </section>
+    </section>`}
 
     <section class="svc-section" aria-labelledby="svc-steps">
       <div class="container svc-container">

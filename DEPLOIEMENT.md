@@ -26,6 +26,7 @@ Réglages à saisir (identiques partout) :
 - **Dossier publié** : `dist`
 - **Version de Node** : 22
 - **Variable d'environnement** `SITE_URL` : l'adresse définitive, ex. `https://www.dr-elaouni.ma` (sans `/` final). Tant qu'elle n'est pas définie, le site utilise une adresse provisoire dans les balises SEO.
+- **Variable d'environnement** `SHOW_DRAFT_BADGES` (facultative) : `true` affiche les badges de travail `[À VALIDER]` / `[À COMPLÉTER]` et les blocs `data-draft` (FR et AR) ; `false` les retire. Sans variable : affichés avec `npm run dev`, **retirés au build** (production). Les textes restent dans le code et dans `textes-a-valider.md`.
 
 Chaque `git push` sur `master` redéploie le site automatiquement (environ 1 minute). Les autres branches donnent des adresses de prévisualisation (pratique pour faire valider un changement par la doctora).
 

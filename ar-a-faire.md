@@ -7,6 +7,18 @@ Ce fichier liste, étape par étape, tout ce qu'il faudra reporter en AR pour qu
 
 Les traductions et les images en arabe seront fournies, validées par la doctoresse.
 
+## Déjà corrigé en AR avant publication (voir `parite-fr-ar.md`)
+
+- [x] Conventions retirées (encadré, question FAQ + JSON-LD, Contact, meta `/ar/faq/`).
+- [x] Documents : « البطاقة الوطنية » seule ; compteur imagerie : 3.
+- [x] Durée : « حوالي 15 دقيقة، وقد تزيد حسب الفحوصات التكميلية اللازمة. » (accueil, FAQ,
+      Consultation) — TODO point client 2.
+- [x] FAQ AR : les questions sans réponse (chaînes) ne s'affichent plus ; **aucune page
+      service AR n'a de FAQ** tant que les réponses ne sont pas traduites (format `{ q, a }`).
+- [x] Laser AR : section « في أي حالات؟ » masquée (`hideSigns: true` dans
+      `services-content.ar.js`) → **à retirer** quand les 4 situations seront traduites.
+      L'étape 3 « الحصة » s'affiche sans texte (placeholder retiré) → à traduire.
+
 ## Mécanique (à connaître avant de commencer)
 
 - Pages services AR = données FR (`src/data/services-content.js`) **fusionnées** avec
@@ -39,6 +51,9 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   avec les mêmes règles (vraies réponses, sans doublon avec `/ar/faq/`).
 - Badge `[À VALIDER]` : en AR il est affiché partout ; une fois la traduction validée,
   ajouter le champ `validated` en AR (même valeur qu'en FR) ou le retirer de `FR_ONLY`.
+- Badges de travail : `SHOW_DRAFT_BADGES` (voir `DEPLOIEMENT.md`) ; blocs `data-draft`
+  retirés en production. Vérifier à l'étape 18 qu'aucun texte français ne reste visible avec
+  le réglage de production.
 - Contrôle final : parité page par page (mêmes sections), aucun texte français sur une
   page AR, aucune image cassée, mise en page RTL correcte.
 
@@ -54,17 +69,17 @@ Fichiers : `ar/index.html`, `ar/faq/index.html`, `ar/contact/index.html`, `src/d
       `class="is-tall"`, **alt à traduire**. **Image avec texte français** (logo officiel,
       pas de version arabe possible) : pas encore affichée en AR ; à décider avec la
       doctoresse (les autres logos en lettres latines, comme SFO, sont déjà affichés en AR).
-- [ ] **Chiffres clés** (`ar/index.html`, section `.stats`) : « 5 » → « 3 » examens
+- [x] **Chiffres clés** (fait) (`ar/index.html`, section `.stats`) : « 5 » → « 3 » examens
       d’imagerie (le libellé AR reste à vérifier). Le bug des compteurs en double est
       déjà corrigé en AR (HTML).
-- [ ] **Encadré « الاتفاقيات »** (CNSS, CNOPS…) à supprimer dans « Préparer votre visite ».
-- [ ] **Documents à apporter** : CIN uniquement (retirer « ورقة الانخراط في التعاضدية ») —
+- [x] **Encadré « الاتفاقيات »** supprimé (correction avant publication).
+- [x] **Documents à apporter** (fait) : CIN uniquement (retirer « ورقة الانخراط في التعاضدية ») —
       encadré de l'accueil, FAQ de l'accueil, `ar/faq/index.html`, `ar/contact/index.html`.
-- [ ] **Question « ما هي الاتفاقيات المعمول بها؟ »** à retirer de `ar/faq/index.html`.
-- [ ] **FAQ « كم يستغرق الفحص؟ »** (accueil + `ar/faq/`) : traduire « Environ 15 minutes,
+- [x] **Question « ما هي الاتفاقيات المعمول بها؟ »** retirée de `ar/faq/index.html`.
+- [x] **FAQ « كم يستغرق الفحص؟ »** (fait, texte fourni ; à revoir selon le point client 2) (accueil + `ar/faq/`) : traduire « Environ 15 minutes,
       voire plus selon les examens complémentaires nécessaires. » — **selon la durée
       confirmée** (point client 2).
-- [ ] **Meta description** de la page FAQ AR (`src/data/meta.js`, clé `ar` → `'faq/'`) :
+- [x] **Meta description** (fait) de la page FAQ AR (`src/data/meta.js`, clé `ar` → `'faq/'`) :
       retirer « اتفاقيات CNSS و CNOPS » (comme en FR).
 - [ ] **Badges CNSS · CNOPS · التعاضديات** (hero ligne 37 + bande verte mobile ligne 75) :
       même décision qu'en FR (point client 3).
