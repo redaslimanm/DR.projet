@@ -141,7 +141,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 
 1. Barre haute (horaires, adresse, switch FR/AR) — desktop uniquement
 2. Header sticky : logo, menu (burger en mobile), bouton RDV
-3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photo de la doctora (bras croisés) dans une arche avec un cercle doré derrière, badge « Formée au Royaume-Uni — Collège Royal des Ophtalmologues »
+3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photo de la doctora (bras croisés) dans une arche avec un cercle doré derrière (badge « Formée au Royaume-Uni » retiré à la demande, nov. 2026)
 4. Bande de confiance (fond vert) : 12 spécialités · diplômes UK/Espagne · membre SFO · OCT/rétinographe/échographie
 5. Services : 8 cartes numérotées (01, 02…) + « Voir tous les services »
 6. À propos : photo devant l'OCT + texte + liste des diplômes + bouton

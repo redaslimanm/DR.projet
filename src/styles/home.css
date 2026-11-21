@@ -79,27 +79,6 @@
   border-radius: 145px 145px 0 0;
 }
 
-.hero__badge {
-  position: absolute;
-  inset-inline-end: 0;
-  inset-block-end: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-inline-size: 170px;
-  padding: 10px 14px;
-  background: var(--c-white);
-  border-radius: 14px;
-  box-shadow: 0 10px 24px rgba(47, 79, 58, 0.14);
-  font-size: 0.75rem;
-  line-height: 1.35;
-}
-.hero__badge strong {
-  display: block;
-  font-size: 0.8125rem;
-  color: var(--c-green);
-}
-.hero__badge-icon { display: none; }
 
 /* ===================== Bande de confiance ===================== */
 .trust {
@@ -519,28 +498,6 @@
   }
   .hero__photo img { border-radius: 220px 220px 0 0; }
 
-  .hero__badge {
-    inset-inline: 0 auto;
-    inset-block-end: var(--sp-8);
-    gap: 14px;
-    max-inline-size: 270px;
-    padding: var(--sp-2) 20px;
-    border-radius: var(--radius-card);
-    box-shadow: 0 12px 32px rgba(47, 79, 58, 0.14);
-    font-size: 0.8125rem;
-    line-height: 1.4;
-  }
-  .hero__badge strong { font-size: var(--fs-small); }
-  .hero__badge-icon {
-    display: grid;
-    flex: none;
-    place-items: center;
-    inline-size: 44px;
-    block-size: 44px;
-    background: var(--c-green);
-    border-radius: 50%;
-    color: var(--c-gold-light);
-  }
 
   /* Bande de confiance */
   .trust__list {

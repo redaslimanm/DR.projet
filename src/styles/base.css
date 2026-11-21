@@ -182,7 +182,7 @@ summary::-webkit-details-marker {
 /* Arabe : tous les éléments qui forcent Montserrat / Cormorant passent en Tajawal */
 html[lang='ar'] :is(
   .group-title, .related__title, .article-card h2, .site-nav__link,
-  .service-card__title, .btn, .hero__badge, .quote figcaption, .footer, .topbar
+  .service-card__title, .btn, .quote figcaption, .footer, .topbar
 ) {
   font-family: var(--ff-ar);
 }
