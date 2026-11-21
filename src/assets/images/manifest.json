@@ -139,5 +139,77 @@
       800,
       820
     ]
+  },
+  "autorefractometre": {
+    "width": 1071,
+    "height": 1312,
+    "widths": [
+      480,
+      800,
+      1071
+    ]
+  },
+  "phoropteur": {
+    "width": 1199,
+    "height": 1312,
+    "widths": [
+      480,
+      800,
+      1199
+    ]
+  },
+  "phoropteur-console": {
+    "width": 1199,
+    "height": 1312,
+    "widths": [
+      480,
+      800,
+      1199
+    ]
+  },
+  "ecran-acuite-visuelle": {
+    "width": 840,
+    "height": 1434,
+    "widths": [
+      480,
+      800,
+      840
+    ]
+  },
+  "frontofocometre-huvitz": {
+    "width": 1199,
+    "height": 1312,
+    "widths": [
+      480,
+      800,
+      1199
+    ]
+  },
+  "lampe-a-fente": {
+    "width": 1037,
+    "height": 1448,
+    "widths": [
+      480,
+      800,
+      1037
+    ]
+  },
+  "lampe-a-fente-volk": {
+    "width": 1199,
+    "height": 1312,
+    "widths": [
+      480,
+      800,
+      1199
+    ]
+  },
+  "tonometre": {
+    "width": 1112,
+    "height": 1415,
+    "widths": [
+      480,
+      800,
+      1112
+    ]
   }
 }

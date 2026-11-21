@@ -96,8 +96,12 @@
   object-fit: cover;
   border-radius: 18px;
 }
+/* Plusieurs photos pour un même équipement : grille de 2 colonnes */
+.equip-row__media--grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.equip-row__media--grid img { block-size: auto; aspect-ratio: 4 / 5; border-radius: 14px; }
 .equip-row h2 { font-size: 1.75rem; margin-block-end: var(--sp-1); }
 .equip-row p { color: var(--c-text-muted); }
+.equip-row p + p { margin-block-start: 10px; }
 .equip-row .link-underline { margin-block-start: var(--sp-2); }
 
 /* ---------- Galerie (page cabinet) ----------
@@ -213,6 +217,8 @@ html[lang='ar'] .hours-card__title { font-family: var(--ff-ar); }
   .equip-row:nth-child(even) { flex-direction: row-reverse; }
   .equip-row__media { flex: 0 0 48%; }
   .equip-row__media img { block-size: 360px; border-radius: 22px; }
+  .equip-row__media--grid { gap: var(--sp-2); }
+  .equip-row__media--grid img { block-size: auto; border-radius: 18px; }
   .equip-row h2 { font-size: var(--fs-h2); }
 
   .gallery-page {

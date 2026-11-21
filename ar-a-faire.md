@@ -101,3 +101,22 @@ Clé : `glaucome`.
       de la papille optique, OCT du nerf optique et champ visuel. »
 - [ ] FAQ : aucune réponse fournie pour l'instant (3 questions en `draft` en FR, section
       FAQ masquée en FR). En AR, aligner sur le FR quand les réponses seront données.
+
+## Étape 6 — Page « Équipements »
+
+Fichier : `ar/equipements/index.html` (page HTML, pas de données partagées). Reprendre
+la structure de `fr/equipements/index.html` (même ordre des 7 blocs).
+
+- [ ] **Nouveau bloc** « Autoréfractomètre, phoroptère et écran d’acuité visuelle » :
+      titre + 5 paragraphes à traduire ; grille de 4 photos
+      (`autorefractometre`, `phoropteur`, `phoropteur-console`, `ecran-acuite-visuelle`,
+      classe `equip-row__media--grid`) ; 4 alt à traduire ; lien Consultation.
+- [ ] **Frontofocomètre** : remplacer la photo `frontofocometre` par
+      `frontofocometre-huvitz` (alt à traduire). Ensuite, l'image `frontofocometre`
+      ne sert plus : la retirer de `scripts/optimize-images.py` et de `src/assets/images/`.
+- [ ] **Lampe à fente** : le bloc AR « المصباح الشقي وجهاز قياس الانكسار » (photo
+      `huvitz`) devient « Lampe à fente » : titre + 3 paragraphes à traduire ;
+      grille de 2 photos (`lampe-a-fente`, `lampe-a-fente-volk`), 2 alt à traduire.
+- [ ] **Nouveau bloc** « Le tonomètre – Mesure de la pression intraoculaire » :
+      titre + 2 paragraphes à traduire ; photo `tonometre` (alt à traduire) ; lien Glaucome.
+- [ ] Images : aucune ne contient de texte en français (écrans d'appareils seulement).

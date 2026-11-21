@@ -41,6 +41,14 @@ IMAGES = {
     # --- Cahier des modifications (tsawer-site/) ---
     "pediatrie-hero": TS / "02-pediatrie" / "pediatrie-hero.png",     # affiche dépistage enfant (texte FR)
     "strabisme-hero": TS / "03-strabisme" / "strabisme-hero.jpg",     # affiche strabisme enfant (texte FR)
+    "autorefractometre": TS / "04-equipements" / "autorefractometre.jpg",
+    "phoropteur": TS / "04-equipements" / "phoropteur.jpg",
+    "phoropteur-console": TS / "04-equipements" / "phoropteur-console.jpg",
+    "ecran-acuite-visuelle": TS / "04-equipements" / "ecran-acuite-visuelle.jpg",
+    "frontofocometre-huvitz": TS / "04-equipements" / "frontofocometre.jpg",  # remplace « frontofocometre » (gardé en AR)
+    "lampe-a-fente": TS / "04-equipements" / "lampe-a-fente-1.jpg",
+    "lampe-a-fente-volk": TS / "04-equipements" / "lampe-a-fente-2-lentilles-volk.jpg",
+    "tonometre": TS / "04-equipements" / "tonometre.png",
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords
