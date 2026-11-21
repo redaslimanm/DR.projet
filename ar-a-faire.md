@@ -264,3 +264,5 @@ Clé : `'lentilles-de-contact'`.
 Clé : `'echographie-oculaire'`.
 
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
+- [ ] `steps[2]` (« Durée ») : traduire « L’examen dure généralement entre 5 et 15 minutes,
+      selon les structures à examiner et les mesures nécessaires. » (aligné sur la FAQ).

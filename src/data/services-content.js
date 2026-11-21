@@ -605,7 +605,8 @@ export const servicesContent = [
     steps: [
       ['Installation', 'Vous êtes installé confortablement, paupières fermées.'],
       ['Examen', 'Une sonde avec du gel est posée sur la paupière.'],
-      ['Durée', 'L’examen ne dure que quelques minutes.'],
+      // Durée alignée sur la réponse de la doctoresse (PDF, étape 15)
+      ['Durée', 'L’examen dure généralement entre 5 et 15 minutes, selon les structures à examiner et les mesures nécessaires.'],
       ['Résultats', 'Les images sont analysées et expliquées.'],
     ],
     doctor: GENERAL,

@@ -882,7 +882,7 @@ Adresse prévue : `/fr/services/echographie-oculaire/`
 
 1. **Installation** — Vous êtes installé confortablement, paupières fermées.
 2. **Examen** — Une sonde avec du gel est posée sur la paupière.
-3. **Durée** — L’examen ne dure que quelques minutes.
+3. **Durée** — L’examen dure généralement entre 5 et 15 minutes, selon les structures à examiner et les mesures nécessaires.
 4. **Résultats** — Les images sont analysées et expliquées.
 
 - [ ] Validé tel quel
