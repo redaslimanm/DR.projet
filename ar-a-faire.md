@@ -13,7 +13,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   `src/data/services-content.ar.js` (fonction `localizedService`).
 - `FR_ONLY` (dans `services-content.js`) : champs FR jamais affichés en AR tant qu'ils
   ne sont pas traduits. Quand un champ est traduit dans `services-content.ar.js`, le
-  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`.
+  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`.
 - **Règle images (en vigueur depuis l'étape 9)** :
   - photos **sans texte** → affichées en AR **dès maintenant** (alt AR existant réutilisé
     quand il décrit bien la photo, sinon alt AR **provisoire** marqué `TODO AR`) ;
@@ -30,6 +30,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   - `src/data/services-content.ar.js` → `cataracte.photosAlt` (2 alt) ;
   - `ar/cabinet/index.html` → photo `cabinet-deco` (alt + légende « ديكور العيادة »).
   - `src/data/services-content.ar.js` → `'chirurgie-refractive'.photoAlt` (nouvelle photo).
+  - `src/data/services-content.ar.js` → `laser.photosAlt` (2 alt).
 - FAQ AR : actuellement des chaînes (questions sans réponse, placeholder affiché). À
   passer au format FR `{ q, a }` (réponses traduites). Le JSON-LD FAQPage des pages
   services est aujourd'hui limité au FR (`build/partials-plugin.js`) : l'ouvrir à l'AR
@@ -199,3 +200,22 @@ Clé : `'chirurgie-refractive'`.
 - [ ] `faq` : 6 questions **avec réponses** à traduire (format `{ q, a }`), même ordre.
       La question « Combien de temps dure le bilan ? » est en `draft` en FR : la masquer
       aussi en AR tant qu'elle n'a pas de réponse.
+
+## Étape 12 — Page « Laser »
+
+Clé : `laser`.
+
+- [x] **Illustrations** `laser-1`, `laser-2` (sans texte, `photos` + `photosLayout: 'equal'`) :
+      **déjà affichées en AR**.
+- [ ] `photosAlt` : 2 alt AR **provisoires** à remplacer (`TODO AR`).
+- [ ] `what` : 3 paragraphes à traduire (« À quoi sert le laser en ophtalmologie ? »).
+- [ ] `situations` (**nouveau champ**, liste numérotée titre + texte) : 4 situations à
+      traduire (PPR, déchirures rétiniennes, iridotomie YAG, capsulotomie YAG), puis
+      retirer `situations` de `FR_ONLY`. Les cartes AR actuelles (`signs`, avec
+      placeholders [À COMPLÉTER]) disparaissent alors de la page.
+- [ ] `stepsTitle` (« Comment se déroule une séance de laser ? ») + `steps` : 4 étapes à
+      traduire.
+- [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
+- [ ] Badge `[À VALIDER]` à retirer sur `what`, `signs`, `steps`.
+- [ ] `card` et `intro` AR contiennent encore « [À COMPLÉTER : types de laser] » (comme le FR) :
+      à aligner sur le FR quand le texte sera fourni.

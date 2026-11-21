@@ -57,6 +57,8 @@ IMAGES = {
     "cataracte-1": TS / "07-cataracte" / "cataracte-1.jpg",           # au microscope opératoire (paysage)
     "cataracte-2": TS / "07-cataracte" / "cataracte-2.jpg",           # au bloc, plateforme Centurion (portrait)
     "chirurgie-refractive": TS / "08-chirurgie-refractive" / "chirurgie-refractive.jpg",  # patiente sous le laser
+    "laser-1": TS / "09-laser" / "laser-1.png",                       # schéma en coupe, faisceau laser
+    "laser-2": TS / "09-laser" / "laser-2.jpg",                       # patient à la lampe à fente, lentille laser
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

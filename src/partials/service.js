@@ -89,6 +89,18 @@ function relatedLink(key, lang) {
   return `<li><a href="/${lang}/services/${s.slug}/">${s.name} <!-- @icon arrowRight 16 --></a></li>`;
 }
 
+// Liste numérotée (déroulement, ou situations détaillées) : [titre, texte]
+function stepsList(items) {
+  return `<ol class="steps" role="list">
+          ${items
+            .map(
+              ([t, d], i) =>
+                `<li class="step"><span class="step__num" aria-hidden="true">${i + 1}</span><div><h3>${t}</h3><p>${ph(d)}</p></div></li>`,
+            )
+            .join('\n          ')}
+        </ol>`;
+}
+
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
 function faqSection(s, u) {
   const items = s.faq.filter((q) => typeof q === 'string' || !q.draft);
@@ -131,11 +143,17 @@ export function service(page) {
 
     ${
       s.photos
-        ? `<div class="svc-photos">
+        ? `<div class="svc-photos${s.photosLayout === 'equal' ? ' svc-photos--equal' : ''}">
       ${s.photos
         .map(
           (p, i) =>
-            `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="${i === 0 ? '(min-width: 64em) 680px, 60vw' : '(min-width: 64em) 460px, 40vw'}" class="svc-photos__item"${i === 0 ? ' eager' : ''} -->`,
+            `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="${
+              s.photosLayout === 'equal'
+                ? '(min-width: 64em) 570px, 50vw'
+                : i === 0
+                  ? '(min-width: 64em) 680px, 60vw'
+                  : '(min-width: 64em) 460px, 40vw'
+            }" class="svc-photos__item"${i === 0 ? ' eager' : ''} -->`,
         )
         .join('\n      ')}
     </div>`
@@ -155,9 +173,13 @@ export function service(page) {
       <div class="container svc-container">
         <h2 id="svc-signs">${s.signsTitle}</h2>
         ${todo(s, 'signs') && `<p class="svc-note">${TODO}</p>`}
-        <ul class="sign-grid" role="list">
+        ${
+          s.situations
+            ? stepsList(s.situations)
+            : `<ul class="sign-grid" role="list">
           ${s.signs.map(([icon, text]) => `<li class="sign-card"><!-- @icon ${icon} 22 1.6 --><span>${ph(text)}</span></li>`).join('\n          ')}
-        </ul>
+        </ul>`
+        }
         ${(s.callouts || []).map(callout).join('\n        ')}
       </div>
     </section>
@@ -166,14 +188,7 @@ export function service(page) {
       <div class="container svc-container">
         <h2 id="svc-steps">${s.stepsTitle}</h2>
         ${todo(s, 'steps') && `<p class="svc-note">${TODO}</p>`}
-        <ol class="steps" role="list">
-          ${s.steps
-            .map(
-              ([t, d], i) =>
-                `<li class="step"><span class="step__num" aria-hidden="true">${i + 1}</span><div><h3>${t}</h3><p>${ph(d)}</p></div></li>`,
-            )
-            .join('\n          ')}
-        </ol>
+        ${stepsList(s.steps)}
       </div>
     </section>
 

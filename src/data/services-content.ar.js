@@ -319,6 +319,11 @@ export const servicesContentAr = {
     },
   },
   laser: {
+    // TODO AR (étape 18) : alt provisoires des 2 illustrations (champ FR `photos`), à remplacer par la traduction validée
+    photosAlt: [
+      'رسم توضيحي لمقطع من العين: شعاع ليزر يعبر العدسة حتى الشبكية',
+      'مريض أمام المصباح الشقي أثناء علاج بالليزر، مع عدسة موضوعة على العين',
+    ],
     name: 'الليزر',
     label: 'علاج',
     photoAlt: 'قاعة الفحص بالعيادة',

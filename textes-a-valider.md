@@ -1022,7 +1022,11 @@ Adresse prévue : `/fr/services/laser/`
 
 **« À quoi sert le laser en ophtalmologie ? »**
 
-> Le laser permet de traiter certaines pathologies de l’œil de façon ciblée. Le type de laser et son intérêt dépendent de la maladie à traiter ; l’indication est toujours posée après un examen complet.
+> Le laser est une technologie utilisée en ophtalmologie pour traiter certaines maladies de la rétine, du glaucome et des complications survenant après une chirurgie de la cataracte.
+>
+> Il permet d’agir de manière ciblée sur les structures de l’œil, généralement sans incision chirurgicale. Le type de laser utilisé dépend de la pathologie et de l’objectif du traitement.
+>
+> Un examen ophtalmologique approfondi est indispensable pour déterminer l’indication du laser.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -1037,29 +1041,35 @@ Adresse prévue : `/fr/services/laser/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Comment se déroule la séance ? » (4 étapes)**
+**« Comment se déroule une séance de laser ? » (4 étapes)**
 
-1. **Consultation** — Examen complet et décision du traitement.
-2. **Préparation** — Gouttes et installation à l’appareil.
-3. **Séance** — [À COMPLÉTER : déroulement de la séance]
-4. **Suivi** — Contrôle après la séance.
+1. **Consultation** — Un examen ophtalmologique complet permet d’établir le diagnostic, de confirmer l’indication du laser et d’expliquer les bénéfices ainsi que les risques du traitement.
+2. **Préparation** — Des gouttes sont instillées pour préparer l’œil. Selon le type de laser, elles permettent de dilater ou de contracter la pupille et d’anesthésier la surface oculaire.
+3. **Séance de laser** — Le patient est installé devant un appareil spécifique. Le médecin dirige les impacts laser vers la zone à traiter, parfois à l’aide d’une lentille de contact. La séance dure généralement quelques minutes à plusieurs dizaines de minutes selon le traitement. Une gêne ou une douleur transitoire peut être ressentie, particulièrement lors de certaines photocoagulations rétiniennes.
+4. **Suivi** — Un contrôle ophtalmologique est organisé selon le type de laser réalisé afin de vérifier l’efficacité du traitement et de rechercher d’éventuelles complications. Certaines pathologies peuvent nécessiter plusieurs séances ou des traitements complémentaires.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Questions fréquentes**
 
-**Le laser est-il douloureux ?** (non affichée sur le site)
+**Le laser est-il douloureux ?**
 
-Réponse à rédiger :
+> La plupart des traitements au laser sont bien tolérés grâce à l’utilisation de gouttes anesthésiantes. Une légère gêne ou une sensation de picotement peut être ressentie. Cependant, certains traitements, notamment la photocoagulation panrétinienne (PPR), peuvent être plus douloureux. Le confort varie selon le type de laser et la sensibilité de chaque patient.
 
-**Combien de séances faut-il ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Combien de séances faut-il ?**
 
-**Peut-on reprendre ses activités après la séance ?** (non affichée sur le site)
+> Le nombre de séances dépend de la maladie traitée et du type de laser utilisé. Une seule séance suffit généralement pour une iridotomie ou une capsulotomie au laser YAG. En revanche, la photocoagulation panrétinienne peut nécessiter plusieurs séances. Le traitement des déchirures rétiniennes est souvent réalisé en une séance, mais des séances complémentaires peuvent parfois être nécessaires.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Peut-on reprendre ses activités après la séance ?**
+
+> La plupart des patients peuvent reprendre progressivement leurs activités habituelles après un traitement au laser. Cependant, une vision floue temporaire, une sensibilité à la lumière ou une gêne oculaire peuvent survenir, notamment après une dilatation pupillaire. Il est recommandé d’éviter de conduire tant que la vision n’est pas redevenue normale et de respecter les consignes spécifiques données par l’ophtalmologue.
+
+(texte fourni par la doctoresse)
 
 ---
 

@@ -633,27 +633,55 @@ export const servicesContent = [
     card: 'Traitements au laser de certaines pathologies de l’œil, selon l’indication posée en consultation. [À COMPLÉTER : types de laser]',
     intro:
       'Des traitements au laser pour certaines pathologies de l’œil, lorsque l’indication est posée en consultation. [À COMPLÉTER : types de laser disponibles au cabinet]',
+    // FR : deux illustrations (remplacent la photo ci-dessus, gardée seulement si `photos` absent)
+    photos: [
+      { name: 'laser-1', alt: 'Schéma en coupe d’un œil : un faisceau laser traverse le cristallin jusqu’à la rétine' },
+      { name: 'laser-2', alt: 'Patient installé à la lampe à fente pendant un traitement au laser, une lentille posée sur l’œil' },
+    ],
+    photosLayout: 'equal',
+    // Textes fournis par la doctoresse (PDF, étape 12) : pas de badge [À VALIDER]
+    validated: ['what', 'signs', 'steps'],
     whatTitle: 'À quoi sert le laser en ophtalmologie ?',
-    what: 'Le laser permet de traiter certaines pathologies de l’œil de façon ciblée. Le type de laser et son intérêt dépendent de la maladie à traiter ; l’indication est toujours posée après un examen complet.',
+    what: [
+      'Le laser est une technologie utilisée en ophtalmologie pour traiter certaines maladies de la rétine, du glaucome et des complications survenant après une chirurgie de la cataracte.',
+      'Il permet d’agir de manière ciblée sur les structures de l’œil, généralement sans incision chirurgicale. Le type de laser utilisé dépend de la pathologie et de l’objectif du traitement.',
+      'Un examen ophtalmologique approfondi est indispensable pour déterminer l’indication du laser.',
+    ],
     signsTitle: 'Dans quelles situations ?',
+    // FR : situations détaillées (liste numérotée) à la place des cartes ci-dessous (gardées en AR)
+    situations: [
+      ['Rétinopathie diabétique – Photocoagulation panrétinienne (PPR)', 'La PPR est un traitement au laser indiqué notamment dans certaines formes avancées de rétinopathie diabétique, caractérisées par l’apparition de vaisseaux sanguins anormaux sur la rétine. Elle permet de réduire le risque de complications graves, notamment les hémorragies intraoculaires et certaines formes de décollement de rétine.'],
+      ['Déchirures rétiniennes – Photocoagulation au laser', 'Lorsqu’une déchirure de la rétine présente un risque de décollement, le laser permet de créer une barrière cicatricielle autour de celle-ci. L’objectif est de limiter le passage de liquide sous la rétine et de réduire le risque de décollement rétinien.'],
+      ['Glaucome par fermeture de l’angle – Iridotomie périphérique au laser YAG', 'L’iridotomie consiste à réaliser une petite ouverture dans la périphérie de l’iris afin de faciliter la circulation de l’humeur aqueuse. Elle est notamment indiquée dans certaines situations de fermeture de l’angle iridocornéen ou d’angle étroit à risque, selon le mécanisme identifié.'],
+      ['Cataracte secondaire – Capsulotomie au laser YAG', 'Après une chirurgie de la cataracte, la capsule située derrière l’implant peut progressivement devenir opaque, entraînant une baisse de la vision. Le laser YAG permet de créer une ouverture dans cette capsule opacifiée afin de rétablir la transparence de l’axe visuel et d’améliorer la vision lorsque cette opacification est responsable de la gêne.'],
+    ],
     signs: [
       ['shieldCheck', '[À COMPLÉTER : indication 1]'],
       ['scanEye', '[À COMPLÉTER : indication 2]'],
       ['check', '[À COMPLÉTER : indication 3]'],
       ['badgeCheck', '[À COMPLÉTER : indication 4]'],
     ],
-    stepsTitle: 'Comment se déroule la séance ?',
+    stepsTitle: 'Comment se déroule une séance de laser ?',
     steps: [
-      ['Consultation', 'Examen complet et décision du traitement.'],
-      ['Préparation', 'Gouttes et installation à l’appareil.'],
-      ['Séance', '[À COMPLÉTER : déroulement de la séance]'],
-      ['Suivi', 'Contrôle après la séance.'],
+      ['Consultation', 'Un examen ophtalmologique complet permet d’établir le diagnostic, de confirmer l’indication du laser et d’expliquer les bénéfices ainsi que les risques du traitement.'],
+      ['Préparation', 'Des gouttes sont instillées pour préparer l’œil. Selon le type de laser, elles permettent de dilater ou de contracter la pupille et d’anesthésier la surface oculaire.'],
+      ['Séance de laser', 'Le patient est installé devant un appareil spécifique. Le médecin dirige les impacts laser vers la zone à traiter, parfois à l’aide d’une lentille de contact. La séance dure généralement quelques minutes à plusieurs dizaines de minutes selon le traitement. Une gêne ou une douleur transitoire peut être ressentie, particulièrement lors de certaines photocoagulations rétiniennes.'],
+      ['Suivi', 'Un contrôle ophtalmologique est organisé selon le type de laser réalisé afin de vérifier l’efficacité du traitement et de rechercher d’éventuelles complications. Certaines pathologies peuvent nécessiter plusieurs séances ou des traitements complémentaires.'],
     ],
     doctor: SFO,
     faq: [
-      { q: 'Le laser est-il douloureux ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Combien de séances faut-il ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Peut-on reprendre ses activités après la séance ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Le laser est-il douloureux ?',
+        a: 'La plupart des traitements au laser sont bien tolérés grâce à l’utilisation de gouttes anesthésiantes. Une légère gêne ou une sensation de picotement peut être ressentie. Cependant, certains traitements, notamment la photocoagulation panrétinienne (PPR), peuvent être plus douloureux. Le confort varie selon le type de laser et la sensibilité de chaque patient.',
+      },
+      {
+        q: 'Combien de séances faut-il ?',
+        a: 'Le nombre de séances dépend de la maladie traitée et du type de laser utilisé. Une seule séance suffit généralement pour une iridotomie ou une capsulotomie au laser YAG. En revanche, la photocoagulation panrétinienne peut nécessiter plusieurs séances. Le traitement des déchirures rétiniennes est souvent réalisé en une séance, mais des séances complémentaires peuvent parfois être nécessaires.',
+      },
+      {
+        q: 'Peut-on reprendre ses activités après la séance ?',
+        a: 'La plupart des patients peuvent reprendre progressivement leurs activités habituelles après un traitement au laser. Cependant, une vision floue temporaire, une sensibilité à la lumière ou une gêne oculaire peuvent survenir, notamment après une dilatation pupillaire. Il est recommandé d’éviter de conduire tant que la vision n’est pas redevenue normale et de respecter les consignes spécifiques données par l’ophtalmologue.',
+      },
     ],
     ctaTitle: 'Un traitement laser vous a été proposé ?',
     related: ['glaucome', 'retine', '@equipements'],
@@ -680,7 +708,7 @@ import { servicesContentAr } from './services-content.ar.js';
 // encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
 // avec du texte français gardent l'ancienne image AR via `photoAr`.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts'];
+const FR_ONLY = ['validated', 'callouts', 'situations'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
