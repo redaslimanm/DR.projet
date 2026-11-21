@@ -32,7 +32,7 @@ Lancer `npm run build` puis `npx vite preview --host` : le terminal affiche une 
 - [ ] Le cabinet : toucher une photo l'ouvre en grand (glisser pour passer à la suivante, fermer)
 - [ ] FAQ : les questions s'ouvrent et se ferment
 - [ ] Une page service (ex. cataracte) : « Prendre rendez-vous » ouvre la modale avec le service déjà coché
-- [ ] Modale RDV (FAB « Réserver RDV », header, `#rdv`) : parcours complet jusqu'à WhatsApp ; sur iPhone, WhatsApp s'ouvre bien (pas de pop-up bloqué) ; la poignée se glisse vers le bas pour fermer ; le clavier numérique s'affiche pour le téléphone
+- [ ] Modale RDV : voir la section 6 ci-dessous
 
 ## 5. Réglages du téléphone
 - [ ] Avec « Réduire les animations » activé (iOS : Accessibilité › Mouvement ; Android : Accessibilité › Supprimer les animations) : tout le contenu est visible, sans animation
@@ -47,3 +47,25 @@ Lancer `npm run build` puis `npx vite preview --host` : le terminal affiche une 
 Noter ici tout problème (téléphone, navigateur, page, capture d'écran) :
 
 -
+
+## 6. Modale « Réserver RDV » (iPhone Safari + Android Chrome, FR puis AR)
+Ouvrir depuis le FAB (« Réserver RDV »), depuis une page service (motif déjà coché) et avec
+l'adresse `…/fr/#rdv`.
+- [ ] **WhatsApp installé** : « Envoyer sur WhatsApp » ouvre l'application directement sur la
+      conversation avec **07 62 97 08 15**, sans pop-up bloqué
+- [ ] **WhatsApp non installé** (ou désinstallé pour le test) : la page wa.me s'ouvre et propose
+      de télécharger WhatsApp ou d'utiliser WhatsApp Web ; le site reste ouvert dans l'onglet d'origine
+- [ ] **Message complet** dans WhatsApp : salutation, motif, jour + matin/après-midi, nom,
+      téléphone, première visite, message (s'il a été saisi), phrase finale ; accents et arabe corrects
+- [ ] **Swipe** : glisser la poignée ou l'en-tête vers le bas ferme la modale au-delà d'environ un
+      quart de la hauteur ou avec un geste rapide ; un petit glissement la fait revenir en place ;
+      faire défiler la liste des motifs ne ferme jamais la modale
+- [ ] Avec « Réduire les animations » : la modale s'ouvre / se ferme sans glissement, le swipe marche
+- [ ] **Clavier** : à l'étape 3, le clavier ne cache ni le champ en cours de saisie ni son message
+      d'erreur ; le téléphone affiche le **pavé numérique** ; pas de zoom automatique sur iPhone
+- [ ] Erreurs : laisser un champ vide ou saisir « 08 12 34 » → message rouge sous le champ
+- [ ] **Retour sur le site après WhatsApp** (bouton retour d'Android, « ‹ Safari » en haut à gauche
+      sur iPhone, ou changement d'appli) : l'écran « Votre message est prêt » est toujours affiché ;
+      « Réessayer » rouvre WhatsApp ; « Fermer » rend la page normale (elle défile à nouveau)
+- [ ] En arabe : modale en miroir (fermeture à gauche, flèches inversées), numéro de téléphone
+      saisi de gauche à droite

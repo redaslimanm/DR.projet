@@ -22,6 +22,7 @@ export function initRdv() {
   const data = JSON.parse($('[data-rdv-data]').textContent);
   const { ui, lang } = data;
   const locale = lang === 'ar' ? 'ar-MA-u-nu-latn' : 'fr-FR';
+  const colon = lang === 'ar' ? ': ' : ' : ';
 
   const dialog = $('.rdv__dialog');
   const form = $('[data-rdv-form]');
@@ -239,7 +240,7 @@ export function initRdv() {
     if (!success) {
       const text = ui.stepOf.replace('{n}', n);
       count.textContent = text;
-      live.textContent = `${text} : ${ui.steps[n - 1]}`;
+      live.textContent = `${text}${colon}${ui.steps[n - 1]}`;
     }
     btnBack.hidden = success || n === 1;
     btnNext.hidden = success || n === 4;
@@ -326,10 +327,12 @@ export function initRdv() {
     root.hidden = false;
     root.classList.remove('is-closing');
     lockPage(true);
+    fitViewport();
     void dialog.offsetWidth; // départ de la transition d'entrée
     root.classList.add('is-open');
     dialog.focus({ preventScroll: true });
-    live.textContent = `${ui.stepOf.replace('{n}', current === 'success' ? 4 : current)} : ${ui.steps[(current === 'success' ? 4 : current) - 1]}`;
+    const n = current === 'success' ? 4 : current;
+    live.textContent = `${ui.stepOf.replace('{n}', n)}${colon}${ui.steps[n - 1]}`;
   }
 
   function close() {
@@ -345,6 +348,8 @@ export function initRdv() {
     closeTimer = setTimeout(() => {
       root.hidden = true;
       root.classList.remove('is-closing');
+      root.style.height = '';
+      root.style.top = '';
       if (current === 'success') reset();
     }, reduced() ? 0 : 180);
   }
@@ -390,27 +395,77 @@ export function initRdv() {
   window.addEventListener('hashchange', fromHash);
   fromHash();
 
-  // ---------- Bottom sheet : glisser la poignée vers le bas pour fermer ----------
-  const handle = $('[data-rdv-handle]');
-  let startY = null;
-  handle.addEventListener('pointerdown', (e) => {
-    if (!window.matchMedia(SHEET).matches) return;
-    startY = e.clientY;
-    handle.setPointerCapture(e.pointerId);
+  // ---------- Clavier mobile : la modale suit la zone visible (visualViewport) ----------
+  // Sur iOS, le clavier réduit la zone visible sans redimensionner un élément fixe :
+  // on cale la modale sur cette zone, puis on garde le champ actif (et son erreur) visible.
+  // (déclaration de fonction : appelée par open(), qui peut s'exécuter plus haut via #rdv)
+  function fitViewport() {
+    const vv = window.visualViewport;
+    if (!vv || !isOpen) return;
+    root.style.height = `${vv.height}px`;
+    root.style.top = `${vv.offsetTop}px`;
+  }
+  window.visualViewport?.addEventListener('resize', fitViewport);
+  window.visualViewport?.addEventListener('scroll', fitViewport);
+  form.addEventListener('focusin', (e) => {
+    const field = e.target.closest('.rdv-field');
+    if (!field || !e.target.matches('input:not([type=radio]), textarea')) return;
+    setTimeout(() => field.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' }), 300);
+  });
+
+  // ---------- Bottom sheet : glisser vers le bas pour fermer (Pointer Events) ----------
+  // Zone de saisie : poignée + en-tête + stepper (partie fixe du sheet, jamais scrollée).
+  // Le contenu scrollable ne déclenche jamais le geste : pas de conflit avec le défilement.
+  // Fermeture si on dépasse 25 % de la hauteur ou si le geste est assez rapide ;
+  // sinon retour élastique. Alternatives clavier/clic : bouton Fermer, Échap, fond.
+  const backdrop = $('.rdv__backdrop');
+  const DRAG_ZONE = '.rdv__handle, .rdv__head, .rdv-stepper';
+  const CLOSE_RATIO = 0.25;
+  const FLING = 0.5; // px/ms
+  let drag = null;
+
+  dialog.addEventListener('pointerdown', (e) => {
+    if (!isOpen || drag || !window.matchMedia(SHEET).matches) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    const zone = e.target.closest(DRAG_ZONE);
+    if (!zone || e.target.closest('button, a, input, label')) return;
+    drag = { id: e.pointerId, zone, y0: e.clientY, dy: 0, h: dialog.offsetHeight, samples: [[e.clientY, e.timeStamp]] };
+    zone.setPointerCapture(e.pointerId);
     dialog.style.transition = 'none';
+    backdrop.style.transition = 'none';
   });
-  handle.addEventListener('pointermove', (e) => {
-    if (startY === null) return;
-    dialog.style.transform = `translateY(${Math.max(0, e.clientY - startY)}px)`;
+
+  dialog.addEventListener('pointermove', (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dy = e.clientY - drag.y0;
+    drag.dy = dy;
+    // vers le haut : légère résistance (le sheet ne monte que de quelques px)
+    const offset = dy >= 0 ? dy : -Math.min(16, Math.sqrt(-dy) * 2);
+    dialog.style.transform = `translateY(${offset}px)`;
+    backdrop.style.opacity = String(1 - Math.min(1, Math.max(0, dy) / drag.h));
+    drag.samples.push([e.clientY, e.timeStamp]);
+    while (drag.samples.length > 2 && e.timeStamp - drag.samples[0][1] > 100) drag.samples.shift();
   });
-  const endDrag = (e) => {
-    if (startY === null) return;
-    const dy = e.clientY - startY;
-    startY = null;
-    dialog.style.transition = '';
-    if (dy > 90) close();
-    else dialog.style.transform = '';
+
+  const endDrag = (e, cancelled = false) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const { dy, h, samples, zone } = drag;
+    drag = null;
+    if (zone.hasPointerCapture?.(e.pointerId)) zone.releasePointerCapture(e.pointerId);
+    const [y1, t1] = samples[0];
+    const velocity = (e.clientY - y1) / Math.max(1, e.timeStamp - t1); // px/ms, > 0 = vers le bas
+    backdrop.style.transition = '';
+    backdrop.style.opacity = '';
+    if (!cancelled && (dy > h * CLOSE_RATIO || (velocity > FLING && dy > 24))) {
+      dialog.style.transition = '';
+      close(); // part de la position actuelle (transition de sortie)
+      return;
+    }
+    // Retour élastique (instantané si « réduire les animations »)
+    dialog.style.transition = reduced() ? 'none' : 'transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+    dialog.style.transform = '';
+    setTimeout(() => { if (!drag) dialog.style.transition = ''; }, reduced() ? 0 : 340);
   };
-  handle.addEventListener('pointerup', endDrag);
-  handle.addEventListener('pointercancel', endDrag);
+  dialog.addEventListener('pointerup', (e) => endDrag(e));
+  dialog.addEventListener('pointercancel', (e) => endDrag(e, true));
 }

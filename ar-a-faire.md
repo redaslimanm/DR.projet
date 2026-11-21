@@ -44,5 +44,8 @@ sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont e
       WhatsApp (« السلام عليكم، أود طلب موعد في عيادة الدكتورة العوني رجاء. » …
       « المرجو تأكيد ساعة الموعد. شكراً. »). Les noms des motifs et des groupes viennent
       des pages services (déjà validés).
+- [ ] **Page Confidentialité** (`ar/confidentialite/`, marqué `TODO AR`) : phrase « لا يسجّل هذا الموقع
+      أي معطيات شخصية… » et paragraphe « طلب الموعد » (modale RDV) — traductions à faire valider,
+      le texte FR est lui-même « à faire valider ».
 - [ ] Facultatif : préciser en AR la question « كم يستغرق الفحص؟ » des pages Échographie et
       Rétinographie pour qu'elle revienne dans le JSON-LD (voir `parite-fr-ar.md`).

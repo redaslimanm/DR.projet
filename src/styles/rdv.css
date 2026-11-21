@@ -11,9 +11,11 @@
   --rdv-in: 280ms;
   --rdv-out: 180ms;
   position: fixed;
-  inset: 0;
+  inset: 0 0 auto;
+  block-size: 100%; /* ajusté par JS à la zone visible (clavier mobile) */
   z-index: 1200; /* au-dessus du FAB */
   display: grid;
+  grid-template-rows: minmax(0, 1fr); /* une ligne = hauteur du conteneur (sinon elle prend la hauteur du contenu) */
   align-items: end;
   justify-items: center;
 }
@@ -34,7 +36,7 @@
   display: flex;
   flex-direction: column;
   inline-size: 100%;
-  block-size: min(88dvh, 760px);
+  block-size: min(88%, 760px);
   background: var(--c-white);
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -10px 40px rgba(20, 32, 25, 0.18);
@@ -539,7 +541,7 @@ html.rdv-open body { padding-right: var(--rdv-sbw, 0); }
   .rdv { align-items: center; padding: 24px; }
   .rdv__dialog {
     inline-size: min(560px, 100%);
-    block-size: min(740px, calc(100dvh - 48px));
+    block-size: min(740px, 100%);
     border-radius: 20px;
     box-shadow: 0 24px 60px rgba(20, 32, 25, 0.25);
     opacity: 0;
@@ -597,3 +599,9 @@ html.rdv-open body { padding-right: var(--rdv-sbw, 0); }
   }
 }
 .rdv-recap__nowrap { white-space: nowrap; }
+
+/* Swipe du bottom sheet : la zone fixe du haut (poignée, en-tête, stepper) capte le geste */
+@media (max-width: 599.98px) {
+  .rdv__head,
+  .rdv-stepper { touch-action: none; user-select: none; -webkit-user-select: none; }
+}
