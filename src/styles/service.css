@@ -45,6 +45,8 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
   object-fit: cover;
   object-position: center 25%;
 }
+/* Variante « image entière » (affiches avec texte, formats portrait) : pas de recadrage */
+.svc-photo--full img { block-size: auto; object-fit: contain; }
 
 /* ---------- Sections ---------- */
 .svc-section { padding-block: 40px 8px; }
@@ -202,6 +204,8 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
     padding-inline: var(--gutter);
   }
   .svc-photo img { block-size: 480px; border-radius: 24px; object-position: center 30%; }
+  .svc-photo--full { max-inline-size: calc(560px + 2 * var(--gutter)); }
+  .svc-photo--full img { block-size: auto; }
   .svc-hero { padding-block-end: calc(var(--sp-8) + var(--sp-6)); }
 
   .svc-section { padding-block: var(--sp-8) 0; }

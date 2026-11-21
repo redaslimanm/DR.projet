@@ -129,7 +129,11 @@ export function service(page) {
       </div>
     </section>
 
-    <!-- @picture name="${s.photo}" alt="${s.photoAlt}" sizes="(min-width: 64em) 1152px, 100vw" class="svc-photo" eager -->
+    ${
+      s.photoFit === 'full'
+        ? `<!-- @picture name="${s.photo}" alt="${s.photoAlt}" sizes="(min-width: 64em) 560px, 100vw" class="svc-photo svc-photo--full" eager -->`
+        : `<!-- @picture name="${s.photo}" alt="${s.photoAlt}" sizes="(min-width: 64em) 1152px, 100vw" class="svc-photo" eager -->`
+    }
 
     <section class="svc-section" aria-labelledby="svc-what">
       <div class="container svc-container">

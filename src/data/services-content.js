@@ -390,8 +390,13 @@ export const servicesContent = [
     slug: 'ophtalmologie-pediatrique',
     name: 'Ophtalmologie pédiatrique',
     label: 'Enfants',
-    photo: 'salle-examen',
-    photoAlt: 'Salle d’examen du cabinet',
+    photo: 'pediatrie-hero',
+    photoAlt:
+      'Enfant portant des lunettes, un œil caché par un cache-œil. Texte : « Le dépistage précoce permet de détecter tôt les troubles visuels chez l’enfant et d’assurer une prise en charge optimale. »',
+    photoFit: 'full',
+    photoAr: 'salle-examen', // image avec texte FR : ancienne photo gardée en AR (TODO traduction AR)
+    // Sections validées par la doctoresse (PDF, étape 3.2) : pas de badge [À VALIDER]
+    validated: ['what', 'signs', 'steps'],
     card: 'Dépistage et suivi de la myopie, de l’hypermétropie, de l’astigmatisme, de l’amblyopie et du strabisme.',
     intro:
       'Dépistage et suivi des troubles visuels de l’enfant : myopie, hypermétropie, astigmatisme, amblyopie et strabisme.',
@@ -413,9 +418,18 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      { q: 'À quel âge faire le premier examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Mon enfant doit-il porter ses lunettes en permanence ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Les écrans abîment-ils les yeux des enfants ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'À quel âge faire le premier examen ?',
+        a: 'Un examen des yeux peut être réalisé dès la naissance si nécessaire. Le dépistage visuel commence dès les premiers mois de vie, avec un examen recommandé entre 3 et 4 ans, même en l’absence de symptômes. En cas de strabisme, de reflet pupillaire anormal ou de suspicion de trouble visuel, il est important de consulter sans attendre.',
+      },
+      {
+        q: 'Mon enfant doit-il porter ses lunettes en permanence ?',
+        a: 'Cela dépend du trouble visuel et de la prescription de l’ophtalmologue. Dans certains cas, notamment en présence d’une amblyopie, d’un strabisme ou d’un défaut visuel important, le port permanent des lunettes est essentiel au bon développement de la vision.',
+      },
+      {
+        q: 'Les écrans abîment-ils les yeux des enfants ?',
+        a: 'Une utilisation prolongée des écrans peut provoquer une fatigue visuelle, une sécheresse oculaire et des troubles du sommeil. Le temps passé devant les écrans, particulièrement lorsqu’il remplace les activités en extérieur, est également associé à un risque accru de myopie. Il est recommandé de limiter les écrans, d’encourager les activités en plein air et de faire des pauses régulières.',
+      },
     ],
     ctaTitle: 'Un doute sur la vue de votre enfant ?',
     related: ['strabisme', 'consultation-depistage', 'lentilles-de-contact'],
@@ -611,6 +625,7 @@ export function localizedService(slug, lang = 'fr') {
     signs: base.signs.map(([icon], i) => [icon, ar.signs[i]]),
   };
   for (const key of FR_ONLY) delete out[key];
+  if (base.photoAr) delete out.photoFit; // l'ancienne photo AR garde l'affichage recadré
   return out;
 }
 

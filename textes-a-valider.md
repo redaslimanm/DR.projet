@@ -737,17 +737,23 @@ Adresse prévue : `/fr/services/ophtalmologie-pediatrique/`
 
 **Questions fréquentes**
 
-**À quel âge faire le premier examen ?** (non affichée sur le site)
+**À quel âge faire le premier examen ?**
 
-Réponse à rédiger :
+> Un examen des yeux peut être réalisé dès la naissance si nécessaire. Le dépistage visuel commence dès les premiers mois de vie, avec un examen recommandé entre 3 et 4 ans, même en l’absence de symptômes. En cas de strabisme, de reflet pupillaire anormal ou de suspicion de trouble visuel, il est important de consulter sans attendre.
 
-**Mon enfant doit-il porter ses lunettes en permanence ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Mon enfant doit-il porter ses lunettes en permanence ?**
 
-**Les écrans abîment-ils les yeux des enfants ?** (non affichée sur le site)
+> Cela dépend du trouble visuel et de la prescription de l’ophtalmologue. Dans certains cas, notamment en présence d’une amblyopie, d’un strabisme ou d’un défaut visuel important, le port permanent des lunettes est essentiel au bon développement de la vision.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Les écrans abîment-ils les yeux des enfants ?**
+
+> Une utilisation prolongée des écrans peut provoquer une fatigue visuelle, une sécheresse oculaire et des troubles du sommeil. Le temps passé devant les écrans, particulièrement lorsqu’il remplace les activités en extérieur, est également associé à un risque accru de myopie. Il est recommandé de limiter les écrans, d’encourager les activités en plein air et de faire des pauses régulières.
+
+(texte fourni par la doctoresse)
 
 ---
 

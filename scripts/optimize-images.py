@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "src" / "assets" / "images"
 SRC_ORIG = ROOT / "assets-source"
 SRC_MAQ = ROOT / "maquette" / "images"
+TS = SRC_ORIG / "tsawer-site"  # images fournies avec le cahier des modifications (PDF)
 
 # nom final → fichier source (identifié visuellement ; attention : certains
 # noms de fichiers de maquette/images/ sont inversés, ne pas s'y fier)
@@ -37,6 +38,8 @@ IMAGES = {
     "icare": SRC_ORIG / "unnamed (2).webp",                           # rétinographe iCare
     "echo": SRC_ORIG / "unnamed.webp",                                # salle d'échographie
     "plan-acces": SRC_MAQ / "plan-acces.jpg",                         # verso carte de visite (recadré)
+    # --- Cahier des modifications (tsawer-site/) ---
+    "pediatrie-hero": TS / "02-pediatrie" / "pediatrie-hero.png",     # affiche dépistage enfant (texte FR)
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords
@@ -86,7 +89,7 @@ def main():
         manifest[name] = {"width": w0, "height": h0, "widths": widths}
         print(f"{name:16} {w0}x{h0}  -> {widths}")
 
-    (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8", newline="\n")
     print(f"\nTotal : {total / 1024:.0f} Ko ({len(IMAGES)} images)")
 
 
