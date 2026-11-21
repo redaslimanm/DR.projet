@@ -183,5 +183,5 @@ Clé : `cataracte`.
 Clé : `retine`.
 
 - [ ] `faq` : 5 questions **avec réponses** à traduire (format `{ q, a }`), même ordre
-      qu'en FR. La question « ما هي الضمور البقعي…؟ » (= « Qu’est-ce que la DMLA ? ») est en
+      qu'en FR. La question « ما هو التنكس البقعي المرتبط بالسن؟ » (= « Qu’est-ce que la DMLA ? ») est en
       `draft` en FR (sans réponse) : la masquer aussi en AR tant qu'elle n'a pas de réponse.
