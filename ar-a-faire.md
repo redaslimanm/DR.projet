@@ -147,3 +147,14 @@ Fichier : `ar/dr-elaouni/index.html`.
       `@picture`, `eager`). **Alt à traduire.** Pas de texte sur l'image.
 - [ ] `dr-oct` reste utilisée ailleurs (accueil « Votre ophtalmologue », encart médecin des
       pages services, page Équipements) : ne pas la supprimer.
+
+## Étape 9 — Page « Cataracte »
+
+Clé : `cataracte`.
+
+- [ ] **Photos** : en FR, la photo unique (`dr-lampe`) est remplacée par 2 photos côte à
+      côte (champ `photos` : `cataracte-1`, `cataracte-2`). En AR, `photos` est dans
+      `FR_ONLY` → l'AR affiche encore `dr-lampe`. Ajouter `photos` en AR (mêmes noms,
+      **2 alt à traduire**) puis retirer `photos` de `FR_ONLY` (à faire une fois toutes
+      les pages concernées traduites, le champ est partagé). Pas de texte sur les images.
+- [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).

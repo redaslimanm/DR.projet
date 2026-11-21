@@ -120,6 +120,11 @@ export const servicesContent = [
     label: 'Chirurgie',
     photo: 'dr-lampe',
     photoAlt: 'Dr Elaouni Rajae à la lampe à fente',
+    // FR : deux photos du bloc opératoire (remplacent la photo ci-dessus, gardée en AR)
+    photos: [
+      { name: 'cataracte-1', alt: 'Dr Elaouni Rajae au microscope opératoire pendant une chirurgie de la cataracte' },
+      { name: 'cataracte-2', alt: 'Dr Elaouni Rajae en tenue de bloc opératoire, devant le microscope et la plateforme de phacoémulsification' },
+    ],
     card: 'Prise en charge par phacoémulsification, une technique moderne pour retrouver une vision plus claire.',
     intro:
       'Une prise en charge par phacoémulsification, technique moderne permettant de retrouver une vision plus claire.',
@@ -141,9 +146,18 @@ export const servicesContent = [
     ],
     doctor: UK_CATARACTE,
     faq: [
-      { q: 'L’intervention est-elle douloureuse ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Combien de temps dure la récupération ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Faut-il opérer les deux yeux ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'L’intervention est-elle douloureuse ?',
+        a: 'La chirurgie de la cataracte est généralement indolore. Elle est le plus souvent réalisée sous anesthésie locale, à l’aide de gouttes anesthésiantes. Le patient peut ressentir une légère pression ou une gêne pendant l’intervention, mais habituellement pas de douleur.',
+      },
+      {
+        q: 'Combien de temps dure la récupération ?',
+        a: 'La vision commence généralement à s’améliorer dès les premiers jours suivant l’intervention. La récupération visuelle se poursuit progressivement sur plusieurs semaines, selon l’état de l’œil et les particularités de chaque patient. Un traitement par collyres et des consultations de contrôle sont nécessaires après l’opération.',
+      },
+      {
+        q: 'Faut-il opérer les deux yeux ?',
+        a: 'Non, pas systématiquement. La décision dépend du degré de cataracte et de la gêne visuelle de chaque œil. Lorsque les deux yeux nécessitent une intervention, ils sont généralement opérés séparément, à des dates différentes, afin de permettre une bonne récupération et un suivi adapté.',
+      },
     ],
     ctaTitle: 'Votre vision devient floue ?',
     related: ['chirurgie-refractive', '@equipements', 'consultation-depistage'],
@@ -622,7 +636,7 @@ import { servicesContentAr } from './services-content.ar.js';
 // Champs ajoutés en FR (demandes de la doctoresse) et pas encore traduits :
 // jamais affichés en AR, qui garde son contenu actuel.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts'];
+const FR_ONLY = ['validated', 'callouts', 'photos'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);

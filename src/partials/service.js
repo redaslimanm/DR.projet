@@ -130,7 +130,16 @@ export function service(page) {
     </section>
 
     ${
-      s.photoFit === 'full'
+      s.photos
+        ? `<div class="svc-photos">
+      ${s.photos
+        .map(
+          (p, i) =>
+            `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="${i === 0 ? '(min-width: 64em) 680px, 60vw' : '(min-width: 64em) 460px, 40vw'}" class="svc-photos__item"${i === 0 ? ' eager' : ''} -->`,
+        )
+        .join('\n      ')}
+    </div>`
+        : s.photoFit === 'full'
         ? `<!-- @picture name="${s.photo}" alt="${s.photoAlt}" sizes="(min-width: 64em) 560px, 100vw" class="svc-photo svc-photo--full" eager -->`
         : `<!-- @picture name="${s.photo}" alt="${s.photoAlt}" sizes="(min-width: 64em) 1152px, 100vw" class="svc-photo" eager -->`
     }

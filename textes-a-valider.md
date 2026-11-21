@@ -310,17 +310,23 @@ Adresse prévue : `/fr/services/cataracte/`
 
 **Questions fréquentes**
 
-**L’intervention est-elle douloureuse ?** (non affichée sur le site)
+**L’intervention est-elle douloureuse ?**
 
-Réponse à rédiger :
+> La chirurgie de la cataracte est généralement indolore. Elle est le plus souvent réalisée sous anesthésie locale, à l’aide de gouttes anesthésiantes. Le patient peut ressentir une légère pression ou une gêne pendant l’intervention, mais habituellement pas de douleur.
 
-**Combien de temps dure la récupération ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**Combien de temps dure la récupération ?**
 
-**Faut-il opérer les deux yeux ?** (non affichée sur le site)
+> La vision commence généralement à s’améliorer dès les premiers jours suivant l’intervention. La récupération visuelle se poursuit progressivement sur plusieurs semaines, selon l’état de l’œil et les particularités de chaque patient. Un traitement par collyres et des consultations de contrôle sont nécessaires après l’opération.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Faut-il opérer les deux yeux ?**
+
+> Non, pas systématiquement. La décision dépend du degré de cataracte et de la gêne visuelle de chaque œil. Lorsque les deux yeux nécessitent une intervention, ils sont généralement opérés séparément, à des dates différentes, afin de permettre une bonne récupération et un suivi adapté.
+
+(texte fourni par la doctoresse)
 
 ---
 
