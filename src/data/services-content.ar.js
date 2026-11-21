@@ -146,7 +146,8 @@ export const servicesContentAr = {
   keratocone: {
     name: 'القرنيّة المخروطية وأمراض القرنيّة',
     label: 'القرنية',
-    photoAlt: 'جهاز فحص العين بالعيادة',
+    // TODO AR (étape 18) : alt provisoire de la nouvelle photo, à remplacer par la traduction validée
+    photoAlt: 'عين من الجانب: القرنية رقيقة وتأخذ شكلاً مخروطياً',
     card: 'تشخيص ومراقبة وعلاج بتقنية تثبيت القرنية (CXL) للحد من تطورها.',
     intro: 'تشخيص ومراقبة ومتابعة القرنية المخروطية وأمراض القرنية، بما في ذلك تقنية تثبيت القرنية (CXL).',
     whatTitle: 'ما هي القرنية المخروطية؟',

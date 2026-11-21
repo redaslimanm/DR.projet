@@ -324,8 +324,19 @@ export const servicesContent = [
     slug: 'keratocone',
     name: 'Kératocône et maladies de la cornée',
     label: 'Cornée',
-    photo: 'huvitz',
-    photoAlt: 'Équipement d’examen de l’œil du cabinet',
+    // TODO client (point 4) : keratocone-hero.jpg provient du site du laboratoire Dencott.
+    // Droits d'utilisation NON confirmés : à obtenir (ou remplacer l'image) AVANT la mise en ligne.
+    // Source de faible qualité (1141×742, 18 Ko) : une version plus nette serait préférable.
+    photo: 'keratocone-hero',
+    photoAlt: 'Œil vu de profil : la cornée, amincie, prend une forme de cône',
+    // Schéma œil normal / kératocône (texte FR sur l'image → FR uniquement)
+    whatFigure: {
+      name: 'oeil-normal-vs-keratocone',
+      alt: 'Schéma comparant un œil normal, à la cornée arrondie, et un œil atteint de kératocône, à la cornée déformée en cône',
+      width: 398,
+    },
+    // Déroulement fourni par la doctoresse (PDF, étape 13.2) : pas de badge [À VALIDER]
+    validated: ['steps'],
     card: 'Diagnostic, surveillance et traitement par Cross-Linking cornéen (CXL) pour freiner son évolution.',
     intro:
       'Diagnostic, surveillance et prise en charge du kératocône et des maladies de la cornée, dont le Cross-Linking cornéen (CXL).',
@@ -340,16 +351,40 @@ export const servicesContent = [
     ],
     stepsTitle: 'Comment se déroule la prise en charge ?',
     steps: [
-      ['Diagnostic', 'Examen de la cornée et topographie cornéenne.'],
-      ['Surveillance', 'Contrôles réguliers pour suivre l’évolution.'],
-      ['Traitement', 'Cross-Linking (CXL) lorsque c’est indiqué, pour freiner l’évolution.'],
-      ['Correction de la vision', 'Lunettes ou lentilles adaptées, dont les lentilles sclérales.'],
+      ['Diagnostic', 'Examen ophtalmologique complet avec réalisation d’une topographie cornéenne et d’une pachymétrie pour analyser la forme, la courbure et l’épaisseur de la cornée, et évaluer la sévérité du kératocône.'],
+      ['Surveillance de l’évolution', 'Un suivi régulier, adapté à l’âge et au stade de la maladie, permet de détecter une éventuelle progression du kératocône grâce à la comparaison des examens cornéens successifs.'],
+      [
+        'Stabilisation du kératocône',
+        'En cas de kératocône évolutif, un Cross-Linking cornéen (CXL) peut être indiqué pour renforcer la cornée et freiner, voire stopper, la progression de la maladie. Chez les patients jeunes à haut risque, il peut être envisagé sans attendre une progression documentée.',
+        [{ name: 'cross-linking', alt: 'Séance de Cross-Linking cornéen (CXL) : l’œil, maintenu ouvert, sous l’appareil d’irradiation' }],
+      ],
+      [
+        'Réhabilitation visuelle',
+        'Selon le stade du kératocône, la vision peut être améliorée par des lunettes ou des lentilles de contact spécialisées, notamment les lentilles sclérales, permettant de corriger les irrégularités optiques de la cornée.',
+        [
+          { name: 'lentille-sclerale-pose', alt: 'Pose d’une lentille sclérale à l’aide d’une ventouse remplie de solution' },
+          { name: 'lentille-sclerale', alt: 'Lentille sclérale tenue sur une ventouse devant l’œil' },
+        ],
+      ],
     ],
     doctor: ES_LENTILLES,
     faq: [
-      { q: 'Le kératocône est-il évolutif ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'En quoi consiste le Cross-Linking ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Peut-on porter des lentilles avec un kératocône ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Le kératocône est-il évolutif ?',
+        a: 'Oui, le kératocône est une maladie de la cornée qui peut évoluer progressivement, particulièrement chez les enfants, les adolescents et les jeunes adultes. Son évolution varie d’une personne à l’autre. Un suivi ophtalmologique régulier, notamment par topographie cornéenne, permet de détecter une éventuelle progression et de proposer un traitement adapté pour la freiner.',
+      },
+      {
+        q: 'En quoi consiste le Cross-Linking ?',
+        a: 'Le Cross-Linking cornéen (CXL) est un traitement destiné à renforcer la structure de la cornée afin de freiner, voire stopper, l’évolution du kératocône. Il consiste à appliquer de la riboflavine (vitamine B2) sur la cornée, puis à l’exposer à une lumière ultraviolette A (UVA) selon un protocole contrôlé. Son objectif principal est de stabiliser la maladie et non de corriger directement la vision. Il peut être associé au port de lunettes ou de lentilles spécialisées.',
+      },
+      {
+        q: 'Peut-on porter des lentilles avec un kératocône ?',
+        a: 'Oui. Les lentilles de contact spécialisées constituent une solution efficace pour améliorer la vision des patients atteints de kératocône. Selon la forme et la sévérité de la maladie, différentes lentilles peuvent être proposées, notamment les lentilles rigides perméables aux gaz et les lentilles sclérales. Ces dernières reposent sur la sclère et passent au-dessus de la cornée, permettant souvent d’obtenir une meilleure qualité visuelle et un bon confort. Une adaptation personnalisée et un suivi régulier sont indispensables.',
+      },
+      {
+        q: 'Le kératocône peut-il entraîner une perte de vision ?',
+        a: 'Oui. Le kératocône provoque une déformation progressive de la cornée, pouvant entraîner une vision floue, déformée et un astigmatisme irrégulier. Dans les formes avancées, des cicatrices cornéennes peuvent altérer davantage la vision. Un diagnostic précoce, une surveillance adaptée et les traitements disponibles permettent de limiter le risque de complications et d’améliorer la qualité visuelle.',
+      },
     ],
     ctaTitle: 'Votre astigmatisme augmente ?',
     related: ['topographie-corneenne', 'lentilles-de-contact', 'chirurgie-refractive'],
@@ -708,7 +743,7 @@ import { servicesContentAr } from './services-content.ar.js';
 // encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
 // avec du texte français gardent l'ancienne image AR via `photoAr`.
 // TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts', 'situations'];
+const FR_ONLY = ['validated', 'callouts', 'situations', 'whatFigure'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);

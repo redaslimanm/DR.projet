@@ -104,6 +104,19 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
 }
 .step h3 { margin-block: 6px 4px; font-size: 0.96875rem; }
 .step p { font-size: var(--fs-small); color: var(--c-text-2); }
+/* Images d'une étape (ex. Cross-Linking, lentilles sclérales) */
+.step__media {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  max-inline-size: 540px;
+  margin-block-start: 12px;
+}
+.step__media img { inline-size: 100%; block-size: 160px; object-fit: cover; border-radius: 14px; }
+
+/* Schéma sous « Qu'est-ce que… ? » : taille naturelle, jamais agrandi */
+.svc-figure { margin: var(--sp-3) 0 0; }
+.svc-figure img { inline-size: auto; max-inline-size: 100%; block-size: auto; border-radius: 14px; }
 
 /* ---------- 6. Encart médecin ---------- */
 .doctor-box {
@@ -234,6 +247,7 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
 
   .step h3 { font-size: var(--fs-h3); }
   .step p { font-size: 0.9375rem; }
+  .step__media img { block-size: 200px; }
 
   .doctor-box { padding: var(--sp-4); font-size: 0.9375rem; }
   .svc-callout { padding: var(--sp-4); font-size: 0.9375rem; }

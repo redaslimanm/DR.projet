@@ -89,17 +89,30 @@ function relatedLink(key, lang) {
   return `<li><a href="/${lang}/services/${s.slug}/">${s.name} <!-- @icon arrowRight 16 --></a></li>`;
 }
 
-// Liste numérotée (déroulement, ou situations détaillées) : [titre, texte]
+// Liste numérotée (déroulement, ou situations détaillées) : [titre, texte, images?]
+// images (optionnel) : [{ name, alt }] affichées sous le texte de l'étape
 function stepsList(items) {
+  const media = (imgs) =>
+    imgs?.length
+      ? `<div class="step__media">${imgs
+          .map((p) => `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="(min-width: 64em) 260px, 45vw" -->`)
+          .join('')}</div>`
+      : '';
   return `<ol class="steps" role="list">
           ${items
             .map(
-              ([t, d], i) =>
-                `<li class="step"><span class="step__num" aria-hidden="true">${i + 1}</span><div><h3>${t}</h3><p>${ph(d)}</p></div></li>`,
+              ([t, d, imgs], i) =>
+                `<li class="step"><span class="step__num" aria-hidden="true">${i + 1}</span><div><h3>${t}</h3><p>${ph(d)}</p>${media(imgs)}</div></li>`,
             )
             .join('\n          ')}
         </ol>`;
 }
+
+// Schéma illustrant « Qu'est-ce que… ? » : { name, alt, width } (image entière, taille naturelle)
+const figure = (f) =>
+  f
+    ? `<figure class="svc-figure"><!-- @picture name="${f.name}" alt="${f.alt}" sizes="${f.width}px" --></figure>`
+    : '';
 
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
 function faqSection(s, u) {
@@ -166,6 +179,7 @@ export function service(page) {
       <div class="container svc-container">
         <h2 id="svc-what">${s.whatTitle}</h2>
         ${paras(s.what).map((t, i) => `<p class="svc-text">${i === 0 ? todo(s, 'what') : ''}${ph(t)}</p>`).join('\n        ')}
+        ${figure(s.whatFigure)}
       </div>
     </section>
 

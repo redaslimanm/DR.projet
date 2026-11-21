@@ -584,27 +584,39 @@ Adresse prévue : `/fr/services/keratocone/`
 
 **« Comment se déroule la prise en charge ? » (4 étapes)**
 
-1. **Diagnostic** — Examen de la cornée et topographie cornéenne.
-2. **Surveillance** — Contrôles réguliers pour suivre l’évolution.
-3. **Traitement** — Cross-Linking (CXL) lorsque c’est indiqué, pour freiner l’évolution.
-4. **Correction de la vision** — Lunettes ou lentilles adaptées, dont les lentilles sclérales.
+1. **Diagnostic** — Examen ophtalmologique complet avec réalisation d’une topographie cornéenne et d’une pachymétrie pour analyser la forme, la courbure et l’épaisseur de la cornée, et évaluer la sévérité du kératocône.
+2. **Surveillance de l’évolution** — Un suivi régulier, adapté à l’âge et au stade de la maladie, permet de détecter une éventuelle progression du kératocône grâce à la comparaison des examens cornéens successifs.
+3. **Stabilisation du kératocône** — En cas de kératocône évolutif, un Cross-Linking cornéen (CXL) peut être indiqué pour renforcer la cornée et freiner, voire stopper, la progression de la maladie. Chez les patients jeunes à haut risque, il peut être envisagé sans attendre une progression documentée.
+4. **Réhabilitation visuelle** — Selon le stade du kératocône, la vision peut être améliorée par des lunettes ou des lentilles de contact spécialisées, notamment les lentilles sclérales, permettant de corriger les irrégularités optiques de la cornée.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
 **Questions fréquentes**
 
-**Le kératocône est-il évolutif ?** (non affichée sur le site)
+**Le kératocône est-il évolutif ?**
 
-Réponse à rédiger :
+> Oui, le kératocône est une maladie de la cornée qui peut évoluer progressivement, particulièrement chez les enfants, les adolescents et les jeunes adultes. Son évolution varie d’une personne à l’autre. Un suivi ophtalmologique régulier, notamment par topographie cornéenne, permet de détecter une éventuelle progression et de proposer un traitement adapté pour la freiner.
 
-**En quoi consiste le Cross-Linking ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**En quoi consiste le Cross-Linking ?**
 
-**Peut-on porter des lentilles avec un kératocône ?** (non affichée sur le site)
+> Le Cross-Linking cornéen (CXL) est un traitement destiné à renforcer la structure de la cornée afin de freiner, voire stopper, l’évolution du kératocône. Il consiste à appliquer de la riboflavine (vitamine B2) sur la cornée, puis à l’exposer à une lumière ultraviolette A (UVA) selon un protocole contrôlé. Son objectif principal est de stabiliser la maladie et non de corriger directement la vision. Il peut être associé au port de lunettes ou de lentilles spécialisées.
 
-Réponse à rédiger :
+(texte fourni par la doctoresse)
+
+**Peut-on porter des lentilles avec un kératocône ?**
+
+> Oui. Les lentilles de contact spécialisées constituent une solution efficace pour améliorer la vision des patients atteints de kératocône. Selon la forme et la sévérité de la maladie, différentes lentilles peuvent être proposées, notamment les lentilles rigides perméables aux gaz et les lentilles sclérales. Ces dernières reposent sur la sclère et passent au-dessus de la cornée, permettant souvent d’obtenir une meilleure qualité visuelle et un bon confort. Une adaptation personnalisée et un suivi régulier sont indispensables.
+
+(texte fourni par la doctoresse)
+
+**Le kératocône peut-il entraîner une perte de vision ?**
+
+> Oui. Le kératocône provoque une déformation progressive de la cornée, pouvant entraîner une vision floue, déformée et un astigmatisme irrégulier. Dans les formes avancées, des cicatrices cornéennes peuvent altérer davantage la vision. Un diagnostic précoce, une surveillance adaptée et les traitements disponibles permettent de limiter le risque de complications et d’améliorer la qualité visuelle.
+
+(texte fourni par la doctoresse)
 
 ---
 

@@ -13,7 +13,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   `src/data/services-content.ar.js` (fonction `localizedService`).
 - `FR_ONLY` (dans `services-content.js`) : champs FR jamais affichés en AR tant qu'ils
   ne sont pas traduits. Quand un champ est traduit dans `services-content.ar.js`, le
-  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`.
+  **retirer de `FR_ONLY`**. Valeur actuelle : `validated`, `callouts`, `situations`, `whatFigure`.
 - **Règle images (en vigueur depuis l'étape 9)** :
   - photos **sans texte** → affichées en AR **dès maintenant** (alt AR existant réutilisé
     quand il décrit bien la photo, sinon alt AR **provisoire** marqué `TODO AR`) ;
@@ -31,6 +31,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   - `ar/cabinet/index.html` → photo `cabinet-deco` (alt + légende « ديكور العيادة »).
   - `src/data/services-content.ar.js` → `'chirurgie-refractive'.photoAlt` (nouvelle photo).
   - `src/data/services-content.ar.js` → `laser.photosAlt` (2 alt).
+  - `src/data/services-content.ar.js` → `keratocone.photoAlt` (nouvelle photo).
 - FAQ AR : actuellement des chaînes (questions sans réponse, placeholder affiché). À
   passer au format FR `{ q, a }` (réponses traduites). Le JSON-LD FAQPage des pages
   services est aujourd'hui limité au FR (`build/partials-plugin.js`) : l'ouvrir à l'AR
@@ -219,3 +220,22 @@ Clé : `laser`.
 - [ ] Badge `[À VALIDER]` à retirer sur `what`, `signs`, `steps`.
 - [ ] `card` et `intro` AR contiennent encore « [À COMPLÉTER : types de laser] » (comme le FR) :
       à aligner sur le FR quand le texte sera fourni.
+
+## Étape 13 — Page « Kératocône »
+
+Clé : `keratocone`.
+
+- [x] **Photo principale** `keratocone-hero` (sans texte) : **déjà affichée en AR**.
+      ⚠ Droits non confirmés (point client 4, image du laboratoire Dencott) : même décision
+      en FR et en AR.
+- [ ] `photoAlt` : alt AR **provisoire** à remplacer (`TODO AR`).
+- [ ] **Schéma** `oeil-normal-vs-keratocone` (champ `whatFigure`, FR uniquement) : l'image
+      contient du **texte en français** (« OEIL NORMAL », « KÉRATOCÔNE ») → **version
+      arabe du schéma à fournir**, puis ajouter `whatFigure` en AR (alt à traduire) et
+      retirer `whatFigure` de `FR_ONLY`.
+- [ ] `steps` : 4 étapes à traduire (Diagnostic, Surveillance de l’évolution, Stabilisation
+      du kératocône, Réhabilitation visuelle). Les étapes 3 et 4 portent des images
+      (3e élément du tableau : `cross-linking` ; `lentille-sclerale-pose` +
+      `lentille-sclerale`, sans texte) → les reprendre en AR avec **3 alt à traduire**.
+      Badge `[À VALIDER]` à retirer sur `steps`.
+- [ ] `faq` : 4 questions **avec réponses** à traduire (format `{ q, a }`).

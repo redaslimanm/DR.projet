@@ -301,5 +301,46 @@
       800,
       1074
     ]
+  },
+  "keratocone-hero": {
+    "width": 1141,
+    "height": 742,
+    "widths": [
+      480,
+      800,
+      1141
+    ]
+  },
+  "oeil-normal-vs-keratocone": {
+    "width": 398,
+    "height": 219,
+    "widths": [
+      398
+    ]
+  },
+  "cross-linking": {
+    "width": 1492,
+    "height": 1054,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "lentille-sclerale-pose": {
+    "width": 432,
+    "height": 587,
+    "widths": [
+      432
+    ]
+  },
+  "lentille-sclerale": {
+    "width": 1586,
+    "height": 992,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
   }
 }
