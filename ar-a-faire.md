@@ -177,3 +177,11 @@ Clé : `cataracte`.
       (`TODO AR`). Le champ `photoAlt` AR (ancienne photo `dr-lampe`) ne sert plus sur
       cette page.
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
+
+## Étape 10 — Page « Rétine »
+
+Clé : `retine`.
+
+- [ ] `faq` : 5 questions **avec réponses** à traduire (format `{ q, a }`), même ordre
+      qu'en FR. La question « ما هي الضمور البقعي…؟ » (= « Qu’est-ce que la DMLA ? ») est en
+      `draft` en FR (sans réponse) : la masquer aussi en AR tant qu'elle n'a pas de réponse.

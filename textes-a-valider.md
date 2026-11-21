@@ -627,15 +627,37 @@ Adresse prévue : `/fr/services/retine/`
 
 **Questions fréquentes**
 
-**Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?** (non affichée sur le site)
+**Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?**
 
-Réponse à rédiger :
+> Le diabète peut endommager progressivement les petits vaisseaux de la rétine et provoquer une rétinopathie diabétique, parfois sans aucun symptôme au début. Un examen régulier du fond d’œil permet de détecter précocement ces anomalies et de prévenir les complications pouvant entraîner une baisse de la vision.
+
+(texte fourni par la doctoresse)
+
+**L’examen de la rétine est-il douloureux ?**
+
+> Non, l’examen de la rétine est généralement indolore. Il peut être réalisé à l’aide d’un rétinographe ou par un examen du fond d’œil. Dans certains cas, des gouttes sont utilisées pour dilater les pupilles afin de mieux visualiser les différentes structures de la rétine.
+
+(texte fourni par la doctoresse)
+
+**Faut-il toujours dilater les pupilles pour examiner la rétine ?**
+
+> Non, pas systématiquement. Notre cabinet dispose d’un rétinographe permettant de photographier la rétine sans dilatation pupillaire dans de nombreuses situations. Cependant, une dilatation peut être nécessaire pour examiner plus complètement la rétine, notamment sa périphérie, ou rechercher certaines anomalies qui ne sont pas visibles sur les photographies.
+
+(texte fourni par la doctoresse)
+
+**Combien de temps dure l’effet des gouttes de dilatation ?**
+
+> L’effet des gouttes dure généralement plusieurs heures, selon le produit utilisé et la sensibilité du patient. Pendant cette période, la vision de près peut être floue et les yeux plus sensibles à la lumière. Il est préférable d’éviter de conduire tant que la vision n’est pas redevenue normale.
+
+(texte fourni par la doctoresse)
+
+**Peut-on avoir une maladie de la rétine sans ressentir de symptômes ?**
+
+> Oui. Certaines maladies rétiniennes, notamment la rétinopathie diabétique, peuvent évoluer silencieusement pendant plusieurs années. C’est pourquoi un suivi ophtalmologique régulier est essentiel, particulièrement chez les personnes diabétiques ou présentant des facteurs de risque.
+
+(texte fourni par la doctoresse)
 
 **Qu’est-ce que la DMLA ?** (non affichée sur le site)
-
-Réponse à rédiger :
-
-**L’examen de la rétine est-il douloureux ?** (non affichée sur le site)
 
 Réponse à rédiger :
 
