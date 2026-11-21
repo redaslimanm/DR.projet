@@ -189,9 +189,9 @@ export default function partialsPlugin({ root, pages = [] }) {
         const rel = ctx.path.replace(/^\//, '');
         if (/^(fr|ar)\/faq\/(index\.html)?$/.test(rel) && html.includes('faq__item')) {
           html = html.replace('</head>', `${faqJsonLd(html)}</head>`);
-        } else if (/^fr\/services\/[\w-]+\/(index\.html)?$/.test(rel) && html.includes('faq__item')) {
-          // Pages services : FR uniquement, sans doublon avec /fr/faq/
-          const faqPage = readFileSync(resolve(root, 'fr/faq/index.html'), 'utf8');
+        } else if (/^(fr|ar)\/services\/[\w-]+\/(index\.html)?$/.test(rel) && html.includes('faq__item')) {
+          // Pages services (FR et AR) : sans doublon avec la page FAQ de la même langue
+          const faqPage = readFileSync(resolve(root, `${page.lang}/faq/index.html`), 'utf8');
           const exclude = new Set(faqQuestions(faqPage).map((q) => q.toLowerCase()));
           html = html.replace('</head>', `${faqJsonLd(html, exclude)}</head>`);
         }

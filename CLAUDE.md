@@ -61,13 +61,13 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
 
 Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Rétinographie · OCT · Laser
 
-Angiographie rétinienne et Topographie cornéenne ont été remplacées par Rétinographie et OCT (cahier de modifications, étape 16 ; anciennes URL redirigées en 301 vers la page des services). Toujours 12 services. En AR, Rétinographie et OCT attendent leur traduction (menu AR à 10, voir `ar-a-faire.md`).
+Angiographie rétinienne et Topographie cornéenne ont été remplacées par Rétinographie et OCT (cahier de modifications, étape 16 ; anciennes URL redirigées en 301 vers la page des services). Toujours 12 services, en FR comme en AR.
 
 Page supplémentaire avec le même template : **Consultation et dépistage** (`/fr/services/consultation-depistage/`), carte 01 de l'accueil. Elle ne compte pas dans les « 12 spécialités ».
 
 Les textes médicaux du site sont regroupés dans `textes-a-valider.md` (racine, hors site) pour validation par la doctora. Tant qu'ils ne sont pas validés, ils restent marqués `[À VALIDER]` sur le site. La section des pages services est régénérée par `node scripts/export-textes.mjs` à partir de `src/data/services-content.js`.
 
-AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر (carte de visite ; « تصوير الشبكية / تصوير القرنية » = anciens services Angiographie / Topographie, remplacés : noms AR de Rétinographie et OCT à fournir)
+AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر (carte de visite, ancienne liste) — noms AR actuels : Rétinographie = تصوير الشبكية, OCT = التصوير المقطعي البصري (OCT)
 
 Équipements visibles sur les photos : lampe à fente et autoréfractomètre Huvitz, frontofocomètre Huvitz, rétinographe iCare, échographe, OCT.
 
@@ -249,6 +249,6 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
 ## Cahier de modifications de la doctoresse (nov. 2026)
 
 `assets-source/modifications_site_dr_elaouni.pdf` (17 étapes) : appliqué en FR. Images de
-`assets-source/tsawer-site/` optimisées via `scripts/optimize-images.py`. Version arabe :
-tout ce qui reste à faire est dans `ar-a-faire.md` (étape 18). Les commentaires
+`assets-source/tsawer-site/` (et `tsawer-site-ar/` pour les affiches arabes) optimisées via
+`scripts/optimize-images.py`. Version arabe à parité (`parite-fr-ar.md`, `ar-a-faire.md`). Les commentaires
 `<!-- TODO … -->` des pages HTML sont retirés au build (jamais publiés).

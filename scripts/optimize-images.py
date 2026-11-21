@@ -20,6 +20,7 @@ OUT = ROOT / "src" / "assets" / "images"
 SRC_ORIG = ROOT / "assets-source"
 SRC_MAQ = ROOT / "maquette" / "images"
 TS = SRC_ORIG / "tsawer-site"  # images fournies avec le cahier des modifications (PDF)
+TS_AR = SRC_ORIG / "tsawer-site-ar"  # versions arabes des images avec texte (affiches)
 
 # nom final → fichier source (identifié visuellement ; attention : certains
 # noms de fichiers de maquette/images/ sont inversés, ne pas s'y fier)
@@ -41,6 +42,8 @@ IMAGES = {
     # --- Cahier des modifications (tsawer-site/) ---
     "pediatrie-hero": TS / "02-pediatrie" / "pediatrie-hero.png",     # affiche dépistage enfant (texte FR)
     "strabisme-hero": TS / "03-strabisme" / "strabisme-hero.jpg",     # affiche strabisme enfant (texte FR)
+    "pediatrie-hero-ar": TS_AR / "02-pediatrie" / "pediatrie-hero-ar.png",  # même affiche, texte arabe (page AR)
+    "strabisme-hero-ar": TS_AR / "03-strabisme" / "strabisme-hero-ar.jpg",  # même affiche, texte arabe (page AR)
     "autorefractometre": TS / "04-equipements" / "autorefractometre.jpg",
     "phoropteur": TS / "04-equipements" / "phoropteur.jpg",
     "phoropteur-console": TS / "04-equipements" / "phoropteur-console.jpg",

@@ -344,5 +344,23 @@
       800,
       1200
     ]
+  },
+  "pediatrie-hero-ar": {
+    "width": 1126,
+    "height": 1397,
+    "widths": [
+      480,
+      800,
+      1126
+    ]
+  },
+  "strabisme-hero-ar": {
+    "width": 820,
+    "height": 1018,
+    "widths": [
+      480,
+      800,
+      820
+    ]
   }
 }

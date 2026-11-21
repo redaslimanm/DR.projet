@@ -46,7 +46,7 @@ export const pages = {
 
 // Services (12) : FR + AR (carte de visite). Angiographie et Topographie remplacées
 // par Rétinographie et OCT (cahier de modifications, étape 16). `ar: null` = pas encore
-// traduit : le service n'apparaît pas en AR (menu AR à 10 services jusqu'à l'étape 18).
+// traduit : le service n'apparaît pas dans le menu AR.
 export const services = [
   { slug: 'cataracte', fr: 'Chirurgie de la cataracte', ar: 'جراحة الجلالة' },
   { slug: 'chirurgie-refractive', fr: 'Chirurgie réfractive', ar: 'الجراحة الانكسارية' },
@@ -57,9 +57,8 @@ export const services = [
   { slug: 'glaucome', fr: 'Glaucome', ar: 'الزرق' },
   { slug: 'ophtalmologie-pediatrique', fr: 'Ophtalmologie pédiatrique', ar: 'طب العيون عند الأطفال' },
   { slug: 'echographie-oculaire', fr: 'Échographie oculaire', ar: 'الإكوغرافيا' },
-  // TODO AR (étape 18) : noms arabes de Rétinographie et OCT (menu AR à 10 services d'ici là)
-  { slug: 'retinographie', fr: 'Rétinographie', ar: null },
-  { slug: 'oct', fr: 'OCT', ar: null },
+  { slug: 'retinographie', fr: 'Rétinographie', ar: 'تصوير الشبكية' },
+  { slug: 'oct', fr: 'OCT', ar: 'التصوير المقطعي البصري (OCT)' },
   { slug: 'laser', fr: 'Laser', ar: 'الليزر' },
 ];
 

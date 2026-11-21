@@ -1,6 +1,6 @@
 // =========================================================
 // Contenu des pages service (FR) — une seule source pour :
-//   - les 13 pages /fr/services/<slug>/ (11 en AR tant que Rétinographie et OCT ne sont pas traduits) (template src/partials/service.js)
+//   - les 13 pages /fr/services/<slug>/ et /ar/services/<slug>/ (template src/partials/service.js)
 //   - la page index /fr/services/
 //   - la section « Pages services » de textes-a-valider.md
 //     (régénérée par : node scripts/export-textes.mjs)
@@ -238,7 +238,6 @@ export const servicesContent = [
     photoAlt:
       'Enfant portant des lunettes, un œil qui dévie. Texte : « Le strabisme chez l’enfant. Un œil qui dévie de l’axe visuel. Plus il est dépisté tôt, plus la prise en charge est efficace et la vision de l’enfant mieux protégée. »',
     photoFit: 'full',
-    photoAr: 'salle-examen', // image avec texte FR : ancienne photo gardée en AR (TODO traduction AR)
     card: 'Bilan et prise en charge du strabisme chez l’enfant et l’adulte, y compris par la chirurgie lorsqu’elle est indiquée.',
     intro:
       'Bilan et prise en charge du strabisme chez l’enfant et l’adulte, y compris par la chirurgie lorsqu’elle est indiquée.',
@@ -538,7 +537,6 @@ export const servicesContent = [
     photoAlt:
       'Enfant portant des lunettes, un œil caché par un cache-œil. Texte : « Le dépistage précoce permet de détecter tôt les troubles visuels chez l’enfant et d’assurer une prise en charge optimale. »',
     photoFit: 'full',
-    photoAr: 'salle-examen', // image avec texte FR : ancienne photo gardée en AR (TODO traduction AR)
     // Sections validées par la doctoresse (PDF, étape 3.2) : pas de badge [À VALIDER]
     validated: ['what', 'signs', 'steps'],
     card: 'Dépistage et suivi de la myopie, de l’hypermétropie, de l’astigmatisme, de l’amblyopie et du strabisme.',
@@ -839,42 +837,51 @@ export function serviceBySlug(slug) {
 // fusionnés avec la structure FR (slug, photo, icônes, liens).
 import { servicesContentAr } from './services-content.ar.js';
 
-// Champs ajoutés en FR (demandes de la doctoresse) et pas encore traduits :
-// jamais affichés en AR, qui garde son contenu actuel (textes, sections, FAQ,
-// encadrés). Les photos sans texte, elles, s'affichent déjà en AR ; les photos
-// avec du texte français gardent l'ancienne image AR via `photoAr`.
-// TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
-const FR_ONLY = ['validated', 'callouts', 'situations', 'signCards', 'warnings'];
-
-// Un service existe-t-il dans cette langue ? (Rétinographie et OCT : FR seulement
-// jusqu'à l'étape 18 — TODO AR : ajouter leur traduction dans services-content.ar.js)
+// Un service existe-t-il dans cette langue ?
 export function serviceAvailable(slug, lang = 'fr') {
   return Boolean(serviceBySlug(slug) && (lang === 'fr' || servicesContentAr[slug]));
 }
+
+// Version AR = textes de services-content.ar.js + éléments non textuels du FR
+// (icônes, images, liens, réglages). Tout contenu FR contenant du texte doit avoir
+// sa traduction : sinon le build s'arrête (jamais de texte français sur une page AR).
+const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure'];
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
   if (!base || lang === 'fr') return base;
   const ar = servicesContentAr[slug];
   if (!ar) throw new Error(`[services] traduction AR manquante : ${slug}`);
+  const fail = (what) => { throw new Error(`[services] traduction AR manquante (${what}) : ${slug}`); };
+  for (const key of TRANSLATED) if (base[key] && !ar[key]) fail(key);
+  if (ar.steps.length !== base.steps.length) fail('steps');
+
   const out = {
     ...base,
     ...ar,
-    // photoAr : ancienne photo gardée en AR quand la nouvelle contient du texte en français
-    photo: base.photoAr ?? base.photo,
+    // `photo` AR = version arabe d'une image avec texte (affiches) ; sinon l'image FR
+    photo: ar.photo ?? base.photo,
     signs: base.signs.map(([icon], i) => [icon, ar.signs[i]]),
+    // étapes : texte AR, images du FR avec leurs alt AR (3e élément)
+    steps: ar.steps.map(([t, d, alts], i) => {
+      const imgs = base.steps[i][2];
+      if (!imgs) return [t, d];
+      if (alts?.length !== imgs.length) fail(`alt des images de l'étape ${i + 1}`);
+      return [t, d, imgs.map((p, k) => ({ ...p, alt: alts[k] }))];
+    }),
   };
-  for (const key of FR_ONLY) delete out[key];
-  // Schéma : la version AR (fichier et alt arabes) doit être fournie, jamais la version FR
-  if (base.whatFigure && !ar.whatFigure) throw new Error(`[services] schéma AR manquant (whatFigure) : ${slug}`);
-  if (base.photoAr) delete out.photoFit; // l'ancienne photo AR garde l'affichage recadré
-  // Photos sans texte : affichées en AR, avec les alt arabes (`photosAlt` dans le fichier AR)
+  if (base.signCards) out.signCards = base.signCards.map(([icon], i) => [icon, ...ar.signCards[i]]);
+  if (base.callouts) {
+    out.callouts = base.callouts.map((c, i) =>
+      c.type === 'alert'
+        ? { ...c, ...ar.callouts[i] }
+        : { ...c, title: ar.callouts[i].title, items: c.items.map(([icon], k) => [icon, ...ar.callouts[i].items[k]]) },
+    );
+  }
+  // Photos sans texte : alt arabes dans `photosAlt`
   if (base.photos) {
-    if (base.photoAr) delete out.photos;
-    else {
-      if (ar.photosAlt?.length !== base.photos.length) throw new Error(`[services] alt AR manquants (photosAlt) : ${slug}`);
-      out.photos = base.photos.map((p, i) => ({ ...p, alt: ar.photosAlt[i] }));
-    }
+    if (ar.photosAlt?.length !== base.photos.length) fail('photosAlt');
+    out.photos = base.photos.map((p, i) => ({ ...p, alt: ar.photosAlt[i] }));
   }
   return out;
 }

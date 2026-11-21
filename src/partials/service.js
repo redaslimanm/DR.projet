@@ -199,7 +199,7 @@ export function service(page) {
       </div>
     </section>
 
-    ${s.hideSigns ? '' : `<section class="svc-section" aria-labelledby="svc-signs">
+    <section class="svc-section" aria-labelledby="svc-signs">
       <div class="container svc-container">
         <h2 id="svc-signs">${s.signsTitle}</h2>
         ${todo(s, 'signs') && `<p class="svc-note">${TODO}</p>`}
@@ -218,7 +218,7 @@ export function service(page) {
         }
         ${(s.callouts || []).map(callout).join('\n        ')}
       </div>
-    </section>`}
+    </section>
 
     <section class="svc-section" aria-labelledby="svc-steps">
       <div class="container svc-container">
