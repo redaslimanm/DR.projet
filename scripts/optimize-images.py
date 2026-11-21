@@ -79,6 +79,7 @@ CROP = {
 # Qualité renforcée pour les portraits très visibles (source petite → moins de compression)
 QUALITY = {
     "dr-oct": {"avif": 74, "webp": 90, "sharpen": True},
+    "icare": {"avif": 74, "webp": 90, "sharpen": True},  # source 680 px (page Rétine)
 }
 
 WIDTHS = [480, 800, 1200]

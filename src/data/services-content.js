@@ -440,6 +440,7 @@ export const servicesContent = [
     label: 'Rétine',
     photo: 'icare',
     photoAlt: 'Rétinographe numérique iCare du cabinet',
+    photoFit: 'full', // source 680 px : affichée à sa taille (pas d'agrandissement flou)
     card: 'Diagnostic et suivi des pathologies rétiniennes, dont la rétinopathie diabétique et la DMLA.',
     intro:
       'Diagnostic et suivi des pathologies de la rétine, dont la rétinopathie diabétique et la DMLA, avec des examens réalisés au cabinet.',
