@@ -68,15 +68,30 @@ function trustCounter() {
 
 /* ---------------------------------------------------------
    Le cabinet en chiffres : compteurs 0 → valeur finale, une seule fois.
-   La valeur finale est dans le HTML (SEO, sans JS). Le chiffre animé est
-   aria-hidden ; le lecteur d'écran lit la copie .visually-hidden (pas
-   d'annonce de chaque étape). Le placeholder [X] n'a pas data-count.
+   Le HTML ne contient qu'UN seul nombre (SEO, sans JS, copier-coller,
+   traduction : jamais de « 1212 »). Pendant l'animation seulement, le
+   chiffre animé est aria-hidden et une copie .visually-hidden donne la
+   valeur finale au lecteur d'écran ; les deux sont retirées à la fin.
+   Le placeholder [X] n'a pas data-count.
    --------------------------------------------------------- */
 function statsCounters() {
   const nums = $$('.stats [data-count]');
   if (!nums.length) return;
-  const targets = nums.map((el) => ({ el, end: parseInt(el.textContent, 10), v: 0 }));
-  targets.forEach((t) => (t.el.textContent = '0'));
+  const targets = nums.map((el) => {
+    const end = parseInt(el.textContent, 10);
+    const sr = document.createElement('span');
+    sr.className = 'visually-hidden';
+    sr.textContent = String(end);
+    el.after(sr);
+    el.setAttribute('aria-hidden', 'true');
+    el.textContent = '0';
+    return { el, sr, end, v: 0 };
+  });
+  const done = (t) => {
+    t.el.textContent = String(t.end);
+    t.el.removeAttribute('aria-hidden');
+    t.sr.remove();
+  };
   const run = () =>
     targets.forEach((t, i) =>
       gsap.to(t, {
@@ -86,6 +101,7 @@ function statsCounters() {
         ease: 'power2.out',
         snap: { v: 1 },
         onUpdate: () => (t.el.textContent = String(t.v)),
+        onComplete: () => done(t),
       }),
     );
   ScrollTrigger.create({ trigger: '.stats', start: 'top 80%', once: true, onEnter: run });

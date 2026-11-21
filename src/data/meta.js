@@ -34,7 +34,7 @@ export const meta = {
     'faq/': {
       title: 'Questions fréquentes – Cabinet d’ophtalmologie Dr Elaouni, Fès',
       description:
-        'Rendez-vous, documents à apporter, urgences, durée de consultation, accès, conventions CNSS et CNOPS : les réponses aux questions fréquentes du cabinet.',
+        'Rendez-vous, documents à apporter, urgences, durée de consultation, accès et horaires : les réponses aux questions fréquentes du cabinet.',
     },
     'contact/': {
       title: 'Contact et accès – Ophtalmologue Dr Elaouni Rajae, Fès',
