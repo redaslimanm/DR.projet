@@ -380,7 +380,7 @@ export const servicesContent = [
     stepsTitle: 'Comment se déroule la prise en charge ?',
     steps: [
       ['Mesure de la pression', 'Mesure de la pression intraoculaire.'],
-      ['Examen du nerf optique', 'Fond d’œil et OCT du nerf optique.'],
+      ['Examen du nerf optique', 'Fond d’œil pour évaluation de la papille optique, OCT du nerf optique et champ visuel.'],
       ['Traitement', 'Collyres, laser ou autres options selon les cas.'],
       ['Suivi', 'Contrôles réguliers pour adapter le traitement.'],
     ],

@@ -673,7 +673,7 @@ Adresse prévue : `/fr/services/glaucome/`
 **« Comment se déroule la prise en charge ? » (4 étapes)**
 
 1. **Mesure de la pression** — Mesure de la pression intraoculaire.
-2. **Examen du nerf optique** — Fond d’œil et OCT du nerf optique.
+2. **Examen du nerf optique** — Fond d’œil pour évaluation de la papille optique, OCT du nerf optique et champ visuel.
 3. **Traitement** — Collyres, laser ou autres options selon les cas.
 4. **Suivi** — Contrôles réguliers pour adapter le traitement.
 

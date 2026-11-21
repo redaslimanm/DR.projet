@@ -92,3 +92,12 @@ Clé : `strabisme`.
       `photoAr: 'salle-examen'`. Affichage « image entière » (`photoFit: 'full'`).
 - [ ] `photoAlt` : traduire l'alt (il reprend le texte de l'affiche).
 - [ ] `faq` : 3 questions **avec réponses** à traduire (format `{ q, a }`).
+
+## Étape 5 — Page « Glaucome »
+
+Clé : `glaucome`.
+
+- [ ] `steps[1]` (« Examen du nerf optique ») : traduire « Fond d’œil pour évaluation
+      de la papille optique, OCT du nerf optique et champ visuel. »
+- [ ] FAQ : aucune réponse fournie pour l'instant (3 questions en `draft` en FR, section
+      FAQ masquée en FR). En AR, aligner sur le FR quand les réponses seront données.
