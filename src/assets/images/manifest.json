@@ -211,5 +211,41 @@
       800,
       1112
     ]
+  },
+  "salle-examen-2": {
+    "width": 1535,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "coin-salon": {
+    "width": 1600,
+    "height": 718,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "facade": {
+    "width": 1023,
+    "height": 1537,
+    "widths": [
+      480,
+      800,
+      1023
+    ]
+  },
+  "cabinet-deco": {
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
   }
 }

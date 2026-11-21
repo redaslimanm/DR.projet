@@ -49,6 +49,10 @@ IMAGES = {
     "lampe-a-fente": TS / "04-equipements" / "lampe-a-fente-1.jpg",
     "lampe-a-fente-volk": TS / "04-equipements" / "lampe-a-fente-2-lentilles-volk.jpg",
     "tonometre": TS / "04-equipements" / "tonometre.png",
+    "salle-examen-2": TS / "05-cabinet" / "coin-salon-1.jpg",       # fichier nommé « coin-salon-1 » mais montre la salle d'examen
+    "coin-salon": TS / "05-cabinet" / "coin-salon-2.jpg",           # coin salon (canapé vert), remplace « salon » (gardé en AR)
+    "facade": TS / "05-cabinet" / "facade.jpg",                     # entrée de la Résidence Oumnia + plaque du cabinet
+    "cabinet-deco": TS / "05-cabinet" / "cabinet-nouvelle-photo.png",  # canapé + décoration murale en lettres E
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

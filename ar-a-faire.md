@@ -120,3 +120,21 @@ la structure de `fr/equipements/index.html` (même ordre des 7 blocs).
 - [ ] **Nouveau bloc** « Le tonomètre – Mesure de la pression intraoculaire » :
       titre + 2 paragraphes à traduire ; photo `tonometre` (alt à traduire) ; lien Glaucome.
 - [ ] Images : aucune ne contient de texte en français (écrans d'appareils seulement).
+
+## Étape 7 — Page « Le cabinet »
+
+Fichier : `ar/cabinet/index.html`. Reprendre la structure de `fr/cabinet/index.html`.
+
+- [ ] **Galerie (8 photos, même ordre qu'en FR)** : passer `<ul class="gallery-page">` en
+      `gallery-page gallery-page--8` (mise en page sans trou). Photos : `reception`,
+      `attente`, `attente-vision`, `coin-salon` (remplace `salon`), `diplomes`,
+      `cabinet-deco` (nouvelle), `salle-examen-2` (nouvelle, fichier source
+      « coin-salon-1 » qui montre la salle d'examen), `salle-examen`.
+      **Alt et légendes à traduire** pour `coin-salon`, `cabinet-deco`, `salle-examen-2`.
+- [ ] Ensuite l'image `salon` ne sert plus nulle part : la retirer de
+      `scripts/optimize-images.py` et de `src/assets/images/`.
+- [ ] **Section Accès** : remplacer l'encadré « [À DEMANDER : photo de la façade] » par la
+      mise en page `about about--access` du FR (photo `facade` à gauche, `about__photo--full`,
+      contenu à droite). **Alt à traduire.**
+- [ ] Images : `facade` montre la plaque réelle du cabinet (texte en français sur la plaque,
+      c'est une vraie photo) → pas de version arabe à prévoir. Aucune autre image avec texte.

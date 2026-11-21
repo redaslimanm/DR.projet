@@ -154,6 +154,18 @@
 @media (hover: hover) {
   .gallery-page figure:hover img { transform: scale(1.04); }
 }
+/* Galerie à 8 photos (FR) : grille remplie sans trou.
+   Mobile (2 col.) : 1, 4, 7, 8 en pleine largeur ; 5 et 6 (portraits) sur 2 rangées. */
+.gallery-page--8 li:nth-child(n) { grid-column: auto; grid-row: auto; }
+.gallery-page--8 li:nth-child(1),
+.gallery-page--8 li:nth-child(4),
+.gallery-page--8 li:nth-child(7),
+.gallery-page--8 li:nth-child(8) { grid-column: span 2; }
+.gallery-page--8 li:nth-child(5),
+.gallery-page--8 li:nth-child(6) { grid-row: span 2; }
+
+/* Section Accès (page cabinet) : photo de la façade affichée entière (portrait) */
+.about__photo--full img { block-size: auto; }
 
 .placeholder-box {
   display: grid;
@@ -233,6 +245,17 @@ html[lang='ar'] .hours-card__title { font-family: var(--ff-ar); }
   .gallery-page li:nth-child(6) { grid-column: span 2; }                    /* coin salon, salle d’examen */
   .gallery-page figure,
   .gallery-page picture { border-radius: 20px; }
+  /* 8 photos (3 col.) : 1 et 4 en 2×2, 5 et 6 sur 2 rangées, 7 et 8 sur 2 colonnes */
+  .gallery-page--8 li:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .gallery-page--8 li:nth-child(1),
+  .gallery-page--8 li:nth-child(4) { grid-column: span 2; grid-row: span 2; }
+  .gallery-page--8 li:nth-child(5),
+  .gallery-page--8 li:nth-child(6) { grid-row: span 2; }
+  .gallery-page--8 li:nth-child(7),
+  .gallery-page--8 li:nth-child(8) { grid-column: span 2; }
+
+  .about--access .about__media { flex: 0 1 380px; }
+  .about__photo--full img { block-size: auto; }
 
   .contact-page { flex-direction: row; gap: 56px; }
   .contact-page > * { flex: 1 1 0; min-inline-size: 0; }

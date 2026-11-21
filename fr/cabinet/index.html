@@ -24,10 +24,12 @@
 
     <section class="section" aria-label="Photos du cabinet">
       <div class="container">
-        <ul class="gallery-page" role="list" data-gallery>
+        <!-- 8 photos : mise en page gallery-page--8 (src/styles/page.css). Ordre choisi pour
+             remplir la grille sans trou (mobile 2 colonnes, desktop 3 colonnes). -->
+        <ul class="gallery-page gallery-page--8" role="list" data-gallery>
           <li>
             <figure>
-              <!-- @picture name="reception" alt="Accueil du cabinet" sizes="(min-width: 64em) 400px, 50vw" -->
+              <!-- @picture name="reception" alt="Accueil du cabinet" sizes="(min-width: 64em) 800px, 100vw" -->
               <figcaption>Accueil</figcaption>
             </figure>
           </li>
@@ -45,7 +47,7 @@
           </li>
           <li>
             <figure>
-              <!-- @picture name="salon" alt="Coin salon avec canapé vert et cadres" sizes="(min-width: 64em) 400px, 50vw" -->
+              <!-- @picture name="coin-salon" alt="Coin salon avec canapé vert, fauteuils et bibliothèque" sizes="(min-width: 64em) 800px, 100vw" -->
               <figcaption>Coin salon</figcaption>
             </figure>
           </li>
@@ -57,7 +59,19 @@
           </li>
           <li>
             <figure>
-              <!-- @picture name="salle-examen" alt="Salle d’examen équipée du cabinet" sizes="(min-width: 64em) 400px, 50vw" -->
+              <!-- @picture name="cabinet-deco" alt="Canapé vert et décoration murale en lettres E, inspirée des tests de vision" sizes="(min-width: 64em) 400px, 50vw" -->
+              <figcaption>Décoration du cabinet</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <!-- @picture name="salle-examen-2" alt="Salle d’examen du cabinet : bureau, fauteuil d’examen, lampe à fente et écrans" sizes="(min-width: 64em) 800px, 100vw" -->
+              <figcaption>Salle d’examen</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <!-- @picture name="salle-examen" alt="Salle d’examen équipée du cabinet" sizes="(min-width: 64em) 800px, 100vw" -->
               <figcaption>Salle d’examen</figcaption>
             </figure>
           </li>
@@ -67,17 +81,21 @@
 
     <section class="section section--cream" aria-labelledby="acces-title">
       <div class="container">
-        <div class="section-head">
-          <p class="label label--plain">Accès</p>
-          <h2 id="acces-title">Venir au cabinet</h2>
+        <div class="about about--access">
+          <div class="about__media">
+            <!-- @picture name="facade" alt="Entrée de la Résidence Oumnia, avec la plaque du cabinet du Dr Elaouni Rajae (3ème étage, bureau N°17)" sizes="(min-width: 64em) 380px, calc(100vw - 40px)" class="about__photo about__photo--full" -->
+          </div>
+          <div class="about__content">
+            <p class="label label--plain">Accès</p>
+            <h2 id="acces-title">Venir au cabinet</h2>
+            <ul class="card-grid" role="list">
+              <li class="info-card"><h3>Adresse</h3><p>69, Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès 30000</p></li>
+              <li class="info-card"><h3>Repères</h3><p>Entre Biougnach et Eight Pool Academy</p></li>
+              <li class="info-card"><h3>Accessibilité</h3><p>Ascenseur dans la résidence, parking à proximité</p></li>
+            </ul>
+            <p style="margin-block-start: 24px"><a class="btn btn--primary" href="/fr/contact/">Plan d’accès et contact</a></p>
+          </div>
         </div>
-        <ul class="card-grid" role="list">
-          <li class="info-card"><h3>Adresse</h3><p>69, Avenue des FAR, Résidence Oumnia, 3ème étage, Bureau N°17, Fès 30000</p></li>
-          <li class="info-card"><h3>Repères</h3><p>Entre Biougnach et Eight Pool Academy</p></li>
-          <li class="info-card"><h3>Accessibilité</h3><p>Ascenseur dans la résidence, parking à proximité</p></li>
-          <li class="info-card"><div class="placeholder-box"><span class="placeholder">[À DEMANDER : photo de la façade / entrée de la Résidence Oumnia]</span></div></li>
-        </ul>
-        <p style="margin-block-start: 24px"><a class="btn btn--primary" href="/fr/contact/">Plan d’accès et contact</a></p>
       </div>
     </section>
   </main>
