@@ -56,6 +56,7 @@ IMAGES = {
     "dr-elaouni-hero": TS / "06-dr-elaouni" / "dr-elaouni-photo-hero.jpg",  # portrait à la lampe à fente (page Dr Elaouni)
     "cataracte-1": TS / "07-cataracte" / "cataracte-1.jpg",           # au microscope opératoire (paysage)
     "cataracte-2": TS / "07-cataracte" / "cataracte-2.jpg",           # au bloc, plateforme Centurion (portrait)
+    "chirurgie-refractive": TS / "08-chirurgie-refractive" / "chirurgie-refractive.jpg",  # patiente sous le laser
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

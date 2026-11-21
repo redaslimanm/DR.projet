@@ -29,6 +29,7 @@ Les traductions et les images en arabe seront fournies, validées par la doctore
   `TODO AR` dans le code. Liste à jour :
   - `src/data/services-content.ar.js` → `cataracte.photosAlt` (2 alt) ;
   - `ar/cabinet/index.html` → photo `cabinet-deco` (alt + légende « ديكور العيادة »).
+  - `src/data/services-content.ar.js` → `'chirurgie-refractive'.photoAlt` (nouvelle photo).
 - FAQ AR : actuellement des chaînes (questions sans réponse, placeholder affiché). À
   passer au format FR `{ q, a }` (réponses traduites). Le JSON-LD FAQPage des pages
   services est aujourd'hui limité au FR (`build/partials-plugin.js`) : l'ouvrir à l'AR
@@ -185,3 +186,16 @@ Clé : `retine`.
 - [ ] `faq` : 5 questions **avec réponses** à traduire (format `{ q, a }`), même ordre
       qu'en FR. La question « ما هو التنكس البقعي المرتبط بالسن؟ » (= « Qu’est-ce que la DMLA ? ») est en
       `draft` en FR (sans réponse) : la masquer aussi en AR tant qu'elle n'a pas de réponse.
+
+## Étape 11 — Page « Chirurgie réfractive »
+
+Clé : `'chirurgie-refractive'`.
+
+- [x] **Photo** `chirurgie-refractive` (sans texte) : **déjà affichée en AR**.
+- [ ] `photoAlt` : alt AR **provisoire** à remplacer par la traduction validée (`TODO AR`).
+- [ ] `steps` : remplacer les 4 étapes par les 4 étapes du FR (titres + textes à traduire :
+      Consultation initiale, Bilan préopératoire, Choix de la technique, Intervention et
+      suivi postopératoire). Badge `[À VALIDER]` à retirer sur `steps`.
+- [ ] `faq` : 6 questions **avec réponses** à traduire (format `{ q, a }`), même ordre.
+      La question « Combien de temps dure le bilan ? » est en `draft` en FR : la masquer
+      aussi en AR tant qu'elle n'a pas de réponse.

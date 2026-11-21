@@ -274,5 +274,14 @@
       800,
       941
     ]
+  },
+  "chirurgie-refractive": {
+    "width": 1601,
+    "height": 854,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
   }
 }

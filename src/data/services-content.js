@@ -171,8 +171,10 @@ export const servicesContent = [
     slug: 'chirurgie-refractive',
     name: 'Chirurgie réfractive',
     label: 'Chirurgie',
-    photo: 'huvitz',
-    photoAlt: 'Autoréfractomètre et lampe à fente du cabinet',
+    photo: 'chirurgie-refractive',
+    photoAlt: 'Patiente allongée sous le laser pendant une chirurgie réfractive',
+    // Déroulement fourni par la doctoresse (PDF, étape 11.2) : pas de badge [À VALIDER]
+    validated: ['steps'],
     card: 'Évaluation des possibilités de correction chirurgicale de la myopie, de l’hypermétropie et de l’astigmatisme.',
     intro:
       'Un bilan complet pour évaluer si une correction chirurgicale de votre myopie, hypermétropie ou astigmatisme est envisageable dans votre cas.',
@@ -187,15 +189,37 @@ export const servicesContent = [
     ],
     stepsTitle: 'Comment se déroule la prise en charge ?',
     steps: [
-      ['Consultation', 'Échange sur vos attentes et examen complet des yeux.'],
-      ['Bilan préopératoire', 'Mesures de la cornée et de la réfraction pour vérifier si vous êtes candidat.'],
-      ['Décision', 'Explication des options possibles, de leurs limites et de leurs risques.'],
-      ['Suivi', 'Contrôles réguliers après l’intervention, le cas échéant.'],
+      ['Consultation initiale', 'Échange sur vos attentes, vos antécédents médicaux et vos besoins visuels, suivi d’un examen ophtalmologique complet.'],
+      ['Bilan préopératoire', 'Réalisation d’examens approfondis, notamment la réfraction, la topographie cornéenne, l’aberrométrie, la pachymétrie et l’évaluation de la surface oculaire, afin de déterminer votre éligibilité à la chirurgie réfractive.'],
+      ['Choix de la technique', 'Selon les résultats du bilan, discussion des différentes techniques envisageables (LASIK, PKR ou autres), de leurs bénéfices, de leurs limites et des risques éventuels.'],
+      ['Intervention et suivi postopératoire', 'Après l’intervention, un suivi ophtalmologique régulier permet de surveiller la cicatrisation, la récupération visuelle et de dépister d’éventuelles complications.'],
     ],
     doctor: UK_REFRACTIVE,
     faq: [
-      { q: 'Suis-je candidat à la chirurgie réfractive ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'À partir de quel âge peut-on se faire opérer ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Suis-je candidat à la chirurgie réfractive ?',
+        a: 'La chirurgie réfractive permet de corriger certains défauts visuels, notamment la myopie, l’hypermétropie et l’astigmatisme. L’éligibilité dépend de plusieurs critères : la stabilité de la correction, l’épaisseur et la forme de la cornée, l’état de la surface oculaire et la santé générale des yeux. Un bilan préopératoire approfondi est indispensable pour déterminer si une intervention est envisageable et choisir la technique la plus adaptée.',
+      },
+      {
+        q: 'À partir de quel âge peut-on se faire opérer ?',
+        a: 'La chirurgie réfractive est généralement envisagée à partir de 18 ans, à condition que la correction visuelle soit stable depuis au moins un an, parfois davantage selon la situation. L’âge seul ne suffit pas : un examen ophtalmologique complet est nécessaire pour confirmer l’éligibilité.',
+      },
+      {
+        q: 'La chirurgie réfractive est-elle douloureuse ?',
+        a: 'L’intervention est généralement indolore grâce à l’utilisation de gouttes anesthésiantes. Après l’opération, une gêne, des picotements ou une sensation de corps étranger peuvent apparaître. Leur intensité et leur durée varient selon la technique utilisée, notamment entre le LASIK et la PKR.',
+      },
+      {
+        q: 'Quelle est la différence entre le LASIK et la PKR ?',
+        a: 'Le LASIK et la PKR sont deux techniques de chirurgie réfractive au laser permettant de corriger certains défauts visuels. Le LASIK offre généralement une récupération visuelle plus rapide, tandis que la PKR nécessite une cicatrisation de la surface cornéenne plus longue. Le choix dépend notamment de l’épaisseur et de la forme de la cornée, ainsi que des caractéristiques de chaque patient.',
+      },
+      {
+        q: 'Combien de temps faut-il pour retrouver une bonne vision ?',
+        a: 'La récupération visuelle dépend de la technique utilisée. Après un LASIK, la vision s’améliore généralement dès les premières 24 à 48 heures. Après une PKR, l’amélioration est plus progressive et peut nécessiter plusieurs semaines pour se stabiliser.',
+      },
+      {
+        q: 'Peut-on se faire opérer si l’on porte des lentilles de contact ?',
+        a: 'Oui, le port de lentilles n’empêche pas nécessairement une chirurgie réfractive. Toutefois, il est indispensable de les retirer pendant une période déterminée avant le bilan préopératoire, car elles peuvent modifier temporairement la forme de la cornée et fausser les mesures.',
+      },
       { q: 'Combien de temps dure le bilan ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Envie de vous renseigner ?',

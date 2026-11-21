@@ -70,7 +70,8 @@ export const servicesContentAr = {
   'chirurgie-refractive': {
     name: 'الجراحة الانكسارية',
     label: 'جراحة',
-    photoAlt: 'جهاز قياس الانكسار والمصباح الشقي بالعيادة',
+    // TODO AR (étape 18) : alt provisoire de la nouvelle photo, à remplacer par la traduction validée
+    photoAlt: 'مريضة مستلقية تحت جهاز الليزر أثناء عملية الجراحة الانكسارية',
     card: 'تقييم إمكانية التصحيح الجراحي لقصر النظر وطول النظر واللابؤرية.',
     intro: 'تقييم شامل لمعرفة ما إذا كان التصحيح الجراحي لقصر النظر أو طول النظر أو اللابؤرية ممكناً في حالتكم.',
     whatTitle: 'ما هي الجراحة الانكسارية؟',
