@@ -147,6 +147,8 @@ export default function partialsPlugin({ root, pages = [] }) {
     transformIndexHtml: {
       order: 'pre',
       async handler(html, ctx) {
+        // Notes internes (« <!-- TODO … --> ») : gardées dans les sources, jamais publiées
+        html = html.replace(/[ \t]*<!--\s*TODO[\s\S]*?-->[ \t]*\n?/g, '');
         if (!html.includes('<!-- @')) return html;
         const page = pageInfo(ctx.path);
 

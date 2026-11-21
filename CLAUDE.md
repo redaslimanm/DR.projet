@@ -39,9 +39,9 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
 - **WhatsApp (messages uniquement, PAS d'appels)** : 07 62 97 08 15 → `https://wa.me/212762970815`
 - **Email** : dr.elaouni.rajae@gmail.com
 - **Horaires** : lundi – vendredi 9h – 17h · samedi 9h – 13h · dimanche fermé
-- **Consultation** : environ 15 min en moyenne. Urgences acceptées. Adultes et enfants.
-- **Documents à apporter** : CIN + fiche d'adhésion mutuelle
-- **Conventions (confirmées)** : CNSS, CNOPS, mutuelles. Ne pas écrire « assurances » (non confirmé).
+- **Consultation** : durée à confirmer par la cliente (« environ 15 minutes, voire plus » sur l'accueil/FAQ, « 20 à 30 minutes » sur la page Consultation — point client en attente). Urgences acceptées. Adultes et enfants.
+- **Documents à apporter** : CIN uniquement (fiche d'adhésion mutuelle retirée à la demande de la doctoresse)
+- **Conventions** : CNSS, CNOPS, mutuelles — **ne plus les afficher** (demande de la doctoresse : les patients pourraient croire que les honoraires sont réduits). Encore présentes dans les badges du hero en attendant sa réponse. Ne pas écrire « assurances ».
 - **Tarifs** : ne PAS les afficher (demande de la cliente)
 - **Réseaux sociaux** : Instagram https://www.instagram.com/dr.rajaeelaouni/ · Facebook https://www.facebook.com/profile.php?id=61591732495481
 - **Fiche Google Maps** : https://maps.app.goo.gl/p44UvxS9aQ613Bay7 (carte intégrée chargée au clic). Avis Google : à brancher automatiquement plus tard (le client fera le lien site ↔ fiche) — jamais d’avis saisis à la main.
@@ -59,15 +59,15 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
 
 ### Services (12)
 
-Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Angiographie rétinienne · Topographie cornéenne · Laser
+Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Rétinographie · OCT · Laser
 
-L'OCT n'a pas de page service : il est présenté dans « Équipements & examens » (validé : 12 services, comme sur la carte de visite).
+Angiographie rétinienne et Topographie cornéenne ont été remplacées par Rétinographie et OCT (cahier de modifications, étape 16 ; anciennes URL redirigées en 301 vers la page des services). Toujours 12 services. En AR, Rétinographie et OCT attendent leur traduction (menu AR à 10, voir `ar-a-faire.md`).
 
 Page supplémentaire avec le même template : **Consultation et dépistage** (`/fr/services/consultation-depistage/`), carte 01 de l'accueil. Elle ne compte pas dans les « 12 spécialités ».
 
 Les textes médicaux du site sont regroupés dans `textes-a-valider.md` (racine, hors site) pour validation par la doctora. Tant qu'ils ne sont pas validés, ils restent marqués `[À VALIDER]` sur le site. La section des pages services est régénérée par `node scripts/export-textes.mjs` à partir de `src/data/services-content.js`.
 
-AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر
+AR (depuis la carte de visite) : جراحة الجلالة – الجراحة الانكسارية – جراحة الحَوَل – العدسات اللاصقة – القرنيّة المخروطية وأمراض القرنيّة – أمراض الشبكية – الزرق – طب العيون عند الأطفال – الإكوغرافيا – تصوير الشبكية – تصوير القرنية – الليزر (carte de visite ; « تصوير الشبكية / تصوير القرنية » = anciens services Angiographie / Topographie, remplacés : noms AR de Rétinographie et OCT à fournir)
 
 Équipements visibles sur les photos : lampe à fente et autoréfractomètre Huvitz, frontofocomètre Huvitz, rétinographe iCare, échographe, OCT.
 
@@ -149,7 +149,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 8. Le cabinet : galerie (réception, salles d'attente, espace diplômes)
 9. Citation : « La vision est l'art de voir l'invisible. » — Jonathan Swift (phrase écrite sur le mur du cabinet)
 10. Avis patients : note Google + 3 avis → placeholders `[À INTÉGRER]`, jamais d'avis inventés
-11. Infos pratiques (horaires, conventions, documents, annulation) + FAQ (4 questions, en `<details>`)
+11. Infos pratiques (horaires, documents, annulation) + FAQ (4 questions, en `<details>`)
 12. Contact : adresse + repères, téléphone, WhatsApp, email, carte Google Maps, plan d'accès (image tirée de la carte de visite)
 13. Footer (fond `#23392B`, logo blanc)
 
@@ -246,3 +246,9 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
 8. SEO (meta, schema, sitemap, hreflang)
 9. Tests (mobile réel, PageSpeed, accessibilité, liens tel/WhatsApp)
 10. Mise en ligne (hébergement + domaine)
+## Cahier de modifications de la doctoresse (nov. 2026)
+
+`assets-source/modifications_site_dr_elaouni.pdf` (17 étapes) : appliqué en FR. Images de
+`assets-source/tsawer-site/` optimisées via `scripts/optimize-images.py`. Version arabe :
+tout ce qui reste à faire est dans `ar-a-faire.md` (étape 18). Les commentaires
+`<!-- TODO … -->` des pages HTML sont retirés au build (jamais publiés).
