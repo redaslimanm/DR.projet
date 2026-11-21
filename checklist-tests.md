@@ -18,7 +18,7 @@ Lancer `npm run build` puis `npx vite preview --host` : le terminal affiche une 
 ## 2. Boutons d'action (le plus important)
 - [ ] « Appeler » (barre du bas, hero, pages) ouvre le téléphone sur **05 32 39 18 18**
 - [ ] « WhatsApp » ouvre une conversation avec **07 62 97 08 15** (message, pas d'appel)
-- [ ] La barre fixe du bas ne cache pas le contenu, et ne passe pas sous la barre d'accueil de l'iPhone
+- [ ] Le bouton flottant (FAB) ne cache pas le bas du footer, ne passe pas sous la barre d'accueil de l'iPhone, et son menu s'ouvre / se ferme (fond, action, Échap)
 - [ ] L'email ouvre l'application mail
 
 ## 3. Menu et navigation

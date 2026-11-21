@@ -97,7 +97,8 @@
 
   /* ---------- Header / barre mobile ---------- */
   --header-h: 68px;
-  --mobile-bar-h: 76px;
+  --fab-size: 60px;
+  --fab-offset: 20px;
 
   /* ---------- Animations ---------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -106,7 +107,7 @@
 
   /* ---------- Z-index ---------- */
   --z-header: 50;
-  --z-mobile-bar: 60;
+  --z-fab: 1100; /* au-dessus de tout (carte comprise), sauf le menu mobile ouvert */
   --z-menu: 70;
 }
 

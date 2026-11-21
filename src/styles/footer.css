@@ -92,51 +92,128 @@ html[lang='ar'] .site-footer__hours dt::after { content: ':'; }
 }
 .site-footer__bottom a { color: var(--c-footer-dim); }
 
-/* ---------- Barre fixe mobile ---------- */
-.mobile-bar {
-  position: fixed;
-  inset-inline: 0;
-  inset-block-end: 0;
-  z-index: var(--z-mobile-bar);
-  display: flex;
-  gap: 10px;
-  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-  background: var(--c-white);
-  border-block-start: 1px solid var(--c-border);
-  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+/* ---------- Bouton flottant (FAB) + menu « speed dial » ---------- */
+/* Le FAB ne cache jamais le bas du footer */
+.site-footer__bottom {
+  padding-block-end: calc(var(--fab-size) + var(--fab-offset) * 2 + env(safe-area-inset-bottom));
 }
 
-.mobile-bar__btn {
-  flex: 1;
+.fab {
+  --fab-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: fixed;
+  inset-inline-end: var(--fab-offset); /* droite en FR, gauche en AR (RTL) */
+  inset-block-end: calc(var(--fab-offset) + env(safe-area-inset-bottom));
+  z-index: var(--z-fab);
+}
+
+.fab__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 32, 25, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+.fab__backdrop[hidden] { display: block; visibility: hidden; pointer-events: none; }
+.fab.is-open .fab__backdrop { opacity: 1; transition-delay: 0s; }
+
+.fab__toggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: var(--fab-size);
+  block-size: var(--fab-size);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--c-green-dark);
+  color: var(--c-white);
+  /* anneau doré discret : reste visible sur le footer vert */
+  box-shadow: 0 0 0 2px rgba(217, 179, 138, 0.55), 0 8px 24px rgba(20, 32, 25, 0.3), 0 2px 6px rgba(20, 32, 25, 0.2);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.fab__toggle svg { transition: transform 0.25s var(--fab-ease); }
+.fab.is-open .fab__toggle { background: var(--c-gold); }
+.fab.is-open .fab__toggle svg { transform: rotate(45deg); }
+.fab__toggle:active { transform: scale(0.96); }
+
+.fab__menu {
+  position: absolute;
+  inset-inline-end: calc((var(--fab-size) - 52px) / 2);
+  inset-block-end: calc(var(--fab-size) + 16px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  visibility: hidden;
+  transition: visibility 0s linear 0.25s;
+}
+.fab.is-open .fab__menu { visibility: visible; transition-delay: 0s; }
+
+.fab__action {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--sp-1);
-  min-block-size: var(--btn-height);
-  border-radius: var(--radius-pill);
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.25s var(--fab-ease);
+}
+.fab.is-open .fab__action { opacity: 1; transform: none; }
+/* Apparition décalée : du bas (Appeler) vers le haut (Réserver RDV) */
+.fab.is-open .fab__action--wa { transition-delay: 0.05s; }
+.fab.is-open .fab__action--rdv { transition-delay: 0.1s; }
+
+.fab__label {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--c-white);
+  color: var(--c-text);
   font-size: var(--fs-small);
   font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(20, 32, 25, 0.16);
 }
-html[lang='ar'] .mobile-bar__btn { font-size: 0.9375rem; font-weight: 700; }
+html[lang='ar'] .fab__label { font-size: 0.9375rem; font-weight: 700; }
 
-.mobile-bar__btn--call,
-.mobile-bar__btn--call:hover {
-  background: var(--c-green);
+.fab__mini {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 52px;
+  block-size: 52px;
+  border-radius: 50%;
   color: var(--c-white);
+  box-shadow: 0 6px 18px rgba(20, 32, 25, 0.25);
 }
-.mobile-bar__btn--wa,
-.mobile-bar__btn--wa:hover {
-  background: var(--c-whatsapp);
-  color: var(--c-whatsapp-ink);
+.fab__action--rdv .fab__mini { background: var(--c-gold); }
+.fab__action--rdv .fab__label { background: var(--c-gold-dark); color: var(--c-white); } /* doré, contraste AA */
+.fab__action--wa .fab__mini { background: var(--c-whatsapp); }
+.fab__action--wa .icon--wa { color: var(--c-white); }
+.fab__action--call .fab__mini { background: var(--c-green-dark); }
+
+/* Focus visible (clavier) */
+.fab__toggle:focus-visible,
+.fab__action:focus-visible { outline: none; }
+.fab__toggle:focus-visible,
+.fab__action:focus-visible .fab__mini {
+  outline: 3px solid var(--c-gold-light);
+  outline-offset: 3px;
 }
 
-/* Le contenu ne passe jamais sous la barre */
-body {
-  padding-block-end: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+@media (hover: hover) {
+  .fab__action:hover .fab__mini { filter: brightness(1.08); }
 }
 
-/* Barre cachée quand le menu est ouvert (le menu a ses propres boutons) */
-html.menu-open .mobile-bar { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .fab__toggle,
+  .fab__toggle svg,
+  .fab__backdrop,
+  .fab__action { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
+  .fab__action { transform: none; }
+}
+
+/* Caché quand le menu de navigation mobile est ouvert (il a ses propres boutons) */
+html.menu-open .fab { visibility: hidden; }
 
 /* ---------- Desktop ---------- */
 @media (min-width: 64em) {
@@ -163,6 +240,4 @@ html.menu-open .mobile-bar { visibility: hidden; }
     font-size: 0.8125rem;
   }
 
-  .mobile-bar { display: none; }
-  body { padding-block-end: 0; }
 }

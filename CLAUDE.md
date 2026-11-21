@@ -153,7 +153,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 12. Contact : adresse + repères, téléphone, WhatsApp, email, carte Google Maps, plan d'accès (image tirée de la carte de visite)
 13. Footer (fond `#23392B`, logo blanc)
 
-**Mobile** : barre fixe en bas avec 2 boutons « Appeler » (vert) + « WhatsApp » (vert WhatsApp), `padding-bottom: env(safe-area-inset-bottom)`.
+**Contact rapide** (toutes tailles d’écran) : bouton flottant (FAB, `src/partials/footer.js` + `src/js/fab.js`) en bas à droite (à gauche en AR), menu « speed dial » Réserver RDV (→ Contact) / WhatsApp / Appeler ; fermeture au clic sur le fond, sur une action ou avec Échap ; `env(safe-area-inset-bottom)`.
 
 Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر ».
 
