@@ -27,6 +27,59 @@ export const UI = {
 export const ph = (text) => text.replace(/\[[^\]]+\]/g, (m) => `<span class="placeholder">${m}</span>`);
 const TODO = '<span class="placeholder">[À VALIDER]</span> ';
 
+// Badge [À VALIDER] par section : retiré des sections dont le texte a été
+// fourni par la doctoresse (champ FR `validated`). En AR : toujours affiché.
+const todo = (s, key) => (s.validated?.includes(key) ? '' : TODO);
+
+// Un texte = une chaîne ou un tableau de paragraphes
+const paras = (text) => (Array.isArray(text) ? text : [text]);
+
+// FAQ : { q, a } = question avec réponse ; { q, draft: true } = question sans
+// réponse, NON affichée (en attente de la doctoresse) ; chaîne = ancien format
+// (AR) affiché avec la réponse placeholder. { schema: false } = exclue du JSON-LD.
+function faqItem(item, u) {
+  if (typeof item === 'string') {
+    return `<details class="faq__item">
+            <summary>${item}<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+            <p><span class="placeholder">${u.faqTodo}</span></p>
+          </details>`;
+  }
+  const attr = item.schema === false ? ' data-schema="off"' : '';
+  // réponse : chaîne, ou tableau de paragraphes (un sous-tableau = liste à puces)
+  const body = paras(item.a)
+    .map((x) =>
+      Array.isArray(x)
+        ? `<ul class="faq__list" role="list">${x.map((li) => `<li>${li}</li>`).join('')}</ul>`
+        : `<p>${x}</p>`,
+    )
+    .join('\n            ');
+  return `<details class="faq__item"${attr}>
+            <summary>${item.q}<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
+            ${body}
+          </details>`;
+}
+
+// Encadrés beiges (section « Quand consulter ? » / « Pour qui ? »)
+function callout(c) {
+  if (c.type === 'alert') {
+    return `<div class="svc-callout svc-callout--alert" role="note">
+          <span class="svc-callout__icon"><!-- @icon triangleAlert 22 1.6 --></span>
+          <p>${c.lead ? `<strong>${c.lead}</strong> ` : ''}${c.text}</p>
+        </div>`;
+  }
+  return `<div class="svc-callout">
+          <p class="svc-callout__title">${c.title}</p>
+          <ul class="svc-callout__grid" role="list">
+            ${c.items
+              .map(
+                ([icon, title, text]) =>
+                  `<li><span class="svc-callout__icon"><!-- @icon ${icon} 22 1.6 --></span><div><strong>${title}</strong><span>${text}</span></div></li>`,
+              )
+              .join('\n            ')}
+          </ul>
+        </div>`;
+}
+
 function relatedLink(key, lang) {
   if (key === '@equipements') {
     return `<li><a href="/${lang}/equipements/">${UI[lang].equip} <!-- @icon arrowRight 16 --></a></li>`;
@@ -34,6 +87,20 @@ function relatedLink(key, lang) {
   const s = localizedService(key, lang);
   if (!s) throw new Error(`[service] service lié inconnu : ${key}`);
   return `<li><a href="/${lang}/services/${s.slug}/">${s.name} <!-- @icon arrowRight 16 --></a></li>`;
+}
+
+// Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
+function faqSection(s, u) {
+  const items = s.faq.filter((q) => typeof q === 'string' || !q.draft);
+  if (!items.length) return '';
+  return `<section class="svc-section" aria-labelledby="svc-faq">
+      <div class="container svc-container">
+        <h2 id="svc-faq">${u.faq}</h2>
+        <div class="faq faq--bordered">
+          ${items.map((q) => faqItem(q, u)).join('\n          ')}
+        </div>
+      </div>
+    </section>`;
 }
 
 export function service(page) {
@@ -57,7 +124,7 @@ export function service(page) {
         </nav>
         <p class="label label--plain svc-hero__label">${s.label}</p>
         <h1 id="svc-title">${s.name}</h1>
-        <p class="svc-hero__intro">${TODO}${ph(s.intro)}</p>
+        <p class="svc-hero__intro">${todo(s, 'intro')}${ph(s.intro)}</p>
         <a class="btn btn--gold" href="#rdv">${u.rdv}</a>
       </div>
     </section>
@@ -67,24 +134,25 @@ export function service(page) {
     <section class="svc-section" aria-labelledby="svc-what">
       <div class="container svc-container">
         <h2 id="svc-what">${s.whatTitle}</h2>
-        <p class="svc-text">${TODO}${ph(s.what)}</p>
+        ${paras(s.what).map((t, i) => `<p class="svc-text">${i === 0 ? todo(s, 'what') : ''}${ph(t)}</p>`).join('\n        ')}
       </div>
     </section>
 
     <section class="svc-section" aria-labelledby="svc-signs">
       <div class="container svc-container">
         <h2 id="svc-signs">${s.signsTitle}</h2>
-        <p class="svc-note">${TODO}</p>
+        ${todo(s, 'signs') && `<p class="svc-note">${TODO}</p>`}
         <ul class="sign-grid" role="list">
           ${s.signs.map(([icon, text]) => `<li class="sign-card"><!-- @icon ${icon} 22 1.6 --><span>${ph(text)}</span></li>`).join('\n          ')}
         </ul>
+        ${(s.callouts || []).map(callout).join('\n        ')}
       </div>
     </section>
 
     <section class="svc-section" aria-labelledby="svc-steps">
       <div class="container svc-container">
         <h2 id="svc-steps">${s.stepsTitle}</h2>
-        <p class="svc-note">${TODO}</p>
+        ${todo(s, 'steps') && `<p class="svc-note">${TODO}</p>`}
         <ol class="steps" role="list">
           ${s.steps
             .map(
@@ -105,21 +173,7 @@ export function service(page) {
       </div>
     </section>
 
-    <section class="svc-section" aria-labelledby="svc-faq">
-      <div class="container svc-container">
-        <h2 id="svc-faq">${u.faq}</h2>
-        <div class="faq faq--bordered">
-          ${s.faq
-            .map(
-              (q) => `<details class="faq__item">
-            <summary>${q}<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
-            <p><span class="placeholder">${u.faqTodo}</span></p>
-          </details>`,
-            )
-            .join('\n          ')}
-        </div>
-      </div>
-    </section>
+    ${faqSection(s, u)}
 
     <section class="svc-section" id="rdv" aria-labelledby="svc-cta">
       <div class="container svc-container">

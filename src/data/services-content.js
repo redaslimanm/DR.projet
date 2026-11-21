@@ -31,8 +31,13 @@ export const servicesContent = [
     card: 'Examen complet de la santé oculaire, dépistage des troubles visuels et prise en charge personnalisée.',
     intro:
       'Un examen complet de la santé de vos yeux, pour les adultes comme pour les enfants : dépistage des troubles visuels et prise en charge personnalisée.',
+    // Sections dont le texte a été fourni par la doctoresse (pas de badge [À VALIDER])
+    validated: ['what', 'steps'],
     whatTitle: 'En quoi consiste la consultation ?',
-    what: 'La consultation permet de faire le point sur votre vision et sur la santé de vos yeux. Selon votre situation, des examens complémentaires peuvent être réalisés directement au cabinet. Une consultation dure environ 15 minutes en moyenne.',
+    what: [
+      'La consultation ophtalmologique consiste en un examen complet de la santé des yeux et de la fonction visuelle. Elle comprend l’évaluation de l’acuité visuelle, la recherche d’éventuels troubles de la réfraction (myopie, hypermétropie, astigmatisme, presbytie), l’examen des différentes structures de l’œil, la mesure de la pression intraoculaire ainsi que l’examen du fond d’œil lorsque cela est indiqué.',
+      'Selon les besoins de chaque patient, des examens complémentaires peuvent être réalisés afin d’établir un diagnostic précis et de proposer une prise en charge personnalisée.',
+    ],
     signsTitle: 'Quand consulter ?',
     signs: [
       ['scanEye', 'Vision floue, de près ou de loin'],
@@ -40,18 +45,66 @@ export const servicesContent = [
       ['badgeCheck', 'Dépistage chez l’enfant'],
       ['shieldCheck', 'Suivi d’une maladie générale (diabète, tension…)'],
     ],
+    // Encadrés beiges (FR uniquement)
+    callouts: [
+      { type: 'alert', lead: 'Urgence oculaire :', text: 'baisse brutale de la vision, douleur, rougeur oculaire ou traumatisme.' },
+      {
+        title: 'Une surveillance particulière est recommandée pour :',
+        items: [
+          ['baby', 'Les enfants', 'Dépistage précoce des troubles visuels'],
+          ['droplet', 'Les personnes diabétiques', 'Surveillance des complications oculaires du diabète'],
+          ['users', 'Les antécédents familiaux', 'Dépistage des maladies oculaires héréditaires ou familiales'],
+          ['glasses', 'Les personnes de plus de 40 ans', 'Dépistage du glaucome et des changements visuels liés à l’âge'],
+        ],
+      },
+    ],
     stepsTitle: 'Comment se déroule la consultation ?',
     steps: [
       ['Échange', 'Vos antécédents, vos symptômes et vos besoins visuels.'],
       ['Mesure de la vision', 'Évaluation de l’acuité visuelle et de la réfraction.'],
-      ['Examen des yeux', 'Examen à la lampe à fente et, si nécessaire, examens complémentaires au cabinet.'],
+      // TODO client (point 1) : la doctoresse demande « … » après « cristallin ».
+      // Points de suspension seulement, ou d'autres structures (conjonctive, iris…) ? En attente.
+      ['Examen des yeux', 'Examen à la lampe à fente des paupières, de la cornée et du cristallin…'],
       ['Conclusion', 'Explication des résultats, ordonnance si besoin et suivi adapté.'],
     ],
     doctor: GENERAL,
     faq: [
-      'Faut-il une ordonnance pour consulter ?',
-      'À partir de quel âge faire examiner les yeux d’un enfant ?',
-      'Les gouttes dilatent-elles toujours les pupilles ?',
+      {
+        q: 'Peut-on consulter même si l’on voit bien ?',
+        a: 'Oui. Certaines maladies oculaires, comme le glaucome ou la rétinopathie diabétique, peuvent évoluer sans symptômes au début. Un dépistage permet de les détecter précocement.',
+      },
+      {
+        q: 'À quelle fréquence faut-il consulter un ophtalmologue ?',
+        a: 'La fréquence des contrôles dépend de l’âge, des antécédents et de l’état de santé oculaire. Un suivi plus rapproché peut être nécessaire chez les enfants, les personnes diabétiques ou les patients présentant des facteurs de risque de maladies oculaires.',
+      },
+      {
+        q: 'À partir de quel âge faire examiner les yeux d’un enfant ?',
+        a: 'Un examen ophtalmologique peut être réalisé dès la naissance si nécessaire. Un dépistage visuel est recommandé dès la petite enfance, notamment entre 3 et 4 ans, même en l’absence de symptômes. En cas de strabisme, de reflet pupillaire anormal ou de suspicion de trouble visuel, il est important de consulter sans attendre.',
+      },
+      {
+        q: 'Faut-il apporter ses anciennes lunettes et ordonnances ?',
+        a: 'Oui, il est conseillé d’apporter vos lunettes actuelles, vos anciennes ordonnances et, si vous en disposez, vos examens ophtalmologiques précédents. Cela facilite l’évaluation de l’évolution de votre vision.',
+      },
+      // TODO client (point 2) : « entre 20 et 30 minutes » ici, « environ 15 minutes » sur l'accueil et /fr/faq/.
+      // Exclue du JSON-LD : même sujet que « Combien de temps dure une consultation ? » de /fr/faq/.
+      {
+        q: 'Combien de temps dure une consultation ophtalmologique ?',
+        a: 'La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement entre 20 et 30 minutes, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.',
+        schema: false,
+      },
+      {
+        q: 'A-t-on toujours besoin de dilater les pupilles lors d’une consultation ?',
+        a: 'Non, la dilatation des pupilles n’est pas systématique. Notre cabinet est équipé d’un rétinographe permettant de réaliser des photographies du fond d’œil sans dilatation dans de nombreux cas. Cependant, une dilatation pupillaire peut être nécessaire pour un examen plus approfondi de la rétine, évaluer certaines cataractes ou réaliser une réfraction sous cycloplégie chez l’enfant.',
+      },
+      {
+        q: 'Quand faut-il consulter en urgence ?',
+        a: 'Une baisse brutale de la vision, une douleur oculaire intense, un traumatisme, une brûlure chimique ou l’apparition soudaine d’un voile noir nécessitent une évaluation ophtalmologique urgente.',
+      },
+      {
+        q: 'Le diabète peut-il affecter la vision ?',
+        a: 'Oui. Le diabète peut entraîner des complications oculaires, notamment une rétinopathie diabétique, parfois sans aucun symptôme initial. Un examen régulier de la rétine est donc recommandé.',
+      },
+      { q: 'Faut-il une ordonnance pour consulter ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Besoin d’un contrôle de la vue ?',
     related: ['ophtalmologie-pediatrique', 'glaucome', '@equipements'],
@@ -88,9 +141,9 @@ export const servicesContent = [
     ],
     doctor: UK_CATARACTE,
     faq: [
-      'L’intervention est-elle douloureuse ?',
-      'Combien de temps dure la récupération ?',
-      'Faut-il opérer les deux yeux ?',
+      { q: 'L’intervention est-elle douloureuse ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de temps dure la récupération ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Faut-il opérer les deux yeux ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Votre vision devient floue ?',
     related: ['chirurgie-refractive', '@equipements', 'consultation-depistage'],
@@ -127,9 +180,9 @@ export const servicesContent = [
     ],
     doctor: UK_REFRACTIVE,
     faq: [
-      'Suis-je candidat à la chirurgie réfractive ?',
-      'À partir de quel âge peut-on se faire opérer ?',
-      'Combien de temps dure le bilan ?',
+      { q: 'Suis-je candidat à la chirurgie réfractive ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'À partir de quel âge peut-on se faire opérer ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de temps dure le bilan ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Envie de vous renseigner ?',
     related: ['topographie-corneenne', 'lentilles-de-contact', 'keratocone'],
@@ -166,9 +219,9 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      'À quel âge consulter pour un strabisme ?',
-      'Le strabisme se corrige-t-il tout seul ?',
-      'La chirurgie est-elle toujours nécessaire ?',
+      { q: 'À quel âge consulter pour un strabisme ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Le strabisme se corrige-t-il tout seul ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'La chirurgie est-elle toujours nécessaire ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un doute sur l’alignement des yeux ?',
     related: ['ophtalmologie-pediatrique', 'consultation-depistage', '@equipements'],
@@ -205,9 +258,9 @@ export const servicesContent = [
     ],
     doctor: ES_LENTILLES,
     faq: [
-      'Quelle différence entre lentilles souples, rigides et sclérales ?',
-      'Les lentilles sclérales sont-elles adaptées au kératocône ?',
-      'Combien de temps dure l’adaptation ?',
+      { q: 'Quelle différence entre lentilles souples, rigides et sclérales ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Les lentilles sclérales sont-elles adaptées au kératocône ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de temps dure l’adaptation ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Envie de passer aux lentilles ?',
     related: ['keratocone', 'topographie-corneenne', 'chirurgie-refractive'],
@@ -244,9 +297,9 @@ export const servicesContent = [
     ],
     doctor: ES_LENTILLES,
     faq: [
-      'Le kératocône est-il évolutif ?',
-      'En quoi consiste le Cross-Linking ?',
-      'Peut-on porter des lentilles avec un kératocône ?',
+      { q: 'Le kératocône est-il évolutif ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'En quoi consiste le Cross-Linking ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Peut-on porter des lentilles avec un kératocône ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Votre astigmatisme augmente ?',
     related: ['topographie-corneenne', 'lentilles-de-contact', 'chirurgie-refractive'],
@@ -283,9 +336,9 @@ export const servicesContent = [
     ],
     doctor: SFO,
     faq: [
-      'Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?',
-      'Qu’est-ce que la DMLA ?',
-      'L’examen de la rétine est-il douloureux ?',
+      { q: 'Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Qu’est-ce que la DMLA ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'L’examen de la rétine est-il douloureux ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Diabétique ou plus de 50 ans ?',
     related: ['angiographie-retinienne', '@equipements', 'glaucome'],
@@ -321,9 +374,9 @@ export const servicesContent = [
     ],
     doctor: SFO,
     faq: [
-      'Le glaucome donne-t-il des symptômes ?',
-      'Le glaucome est-il héréditaire ?',
-      'Le traitement est-il à vie ?',
+      { q: 'Le glaucome donne-t-il des symptômes ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Le glaucome est-il héréditaire ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Le traitement est-il à vie ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Plus de 40 ans ?',
     related: ['@equipements', 'retine', 'laser'],
@@ -360,9 +413,9 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      'À quel âge faire le premier examen ?',
-      'Mon enfant doit-il porter ses lunettes en permanence ?',
-      'Les écrans abîment-ils les yeux des enfants ?',
+      { q: 'À quel âge faire le premier examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Mon enfant doit-il porter ses lunettes en permanence ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Les écrans abîment-ils les yeux des enfants ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un doute sur la vue de votre enfant ?',
     related: ['strabisme', 'consultation-depistage', 'lentilles-de-contact'],
@@ -399,9 +452,9 @@ export const servicesContent = [
     ],
     doctor: GENERAL,
     faq: [
-      'L’échographie oculaire est-elle douloureuse ?',
-      'Faut-il une préparation particulière ?',
-      'Combien de temps dure l’examen ?',
+      { q: 'L’échographie oculaire est-elle douloureuse ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Faut-il une préparation particulière ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de temps dure l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
     related: ['cataracte', 'retine', '@equipements'],
@@ -438,9 +491,9 @@ export const servicesContent = [
     ],
     doctor: SFO,
     faq: [
-      'Faut-il être à jeun ?',
-      'Puis-je conduire après l’examen ?',
-      'Y a-t-il des contre-indications ?',
+      { q: 'Faut-il être à jeun ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Puis-je conduire après l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Y a-t-il des contre-indications ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
     related: ['retine', '@equipements', 'glaucome'],
@@ -477,9 +530,9 @@ export const servicesContent = [
     ],
     doctor: ES_LENTILLES,
     faq: [
-      'L’examen est-il douloureux ?',
-      'Faut-il retirer ses lentilles avant l’examen ?',
-      'Combien de temps dure l’examen ?',
+      { q: 'L’examen est-il douloureux ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Faut-il retirer ses lentilles avant l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de temps dure l’examen ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un examen vous a été prescrit ?',
     related: ['keratocone', 'lentilles-de-contact', 'chirurgie-refractive'],
@@ -516,9 +569,9 @@ export const servicesContent = [
     ],
     doctor: SFO,
     faq: [
-      'Le laser est-il douloureux ?',
-      'Combien de séances faut-il ?',
-      'Peut-on reprendre ses activités après la séance ?',
+      { q: 'Le laser est-il douloureux ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Combien de séances faut-il ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      { q: 'Peut-on reprendre ses activités après la séance ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
     ctaTitle: 'Un traitement laser vous a été proposé ?',
     related: ['glaucome', 'retine', '@equipements'],
@@ -540,16 +593,25 @@ export function serviceBySlug(slug) {
 // fusionnés avec la structure FR (slug, photo, icônes, liens).
 import { servicesContentAr } from './services-content.ar.js';
 
+// Champs ajoutés en FR (demandes de la doctoresse) et pas encore traduits :
+// jamais affichés en AR, qui garde son contenu actuel.
+// TODO traduction AR : traduire ces contenus puis les ajouter dans services-content.ar.js.
+const FR_ONLY = ['validated', 'callouts'];
+
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
   if (!base || lang === 'fr') return base;
   const ar = servicesContentAr[slug];
   if (!ar) throw new Error(`[services] traduction AR manquante : ${slug}`);
-  return {
+  const out = {
     ...base,
     ...ar,
+    // photoAr : ancienne photo gardée en AR quand la nouvelle contient du texte en français
+    photo: base.photoAr ?? base.photo,
     signs: base.signs.map(([icon], i) => [icon, ar.signs[i]]),
   };
+  for (const key of FR_ONLY) delete out[key];
+  return out;
 }
 
 // Groupes pour la page index /fr/services/

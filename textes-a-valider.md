@@ -180,7 +180,9 @@ Adresse prévue : `/fr/services/consultation-depistage/`
 
 **« En quoi consiste la consultation ? »**
 
-> La consultation permet de faire le point sur votre vision et sur la santé de vos yeux. Selon votre situation, des examens complémentaires peuvent être réalisés directement au cabinet. Une consultation dure environ 15 minutes en moyenne.
+> La consultation ophtalmologique consiste en un examen complet de la santé des yeux et de la fonction visuelle. Elle comprend l’évaluation de l’acuité visuelle, la recherche d’éventuels troubles de la réfraction (myopie, hypermétropie, astigmatisme, presbytie), l’examen des différentes structures de l’œil, la mesure de la pression intraoculaire ainsi que l’examen du fond d’œil lorsque cela est indiqué.
+>
+> Selon les besoins de chaque patient, des examens complémentaires peuvent être réalisés afin d’établir un diagnostic précis et de proposer une prise en charge personnalisée.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -199,25 +201,65 @@ Adresse prévue : `/fr/services/consultation-depistage/`
 
 1. **Échange** — Vos antécédents, vos symptômes et vos besoins visuels.
 2. **Mesure de la vision** — Évaluation de l’acuité visuelle et de la réfraction.
-3. **Examen des yeux** — Examen à la lampe à fente et, si nécessaire, examens complémentaires au cabinet.
+3. **Examen des yeux** — Examen à la lampe à fente des paupières, de la cornée et du cristallin…
 4. **Conclusion** — Explication des résultats, ordonnance si besoin et suivi adapté.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Faut-il une ordonnance pour consulter ?**
+**Peut-on consulter même si l’on voit bien ?**
 
-Réponse :
+> Oui. Certaines maladies oculaires, comme le glaucome ou la rétinopathie diabétique, peuvent évoluer sans symptômes au début. Un dépistage permet de les détecter précocement.
+
+(texte fourni par la doctoresse)
+
+**À quelle fréquence faut-il consulter un ophtalmologue ?**
+
+> La fréquence des contrôles dépend de l’âge, des antécédents et de l’état de santé oculaire. Un suivi plus rapproché peut être nécessaire chez les enfants, les personnes diabétiques ou les patients présentant des facteurs de risque de maladies oculaires.
+
+(texte fourni par la doctoresse)
 
 **À partir de quel âge faire examiner les yeux d’un enfant ?**
 
-Réponse :
+> Un examen ophtalmologique peut être réalisé dès la naissance si nécessaire. Un dépistage visuel est recommandé dès la petite enfance, notamment entre 3 et 4 ans, même en l’absence de symptômes. En cas de strabisme, de reflet pupillaire anormal ou de suspicion de trouble visuel, il est important de consulter sans attendre.
 
-**Les gouttes dilatent-elles toujours les pupilles ?**
+(texte fourni par la doctoresse)
 
-Réponse :
+**Faut-il apporter ses anciennes lunettes et ordonnances ?**
+
+> Oui, il est conseillé d’apporter vos lunettes actuelles, vos anciennes ordonnances et, si vous en disposez, vos examens ophtalmologiques précédents. Cela facilite l’évaluation de l’évolution de votre vision.
+
+(texte fourni par la doctoresse)
+
+**Combien de temps dure une consultation ophtalmologique ?**
+
+> La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement entre 20 et 30 minutes, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.
+
+(texte fourni par la doctoresse)
+
+**A-t-on toujours besoin de dilater les pupilles lors d’une consultation ?**
+
+> Non, la dilatation des pupilles n’est pas systématique. Notre cabinet est équipé d’un rétinographe permettant de réaliser des photographies du fond d’œil sans dilatation dans de nombreux cas. Cependant, une dilatation pupillaire peut être nécessaire pour un examen plus approfondi de la rétine, évaluer certaines cataractes ou réaliser une réfraction sous cycloplégie chez l’enfant.
+
+(texte fourni par la doctoresse)
+
+**Quand faut-il consulter en urgence ?**
+
+> Une baisse brutale de la vision, une douleur oculaire intense, un traumatisme, une brûlure chimique ou l’apparition soudaine d’un voile noir nécessitent une évaluation ophtalmologique urgente.
+
+(texte fourni par la doctoresse)
+
+**Le diabète peut-il affecter la vision ?**
+
+> Oui. Le diabète peut entraîner des complications oculaires, notamment une rétinopathie diabétique, parfois sans aucun symptôme initial. Un examen régulier de la rétine est donc recommandé.
+
+(texte fourni par la doctoresse)
+
+**Faut-il une ordonnance pour consulter ?** (non affichée sur le site)
+
+Réponse à rédiger :
 
 ---
 
@@ -266,19 +308,19 @@ Adresse prévue : `/fr/services/cataracte/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**L’intervention est-elle douloureuse ?**
+**L’intervention est-elle douloureuse ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de temps dure la récupération ?**
+**Combien de temps dure la récupération ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Faut-il opérer les deux yeux ?**
+**Faut-il opérer les deux yeux ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -327,19 +369,19 @@ Adresse prévue : `/fr/services/chirurgie-refractive/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Suis-je candidat à la chirurgie réfractive ?**
+**Suis-je candidat à la chirurgie réfractive ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**À partir de quel âge peut-on se faire opérer ?**
+**À partir de quel âge peut-on se faire opérer ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de temps dure le bilan ?**
+**Combien de temps dure le bilan ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -388,19 +430,19 @@ Adresse prévue : `/fr/services/strabisme/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**À quel âge consulter pour un strabisme ?**
+**À quel âge consulter pour un strabisme ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Le strabisme se corrige-t-il tout seul ?**
+**Le strabisme se corrige-t-il tout seul ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**La chirurgie est-elle toujours nécessaire ?**
+**La chirurgie est-elle toujours nécessaire ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -449,19 +491,19 @@ Adresse prévue : `/fr/services/lentilles-de-contact/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Quelle différence entre lentilles souples, rigides et sclérales ?**
+**Quelle différence entre lentilles souples, rigides et sclérales ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Les lentilles sclérales sont-elles adaptées au kératocône ?**
+**Les lentilles sclérales sont-elles adaptées au kératocône ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de temps dure l’adaptation ?**
+**Combien de temps dure l’adaptation ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -510,19 +552,19 @@ Adresse prévue : `/fr/services/keratocone/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Le kératocône est-il évolutif ?**
+**Le kératocône est-il évolutif ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**En quoi consiste le Cross-Linking ?**
+**En quoi consiste le Cross-Linking ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Peut-on porter des lentilles avec un kératocône ?**
+**Peut-on porter des lentilles avec un kératocône ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -571,19 +613,19 @@ Adresse prévue : `/fr/services/retine/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?**
+**Pourquoi un diabétique doit-il faire contrôler son fond d’œil ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Qu’est-ce que la DMLA ?**
+**Qu’est-ce que la DMLA ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**L’examen de la rétine est-il douloureux ?**
+**L’examen de la rétine est-il douloureux ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -632,19 +674,19 @@ Adresse prévue : `/fr/services/glaucome/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Le glaucome donne-t-il des symptômes ?**
+**Le glaucome donne-t-il des symptômes ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Le glaucome est-il héréditaire ?**
+**Le glaucome est-il héréditaire ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Le traitement est-il à vie ?**
+**Le traitement est-il à vie ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -693,19 +735,19 @@ Adresse prévue : `/fr/services/ophtalmologie-pediatrique/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**À quel âge faire le premier examen ?**
+**À quel âge faire le premier examen ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Mon enfant doit-il porter ses lunettes en permanence ?**
+**Mon enfant doit-il porter ses lunettes en permanence ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Les écrans abîment-ils les yeux des enfants ?**
+**Les écrans abîment-ils les yeux des enfants ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -754,19 +796,19 @@ Adresse prévue : `/fr/services/echographie-oculaire/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**L’échographie oculaire est-elle douloureuse ?**
+**L’échographie oculaire est-elle douloureuse ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Faut-il une préparation particulière ?**
+**Faut-il une préparation particulière ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de temps dure l’examen ?**
+**Combien de temps dure l’examen ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -815,19 +857,19 @@ Adresse prévue : `/fr/services/angiographie-retinienne/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Faut-il être à jeun ?**
+**Faut-il être à jeun ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Puis-je conduire après l’examen ?**
+**Puis-je conduire après l’examen ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Y a-t-il des contre-indications ?**
+**Y a-t-il des contre-indications ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -876,19 +918,19 @@ Adresse prévue : `/fr/services/topographie-corneenne/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**L’examen est-il douloureux ?**
+**L’examen est-il douloureux ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Faut-il retirer ses lentilles avant l’examen ?**
+**Faut-il retirer ses lentilles avant l’examen ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de temps dure l’examen ?**
+**Combien de temps dure l’examen ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 
@@ -937,19 +979,19 @@ Adresse prévue : `/fr/services/laser/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**Questions fréquentes (réponses à rédiger)**
+**Questions fréquentes**
 
-**Le laser est-il douloureux ?**
+**Le laser est-il douloureux ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Combien de séances faut-il ?**
+**Combien de séances faut-il ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
-**Peut-on reprendre ses activités après la séance ?**
+**Peut-on reprendre ses activités après la séance ?** (non affichée sur le site)
 
-Réponse :
+Réponse à rédiger :
 
 ---
 

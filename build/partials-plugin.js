@@ -57,13 +57,20 @@ function preloadImage(a, manifest) {
   return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${a.sizes || '100vw'}" fetchpriority="high">`;
 }
 
-// FAQPage JSON-LD : construit à partir des <details class="faq__item"> de la page
-// (seulement les réponses rédigées, jamais les placeholders)
-function faqJsonLd(html) {
-  const strip = (x) => x.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-  const items = [...html.matchAll(/<details class="faq__item">\s*<summary>([\s\S]*?)<span class="faq__icon">[\s\S]*?<\/summary>\s*<p>([\s\S]*?)<\/p>/g)]
-    .filter((m) => !m[2].includes('placeholder'))
-    .map((m) => ({ '@type': 'Question', name: strip(m[1]), acceptedAnswer: { '@type': 'Answer', text: strip(m[2]) } }));
+// FAQPage JSON-LD : construit à partir des <details class="faq__item"> de la page.
+// Exclus : réponses placeholder, items data-schema="off", et questions déjà
+// présentes dans `exclude` (questions de /fr/faq/, pour éviter les doublons).
+// Le texte est celui affiché (balises retirées, blocs séparés par une espace).
+const FAQ_ITEM = /<details class="faq__item"([^>]*)>\s*<summary>([\s\S]*?)<span class="faq__icon">[\s\S]*?<\/summary>([\s\S]*?)<\/details>/g;
+const stripHtml = (x) =>
+  x.replace(/<!--[\s\S]*?-->/g, '').replace(/<\/(p|li)>/g, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const faqQuestions = (html) => [...html.matchAll(FAQ_ITEM)].map((m) => stripHtml(m[2]));
+
+function faqJsonLd(html, exclude = new Set()) {
+  const items = [...html.matchAll(FAQ_ITEM)]
+    .filter((m) => !m[3].includes('placeholder') && !m[1].includes('data-schema="off"'))
+    .filter((m) => !exclude.has(stripHtml(m[2]).toLowerCase()))
+    .map((m) => ({ '@type': 'Question', name: stripHtml(m[2]), acceptedAnswer: { '@type': 'Answer', text: stripHtml(m[3]) } }));
   if (!items.length) return '';
   const json = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items }).replace(/</g, '\\u003c');
   return `  <script type="application/ld+json">${json}</script>\n`;
@@ -161,8 +168,14 @@ export default function partialsPlugin({ root, pages = [] }) {
           html = html.replace(PRELOAD, (_, attrs) => preloadImage(parseAttrs(attrs), manifest));
         }
 
-        if (/^(fr|ar)\/faq\/(index\.html)?$/.test(ctx.path.replace(/^\//, '')) && html.includes('faq__item')) {
+        const rel = ctx.path.replace(/^\//, '');
+        if (/^(fr|ar)\/faq\/(index\.html)?$/.test(rel) && html.includes('faq__item')) {
           html = html.replace('</head>', `${faqJsonLd(html)}</head>`);
+        } else if (/^fr\/services\/[\w-]+\/(index\.html)?$/.test(rel) && html.includes('faq__item')) {
+          // Pages services : FR uniquement, sans doublon avec /fr/faq/
+          const faqPage = readFileSync(resolve(root, 'fr/faq/index.html'), 'utf8');
+          const exclude = new Set(faqQuestions(faqPage).map((q) => q.toLowerCase()));
+          html = html.replace('</head>', `${faqJsonLd(html, exclude)}</head>`);
         }
 
         return html;

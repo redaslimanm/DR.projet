@@ -8,7 +8,8 @@ import { servicesContent } from '../src/data/services-content.js';
 const FILE = new URL('../textes-a-valider.md', import.meta.url);
 const MARKER = '<!-- AUTO : section générée par scripts/export-textes.mjs, ne pas modifier à la main -->';
 
-const check = '- [ ] Validé tel quel\n- [ ] À corriger — Correction :\n';
+const paras = (t) => (Array.isArray(t) ? t : [t]);
+const check ='- [ ] Validé tel quel\n- [ ] À corriger — Correction :\n';
 const quote = (t) => `> ${t}\n\n${check}`;
 
 const out = [];
@@ -25,13 +26,23 @@ servicesContent.forEach((s, i) => {
   out.push('**Introduction (haut de page)**\n');
   out.push(quote(s.intro));
   out.push(`**« ${s.whatTitle} »**\n`);
-  out.push(quote(s.what));
+  out.push(quote(paras(s.what).join('\n>\n> ')));
   out.push(`**« ${s.signsTitle} » (4 cartes)**\n`);
   out.push(s.signs.map(([, t], k) => `${k + 1}. ${t}`).join('\n') + '\n\n' + check);
   out.push(`**« ${s.stepsTitle} » (4 étapes)**\n`);
   out.push(s.steps.map(([t, d], k) => `${k + 1}. **${t}** — ${d}`).join('\n') + '\n\n' + check);
-  out.push('**Questions fréquentes (réponses à rédiger)**\n');
-  out.push(s.faq.map((q) => `**${q}**\n\nRéponse :\n`).join('\n'));
+  out.push('**Questions fréquentes**\n');
+  out.push(
+    s.faq
+      .map((f) =>
+        f.draft
+          ? `**${f.q}** (non affichée sur le site)\n\nRéponse à rédiger :\n`
+          : `**${f.q}**\n\n> ${paras(f.a)
+              .map((x) => (Array.isArray(x) ? x.map((li) => `- ${li}`).join('\n> ') : x))
+              .join('\n>\n> ')}\n\n(texte fourni par la doctoresse)\n`,
+      )
+      .join('\n'),
+  );
   out.push('---\n');
 });
 

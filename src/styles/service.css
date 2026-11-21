@@ -54,6 +54,7 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
 .svc-section h2 { margin-block-end: 14px; font-size: 1.875rem; }
 
 .svc-text { color: var(--c-text-muted); }
+.svc-text + .svc-text { margin-block-start: 12px; }
 .svc-note { margin-block-end: 12px; font-size: 0.8125rem; }
 
 /* ---------- 4. Signes / pour qui ---------- */
@@ -116,8 +117,34 @@ html[dir='rtl'] .breadcrumb li + li::before { content: '‹'; }
 }
 .doctor-box strong { display: block; font-size: 0.90625rem; color: var(--c-green); }
 
+/* ---------- 4 bis. Encadrés beiges (alerte, surveillance) ---------- */
+.svc-callout {
+  margin-block-start: var(--sp-2);
+  padding: var(--sp-3) 20px;
+  background: var(--c-cream);
+  border-radius: 20px;
+  font-size: 0.90625rem;
+  color: var(--c-text-2);
+}
+.svc-callout--alert { display: flex; align-items: flex-start; gap: 14px; }
+.svc-callout--alert p { margin: 0; }
+.svc-callout strong { color: var(--c-green); }
+.svc-callout__icon { display: inline-flex; flex: none; color: var(--c-gold-dark); }
+.svc-callout__title { margin-block-end: var(--sp-2); font-weight: var(--fw-semibold); color: var(--c-green); }
+.svc-callout__grid { display: grid; gap: var(--sp-2); margin: 0; }
+.svc-callout__grid li { display: flex; align-items: flex-start; gap: 12px; }
+.svc-callout__grid strong { display: block; margin-block-end: 2px; }
+.svc-callout__grid span:not(.svc-callout__icon) { font-size: var(--fs-small); }
+@media (min-width: 36em) {
+  .svc-callout__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3) var(--sp-4); }
+}
+
 /* ---------- 7. FAQ bordée (fond blanc) ---------- */
 .faq--bordered .faq__item { border: var(--border-card); }
+.faq__item p + p { margin-block-start: -8px; }
+.faq__list { margin: 0; padding: 0 18px 16px 36px; list-style: disc; font-size: 0.84375rem; color: var(--c-text-muted); }
+html[dir='rtl'] .faq__list { padding: 0 36px 16px 18px; }
+.faq__list li + li { margin-block-start: 6px; }
 
 /* ---------- 8. CTA ---------- */
 .cta-box {
@@ -190,6 +217,9 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
   .step p { font-size: 0.9375rem; }
 
   .doctor-box { padding: var(--sp-4); font-size: 0.9375rem; }
+  .svc-callout { padding: var(--sp-4); font-size: 0.9375rem; }
+  .faq__list { padding: 0 24px 20px 44px; font-size: var(--fs-small); }
+  html[dir='rtl'] .faq__list { padding: 0 44px 20px 24px; }
   .doctor-box__photo img { inline-size: 96px; block-size: 96px; }
 
   .cta-box { padding: var(--sp-6) var(--sp-5); }
