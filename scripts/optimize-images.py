@@ -53,6 +53,7 @@ IMAGES = {
     "coin-salon": TS / "05-cabinet" / "coin-salon-2.jpg",           # coin salon (canapé vert), remplace « salon » (gardé en AR)
     "facade": TS / "05-cabinet" / "facade.jpg",                     # entrée de la Résidence Oumnia + plaque du cabinet
     "cabinet-deco": TS / "05-cabinet" / "cabinet-nouvelle-photo.png",  # canapé + décoration murale en lettres E
+    "dr-elaouni-hero": TS / "06-dr-elaouni" / "dr-elaouni-photo-hero.jpg",  # portrait à la lampe à fente (page Dr Elaouni)
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

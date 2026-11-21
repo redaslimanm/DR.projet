@@ -138,3 +138,12 @@ Fichier : `ar/cabinet/index.html`. Reprendre la structure de `fr/cabinet/index.h
       contenu à droite). **Alt à traduire.**
 - [ ] Images : `facade` montre la plaque réelle du cabinet (texte en français sur la plaque,
       c'est une vraie photo) → pas de version arabe à prévoir. Aucune autre image avec texte.
+
+## Étape 8 — Page « Dr Elaouni »
+
+Fichier : `ar/dr-elaouni/index.html`.
+
+- [ ] **Photo du haut de page** : remplacer `dr-oct` par `dr-elaouni-hero` (même balise
+      `@picture`, `eager`). **Alt à traduire.** Pas de texte sur l'image.
+- [ ] `dr-oct` reste utilisée ailleurs (accueil « Votre ophtalmologue », encart médecin des
+      pages services, page Équipements) : ne pas la supprimer.
