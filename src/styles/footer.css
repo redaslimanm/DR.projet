@@ -241,3 +241,9 @@ html.menu-open .fab { visibility: hidden; }
   }
 
 }
+
+/* FAB : mobile / tablette uniquement. Sur desktop, le header a déjà « Prendre rendez-vous »
+   et les coordonnées (téléphone, WhatsApp) sont dans la barre haute et le hero. */
+@media (min-width: 64em) {
+  .fab { display: none; }
+}
