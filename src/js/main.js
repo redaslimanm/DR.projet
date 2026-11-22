@@ -72,6 +72,13 @@ if (heroBg) {
   else window.addEventListener('load', startBg, { once: true });
 }
 
+// Avant / après cataracte (accueil) : chargé seulement si le composant est présent
+const beforeAfter = document.querySelector('[data-ba]');
+if (beforeAfter) import('./before-after.js').then((m) => m.initBeforeAfter(beforeAfter));
+
+// Vidéo YouTube (accueil) : iframe créée au clic seulement
+if (document.querySelector('[data-yt]')) import('./video.js').then((m) => m.initVideos());
+
 // Galerie (page Le cabinet) : GLightbox chargé à la demande
 const gallery = document.querySelector('[data-gallery]');
 if (gallery) import('./gallery.js').then((m) => m.initGallery(gallery));

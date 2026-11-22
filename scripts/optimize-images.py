@@ -57,6 +57,8 @@ IMAGES = {
     "facade": TS / "05-cabinet" / "facade.jpg",                     # entrée de la Résidence Oumnia + plaque du cabinet
     "cabinet-deco": TS / "05-cabinet" / "cabinet-nouvelle-photo.png",  # canapé + décoration murale en lettres E
     "dr-elaouni-hero": TS / "06-dr-elaouni" / "dr-elaouni-photo-hero.jpg",  # portrait à la lampe à fente (page Dr Elaouni)
+    "video-conseils": SRC_ORIG / "video-conseils-yt.jpg",  # miniature YouTube rjFBxJQ-ET8 (accueil, vidéo)
+    "cataracte-avant-apres": SRC_ORIG / "cataracte-phaco-avant-apres.jpg",  # affiche avant / après (accueil)
     "cataracte-1": TS / "07-cataracte" / "cataracte-1.jpg",           # au microscope opératoire (paysage)
     "cataracte-2": TS / "07-cataracte" / "cataracte-2.jpg",           # au bloc, plateforme Centurion (portrait)
     "chirurgie-refractive": TS / "08-chirurgie-refractive" / "chirurgie-refractive.jpg",  # patiente sous le laser

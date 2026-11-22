@@ -886,3 +886,182 @@ html[lang='ar'] .stats__num { font-family: var(--ff-ar); font-weight: 800; }
   .stats__num { font-size: 2.75rem; } /* 44px */
   .stats__label { font-size: var(--fs-small); } /* 14px */
 }
+
+/* ===================== Avant / après cataracte (src/js/before-after.js) =====================
+   Poster net en fond ; sur la zone des yeux seulement (49.93 % → +43.97 % de la hauteur) :
+   image nette repositionnée + calque flou découpé à gauche de la ligne (--pos). */
+@property --pos { syntax: '<percentage>'; inherits: true; initial-value: 93%; }
+
+.ba-section { background: var(--c-cream); }
+.ba-layout { display: grid; gap: var(--sp-4); align-items: center; }
+.ba-text h2 { margin-block-end: var(--sp-2); }
+.ba-text p { color: var(--c-text-muted); max-inline-size: 60ch; }
+.ba-text p + p { margin-block-start: 10px; }
+.ba-text .link-underline { margin-block-start: var(--sp-3); }
+
+.ba { --blur: 7px; margin: 0; inline-size: 100%; max-inline-size: 460px; margin-inline: auto; }
+.ba__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgb(47 79 58 / 0.14);
+  background: var(--c-white);
+}
+.ba__frame picture, .ba__frame > picture img { display: block; inline-size: 100%; block-size: auto; }
+
+.ba__zone {
+  --pos: 93%;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 49.93%;
+  block-size: 43.97%;
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  transition: --pos 0.6s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.ba__zone.is-live { transition: none; }
+.ba__zone:focus-visible { outline: 3px solid var(--c-gold); outline-offset: -3px; }
+/* image nette repositionnée sur la zone (49.93 / 43.97 = 113.55 % ; 100 / 43.97 = 227.42 %) */
+.ba__sharp, .ba__blur img {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: -113.55%;
+  inline-size: 100%;
+  block-size: 227.42%;
+  max-inline-size: none;
+  pointer-events: none;
+  user-select: none;
+}
+.ba__blur {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+.ba__blur img { filter: blur(var(--blur)); transform: scale(1.02); }
+html[dir='rtl'] .ba__sharp, html[dir='rtl'] .ba__blur img { inset-inline-start: auto; inset-inline-end: 0; }
+
+.ba__line {
+  position: absolute;
+  inset-block: 0;
+  left: var(--pos);
+  inline-size: 2px;
+  margin-left: -1px;
+  background: var(--c-white);
+  box-shadow: 0 0 6px rgb(0 0 0 / 0.25);
+  pointer-events: none;
+}
+/* petites flèches en haut et en bas de la ligne */
+.ba__line::before,
+.ba__line::after {
+  content: '◂ ▸';
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgb(13 74 58 / 0.85);
+  color: var(--c-white);
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  direction: ltr;
+}
+.ba__line::before { top: 8px; }
+.ba__line::after { bottom: 8px; }
+/* poignée en losange */
+.ba__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  inline-size: 26px;
+  block-size: 26px;
+  translate: -50% -50%;
+  rotate: 45deg;
+  background: #0d4a3a;
+  border: 2px solid var(--c-white);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+}
+.ba__handle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  inline-size: 8px;
+  block-size: 8px;
+  background: #b8935a;
+}
+.ba__help {
+  margin-block-start: var(--sp-2);
+  text-align: center;
+  font-size: var(--fs-small, 0.875rem);
+  color: var(--c-text-muted);
+}
+.ba:not(.is-ready) .ba__help { visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ba__zone { transition: none; }
+}
+@media (min-width: 64em) {
+  .ba-layout { grid-template-columns: minmax(0, 1fr) 460px; gap: var(--sp-8); }
+  html[dir='rtl'] .ba-layout { direction: rtl; }
+}
+
+/* ===================== Vidéo (accueil, src/js/video.js) ===================== */
+.video-box {
+  position: relative;
+  max-inline-size: 960px;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--c-green-dark);
+  box-shadow: 0 18px 44px rgb(47 79 58 / 0.14);
+}
+.video-box iframe, .video-box__link, .video-box__link picture, .video-box__link img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+}
+.video-box__link img { object-fit: cover; transition: transform 0.6s var(--ease-out), filter 0.4s ease; }
+.video-box__play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  inline-size: 76px;
+  block-size: 76px;
+  border-radius: 50%;
+  background: var(--c-green);
+  color: var(--c-white);
+  border: 3px solid var(--c-white);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.3);
+  transition: transform 0.3s var(--ease-out), background-color 0.3s ease;
+}
+.video-box__play svg { inline-size: 28px; block-size: 28px; margin-inline-start: 4px; }
+html[dir='rtl'] .video-box__play svg { margin-inline-start: 0; margin-inline-end: 4px; transform: none; }
+.video-box__link:focus-visible { outline: 3px solid var(--c-gold); outline-offset: -3px; }
+@media (hover: hover) {
+  .video-box__link:hover img { transform: scale(1.03); filter: brightness(0.92); }
+  .video-box__link:hover .video-box__play { transform: scale(1.08); background: var(--c-gold); }
+}
+.video-note { margin-block-start: var(--sp-2); text-align: center; font-size: 0.8125rem; color: var(--c-text-muted); }
+@media (max-width: 47.99em) {
+  .video-box { border-radius: 16px; }
+  .video-box__play { inline-size: 60px; block-size: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-box__link img, .video-box__play { transition: none; }
+}
+/* Desktop : texte d'un côté, vidéo de l'autre (mobile : l'un sous l'autre) */
+.video-layout__media { min-inline-size: 0; }
+@media (min-width: 64em) {
+  .video-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: var(--sp-8); align-items: center; }
+  .video-layout__text { margin-block-end: 0; }
+  .video-layout .video-box { max-inline-size: none; }
+  .video-layout .video-note { text-align: start; }
+}

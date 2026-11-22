@@ -362,5 +362,23 @@
       800,
       820
     ]
+  },
+  "cataracte-avant-apres": {
+    "width": 1773,
+    "height": 2115,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "video-conseils": {
+    "width": 1280,
+    "height": 720,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
   }
 }

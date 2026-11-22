@@ -180,3 +180,7 @@ html[lang='ar'] .label {
 
   .container--bleed-mobile { padding-inline: var(--gutter); }
 }
+
+/* Bouton centré sous le contenu d'une section (ex. accueil → page Équipements) */
+.section-foot { display: flex; justify-content: center; margin-block-start: var(--sp-4); }
+html[dir='rtl'] .section-foot__cta .icon { transform: scaleX(-1); }
