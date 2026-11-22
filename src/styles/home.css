@@ -29,12 +29,12 @@
   transition: opacity 1s ease;
 }
 .hero__bg canvas.is-active { opacity: 1; }
-/* Voile : plus couvrant côté texte (haut sur mobile, côté texte sur desktop) */
+/* Dégradé blanc uniquement côté texte : le reste de la photo garde ses vraies couleurs */
 .hero__bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgb(245 237 226 / 0.95) 0%, rgb(245 237 226 / 0.92) 55%, rgb(245 237 226 / 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.2) 62%, rgba(255, 255, 255, 0) 75%);
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__bg canvas { transition: none; }
@@ -46,9 +46,8 @@
   padding-block-start: 30px;
 }
 
-/* Texte et boutons au-dessus de l'iris doré (qui déborde sur eux en mobile) */
+/* Texte et boutons au-dessus de la photo (qui déborde sur eux en mobile) */
 .hero__content { position: relative; z-index: 1; }
-.hero__iris { pointer-events: none; }
 
 .hero .label { margin-block-end: 12px; }
 .hero .label::before { inline-size: 28px; }
@@ -62,7 +61,7 @@
 .hero__lead {
   margin-block-end: 22px;
   font-size: 0.9375rem;
-  color: var(--c-text-muted);
+  color: var(--c-text); /* plus foncé que --c-text-muted : contraste ≥ 4.5:1 sur les photos de fond */
 }
 
 .hero__actions {
@@ -491,10 +490,10 @@
 @media (min-width: 64em) {
   /* Hero */
   .hero__bg::after {
-    background: linear-gradient(to right, rgb(245 237 226 / 0.95) 0%, rgb(245 237 226 / 0.92) 45%, rgb(245 237 226 / 0.62) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(255, 255, 255, 0.35) 56%, rgba(255, 255, 255, 0) 72%);
   }
   [dir='rtl'] .hero__bg::after {
-    background: linear-gradient(to left, rgb(245 237 226 / 0.95) 0%, rgb(245 237 226 / 0.92) 45%, rgb(245 237 226 / 0.62) 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(255, 255, 255, 0.35) 56%, rgba(255, 255, 255, 0) 72%);
   }
   .hero__inner {
     flex-direction: row;

@@ -43,7 +43,7 @@ export async function initHeroBg(root) {
   try {
     images = await Promise.all(list.map((p) => loadImage(large ? p.large : p.small)));
   } catch {
-    return; // fond crème seul si une image manque
+    return; // fond uni du hero si une image manque
   }
 
   const canvases = images.map(() => {

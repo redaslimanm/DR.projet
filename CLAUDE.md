@@ -19,7 +19,6 @@ Ce fichier résume tout le cadrage du projet. Lis-le en entier avant d'écrire d
 | Vite | Serveur de dev + build multi-pages optimisé |
 | Lenis | Smooth scroll |
 | GSAP + ScrollTrigger + SplitText | Animations au scroll, titres ligne par ligne (GSAP et ses plugins sont gratuits) |
-| Three.js | Un seul effet 3D, dans le hero de l'accueil |
 | GLightbox | Lightbox pour la galerie du cabinet |
 
 Carrousels mobiles (équipements, avis) : **CSS scroll-snap**, sans bibliothèque (Swiper retiré de la stack).
@@ -159,7 +158,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 
 Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر ».
 
-**Fond du hero** (`src/js/hero-bg.js`, nov. 2026) : 2 photos du cabinet (`attente` = grande salle d'attente, `coin-salon`) en fondu enchaîné toutes les 3 s, sous un voile crème (contraste du texte vérifié au pire pixel ≥ 4.5:1). Dessinées dans des `<canvas>` après `load` → jamais candidates LCP. Une seule photo avec `prefers-reduced-motion` ; pause hors écran / onglet masqué. L'image statique de l'iris (fond crème opaque) est en `mix-blend-mode: darken` pour ne pas faire de rectangle sur ce fond.
+**Fond du hero** (`src/js/hero-bg.js`, nov. 2026) : 2 photos du cabinet (`attente` = grande salle d'attente, `coin-salon`) en fondu enchaîné toutes les 3 s, avec un dégradé blanc uniquement côté texte (le reste des photos garde ses vraies couleurs ; contraste du texte vérifié au pire pixel ≥ 4.5:1). Dessinées dans des `<canvas>` après `load` → jamais candidates LCP. Une seule photo avec `prefers-reduced-motion` ; pause hors écran / onglet masqué.
 
 ### Template page service
 
@@ -178,7 +177,7 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 | Section | Animation |
 |---|---|
 | Intro (pas de preloader) | **Pas d'overlay** qui cache la page (il bloque le LCP). À l'ouverture, l'icône œil du logo dans le header se trace en SVG stroke (~0,8 s) pendant que la page est déjà visible |
-| Hero | H1 ligne par ligne (SplitText), photo du hero **visible dès le premier affichage** (voir règle LCP), Three.js en fond |
+| Hero | H1 ligne par ligne (SplitText), photo du hero **visible dès le premier affichage** (voir règle LCP), photos du cabinet en fond (fondu) |
 | Bande confiance | Compteurs 0 → 12 |
 | Services | Cartes en stagger ; hover desktop : légère montée + bordure dorée |
 | À propos | Parallax léger sur la photo, diplômes ligne par ligne |
@@ -192,18 +191,12 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 Décisions de performance (étape 9, mesurées avec Lighthouse) :
 - Apparitions simples (fade-up) en **IntersectionObserver + CSS** (`src/js/reveal.js`), jamais `visibility: hidden` (titres accessibles aux lecteurs d'écran). GSAP réservé au titre du hero, compteur, galerie, citation, et sur desktop parallax + section pinnée.
 - **Lenis uniquement avec souris/trackpad** ; écrans tactiles = scroll natif.
-- **Iris Three.js** : image statique (dessinée dans un `<canvas>` 2D, pas candidate LCP) après le chargement ; WebGL ensuite en temps libre sur desktop, **à la première interaction sur mobile**.
 
 Règles : tout respecte `prefers-reduced-motion` (contenu affiché directement) ; animations plus légères sur mobile ; le contenu est toujours présent dans le HTML (rien qui n'existe que via JS) ; en arabe, les animations latérales sont inversées.
 
-### Three.js : « l'iris doré »
+### Three.js : « l'iris doré » — retiré (nov. 2026)
 
-Particules dorées disposées en anneau façon iris (rappel du logo), rotation lente, réaction légère à la souris, derrière la photo du hero. Règles de performance :
-- chargé en `import()` dynamique après l'affichage du hero ;
-- pause quand le hero sort de l'écran (IntersectionObserver) ;
-- `renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5))` ;
-- beaucoup moins de particules sur mobile, image statique si appareil faible ou `prefers-reduced-motion` ;
-- uniquement sur l'accueil.
+L'effet 3D derrière la photo du hero a été retiré à la demande (ainsi que la dépendance `three`). Le cercle doré reste.
 
 ## Bilingue FR / AR
 
