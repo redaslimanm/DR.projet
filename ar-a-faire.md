@@ -44,6 +44,11 @@ sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont e
       WhatsApp (« السلام عليكم، أود طلب موعد في عيادة الدكتورة العوني رجاء. » …
       « المرجو تأكيد ساعة الموعد. شكراً. »). Les noms des motifs et des groupes viennent
       des pages services (déjà validés).
+- [ ] **Page نصائح صحية** (`ar/conseils/`, marqué `TODO AR`) : traduction des 3 articles (enfants et écrans, diabète, lentilles) — à faire valider ; le texte FR est lui-même « à valider ».
+- [ ] **Accueil — vidéo** (`ar/index.html`, marqué `TODO AR`) : « فيديو », « نصائح الدكتورة العوني بالفيديو », phrase d'intro, alt et libellé du bouton lecture.
+- [ ] **Accueil — avant / après cataracte** (`ar/index.html`, marqué `TODO AR`) : titre « قبل وبعد جراحة الجلالة », alt du poster, libellé du slider « مقارنة العين قبل العملية وبعدها ». Le texte d'aide « حرّك المؤشر فوق العينين باش يبانو واضحين » est fourni tel quel par le client (darija).
+- [ ] **Accueil** (`ar/index.html`, section التجهيزات, marqué `TODO AR`) : bouton « عرض جميع التجهيزات ».
+- [ ] **Page Équipements** (`ar/equipements/`, marqué `TODO AR`) : étiquette « تجهيز مميز » (bande Lampe à fente).
 - [ ] **Page الدكتورة** (`ar/dr-elaouni/`, marqué `TODO AR`) : textes alternatifs des 2 photos du bloc
       opératoire (« الدكتورة العوني رجاء أمام المجهر الجراحي… », « …بلباس غرفة العمليات… »).
 - [ ] **Page Confidentialité** (`ar/confidentialite/`, marqué `TODO AR`) : phrase « لا يسجّل هذا الموقع

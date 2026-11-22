@@ -22,14 +22,77 @@
       </div>
     </section>
 
-    <section class="section" aria-label="Articles">
+    <!-- Brouillon des consignes (22/11/2026) : à faire relire et valider par le Dr Elaouni avant publication -->
+    <section class="section section--tight" aria-label="Sommaire des articles">
       <div class="container">
-        <ul class="card-grid" role="list">
-          <li class="article-card"><p class="article-card__tag">Article à venir</p><h2 class="h3">Enfants et écrans</h2><p><span class="placeholder">[À COMPLÉTER : article rédigé et validé par la doctora]</span></p></li>
-          <li class="article-card"><p class="article-card__tag">Article à venir</p><h2 class="h3">Diabète : pourquoi contrôler le fond d’œil ?</h2><p><span class="placeholder">[À COMPLÉTER : article rédigé et validé par la doctora]</span></p></li>
-          <li class="article-card"><p class="article-card__tag">Article à venir</p><h2 class="h3">Lentilles de contact : les bons gestes</h2><p><span class="placeholder">[À COMPLÉTER : article rédigé et validé par la doctora]</span></p></li>
+        <ul class="card-grid advice-toc" role="list">
+          <li><a class="article-card article-card--link" href="#enfants-ecrans"><span class="article-card__icon" aria-hidden="true"><!-- @icon baby 22 --></span><span class="article-card__tag">Enfants</span><span class="article-card__title">Enfants et écrans</span><span class="article-card__text">Règle 20-20-20, temps dehors, bonne distance : les gestes simples pour protéger la vue de votre enfant.</span><span class="article-card__more">Lire l’article <!-- @icon arrowRight 16 --></span></a></li>
+          <li><a class="article-card article-card--link" href="#diabete-fond-oeil"><span class="article-card__icon" aria-hidden="true"><!-- @icon droplet 22 --></span><span class="article-card__tag">Diabète</span><span class="article-card__title">Diabète : pourquoi contrôler le fond d’œil ?</span><span class="article-card__text">La rétinopathie diabétique ne donne souvent aucun symptôme au début : à quel rythme faire l’examen et comment protéger vos yeux.</span><span class="article-card__more">Lire l’article <!-- @icon arrowRight 16 --></span></a></li>
+          <li><a class="article-card article-card--link" href="#lentilles-bons-gestes"><span class="article-card__icon" aria-hidden="true"><!-- @icon eye 22 --></span><span class="article-card__tag">Lentilles</span><span class="article-card__title">Lentilles de contact : les bons gestes</span><span class="article-card__text">Eau, hygiène, durée de port : les règles à respecter pour éviter une infection grave de la cornée.</span><span class="article-card__more">Lire l’article <!-- @icon arrowRight 16 --></span></a></li>
         </ul>
+        <p class="advice-disclaimer">Ces conseils sont généraux et ne remplacent pas une consultation.</p>
       </div>
+    </section>
+
+    <section class="section section--cream advice-section" id="enfants-ecrans" aria-labelledby="enfants-ecrans-title">
+      <article class="container advice">
+        <header class="advice__head">
+          <span class="advice__icon" aria-hidden="true"><!-- @icon baby 26 --></span>
+          <p class="label label--plain">Enfants</p>
+          <h2 id="enfants-ecrans-title">Enfants et écrans</h2>
+          <p class="advice__lead"><span class="placeholder">[À VALIDER]</span> Les écrans ne sont pas dangereux en eux-mêmes. Le vrai problème, c’est quand on les utilise trop longtemps, trop près, sans pause, et à la place du temps passé dehors. Plus le temps d’écran quotidien augmente, plus le risque de myopie augmente.</p>
+        </header>
+        <div class="advice__grid">
+          <div class="advice-block advice-block--wide"><h3 class="advice-block__title">Les bons gestes au quotidien</h3><ul class="advice-check" role="list"><li><strong>Règle 20-20-20</strong> : toutes les 20 minutes, regarder au loin (environ 6 mètres) pendant 20 secondes. Une minuterie peut aider l’enfant à y penser.</li><li><strong>Au moins 2 heures dehors par jour</strong> : en une fois ou en plusieurs. La lumière naturelle protège contre la myopie.</li><li><strong>Bonne distance</strong> : 30 à 40 cm pour la lecture et la tablette. Ne pas coller le téléphone au visage.</li><li><strong>Limiter les écrans de loisir</strong> : idéalement moins de 2 heures par jour chez l’enfant. Avant 2 ans, éviter les écrans.</li><li><strong>Des pauses actives</strong> : se lever, bouger, jouer, plutôt que passer d’un écran à un autre.</li><li><strong>Pas d’écran dans la chambre</strong> : ni juste avant de dormir, pour préserver le sommeil.</li><li><strong>Bon éclairage</strong> : ne pas utiliser d’écran dans le noir.</li></ul></div>
+          <div class="advice-block advice-block--alert advice-block--wide"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon triangleAlert 18 --></span>Quand consulter ?</h3><ul class="advice-dots" role="list"><li>Un premier contrôle de la vue est conseillé avant 3 ans, puis régulièrement.</li><li>Consultez si votre enfant plisse les yeux, se rapproche de l’écran ou du tableau, se frotte souvent les yeux, ou se plaint de maux de tête.</li><li>Si une myopie apparaît tôt ou augmente vite, il existe des traitements pour la freiner (verres ou lentilles spéciales, collyre). Parlez-en avec votre ophtalmologue.</li></ul></div>
+        </div>
+        <div class="advice__foot">
+          <a class="btn btn--primary" href="#contact-rdv" data-open-rdv="ophtalmologie-pediatrique" aria-haspopup="dialog"><!-- @icon calendar 18 --> Prendre rendez-vous</a>
+          <a class="link-underline" href="#page-title">Retour au sommaire</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section advice-section" id="diabete-fond-oeil" aria-labelledby="diabete-fond-oeil-title">
+      <article class="container advice">
+        <header class="advice__head">
+          <span class="advice__icon" aria-hidden="true"><!-- @icon droplet 26 --></span>
+          <p class="label label--plain">Diabète</p>
+          <h2 id="diabete-fond-oeil-title">Diabète : pourquoi contrôler le fond d’œil ?</h2>
+          <p class="advice__lead"><span class="placeholder">[À VALIDER]</span> Le diabète peut abîmer les petits vaisseaux de la rétine : c’est la rétinopathie diabétique. Au début, elle ne donne souvent aucun symptôme. On peut bien voir et avoir déjà des lésions. Seul l’examen du fond d’œil permet de la découvrir tôt, quand le traitement est le plus efficace.</p>
+        </header>
+        <div class="advice__grid">
+          <div class="advice-block advice-block--steps"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon calendar 18 --></span>À quel rythme ?</h3><ol class="advice-steps" role="list"><li>Au moment du diagnostic du diabète, un premier examen du fond d’œil.</li><li>Ensuite, une fois par an.</li><li>Chez certains patients à faible risque (sans insuline, diabète et tension bien équilibrés, aucun signe au premier examen), votre ophtalmologue peut espacer à tous les 2 ans.</li><li>Femme diabétique enceinte : un examen avant la grossesse, puis chaque trimestre, puis après l’accouchement.</li></ol></div>
+          <div class="advice-block"><h3 class="advice-block__title">Pour protéger vos yeux</h3><ul class="advice-check" role="list"><li>Gardez une glycémie (HbA1c) bien équilibrée.</li><li>Contrôlez votre tension artérielle et votre cholestérol.</li><li>Arrêtez le tabac.</li><li>Ne sautez pas vos rendez-vous, même si vous voyez bien.</li></ul></div>
+          <div class="advice-block advice-block--info"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon clock 18 --></span>Le jour de l’examen</h3><p>On met des gouttes pour dilater la pupille. La vue reste floue et sensible à la lumière pendant quelques heures : ne conduisez pas après l’examen, venez accompagné et prenez des lunettes de soleil.</p></div>
+          <div class="advice-block advice-block--alert"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon triangleAlert 18 --></span>Consultez rapidement si :</h3><ul class="advice-dots" role="list"><li>votre vision baisse,</li><li>vous voyez des taches ou des « mouches »,</li><li>les lignes droites vous paraissent déformées.</li></ul></div>
+        </div>
+        <div class="advice__foot">
+          <a class="btn btn--primary" href="#contact-rdv" data-open-rdv="retinographie" aria-haspopup="dialog"><!-- @icon calendar 18 --> Prendre rendez-vous</a>
+          <a class="link-underline" href="#page-title">Retour au sommaire</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section--cream advice-section" id="lentilles-bons-gestes" aria-labelledby="lentilles-bons-gestes-title">
+      <article class="container advice">
+        <header class="advice__head">
+          <span class="advice__icon" aria-hidden="true"><!-- @icon eye 26 --></span>
+          <p class="label label--plain">Lentilles</p>
+          <h2 id="lentilles-bons-gestes-title">Lentilles de contact : les bons gestes</h2>
+          <p class="advice__lead"><span class="placeholder">[À VALIDER]</span> Les lentilles sont confortables, mais elles demandent une hygiène stricte. Une mauvaise utilisation peut provoquer une infection grave de la cornée, comme la kératite à Acanthamoeba, une amibe présente dans l’eau.</p>
+        </header>
+        <div class="advice__grid">
+          <div class="advice-block advice-block--ban advice-block--wide"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon droplet 18 --></span>L’eau : jamais</h3><ul class="advice-dots" role="list"><li>Ne portez jamais vos lentilles sous la douche, à la piscine, à la mer ou au hammam.</li><li>Ne rincez jamais vos lentilles ni l’étui avec de l’eau du robinet, de l’eau minérale, de la salive ou du sérum physiologique.</li></ul></div>
+          <div class="advice-block"><h3 class="advice-block__title">Hygiène</h3><ul class="advice-check" role="list"><li>Lavez-vous les mains à l’eau et au savon, puis séchez-les bien, avant de toucher vos lentilles.</li><li>Utilisez uniquement la solution d’entretien conseillée. Changez-la à chaque fois : ne la réutilisez pas et ne la complétez pas.</li><li>Rincez l’étui avec la solution, laissez-le sécher à l’air ouvert, et remplacez-le régulièrement.</li><li>Mettez vos lentilles avant le maquillage, et retirez-les avant de vous démaquiller.</li></ul></div>
+          <div class="advice-block"><h3 class="advice-block__title">Durée</h3><ul class="advice-check" role="list"><li>Respectez la durée de port par jour et la date de renouvellement (journalières, mensuelles…).</li><li>Ne dormez pas avec vos lentilles, sauf si votre ophtalmologue l’a prescrit.</li><li>Gardez toujours une paire de lunettes à jour.</li><li>Les lentilles doivent être prescrites et suivies par un ophtalmologue.</li></ul></div>
+          <div class="advice-block advice-block--alert advice-block--wide"><h3 class="advice-block__title"><span class="advice-block__icon" aria-hidden="true"><!-- @icon triangleAlert 18 --></span>Retirez vos lentilles et consultez rapidement si :</h3><ul class="advice-dots" role="list"><li>votre œil est rouge ou douloureux,</li><li>votre vision devient floue,</li><li>vous êtes gêné par la lumière ou votre œil larmoie beaucoup.</li></ul></div>
+        </div>
+        <div class="advice__foot">
+          <a class="btn btn--primary" href="#contact-rdv" data-open-rdv="lentilles-de-contact" aria-haspopup="dialog"><!-- @icon calendar 18 --> Prendre rendez-vous</a>
+          <a class="link-underline" href="#page-title">Retour au sommaire</a>
+        </div>
+      </article>
     </section>
   </main>
 

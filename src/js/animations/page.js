@@ -6,7 +6,7 @@ import { initReveal } from '../reveal.js';
 const TARGETS = [
   '.section-head', '.group-title', '.card-grid > li', '.equip-row', '.timeline li', '.gallery-page li',
   '.faq__item', '.svc-section h2', '.svc-text', '.sign-card', '.step', '.doctor-box', '.cta-box',
-  '.related li', '.prose > *', '.contact-item', '.hours-card', '.about__media', '.about__content > *',
+  '.related li', '.advice__head > *', '.advice-block', '.advice__foot', '.advice-disclaimer', '.prose > *', '.contact-item', '.hours-card', '.about__media', '.about__content > *',
 ].join(', ');
 
 export function initPageAnimations() {
