@@ -114,6 +114,17 @@
 }
 
 
+/* Mobile : les boutons du hero sont affichés entre la photo et la bande verte (.hero-cta) */
+@media (max-width: 63.99em) {
+  .hero__actions { display: none; }
+}
+.hero-cta { padding-block: var(--sp-3); background: var(--c-cream); }
+.hero-cta__inner { display: flex; gap: 10px; }
+.hero-cta .btn { flex: 1; padding-inline: var(--sp-2); font-size: var(--fs-small); }
+@media (min-width: 64em) {
+  .hero-cta { display: none; }
+}
+
 /* ===================== Bande de confiance ===================== */
 .trust {
   background: var(--c-green);
