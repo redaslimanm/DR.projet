@@ -44,6 +44,8 @@ sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont e
       WhatsApp (« السلام عليكم، أود طلب موعد في عيادة الدكتورة العوني رجاء. » …
       « المرجو تأكيد ساعة الموعد. شكراً. »). Les noms des motifs et des groupes viennent
       des pages services (déjà validés).
+- [ ] **Page الدكتورة** (`ar/dr-elaouni/`, marqué `TODO AR`) : textes alternatifs des 2 photos du bloc
+      opératoire (« الدكتورة العوني رجاء أمام المجهر الجراحي… », « …بلباس غرفة العمليات… »).
 - [ ] **Page Confidentialité** (`ar/confidentialite/`, marqué `TODO AR`) : phrase « لا يسجّل هذا الموقع
       أي معطيات شخصية… » et paragraphe « طلب الموعد » (modale RDV) — traductions à faire valider,
       le texte FR est lui-même « à faire valider ».

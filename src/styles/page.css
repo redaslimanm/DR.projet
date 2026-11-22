@@ -261,3 +261,40 @@ html[lang='ar'] .hours-card__title { font-family: var(--ff-ar); }
   .contact-page > * { flex: 1 1 0; min-inline-size: 0; }
   .contact-actions { flex-direction: row; flex-wrap: wrap; }
 }
+
+/* Dr Elaouni — photos au bloc opératoire (section Diplômes), cadre passe-partout */
+.dr-bloc {
+  display: grid;
+  gap: var(--sp-2);
+  margin-block-start: var(--sp-6);
+}
+.photo-frame {
+  margin: 0;
+  padding: 10px;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-card-lg);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+.photo-frame::after {
+  /* filet doré intérieur */
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgb(146 112 75 / 0.35);
+  border-radius: calc(var(--radius-card-lg) - 4px);
+  pointer-events: none;
+}
+.photo-frame picture { display: block; overflow: hidden; border-radius: 10px; }
+.photo-frame img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.photo-frame--wide img { aspect-ratio: 4 / 3; }
+.photo-frame--tall img { aspect-ratio: 4 / 5; object-position: 50% 45%; }
+@media (min-width: 48em) {
+  .dr-bloc { grid-template-columns: 1.6fr 1fr; gap: var(--sp-3); }
+  .photo-frame--wide img, .photo-frame--tall img { aspect-ratio: auto; block-size: 360px; }
+}
+@media (min-width: 64em) {
+  .photo-frame { padding: 12px; }
+  .photo-frame--wide img, .photo-frame--tall img { block-size: 460px; }
+}
