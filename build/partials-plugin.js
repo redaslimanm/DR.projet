@@ -54,7 +54,7 @@ function preloadImage(a, manifest) {
   const meta = manifest[a.name];
   if (!meta) throw new Error(`[preload-image] image inconnue : "${a.name}"`);
   const set = meta.widths.map((w) => `${IMG_DIR}/${a.name}-${w}.avif ${w}w`).join(', ');
-  return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${a.sizes || '100vw'}" fetchpriority="high">`;
+  return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${a.sizes || '100vw'}"${a.media ? ` media="${a.media}"` : ''} fetchpriority="high">`;
 }
 
 // FAQPage JSON-LD : construit à partir des <details class="faq__item"> de la page.

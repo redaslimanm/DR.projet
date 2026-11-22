@@ -18,7 +18,7 @@ const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 /* ---------------------------------------------------------
-   Hero : H1 ligne par ligne, puis le reste du texte
+   Hero : H1 ligne par ligne + cercle doré (photo : zoom CSS)
    --------------------------------------------------------- */
 function heroIntro() {
   const hero = $('.hero');
@@ -26,6 +26,7 @@ function heroIntro() {
 
   const title = $('.hero__title', hero);
   const others = $$('.hero__content > :not(.hero__title)', hero);
+  const circle = $('.hero__circle', hero);
 
   gsap.set(title, { autoAlpha: 1 });
   SplitText.create(title, {
@@ -38,7 +39,9 @@ function heroIntro() {
 
   gsap
     .timeline({ defaults: { ease: 'power3.out', duration: 0.8 } })
-    .fromTo(others, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, stagger: 0.1 }, 0.25);
+    .fromTo(others, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, stagger: 0.1 }, 0.25)
+    // La photo (LCP) n'est jamais masquée : son zoom est en CSS (motion.css)
+    .fromTo(circle, { autoAlpha: 0, scale: 0.85 }, { autoAlpha: 1, scale: 1, duration: 1.2 }, 0.3);
 }
 
 /* ---------------------------------------------------------

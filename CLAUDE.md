@@ -140,7 +140,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 
 1. Barre haute (horaires, adresse, switch FR/AR) — desktop uniquement
 2. Header sticky : logo, menu (burger en mobile), bouton RDV
-3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photos du cabinet en fond. **Photo de la doctora (arche + cercle doré) retirée à la demande le 22/11/2026** — version d'avant conservée sous le tag git `hero-avec-photo-dr` (à restaurer si la cliente le demande)
+3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photos du cabinet en fond. **Photo de la doctora (arche + cercle doré) retirée sur desktop seulement (22/11/2026), gardée sur mobile** — version d'avant conservée sous le tag git `hero-avec-photo-dr` (à restaurer si la cliente le demande)
 4. Bande de confiance (fond vert) : 12 spécialités · diplômes UK/Espagne · membre SFO · OCT/rétinographe/échographie
 5. Services : 8 cartes numérotées (01, 02…) + « Voir tous les services »
 6. À propos : photo devant l'OCT + texte + liste des diplômes + bouton
