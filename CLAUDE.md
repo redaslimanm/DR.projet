@@ -140,7 +140,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Co
 
 1. Barre haute (horaires, adresse, switch FR/AR) — desktop uniquement
 2. Header sticky : logo, menu (burger en mobile), bouton RDV
-3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photo de la doctora (bras croisés) dans une arche avec un cercle doré derrière (badge « Formée au Royaume-Uni » retiré à la demande, nov. 2026)
+3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photos du cabinet en fond. **Photo de la doctora (arche + cercle doré) retirée à la demande le 22/11/2026** — version d'avant conservée sous le tag git `hero-avec-photo-dr` (à restaurer si la cliente le demande)
 4. Bande de confiance (fond vert) : 12 spécialités · diplômes UK/Espagne · membre SFO · OCT/rétinographe/échographie
 5. Services : 8 cartes numérotées (01, 02…) + « Voir tous les services »
 6. À propos : photo devant l'OCT + texte + liste des diplômes + bouton
@@ -186,7 +186,7 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 | Citation | Mots qui s'éclairent au scroll |
 | Autres | Fade-up simple |
 
-**Règle LCP (hero)** : la photo du hero est l'élément LCP. Elle ne doit jamais partir de `opacity: 0` ni d'un masque qui la cache entièrement. Animation autorisée : léger zoom (`scale` 1.06 → 1) et animation du cercle doré autour. Image en `fetchpriority="high"`, sans `loading="lazy"`, avec `<link rel="preload">` et `width`/`height`. Mesurer le LCP dès l'étape 4.
+**Règle LCP (hero)** — *s'applique si la photo de la doctora revient dans le hero (tag `hero-avec-photo-dr`)* : la photo du hero est l'élément LCP. Elle ne doit jamais partir de `opacity: 0` ni d'un masque qui la cache entièrement. Animation autorisée : léger zoom (`scale` 1.06 → 1) et animation du cercle doré autour. Image en `fetchpriority="high"`, sans `loading="lazy"`, avec `<link rel="preload">` et `width`/`height`. Mesurer le LCP dès l'étape 4.
 
 Décisions de performance (étape 9, mesurées avec Lighthouse) :
 - Apparitions simples (fade-up) en **IntersectionObserver + CSS** (`src/js/reveal.js`), jamais `visibility: hidden` (titres accessibles aux lecteurs d'écran). GSAP réservé au titre du hero, compteur, galerie, citation, et sur desktop parallax + section pinnée.

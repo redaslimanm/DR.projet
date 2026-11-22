@@ -23,21 +23,11 @@ html.intro .logo-eye {
 
 /* ---------- Hero : masqué jusqu'à l'animation d'entrée ----------
    Filet de sécurité : si le JS ne charge pas, tout réapparaît à 2,5 s. */
-html.anim .hero__content > *,
-html.anim .hero__circle {
+html.anim .hero__content > * {
   visibility: hidden;
   animation: anim-safety 0s linear 2.5s forwards;
 }
 @keyframes anim-safety { to { visibility: visible; } }
-
-/* Photo du hero = élément LCP : toujours visible dès la première peinture
-   (ni opacity 0, ni masque). Seul effet : zoom léger 1.06 → 1, en CSS pur
-   pour ne pas dépendre du JS. */
-html.anim .hero__photo {
-  transform-origin: 50% 100%;
-  animation: hero-zoom 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-@keyframes hero-zoom { from { transform: scale(1.06); } }
 
 /* Lignes du H1 découpées (SplitText, mask: 'lines') : le masque déborde un peu
    pour ne pas couper les accents (â) ni les jambages (g, y), sans décaler la mise en page */

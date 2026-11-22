@@ -46,8 +46,11 @@
   padding-block-start: 30px;
 }
 
-/* Texte et boutons au-dessus de la photo (qui déborde sur eux en mobile) */
+/* Texte au-dessus des photos de fond */
 .hero__content { position: relative; z-index: 1; }
+/* Mobile : hauteur proche de l'ancien hero (avec photo) → le texte reste dans le haut blanc
+   du dégradé et les photos du cabinet se voient dans le bas */
+.hero { min-block-size: 740px; }
 
 .hero .label { margin-block-end: 12px; }
 .hero .label::before { inline-size: 28px; }
@@ -76,42 +79,6 @@
 }
 
 .hero__checks { display: none; }
-
-/* Photo dans une arche + cercle doré + badge */
-.hero__media {
-  position: relative;
-  align-self: center;
-  inline-size: min(100%, 350px);
-  block-size: 400px;
-}
-
-.hero__circle {
-  position: absolute;
-  inset-block-start: 14px;
-  inset-inline: 0;
-  inline-size: 300px;
-  block-size: 300px;
-  margin-inline: auto; /* centré (absolu + insets 0 + marges auto) */
-  border: 1.5px solid var(--c-gold-light);
-  border-radius: 50%;
-}
-
-.hero__photo {
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline: 0;
-  inline-size: 290px;
-  block-size: 390px;
-  margin-inline: auto;
-}
-.hero__photo img {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 145px 145px 0 0;
-}
-
 
 /* ===================== Bande de confiance ===================== */
 .trust {
@@ -489,6 +456,7 @@
    ========================================================= */
 @media (min-width: 64em) {
   /* Hero */
+  .hero { min-block-size: 0; }
   .hero__bg::after {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(255, 255, 255, 0.35) 56%, rgba(255, 255, 255, 0) 72%);
   }
@@ -501,7 +469,7 @@
     gap: var(--sp-6);
     padding-block-start: var(--sp-10);
   }
-  .hero__content { flex: 1 1 480px; min-inline-size: 0; padding-block-end: var(--sp-12); }
+  .hero__content { flex: 0 1 540px; min-inline-size: 0; padding-block-end: var(--sp-12); } /* largeur limitée : le texte reste dans le dégradé blanc */
   .hero .label { margin-block-end: 18px; }
   .hero .label::before { inline-size: 36px; }
   .hero__title { margin-block-end: 22px; }
@@ -519,24 +487,6 @@
   }
   .hero__checks li { display: flex; align-items: center; gap: var(--sp-1); }
   .hero__checks .icon { color: var(--c-gold); }
-
-  .hero__media {
-    flex: 1 1 420px;
-    align-self: flex-end;
-    inline-size: auto;
-    block-size: 580px;
-  }
-  .hero__circle {
-    inset-block-start: 30px;
-    inline-size: 420px;
-    block-size: 420px;
-  }
-  .hero__photo {
-    inline-size: min(100%, 440px);
-    block-size: 580px;
-  }
-  .hero__photo img { border-radius: 220px 220px 0 0; }
-
 
   /* Bande de confiance */
   .trust__list {
