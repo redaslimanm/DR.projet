@@ -3,7 +3,7 @@
 <head>
   <!-- @partial head -->
   <!-- Image LCP (photo du hero) : préchargée en priorité haute -->
-  <!-- @preload-image name="dr-hero" sizes="290px" media="(max-width: 63.99em)" -->
+  <!-- @preload-image name="dr-hero" sizes="(min-width: 64em) 440px, 290px" -->
 </head>
 <body>
   <!-- @partial header -->
@@ -45,7 +45,7 @@
           <!-- Iris doré (Three.js) : mobile uniquement, rempli après le chargement, décoratif -->
           <div class="hero__iris" data-iris aria-hidden="true"></div>
           <span class="hero__circle" aria-hidden="true"></span>
-          <!-- @picture name="dr-hero" alt="Dr Elaouni Rajae dans son cabinet" sizes="(min-width: 64em) 1px, 290px" class="hero__photo" eager -->
+          <!-- @picture name="dr-hero" alt="Dr Elaouni Rajae dans son cabinet" sizes="(min-width: 64em) 440px, 290px" class="hero__photo" eager -->
         </div>
       </div>
     </section>
@@ -301,10 +301,6 @@
           <div class="stats__item">
             <dt class="stats__label">examens d’imagerie sur place</dt>
             <dd class="stats__num"><span data-count>3</span></dd>
-          </div>
-          <div class="stats__item">
-            <dt class="stats__label">ans d’expérience <span class="placeholder">[À CONFIRMER]</span></dt>
-            <dd class="stats__num">[X]</dd>
           </div>
         </dl>
       </div>

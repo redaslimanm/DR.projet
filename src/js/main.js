@@ -25,9 +25,8 @@ if (animOk && document.querySelector('.hero')) {
 // Iris doré (Three.js) : l'image statique s'affiche après le chargement ;
 // l'animation WebGL arrive ensuite — en temps libre sur desktop, à la première
 // interaction sur mobile (évite ~1 s de travail CPU pendant le chargement).
-// Mobile uniquement : sur desktop, la photo (et l'iris) sont masqués.
 const iris = document.querySelector('[data-iris]');
-if (iris && window.matchMedia('(max-width: 63.99em)').matches) {
+if (iris) {
   const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 200));
   const start = () => import('./iris/index.js').then((m) => m.initIris(iris));
   // Image statique dessinée dans un canvas 2D (pas candidat LCP)

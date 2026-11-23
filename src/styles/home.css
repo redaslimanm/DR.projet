@@ -502,10 +502,10 @@
 @media (min-width: 64em) {
   /* Hero */
   .hero__bg::after {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(255, 255, 255, 0.35) 56%, rgba(255, 255, 255, 0) 72%);
+    background: linear-gradient(to right, rgb(245 237 226 / 0.95) 0%, rgb(245 237 226 / 0.92) 45%, rgb(245 237 226 / 0.62) 100%);
   }
   [dir='rtl'] .hero__bg::after {
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(255, 255, 255, 0.35) 56%, rgba(255, 255, 255, 0) 72%);
+    background: linear-gradient(to left, rgb(245 237 226 / 0.95) 0%, rgb(245 237 226 / 0.92) 45%, rgb(245 237 226 / 0.62) 100%);
   }
   .hero__inner {
     flex-direction: row;
@@ -513,9 +513,8 @@
     gap: var(--sp-6);
     padding-block-start: var(--sp-10);
   }
-  .hero__content { flex: 0 1 540px; min-inline-size: 0; padding-block-end: var(--sp-12); } /* reste dans le dégradé blanc */
-  /* Desktop : sans photo de la doctora (mobile : photo conservée, cf. tag hero-avec-photo-dr) */
-  .hero__media { display: none; }
+  /* Desktop = version B aussi (photo + cercle + iris + voile beige), comme le mobile */
+  .hero__content { flex: 1 1 480px; min-inline-size: 0; padding-block-end: var(--sp-12); }
   .hero .label { margin-block-end: 18px; }
   .hero .label::before { inline-size: 36px; }
   .hero__title { margin-block-end: 22px; }
@@ -842,6 +841,8 @@ html[dir='rtl'] .logos-band__list.is-marquee { animation-name: logos-marquee-rtl
   background: var(--c-green-dark);
   border-radius: var(--radius-card-lg);
 }
+/* 3 chiffres : sur mobile (2 colonnes), le dernier prend toute la largeur */
+.stats > .stats__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 .stats__item {
   display: flex;
@@ -873,10 +874,11 @@ html[lang='ar'] .stats__num { font-family: var(--ff-ar); font-weight: 800; }
 
 @media (min-width: 48em) {
   .stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     padding: var(--sp-6) var(--sp-3);
   }
+  .stats > .stats__item:last-child:nth-child(odd) { grid-column: auto; }
   .stats__item { padding-inline: var(--sp-2); }
   .stats__item + .stats__item { border-inline-start: 1px solid color-mix(in srgb, var(--c-cream) 20%, transparent); }
 }
