@@ -28,6 +28,7 @@ sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont e
 - [ ] **Point client 4** (droits de `keratocone-hero`) : même image en FR + AR.
 - [ ] Questions sans réponse (Consultation, Chirurgie réfractive, Rétine, Glaucome) : traduire
       les réponses quand la doctoresse les aura fournies.
+- [ ] **Modale « Réserver RDV » — version simplifiée (23/11/2026)** : nouveaux libellés « الاسم الشخصي », « الاسم العائلي », étapes « معلوماتكم / الملخص », erreurs associées. Les anciens libellés ci-dessous (motif, téléphone, première visite, message) ne sont plus utilisés.
 - [ ] **Modale « Réserver RDV »** (`src/partials/rdv.js`, objet `RDV_UI.ar`, marqué `TODO AR`) :
       textes d'interface traduits par nous, **à faire valider** par la doctoresse. Liste :
       titre « طلب موعد », « الخطوة {n} من 4 », étapes « السبب / التاريخ / معلوماتكم / الملخص »,

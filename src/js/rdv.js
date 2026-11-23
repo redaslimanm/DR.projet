@@ -1,6 +1,6 @@
 // Modale « Réserver RDV » (markup : src/partials/rdv.js, config : src/data/site.js → rdv).
-// Ouverture : tout élément [data-open-rdv] (valeur facultative = motif présélectionné)
-// ou l'URL #rdv. 4 étapes → message WhatsApp pré-rempli (wa.me), puis écran de succès.
+// Ouverture : tout élément [data-open-rdv] ou l'URL #rdv.
+// 2 étapes (prénom, nom, jour → récap) → message WhatsApp pré-rempli (wa.me), puis écran de succès.
 import { lenis } from './lenis.js';
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -35,14 +35,13 @@ export function initRdv() {
   const btnSend = $('[data-rdv-send]');
   const btnDone = $('[data-rdv-done]');
   const daysList = $('[data-rdv-days]');
-  const satNote = $('[data-rdv-satnote]');
   const recap = $('[data-rdv-recap]');
   const retry = $('[data-rdv-retry]');
-  const afternoon = form.querySelector('input[name="slot"][value="afternoon"]');
-  const nameInput = form.elements.name;
-  const phoneInput = form.elements.phone;
+  const firstInput = form.elements.firstName;
+  const lastInput = form.elements.lastName;
+  const LAST = 2; // dernière étape (récap)
 
-  let current = 1; // 1–4 ou 'success'
+  let current = 1; // 1–2 ou 'success'
   let trigger = null;
   let isOpen = false;
   let closeTimer = 0;
@@ -73,17 +72,6 @@ export function initRdv() {
       </label></li>`);
     }
     daysList.innerHTML = items.join('');
-    syncSaturday();
-  }
-
-  // Samedi (jours « matin uniquement ») : après-midi désactivé
-  function syncSaturday() {
-    const day = form.querySelector('input[name="day"]:checked');
-    const morningOnly = day ? data.morningOnlyDays.includes(Number(day.dataset.dow)) : false;
-    afternoon.disabled = morningOnly;
-    if (morningOnly && afternoon.checked) afternoon.checked = false;
-    afternoon.closest('.rdv-choice').classList.toggle('is-disabled', morningOnly);
-    satNote.hidden = !morningOnly;
   }
 
   // ---------- Erreurs ----------
@@ -96,87 +84,65 @@ export function initRdv() {
   const radios = (name) => [...form.querySelectorAll(`input[name="${name}"]`)];
   const checked = (name) => form.querySelector(`input[name="${name}"]:checked`);
 
-  function checkName() {
-    const ok = nameInput.value.trim().length >= 2;
-    setError('rdv-err-name', ok ? '' : ui.errors.nameRequired, [nameInput]);
+  const clean = (input) => input.value.trim().replace(/\s+/g, ' ');
+  function checkText(input, errId, msg) {
+    const ok = clean(input).length >= 2;
+    setError(errId, ok ? '' : msg, [input]);
     return ok;
   }
-  function checkPhone() {
-    const v = phoneInput.value.trim();
-    const msg = !v ? ui.errors.phoneRequired : normalizePhone(v) ? '' : ui.errors.phoneInvalid;
-    setError('rdv-err-phone', msg, [phoneInput]);
-    return !msg;
-  }
-  function checkRadio(name, errId, msg) {
-    const ok = Boolean(checked(name));
-    setError(errId, ok ? '' : msg);
+  const checkFirst = () => checkText(firstInput, 'rdv-err-first-name', ui.errors.firstNameRequired);
+  const checkLast = () => checkText(lastInput, 'rdv-err-last-name', ui.errors.lastNameRequired);
+  function checkDay() {
+    const ok = Boolean(checked('day'));
+    setError('rdv-err-day', ok ? '' : ui.errors.day);
     return ok;
   }
 
-  // Valide l'étape ; en cas d'erreur, focus sur le premier champ en erreur
-  function validate(n) {
+  // Valide l'étape 1 ; en cas d'erreur, focus sur le premier champ en erreur
+  function validate() {
     const bad = [];
-    if (n === 1 && !checkRadio('motif', 'rdv-err-motif', ui.errors.motif)) bad.push(radios('motif')[0]);
-    if (n === 2) {
-      if (!checkRadio('day', 'rdv-err-day', ui.errors.day)) bad.push(radios('day')[0]);
-      if (!checkRadio('slot', 'rdv-err-slot', ui.errors.slot)) bad.push(radios('slot')[0]);
-    }
-    if (n === 3) {
-      if (!checkName()) bad.push(nameInput);
-      if (!checkPhone()) bad.push(phoneInput);
-      if (!checkRadio('first', 'rdv-err-first', ui.errors.first)) bad.push(radios('first')[0]);
-    }
+    if (!checkFirst()) bad.push(firstInput);
+    if (!checkLast()) bad.push(lastInput);
+    if (!checkDay()) bad.push(radios('day')[0]);
     if (bad.length) {
       bad[0].focus();
       bad[0].scrollIntoView({ block: 'center', behavior: reduced() ? 'auto' : 'smooth' });
     }
     return !bad.length;
   }
+  const complete = () => clean(firstInput).length >= 2 && clean(lastInput).length >= 2 && Boolean(checked('day'));
 
-  // Validation au blur (champs texte), puis en direct une fois l'erreur affichée
-  nameInput.addEventListener('blur', () => nameInput.value && checkName());
-  phoneInput.addEventListener('blur', () => phoneInput.value && checkPhone());
-  nameInput.addEventListener('input', () => nameInput.hasAttribute('aria-invalid') && checkName());
-  phoneInput.addEventListener('input', () => phoneInput.hasAttribute('aria-invalid') && checkPhone());
+  // Validation au blur, puis en direct une fois l'erreur affichée
+  for (const [input, check] of [[firstInput, checkFirst], [lastInput, checkLast]]) {
+    input.addEventListener('blur', () => input.value && check());
+    input.addEventListener('input', () => input.hasAttribute('aria-invalid') && check());
+  }
   form.addEventListener('change', (e) => {
-    const { name } = e.target;
-    if (name === 'motif') setError('rdv-err-motif', '');
-    if (name === 'day') { setError('rdv-err-day', ''); syncSaturday(); }
-    if (name === 'slot') setError('rdv-err-slot', '');
-    if (name === 'first') setError('rdv-err-first', '');
+    if (e.target.name === 'day') setError('rdv-err-day', '');
   });
   form.addEventListener('submit', (e) => { e.preventDefault(); next(); });
 
   // ---------- Récapitulatif + message WhatsApp ----------
-  const labelOf = (input) => input?.closest('label').querySelector('.rdv-choice__label, span:not([class])')?.firstChild?.textContent.trim() ?? '';
   function values() {
-    const day = checked('day');
     return {
-      motif: labelOf(checked('motif')),
-      day: day?.dataset.full ?? '',
-      slot: checked('slot')?.value === 'afternoon' ? ui.afternoon : ui.morning,
-      name: nameInput.value.trim().replace(/\s+/g, ' '),
-      phone: normalizePhone(phoneInput.value) ?? phoneInput.value.trim(),
-      first: checked('first')?.value === 'yes' ? ui.firstYes : ui.firstNo,
-      message: form.elements.message.value.trim(),
+      firstName: clean(firstInput),
+      lastName: clean(lastInput),
+      day: checked('day')?.dataset.full ?? '',
     };
   }
 
   function waUrl() {
     const v = values();
     const r = ui.recap;
-    const sep = lang === 'ar' ? ': ' : ' : ';
     const lines = [
       ui.wa.hello,
       '',
-      `• ${r.motif}${sep}${v.motif}`,
-      `• ${r.day}${sep}${v.day} (${v.slot})`,
-      `• ${r.name}${sep}${v.name}`,
-      `• ${r.phone}${sep}${v.phone}`,
-      `• ${r.first}${sep}${v.first}`,
+      `• ${r.firstName}${colon}${v.firstName}`,
+      `• ${r.lastName}${colon}${v.lastName}`,
+      `• ${r.day}${colon}${v.day}`,
+      '',
+      ui.wa.thanks,
     ];
-    if (v.message) lines.push(`• ${r.message}${sep}${v.message}`);
-    lines.push('', ui.wa.thanks);
     return `https://wa.me/${data.whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
   }
 
@@ -184,33 +150,23 @@ export function initRdv() {
     const v = values();
     const r = ui.recap;
     const rows = [
-      [r.motif, v.motif, 1],
-      [r.day, [v.day, v.slot], 2],
-      [r.name, v.name, 3],
-      [r.phone, v.phone, 3, true],
-      [r.first, v.first, 3],
+      [r.firstName, v.firstName, firstInput],
+      [r.lastName, v.lastName, lastInput],
+      [r.day, v.day, null],
     ];
-    if (v.message) rows.push([r.message, v.message, 3]);
     recap.replaceChildren(
-      ...rows.map(([label, value, step, ltr]) => {
+      ...rows.map(([label, value, field]) => {
         const row = document.createElement('div');
         row.className = 'rdv-recap__row';
         const dt = document.createElement('dt');
         dt.textContent = label;
         const dd = document.createElement('dd');
-        const val = document.createElement(ltr ? 'bdi' : 'span');
-        if (ltr) val.dir = 'ltr';
-        if (Array.isArray(value)) {
-          // « jour · moment » : le moment ne se coupe pas (« Après-midi »)
-          const slot = document.createElement('span');
-          slot.className = 'rdv-recap__nowrap';
-          slot.textContent = value[1];
-          val.append(`${value[0]} · `, slot);
-        } else val.textContent = value;
+        const val = document.createElement('span');
+        val.textContent = value;
         const edit = document.createElement('button');
         edit.type = 'button';
         edit.className = 'rdv-recap__edit';
-        edit.dataset.goto = step;
+        edit.dataset.goto = field ? field.name : 'day';
         edit.textContent = ui.edit;
         edit.setAttribute('aria-label', `${ui.edit} : ${label}`);
         dd.append(val, edit);
@@ -221,7 +177,12 @@ export function initRdv() {
   }
   recap.addEventListener('click', (e) => {
     const b = e.target.closest('[data-goto]');
-    if (b) go(Number(b.dataset.goto));
+    if (!b) return;
+    // « Modifier » : retour à l'étape 1, focus sur le champ concerné
+    go(1, { focus: false });
+    const target = b.dataset.goto === 'day' ? checked('day') || radios('day')[0] : form.elements[b.dataset.goto];
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: 'center', behavior: 'auto' });
   });
 
   // ---------- Navigation entre étapes ----------
@@ -243,10 +204,10 @@ export function initRdv() {
       live.textContent = `${text}${colon}${ui.steps[n - 1]}`;
     }
     btnBack.hidden = success || n === 1;
-    btnNext.hidden = success || n === 4;
-    btnSend.hidden = n !== 4;
+    btnNext.hidden = success || n === LAST;
+    btnSend.hidden = n !== LAST;
     btnDone.hidden = !success;
-    if (n === 4) renderRecap();
+    if (n === LAST) renderRecap();
     form.scrollTop = 0;
     if (!focus) return;
     const target = success
@@ -259,23 +220,17 @@ export function initRdv() {
   }
 
   function next() {
-    if (typeof current === 'number' && current < 4 && validate(current)) go(current + 1);
+    if (current === 1 && validate()) go(LAST);
   }
   btnNext.addEventListener('click', next);
   btnBack.addEventListener('click', () => current > 1 && go(current - 1));
 
   // window.open appelé directement dans le clic (sinon bloqué par iOS Safari)
   btnSend.addEventListener('click', () => {
-    // Sécurité : une étape modifiée entre-temps et devenue invalide → on y retourne
-    const complete = {
-      1: () => checked('motif'),
-      2: () => checked('day') && checked('slot'),
-      3: () => nameInput.value.trim().length >= 2 && normalizePhone(phoneInput.value) && checked('first'),
-    };
-    const bad = [1, 2, 3].find((n) => !complete[n]());
-    if (bad) {
-      go(bad, { focus: false });
-      validate(bad);
+    // Sécurité : données devenues invalides entre-temps → retour à l'étape 1
+    if (!complete()) {
+      go(1, { focus: false });
+      validate();
       return;
     }
     const url = waUrl();
@@ -313,16 +268,12 @@ export function initRdv() {
     }
   }
 
-  function open(from = null, motif = '') {
+  function open(from = null) {
     if (isOpen) return;
     clearTimeout(closeTimer);
     isOpen = true;
     trigger = from || (document.activeElement !== document.body ? document.activeElement : null);
     if (current === 'success') reset();
-    if (motif && current === 1 && !checked('motif')) {
-      const r = form.querySelector(`input[name="motif"][value="${CSS.escape(motif)}"]`);
-      if (r) r.checked = true;
-    }
     buildDays();
     root.hidden = false;
     root.classList.remove('is-closing');
@@ -331,7 +282,7 @@ export function initRdv() {
     void dialog.offsetWidth; // départ de la transition d'entrée
     root.classList.add('is-open');
     dialog.focus({ preventScroll: true });
-    const n = current === 'success' ? 4 : current;
+    const n = current === 'success' ? LAST : current;
     live.textContent = `${ui.stepOf.replace('{n}', n)}${colon}${ui.steps[n - 1]}`;
   }
 
@@ -387,7 +338,7 @@ export function initRdv() {
     if (!t || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
     e.stopPropagation(); // pas de défilement d'ancre par Lenis
-    open(t, t.dataset.openRdv);
+    open(t);
   });
 
   // URL #rdv

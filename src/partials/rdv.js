@@ -1,9 +1,6 @@
-// Modale « Réserver RDV » (4 étapes → message WhatsApp pré-rempli).
-// Motifs = services du site (src/data/services-content.js, groupes `serviceGroups`) :
-// un service ajouté là apparaît automatiquement ici. Comportement : src/js/rdv.js.
+// Modale « Réserver RDV » : 2 étapes (prénom, nom, jour → récap) puis message WhatsApp
+// pré-rempli. Comportement : src/js/rdv.js.
 import { contact, rdv as rdvConfig } from '../data/site.js';
-import { localizedService, serviceAvailable, serviceGroups } from '../data/services-content.js';
-import { serviceGroupsAr } from '../data/services-content.ar.js';
 import { icon } from './icons.js';
 
 // Textes de la modale. AR : traductions proposées, non validées par la doctoresse
@@ -11,31 +8,17 @@ import { icon } from './icons.js';
 const RDV_UI_RAW = {
   fr: {
     title: 'Demande de rendez-vous',
-    stepOf: 'Étape {n} sur 4',
-    steps: ['Motif', 'Date', 'Coordonnées', 'Récap'],
+    stepOf: 'Étape {n} sur 2',
+    steps: ['Vos informations', 'Récap'],
     close: 'Fermer',
-    motifLegend: 'Quel est le motif de votre consultation ?',
     urgent: 'Urgence ? Appelez directement le cabinet',
-    other: 'Autre / je ne sais pas',
-    otherHelp: 'Le cabinet vous orientera.',
     dayLegend: 'Quel jour vous conviendrait ?',
-    slotLegend: 'À quel moment de la journée ?',
-    morning: 'Matin',
-    afternoon: 'Après-midi',
-    saturdayNote: 'Le samedi, le cabinet est ouvert le matin uniquement.',
     confirmNote: 'Le cabinet vous confirmera l’heure exacte du rendez-vous.',
-    name: 'Nom et prénom',
-    phone: 'Téléphone',
-    phoneHint: 'Ex. : {a} ou {b}',
-    firstLegend: 'Est-ce votre première visite au cabinet ?',
-    firstYes: 'Oui',
-    firstNo: 'Déjà patient(e)',
-    message: 'Message',
-    optional: '(facultatif)',
-    messageHint: 'Une précision utile pour le cabinet.',
+    firstName: 'Prénom',
+    lastName: 'Nom',
     recapTitle: 'Vérifiez votre demande',
     edit: 'Modifier',
-    recap: { motif: 'Motif', day: 'Jour', slot: 'Moment', name: 'Nom', phone: 'Téléphone', first: 'Première visite', message: 'Message' },
+    recap: { firstName: 'Prénom', lastName: 'Nom', day: 'Jour' },
     recapNote: 'Le message s’ouvrira dans WhatsApp : il vous suffira de l’envoyer.',
     back: 'Retour',
     next: 'Suivant',
@@ -44,13 +27,9 @@ const RDV_UI_RAW = {
     successText: 'Envoyez-le : le cabinet vous répondra pour confirmer le jour et l’heure du rendez-vous.',
     retry: 'WhatsApp ne s’est pas ouvert ? Réessayer',
     errors: {
-      motif: 'Choisissez un motif.',
       day: 'Choisissez un jour.',
-      slot: 'Choisissez un moment de la journée.',
-      nameRequired: 'Indiquez votre nom et prénom.',
-      phoneRequired: 'Indiquez votre numéro de téléphone.',
-      phoneInvalid: 'Numéro marocain attendu : 05, 06 ou 07 suivi de 8 chiffres, ou +212.',
-      first: 'Indiquez s’il s’agit de votre première visite.',
+      firstNameRequired: 'Indiquez votre prénom.',
+      lastNameRequired: 'Indiquez votre nom.',
     },
     wa: {
       hello: 'Bonjour, je souhaite demander un rendez-vous au cabinet du Dr Elaouni Rajae.',
@@ -60,31 +39,17 @@ const RDV_UI_RAW = {
   // TODO AR : traductions à faire valider (ar-a-faire.md)
   ar: {
     title: 'طلب موعد',
-    stepOf: 'الخطوة {n} من 4',
-    steps: ['السبب', 'التاريخ', 'معلوماتكم', 'الملخص'],
+    stepOf: 'الخطوة {n} من 2',
+    steps: ['معلوماتكم', 'الملخص'],
     close: 'إغلاق',
-    motifLegend: 'ما سبب الاستشارة؟',
     urgent: 'حالة مستعجلة؟ اتصلوا مباشرة بالعيادة',
-    other: 'أخرى / لا أعرف',
-    otherHelp: 'ستوجّهكم العيادة.',
     dayLegend: 'أي يوم يناسبكم؟',
-    slotLegend: 'في أي فترة من اليوم؟',
-    morning: 'صباحاً',
-    afternoon: 'بعد الزوال',
-    saturdayNote: 'يوم السبت، العيادة مفتوحة في الصباح فقط.',
     confirmNote: 'ستؤكد لكم العيادة الساعة المحددة للموعد.',
-    name: 'الاسم الكامل',
-    phone: 'رقم الهاتف',
-    phoneHint: 'مثال: {a} أو {b}',
-    firstLegend: 'هل هذه زيارتكم الأولى للعيادة؟',
-    firstYes: 'نعم',
-    firstNo: 'مريض(ة) سابق(ة)',
-    message: 'رسالة',
-    optional: '(اختياري)',
-    messageHint: 'معلومة مفيدة للعيادة.',
+    firstName: 'الاسم الشخصي',
+    lastName: 'الاسم العائلي',
     recapTitle: 'تحققوا من طلبكم',
     edit: 'تعديل',
-    recap: { motif: 'السبب', day: 'اليوم', slot: 'الفترة', name: 'الاسم', phone: 'الهاتف', first: 'الزيارة الأولى', message: 'الرسالة' },
+    recap: { firstName: 'الاسم الشخصي', lastName: 'الاسم العائلي', day: 'اليوم' },
     recapNote: 'ستُفتح الرسالة في واتساب: يكفي أن ترسلوها.',
     back: 'رجوع',
     next: 'التالي',
@@ -93,13 +58,9 @@ const RDV_UI_RAW = {
     successText: 'أرسلوها، وستتواصل معكم العيادة لتأكيد يوم وساعة الموعد.',
     retry: 'لم يُفتح واتساب؟ أعيدوا المحاولة',
     errors: {
-      motif: 'اختاروا سبب الاستشارة.',
       day: 'اختاروا يوماً.',
-      slot: 'اختاروا فترة من اليوم.',
-      nameRequired: 'أدخلوا الاسم الكامل.',
-      phoneRequired: 'أدخلوا رقم الهاتف.',
-      phoneInvalid: 'رقم مغربي: 05 أو 06 أو 07 متبوعاً بـ 8 أرقام، أو 212+.',
-      first: 'حددوا إن كانت هذه زيارتكم الأولى.',
+      firstNameRequired: 'أدخلوا الاسم الشخصي.',
+      lastNameRequired: 'أدخلوا الاسم العائلي.',
     },
     wa: {
       hello: 'السلام عليكم، أود طلب موعد في عيادة الدكتورة العوني رجاء.',
@@ -108,45 +69,6 @@ const RDV_UI_RAW = {
   },
 };
 
-
-function motifOption(value, label, iconName, { featured = false, help = '' } = {}) {
-  const helpId = help ? ` aria-describedby="rdv-motif-${value}-help"` : '';
-  return `<li>
-              <label class="rdv-choice rdv-choice--motif${featured ? ' rdv-choice--featured' : ''}">
-                <input type="radio" name="motif" value="${value}"${helpId}>
-                <span class="rdv-choice__icon">${icon(iconName, { size: 20, stroke: 1.8 })}</span>
-                <span class="rdv-choice__text"><span class="rdv-choice__label">${label}</span>${
-                  help ? `<span class="rdv-choice__help" id="rdv-motif-${value}-help">${help}</span>` : ''
-                }</span>
-                <span class="rdv-choice__radio" aria-hidden="true"></span>
-              </label>
-            </li>`;
-}
-
-function motifGroups(lang, u) {
-  const groups = serviceGroups
-    .map(({ title: titleFr, slugs }, gi) => {
-      const title = lang === 'ar' ? serviceGroupsAr[gi] : titleFr;
-      const items = slugs
-        .filter((slug) => serviceAvailable(slug, lang))
-        .map((slug) => {
-          const s = localizedService(slug, lang);
-          return motifOption(s.slug, s.name, s.icon || 'eye', { featured: s.slug === 'consultation-depistage' });
-        });
-      if (!items.length) return '';
-      return `<div class="rdv-group" role="group" aria-labelledby="rdv-g${gi}">
-            <p class="rdv-group__title" id="rdv-g${gi}">${title}</p>
-            <ul class="rdv-list" role="list">
-            ${items.join('\n            ')}
-            </ul>
-          </div>`;
-    })
-    .join('\n          ');
-  const other = `<ul class="rdv-list rdv-list--other" role="list">
-            ${motifOption('autre', u.other, 'circleHelp', { help: u.otherHelp })}
-          </ul>`;
-  return groups + '\n          ' + other;
-}
 
 // Typographie française : espace insécable avant ? ! : ;
 const nbsp = (v) =>
@@ -167,10 +89,8 @@ export function rdvModal(page) {
     closedDays: rdvConfig.closedDays,
     morningOnlyDays: rdvConfig.morningOnlyDays,
     slots: rdvConfig.slots,
-    ui: { stepOf: u.stepOf, steps: u.steps, morning: u.morning, afternoon: u.afternoon, errors: u.errors, wa: u.wa, recap: u.recap, edit: u.edit, firstYes: u.firstYes, firstNo: u.firstNo },
+    ui: { stepOf: u.stepOf, steps: u.steps, errors: u.errors, wa: u.wa, recap: u.recap, edit: u.edit },
   };
-
-  const slotHours = (k) => (rdvConfig.slots[k] ? ` <span class="rdv-slot__hours">${rdvConfig.slots[k].from} – ${rdvConfig.slots[k].to}</span>` : '');
 
   return `
 <div class="rdv" id="rdv-modal" data-rdv data-lenis-prevent hidden>
@@ -190,58 +110,29 @@ export function rdvModal(page) {
     <p class="visually-hidden" aria-live="polite" data-rdv-live></p>
 
     <form class="rdv__body" data-rdv-form novalidate>
-      <fieldset class="rdv-step" data-step="1" aria-describedby="rdv-err-motif">
-        <legend class="rdv-step__title">${u.motifLegend}</legend>
+      <div class="rdv-step" data-step="1">
+        <p class="rdv-step__title">${u.steps[0]}</p>
         <a class="rdv-urgent" href="${contact.phoneHref}">${icon('phone', { size: 18, stroke: 2 })}<span>${u.urgent}</span><bdi dir="ltr" class="rdv-urgent__num">${contact.phone}</bdi></a>
-        ${error('rdv-err-motif')}
-        <div class="rdv-groups">
-          ${motifGroups(lang, u)}
+        <div class="rdv-names">
+          <div class="rdv-field">
+            <label class="rdv-field__label" for="rdv-first-name">${u.firstName}</label>
+            <input class="rdv-input" id="rdv-first-name" name="firstName" type="text" autocomplete="given-name" autocapitalize="words" maxlength="40" required aria-describedby="rdv-err-first-name">
+            ${error('rdv-err-first-name')}
+          </div>
+          <div class="rdv-field">
+            <label class="rdv-field__label" for="rdv-last-name">${u.lastName}</label>
+            <input class="rdv-input" id="rdv-last-name" name="lastName" type="text" autocomplete="family-name" autocapitalize="words" maxlength="40" required aria-describedby="rdv-err-last-name">
+            ${error('rdv-err-last-name')}
+          </div>
         </div>
-      </fieldset>
-      <div class="rdv-step" data-step="2" hidden>
         <fieldset class="rdv-sub" aria-describedby="rdv-err-day">
-          <legend class="rdv-step__title">${u.dayLegend}</legend>
+          <legend class="rdv-field__label">${u.dayLegend}</legend>
           ${error('rdv-err-day')}
           <ul class="rdv-days" role="list" data-rdv-days></ul>
         </fieldset>
-        <fieldset class="rdv-sub" aria-describedby="rdv-slot-note rdv-err-slot">
-          <legend class="rdv-step__title rdv-step__title--sm">${u.slotLegend}</legend>
-          ${error('rdv-err-slot')}
-          <div class="rdv-slots">
-            <label class="rdv-choice rdv-choice--slot"><input type="radio" name="slot" value="morning"><span class="rdv-choice__icon">${icon('sunrise', { size: 20 })}</span><span class="rdv-choice__label">${u.morning}${slotHours('morning')}</span></label>
-            <label class="rdv-choice rdv-choice--slot"><input type="radio" name="slot" value="afternoon"><span class="rdv-choice__icon">${icon('sun', { size: 20 })}</span><span class="rdv-choice__label">${u.afternoon}${slotHours('afternoon')}</span></label>
-          </div>
-          <p class="rdv-note" id="rdv-slot-note" data-rdv-satnote hidden>${u.saturdayNote}</p>
-        </fieldset>
         <p class="rdv-info">${icon('clock', { size: 18 })}<span>${u.confirmNote}</span></p>
       </div>
-      <div class="rdv-step" data-step="3" hidden>
-        <div class="rdv-field">
-          <label class="rdv-field__label" for="rdv-name">${u.name}</label>
-          <input class="rdv-input" id="rdv-name" name="name" type="text" autocomplete="name" autocapitalize="words" maxlength="80" required aria-describedby="rdv-err-name">
-          ${error('rdv-err-name')}
-        </div>
-        <div class="rdv-field">
-          <label class="rdv-field__label" for="rdv-phone">${u.phone}</label>
-          <input class="rdv-input rdv-input--ltr" id="rdv-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" maxlength="20" required aria-describedby="rdv-phone-hint rdv-err-phone">
-          <p class="rdv-field__hint" id="rdv-phone-hint">${u.phoneHint.replace('{a}', '<bdi dir="ltr">06 12 34 56 78</bdi>').replace('{b}', '<bdi dir="ltr">+212 6 12 34 56 78</bdi>')}</p>
-          ${error('rdv-err-phone')}
-        </div>
-        <fieldset class="rdv-field" aria-describedby="rdv-err-first">
-          <legend class="rdv-field__label">${u.firstLegend}</legend>
-          <div class="rdv-seg">
-            <label class="rdv-seg__opt"><input type="radio" name="first" value="yes"><span>${u.firstYes}</span></label>
-            <label class="rdv-seg__opt"><input type="radio" name="first" value="no"><span>${u.firstNo}</span></label>
-          </div>
-          ${error('rdv-err-first')}
-        </fieldset>
-        <div class="rdv-field">
-          <label class="rdv-field__label" for="rdv-message">${u.message} <span class="rdv-field__opt">${u.optional}</span></label>
-          <textarea class="rdv-input rdv-input--area" id="rdv-message" name="message" rows="3" maxlength="300" aria-describedby="rdv-message-hint"></textarea>
-          <p class="rdv-field__hint" id="rdv-message-hint">${u.messageHint}</p>
-        </div>
-      </div>
-      <div class="rdv-step" data-step="4" hidden>
+      <div class="rdv-step" data-step="2" hidden>
         <p class="rdv-step__title">${u.recapTitle}</p>
         <dl class="rdv-recap" data-rdv-recap></dl>
         <p class="rdv-info">${icon('whatsapp', { size: 18 })}<span>${u.recapNote}</span></p>
