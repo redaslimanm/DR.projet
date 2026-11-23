@@ -56,11 +56,15 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
   - Chirurgie de la cataracte par phacoémulsification — Collège Royal des Ophtalmologues, Royaume-Uni
   - Chirurgie réfractive — Collège Royal des Ophtalmologues, Royaume-Uni
 
-### Services (12)
+### Services (20, en FR et en AR)
 
 Chirurgie de la cataracte · Chirurgie réfractive · Chirurgie du strabisme · Adaptation en lentilles de contact (souples, rigides, sclérales) · Kératocône et maladies de la cornée (Cross-Linking CXL) · Maladies de la rétine (rétinopathie diabétique, DMLA) · Glaucome · Ophtalmologie pédiatrique · Échographie oculaire · Rétinographie · OCT · Laser
 
-Angiographie rétinienne et Topographie cornéenne ont été remplacées par Rétinographie et OCT (cahier de modifications, étape 16 ; anciennes URL redirigées en 301 vers la page des services). Toujours 12 services, en FR comme en AR.
+Angiographie rétinienne et Topographie cornéenne avaient été remplacées par Rétinographie et OCT (cahier de modifications, étape 16). **23/11/2026** : 8 nouvelles pages (`assets-source/Instructions_nouvelles_pages_site.pdf`, images `assets-source/images-site/`), version arabe ajoutée le même jour : **traduction proposée par nous, publiée, en attente de validation par la doctoresse** (`traduction-ar-8-pages.md`, `ar-a-faire.md`, commentaires `TODO AR`, `validated: []` dans `services-content.ar.js`) :
+- Chirurgie : Chirurgie réfractive par implant ICL (`implant-icl`) · Chirurgie de ptérygion (`pterygion`) · Chirurgie de chalazion (`chalazion`, reel Instagram à brancher : `reel: null`) · Injections intravitréennes (IVT) (`injections-intravitreennes`)
+- Explorations : Angiographie rétinienne (`angiographie-retinienne`) · Topographie cornéenne (`topographie-corneenne`) · Biométrie oculaire (`biometrie-oculaire`) · Microscopie spéculaire (`microscopie-speculaire`)
+
+Les redirections 301 des anciennes URL angiographie/topographie ont été retirées de `vercel.json`. Rétinographie et OCT restent en ligne. Le chiffre de l'accueil (bande de confiance, compteur, bouton « Voir les … services ») est calculé depuis `services` de `src/data/site.js` (partial `services-count`) : 20 en FR et en AR.
 
 Page supplémentaire avec le même template : **Consultation et dépistage** (`/fr/services/consultation-depistage/`), carte 01 de l'accueil. Elle ne compte pas dans les « 12 spécialités ».
 
@@ -134,7 +138,7 @@ Le logo a un dégradé or (bandes claires/foncées) : `#8A6946 → #D3AD85 → #
 └── Mentions légales + Politique de confidentialité (loi 09-08 / CNDP)
 ```
 
-Menu : Accueil · Dr Elaouni · Services ▾ · Équipements · Le cabinet · Conseils · Contact + bouton « Prendre RDV ». Switch FR ↔ AR qui mène à la même page dans l'autre langue.
+Menu : Accueil · Dr Elaouni · Services ▾ (FR : liens rangés sous les intertitres « Chirurgie », « Explorations », « Consultation et suivi » — `serviceMenuGroups` ; AR : même groupement, « الجراحة », « الفحوصات », « الاستشارة والمتابعة » — ce dernier remplace aussi « الفحص والمتابعة » sur `/ar/services/`, à valider) · Équipements · Le cabinet · Conseils · Contact + bouton « Prendre RDV ». Switch FR ↔ AR qui mène à la même page dans l'autre langue.
 
 ### Accueil : ordre des sections (validé)
 
@@ -171,6 +175,8 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 7. FAQ du service (réponses `[À VALIDER par la doctora]`)
 8. CTA appel + WhatsApp
 9. Services liés
+
+Champs facultatifs (pages de nov. 2026) : pas de `photo` → pas de photo en tête ; pas d'`intro` → rien sous le H1 ; `whatImage` (image + légende à côté de « Qu'est-ce que… ») ; `stepsImage` (illustration sous les étapes) ; image d'étape `natural: true` (non recadrée) ; `ctaText` (texte du bandeau + bouton « Prendre rendez-vous ») ; `reel` (reel Instagram en façade, `null` = lien à fournir).
 
 ## Plan d'animations
 
@@ -249,3 +255,7 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
 `assets-source/tsawer-site/` (et `tsawer-site-ar/` pour les affiches arabes) optimisées via
 `scripts/optimize-images.py`. Version arabe à parité (`parite-fr-ar.md`, `ar-a-faire.md`). Les commentaires
 `<!-- TODO … -->` des pages HTML sont retirés au build (jamais publiés).
+
+## Khota A (plan en attente)
+
+Quand je dis « appliquer khota A » : lis `khota-a.md` (racine du projet) en entier et exécute-le tel quel, étape par étape. C'est le plan pour héberger sur le site le reel du chalazion bloqué par Instagram. Sans cette phrase, ne l'applique pas.

@@ -4,6 +4,10 @@
 détail dans `parite-fr-ar.md`). Les 163 blocs de `a-traduire-ar.md`, traduits et validés,
 sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont en ligne.
 
+**23/11/2026** : les 8 nouvelles pages ont leur version arabe (**31 / 31 pages à parité**).
+Leur traduction est **proposée par nous**, publiée et **en attente de validation par la
+doctoresse** (relecture : `traduction-ar-8-pages.md`).
+
 ## Mécanique (pour les prochaines modifications)
 
 - Pages services AR = données FR (`src/data/services-content.js`) + textes de
@@ -20,6 +24,25 @@ sont intégrés ; les affiches `pediatrie-hero-ar` et `strabisme-hero-ar` sont e
 - Toute nouvelle modification FR : l'ajouter ici tant que la traduction n'est pas faite.
 
 ## Reste à faire
+
+- [ ] **8 nouvelles pages — publiées, en attente de validation par la doctoresse** (23/11/2026) :
+      `implant-icl`, `pterygion`, `chalazion`, `injections-intravitreennes`,
+      `angiographie-retinienne`, `topographie-corneenne`, `biometrie-oculaire`,
+      `microscopie-speculaire` (`/ar/services/<slug>/`). Traductions proposées par nous
+      (`src/data/services-content.ar.js`, commentaires `TODO AR`, `validated: []` → badges
+      [À VALIDER] en dev). Fichier de relecture : **`traduction-ar-8-pages.md`** (FR | AR côte à
+      côte + glossaire). Après validation : reporter les corrections, retirer `validated: []` et
+      les `TODO AR`, cocher ici.
+- [ ] **Noms arabes du menu** des 8 pages (`services` dans `src/data/site.js`, `TODO AR`) : à
+      valider avec la relecture (même fichier).
+- [ ] **Intertitres du menu groupé AR** (`serviceMenuGroups`, `TODO AR`) : « الجراحة »,
+      « الفحوصات », « الاستشارة والمتابعة ». « الاستشارة والمتابعة » remplace aussi
+      « الفحص والمتابعة » comme titre de groupe sur `/ar/services/` (`serviceGroupsAr`), pour ne
+      pas ressembler à « الفحوصات ». À valider (fichier de relecture, section 1).
+- [ ] **Bloc reel Instagram (page Chalazion AR)** : textes « شاهدوا الفيديو على إنستغرام » et
+      la note (objet `UI.ar` de `src/partials/service.js`, `TODO AR`). Le lecteur Instagram reste
+      en erreur (post « Age-restricted ») jusqu'à l'application de **khota A** (`khota-a.md`),
+      qui couvre aussi la page AR.
 
 - [ ] **Point client 1** (« … » après « cristallin » / « العدسة ») : mettre à jour FR + AR.
 - [ ] **Point client 2** (durée de consultation) : unifier accueil, FAQ et page Consultation

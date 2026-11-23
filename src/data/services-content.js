@@ -1,6 +1,6 @@
 // =========================================================
 // Contenu des pages service (FR) — une seule source pour :
-//   - les 13 pages /fr/services/<slug>/ et /ar/services/<slug>/ (template src/partials/service.js)
+//   - les 21 pages /fr/services/<slug>/ (13 aussi en AR : /ar/services/<slug>/) (template src/partials/service.js)
 //   - la page index /fr/services/
 //   - la section « Pages services » de textes-a-valider.md
 //     (régénérée par : node scripts/export-textes.mjs)
@@ -839,6 +839,462 @@ export const servicesContent = [
         'Traitements au laser de certaines pathologies de l’œil au cabinet du Dr Elaouni Rajae à Fès, Avenue des FAR. Tél. 05 32 39 18 18.',
     },
   },
+
+  // =========================================================
+  // 8 nouvelles pages (assets-source/Instructions_nouvelles_pages_site.pdf, nov. 2026)
+  // Textes fournis par la doctoresse, repris tels quels : pas de badge [À VALIDER].
+  // Pas de photo en tête ni de texte d'intro dans le bandeau vert (absents du PDF) :
+  // les images sont dans « Qu'est-ce que… » (whatImage) et « Déroulement » (stepsImage
+  // ou image d'une étape). `card` = 1re phrase de « Qu'est-ce que… ».
+  // Bandeau final : ctaTitle + ctaText du PDF + bouton « Prendre rendez-vous ».
+  // FR seulement pour l'instant (traduction AR : ar-a-faire.md).
+  // Meta title/description : rédigés sur le modèle des autres pages, à valider.
+  // =========================================================
+
+  // ---------- Menu Chirurgie ----------
+  {
+    slug: 'implant-icl',
+    icon: 'circleDot',
+    name: 'Chirurgie réfractive par implant ICL',
+    label: 'Chirurgie',
+    validated: ['what', 'signs', 'steps'],
+    card: 'La chirurgie par implant ICL (Implantable Collamer Lens) consiste à placer une lentille artificielle à l’intérieur de l’œil, entre l’iris et le cristallin, sans retirer ce dernier.',
+    whatTitle: 'Qu’est-ce que la chirurgie réfractive par implant ICL ?',
+    what: 'La chirurgie par implant ICL (Implantable Collamer Lens) consiste à placer une lentille artificielle à l’intérieur de l’œil, entre l’iris et le cristallin, sans retirer ce dernier. Elle permet de corriger certains défauts visuels, notamment la myopie et l’astigmatisme, et constitue une alternative à la chirurgie laser chez certains patients.',
+    whatImage: { name: '01-icl-implant', alt: 'Implant ICL (Implantable Collamer Lens) tenu par une pince', caption: 'Implant ICL' },
+    signsTitle: 'Signes qui peuvent motiver une consultation',
+    signs: [
+      ['glasses', 'Myopie importante'],
+      ['focus', 'Astigmatisme associé à une myopie'],
+      ['shieldCheck', 'Contre-indication à la chirurgie laser'],
+      ['circleDot', 'Intolérance aux lentilles de contact'],
+    ],
+    stepsTitle: 'Comment se déroule la prise en charge ?',
+    steps: [
+      ['Consultation et bilan', 'Examen ophtalmologique complet pour évaluer le défaut visuel et déterminer l’éligibilité à la chirurgie par implant ICL.'],
+      ['Examens préopératoires', 'Mesures précises de l’œil, notamment la profondeur de la chambre antérieure, la densité des cellules endothéliales et les dimensions oculaires, afin de choisir l’implant adapté.'],
+      ['Intervention', 'Insertion de l’implant ICL à travers une petite incision cornéenne, sous anesthésie locale, tout en conservant le cristallin naturel.'],
+      ['Suivi', 'Contrôles postopératoires pour surveiller la récupération visuelle, la pression intraoculaire et le bon positionnement de l’implant.'],
+    ],
+    stepsImage: { name: '02-icl-schema-oeil', alt: "Schéma de l'œil montrant l'implant ICL placé entre l'iris et le cristallin" },
+    doctor: UK_REFRACTIVE,
+    faq: [
+      {
+        q: 'L’intervention est-elle douloureuse ?',
+        a: 'L’intervention est généralement réalisée sous anesthésie locale, le plus souvent par collyres anesthésiants. Elle est habituellement peu douloureuse, mais une légère gêne peut être ressentie.',
+      },
+      {
+        q: 'Combien de temps dure la récupération ?',
+        a: 'L’amélioration visuelle est souvent rapide, dès les premiers jours. La stabilisation de la vision peut prendre plusieurs semaines selon les patients.',
+      },
+      {
+        q: 'Quelle est la différence entre l’ICL et le LASIK ?',
+        a: 'Le LASIK corrige la vision en remodelant la cornée à l’aide d’un laser. L’ICL consiste à implanter une lentille à l’intérieur de l’œil sans modifier la forme de la cornée. Le choix dépend du défaut visuel et des caractéristiques de chaque œil.',
+      },
+    ],
+    ctaTitle: 'Vous souhaitez vous libérer de vos lunettes ?',
+    ctaText: 'Un bilan ophtalmologique spécialisé permet de déterminer si la chirurgie par implant ICL est adaptée à votre vision.',
+    related: ['chirurgie-refractive', 'topographie-corneenne', 'microscopie-speculaire'],
+    meta: {
+      title: 'Implant ICL (chirurgie réfractive) à Fès – Dr Elaouni Rajae',
+      description:
+        'Chirurgie réfractive par implant ICL à Fès : correction de la myopie et de l’astigmatisme sans retirer le cristallin. Dr Elaouni Rajae. Tél. 05 32 39 18 18.',
+    },
+  },
+  {
+    slug: 'pterygion',
+    icon: 'eye',
+    name: 'Chirurgie de ptérygion',
+    label: 'Chirurgie',
+    validated: ['what', 'signs', 'steps'],
+    card: 'Le ptérygion est une excroissance bénigne de la conjonctive qui s’étend progressivement sur la cornée.',
+    whatTitle: 'Qu’est-ce que le ptérygion ?',
+    what: 'Le ptérygion est une excroissance bénigne de la conjonctive qui s’étend progressivement sur la cornée. Souvent favorisé par l’exposition au soleil, au vent et à la poussière, il peut provoquer une irritation, une rougeur et parfois une baisse de la vision.',
+    whatImage: { name: '03-pterygion-photo', alt: "Photo d'un ptérygion sur l'œil", caption: 'Photo de ptérygion' },
+    signsTitle: 'Signes qui doivent alerter',
+    signs: [
+      ['droplet', 'Rougeur oculaire persistante'],
+      ['scanEye', 'Vision floue ou déformée'],
+      ['shieldCheck', 'Sensation de corps étranger ou irritation'],
+      ['eye', 'Gêne esthétique'],
+    ],
+    stepsTitle: 'Comment se déroule la prise en charge ?',
+    steps: [
+      ['Consultation et bilan', 'Examen ophtalmologique pour évaluer la taille du ptérygion, son évolution et son retentissement sur la vision.'],
+      ['Préparation préopératoire', 'Bilan de la surface oculaire et choix de la technique chirurgicale adaptée.'],
+      // Phrase barrée dans le PDF (doublon de l'ancienne version) volontairement non reprise
+      ['Intervention', 'Retrait chirurgical du ptérygion, avec réalisation d’une autogreffe conjonctivale ou d’un recouvrement par membrane amniotique, selon les caractéristiques du ptérygion et les besoins de chaque patient.'],
+      ['Suivi', 'Contrôles postopératoires pour surveiller la cicatrisation et dépister une éventuelle récidive.'],
+    ],
+    stepsImage: { name: '04-pterygion-chirurgie', alt: 'Chirurgienne réalisant une chirurgie de ptérygion au microscope' },
+    doctor: GENERAL,
+    faq: [
+      {
+        q: 'L’intervention est-elle douloureuse ?',
+        a: 'L’intervention est généralement réalisée sous anesthésie locale. Elle est habituellement peu douloureuse, mais une gêne, des picotements ou une sensation de corps étranger peuvent survenir pendant les premiers jours.',
+      },
+      {
+        q: 'Combien de temps dure la récupération ?',
+        a: 'La cicatrisation initiale prend généralement une à deux semaines. La rougeur peut persister plusieurs semaines et la récupération complète varie selon les patients.',
+      },
+      {
+        q: 'Le ptérygion peut-il revenir après l’opération ?',
+        a: 'Oui, une récidive est possible. L’utilisation d’une autogreffe conjonctivale permet de réduire ce risque. Une protection contre les UV et un suivi régulier sont recommandés.',
+      },
+    ],
+    ctaTitle: 'Votre œil est souvent rouge ou irrité ?',
+    ctaText: 'Un examen ophtalmologique permet d’évaluer votre ptérygion et de déterminer si une intervention est nécessaire.',
+    related: ['chalazion', 'keratocone', 'consultation-depistage'],
+    meta: {
+      title: 'Chirurgie du ptérygion à Fès – Dr Elaouni Rajae',
+      description:
+        'Chirurgie de ptérygion à Fès, avec autogreffe conjonctivale ou membrane amniotique. Cabinet du Dr Elaouni Rajae, Avenue des FAR. Tél. 05 32 39 18 18.',
+    },
+  },
+  {
+    slug: 'chalazion',
+    icon: 'eye',
+    name: 'Chirurgie de chalazion',
+    label: 'Chirurgie',
+    validated: ['what', 'signs', 'steps'],
+    card: "Le chalazion est une inflammation localisée de la paupière, provoquée par l'obstruction d'une glande de Meibomius.",
+    whatTitle: 'Qu’est-ce que le chalazion ?',
+    what: "Le chalazion est une inflammation localisée de la paupière, provoquée par l'obstruction d'une glande de Meibomius. Il se manifeste par une petite boule ou un gonflement de la paupière, parfois accompagné d'une rougeur ou d'une gêne. Lorsqu'il persiste malgré un traitement médical adapté, une intervention chirurgicale peut être proposée.",
+    whatImage: { name: '05-chalazion-photo', alt: 'Chalazion de la paupière inférieure', caption: 'Image de chalazion' },
+    signsTitle: 'Signes qui doivent alerter',
+    signs: [
+      ['circleDot', 'Boule ou gonflement de la paupière'],
+      ['droplet', 'Rougeur ou inflammation locale'],
+      ['eye', 'Gêne ou sensation de lourdeur palpébrale'],
+      ['rotateCcw', 'Chalazion persistant ou récidivant'],
+    ],
+    stepsTitle: 'Comment se déroule la prise en charge ?',
+    steps: [
+      ['Consultation et bilan', "Examen de la paupière pour confirmer le diagnostic, évaluer le chalazion et rechercher d'éventuels facteurs favorisants."],
+      ['Traitement médical initial', 'Compresses chaudes et massages palpébraux, associés si nécessaire à un traitement médical adapté.'],
+      ['Intervention', 'En cas de chalazion persistant, une incision et un curetage peuvent être réalisés sous anesthésie locale, généralement par la face interne de la paupière, sans cicatrice cutanée visible.'],
+      ['Suivi', "Contrôle de la cicatrisation et surveillance de l'évolution, avec conseils d'hygiène palpébrale pour limiter les récidives."],
+    ],
+    stepsImage: {
+      name: '06-chalazion-cure-chirurgicale',
+      alt: 'Cure chirurgicale de chalazion (incision et curetage)',
+      caption: 'Cure chirurgicale de chalazion',
+    },
+    // Reel Instagram sur le chalazion (demande de la doctoresse, PDF page 7), lien fourni le
+    // 24/11/2026. URL complète attendue ; reel: null = emplacement vide (placeholder en dev).
+    reel: 'https://www.instagram.com/reel/DfAYsQQRq_N/',
+    doctor: GENERAL,
+    faq: [
+      {
+        q: "L'intervention est-elle douloureuse ?",
+        a: "L'intervention est généralement réalisée sous anesthésie locale. Une légère gêne peut être ressentie lors de l'anesthésie, mais le geste chirurgical est habituellement peu douloureux.",
+      },
+      {
+        q: 'Combien de temps dure la récupération ?',
+        a: "Un gonflement ou un petit hématome peut persister quelques jours après l'intervention. La récupération se fait généralement en une à deux semaines.",
+      },
+      {
+        q: 'Un chalazion nécessite-t-il toujours une opération ?',
+        a: 'Non. De nombreux chalazions régressent avec des soins locaux adaptés. La chirurgie est envisagée principalement lorsque le chalazion persiste, devient gênant ou résiste au traitement initial.',
+      },
+    ],
+    ctaTitle: 'Une boule persistante sur votre paupière ?',
+    ctaText: "Un examen ophtalmologique permet d'identifier la cause et de proposer le traitement le plus adapté.",
+    related: ['pterygion', 'consultation-depistage', '@equipements'],
+    meta: {
+      title: 'Chirurgie du chalazion à Fès – Dr Elaouni Rajae',
+      description:
+        'Chalazion persistant : soins locaux, puis incision et curetage sous anesthésie locale si nécessaire. Cabinet du Dr Elaouni Rajae à Fès. Tél. 05 32 39 18 18.',
+    },
+  },
+  {
+    slug: 'injections-intravitreennes',
+    icon: 'droplet',
+    name: 'Injections intravitréennes (IVT)',
+    label: 'Chirurgie',
+    validated: ['what', 'signs', 'steps'],
+    card: 'L’injection intravitréenne (IVT) consiste à administrer un médicament directement à l’intérieur de l’œil, dans le vitré.',
+    whatTitle: 'Qu’est-ce qu’une injection intravitréenne (IVT) ?', // espace insécable : pas de « ? » seul en fin de ligne
+    what: 'L’injection intravitréenne (IVT) consiste à administrer un médicament directement à l’intérieur de l’œil, dans le vitré. Elle permet de traiter certaines maladies de la rétine, notamment la dégénérescence maculaire liée à l’âge (DMLA) néovasculaire, l’œdème maculaire diabétique et les occlusions veineuses rétiniennes.',
+    whatImage: { name: '07-ivt-schema-injection', alt: "Schéma d'une injection intravitréenne dans le vitré" },
+    signsTitle: 'Signes qui doivent alerter',
+    signs: [
+      ['scanEye', 'Baisse de la vision centrale'],
+      ['focus', 'Vision déformée (lignes ondulées)'],
+      ['eye', 'Apparition d’une tache sombre au centre de la vision'],
+      ['glasses', 'Difficulté à lire ou à reconnaître les visages'],
+    ],
+    stepsTitle: 'Comment se déroule la prise en charge ?',
+    steps: [
+      ['Consultation et bilan', 'Examen ophtalmologique complet, associé notamment à une OCT maculaire, pour établir le diagnostic et déterminer l’indication du traitement.'],
+      ['Préparation', 'Désinfection rigoureuse de l’œil et de son environnement, puis instillation de gouttes anesthésiantes pour assurer le confort du patient.'],
+      [
+        'Injection',
+        'Administration du médicament dans le vitré à l’aide d’une aiguille très fine, dans des conditions strictes d’asepsie. Le geste ne dure que quelques secondes.',
+        // Image placée dans l'étape 3 (PDF) ; natural = image entière, sans recadrage
+        [{ name: '08-ivt-geste-injection', alt: "Geste d'injection intravitréenne sous blépharostat", natural: true }],
+      ],
+      ['Suivi', 'Contrôles ophtalmologiques et OCT pour évaluer la réponse au traitement et adapter le rythme des injections si nécessaire.'],
+    ],
+    doctor: SFO,
+    faq: [
+      {
+        q: 'L’injection est-elle douloureuse ?',
+        a: 'L’injection est réalisée sous anesthésie locale par collyre. Elle est généralement peu douloureuse, mais une légère pression ou une gêne passagère peuvent être ressenties.',
+      },
+      {
+        q: 'Combien d’injections sont nécessaires ?',
+        a: 'Le nombre d’injections dépend de la maladie traitée et de sa réponse au traitement. Certaines pathologies nécessitent plusieurs injections espacées de quelques semaines, puis un suivi régulier.',
+      },
+      {
+        q: 'Peut-on reprendre ses activités après l’injection ?',
+        a: 'La plupart des activités habituelles peuvent être reprises rapidement. Une légère irritation ou une rougeur peut survenir après le geste. Il est recommandé de ne pas se frotter l’œil et de respecter les consignes postopératoires.',
+      },
+    ],
+    ctaTitle: 'Votre vision devient floue ou déformée ?',
+    ctaText: 'Un examen ophtalmologique et une OCT maculaire permettent d’identifier certaines maladies de la rétine et de déterminer si un traitement par injection intravitréenne est indiqué.',
+    related: ['retine', 'oct', 'angiographie-retinienne'],
+    meta: {
+      title: 'Injections intravitréennes (IVT) à Fès – Dr Elaouni Rajae',
+      description:
+        'Injections intravitréennes à Fès pour la DMLA, l’œdème maculaire diabétique et les occlusions veineuses rétiniennes. Dr Elaouni Rajae. Tél. 05 32 39 18 18.',
+    },
+  },
+
+  // ---------- Menu Explorations ----------
+  {
+    slug: 'angiographie-retinienne',
+    icon: 'scanEye',
+    name: 'Angiographie rétinienne',
+    label: 'Examen',
+    validated: ['what', 'signs', 'steps'],
+    card: 'L’angiographie rétinienne est un examen d’imagerie qui permet d’étudier la circulation sanguine dans les vaisseaux de la rétine et de la choroïde.',
+    whatTitle: 'Qu’est-ce que l’angiographie rétinienne ?',
+    what: [
+      'L’angiographie rétinienne est un examen d’imagerie qui permet d’étudier la circulation sanguine dans les vaisseaux de la rétine et de la choroïde.',
+      'Elle consiste à réaliser une série de photographies du fond d’œil après l’injection d’un colorant, généralement la fluorescéine, dans une veine du bras.',
+      'Cet examen permet de détecter certaines anomalies vasculaires, de localiser des zones de mauvaise circulation sanguine ou des fuites de liquide et d’orienter la prise en charge de différentes maladies rétiniennes.',
+    ],
+    whatImage: { name: '09-angiographie-cliche-fluoresceine', alt: 'Cliché d’angiographie rétinienne à la fluorescéine' },
+    signsTitle: 'Quand est-elle prescrite ?',
+    signs: [],
+    signCards: [
+      ['droplet', 'Rétinopathie diabétique', 'Recherche de zones d’ischémie rétinienne, de fuites vasculaires et de néovaisseaux pour évaluer la sévérité de la maladie.'],
+      ['scanEye', 'DMLA', 'Recherche et analyse de néovaisseaux anormaux responsables de certaines formes de dégénérescence maculaire liée à l’âge.'],
+      ['badgeCheck', 'Occlusions vasculaires rétiniennes', 'Évaluation des troubles de la circulation sanguine rétinienne, notamment des zones d’ischémie et des anomalies vasculaires associées.'],
+      ['shieldCheck', 'Vascularites rétiniennes', 'Détection et évaluation des inflammations des vaisseaux rétiniens, permettant de visualiser les fuites vasculaires, les zones d’ischémie et de surveiller l’évolution de la maladie.'],
+      ['glasses', 'Néovaisseaux du fort myope', 'Détection et évaluation des néovaisseaux choroïdiens liés à la forte myopie, responsables de saignements ou de fuites pouvant entraîner une baisse de la vision centrale.'],
+    ],
+    stepsTitle: 'Comment se déroule l’examen ?',
+    steps: [
+      ['Préparation', 'Un interrogatoire médical est réalisé afin de rechercher d’éventuels antécédents de réaction au colorant. Les pupilles sont généralement dilatées à l’aide de gouttes.'],
+      ['Injection du colorant', 'Un colorant fluorescent est injecté dans une veine du bras. Il circule dans le sang et permet de visualiser les vaisseaux de la rétine.'],
+      ['Acquisition des images', 'Une série de photographies du fond d’œil est réalisée pendant la circulation du colorant, afin d’analyser les vaisseaux rétiniens et de rechercher d’éventuelles anomalies.'],
+      ['Après l’examen', 'Une coloration jaunâtre temporaire de la peau et des urines orangées peuvent apparaître après l’injection de fluorescéine. La dilatation pupillaire peut entraîner une vision floue pendant quelques heures.'],
+    ],
+    stepsImage: { name: '10-angiographie-examen', alt: "Patient pendant un examen d'angiographie rétinienne" },
+    doctor: SFO,
+    faq: [
+      {
+        q: 'L’angiographie rétinienne est-elle douloureuse ?',
+        a: 'L’examen est généralement indolore. Seule une légère gêne peut être ressentie lors de l’injection du colorant. Les photographies sont indolores, mais les flashs lumineux peuvent être un peu éblouissants.',
+      },
+      {
+        q: 'L’injection du colorant présente-t-elle des risques ?',
+        a: 'L’angiographie à la fluorescéine est généralement bien tolérée. Des nausées passagères peuvent survenir. Des réactions allergiques, parfois graves, restent rares. Il est important de signaler tout antécédent de réaction à la fluorescéine avant l’examen.',
+      },
+      {
+        q: 'Peut-on conduire après une angiographie rétinienne ?',
+        a: 'Il est déconseillé de conduire immédiatement après l’examen lorsque les pupilles ont été dilatées, car la vision peut rester floue et sensible à la lumière pendant plusieurs heures.',
+      },
+      {
+        q: 'Quelle est la différence entre l’OCT et l’angiographie rétinienne ?',
+        a: 'L’OCT permet d’obtenir des images en coupe des structures de la rétine, sans injection. L’angiographie à la fluorescéine étudie la circulation sanguine rétinienne après injection d’un colorant. Ces deux examens sont complémentaires.',
+      },
+    ],
+    ctaTitle: 'Un examen approfondi de votre rétine est nécessaire ?',
+    ctaText: 'L’angiographie rétinienne permet d’explorer certaines anomalies vasculaires et d’orienter le diagnostic et le traitement des maladies de la rétine.',
+    related: ['retine', 'oct', 'retinographie'],
+    meta: {
+      title: 'Angiographie rétinienne à Fès – Dr Elaouni Rajae',
+      description:
+        'Angiographie rétinienne à la fluorescéine : étude de la circulation de la rétine (diabète, DMLA, occlusions). Dr Elaouni Rajae, ophtalmologue à Fès.',
+    },
+  },
+  {
+    slug: 'topographie-corneenne',
+    icon: 'focus',
+    name: 'Topographie cornéenne',
+    label: 'Examen',
+    validated: ['what', 'signs', 'steps'],
+    card: 'La topographie cornéenne est un examen rapide, indolore et non invasif qui permet d’analyser avec précision la forme et la courbure de la cornée, la surface transparente située à l’avant de l’œil.',
+    whatTitle: 'Qu’est-ce que la topographie cornéenne ?',
+    what: [
+      'La topographie cornéenne est un examen rapide, indolore et non invasif qui permet d’analyser avec précision la forme et la courbure de la cornée, la surface transparente située à l’avant de l’œil.',
+      'Elle permet de détecter certaines anomalies cornéennes, notamment le kératocône, parfois avant l’apparition de symptômes, et de suivre leur évolution.',
+      'Selon la technologie utilisée, l’examen peut également fournir une analyse de la face postérieure de la cornée et de son épaisseur (pachymétrie), offrant une évaluation plus complète de sa structure.',
+    ],
+    whatImage: { name: '11-topographie-corneenne', alt: 'Appareil de topographie cornéenne avec cartes cornéennes à l’écran' },
+    signsTitle: 'Quand est-elle prescrite ?',
+    signs: [],
+    signCards: [
+      ['focus', 'Kératocône', 'Dépistage précoce, diagnostic et surveillance de l’évolution du kératocône, une maladie caractérisée par une déformation progressive de la cornée.'],
+      ['glasses', 'Bilan de chirurgie réfractive', 'Analyse de la forme et de la régularité de la cornée avant une chirurgie réfractive, afin d’évaluer l’éligibilité du patient et de rechercher d’éventuelles contre-indications.'],
+      ['scanEye', 'Astigmatisme', 'Évaluation de la courbure cornéenne pour identifier et caractériser les astigmatismes réguliers ou irréguliers.'],
+      ['circleDot', 'Adaptation des lentilles de contact', 'Analyse de la forme cornéenne pour orienter l’adaptation de certaines lentilles spécialisées, notamment en cas de kératocône ou de cornée irrégulière.'],
+    ],
+    stepsTitle: 'Comment se déroule l’examen ?',
+    steps: [
+      ['Préparation', 'Le patient est installé devant l’appareil de topographie cornéenne, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est nécessaire.'],
+      ['Acquisition des images', 'Le patient fixe une cible lumineuse pendant que l’appareil analyse la forme et la courbure de la cornée. L’examen est rapide, sans contact avec l’œil et indolore.'],
+      ['Analyse des résultats', 'Les cartes cornéennes sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de courbure, d’épaisseur ou de régularité de la cornée.'],
+      ['Après l’examen', 'Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, une surveillance régulière ou des examens complémentaires peuvent être proposés.'],
+    ],
+    doctor: UK_REFRACTIVE,
+    faq: [
+      {
+        q: 'La topographie cornéenne est-elle douloureuse ?',
+        a: 'Non. Il s’agit d’un examen indolore, sans contact avec l’œil et ne nécessitant aucune injection.',
+      },
+      {
+        q: 'Faut-il arrêter les lentilles de contact avant l’examen ?',
+        a: "Oui, dans certaines situations. Les lentilles peuvent modifier temporairement la forme de la cornée et fausser les mesures. La durée d'arrêt dépend du type de lentilles et de l'indication de l'examen.",
+      },
+      {
+        q: 'La topographie permet-elle de dépister un kératocône précoce ?',
+        a: 'Oui. La topographie, notamment lorsqu’elle est associée à une analyse tomographique de la cornée, permet de détecter des anomalies évocatrices d’un kératocône à un stade précoce, parfois avant l’apparition d’une baisse de vision.',
+      },
+      {
+        q: 'Quelle est la différence entre la topographie et la pachymétrie cornéenne ?',
+        a: 'La topographie analyse principalement la forme et la courbure de la cornée, tandis que la pachymétrie mesure son épaisseur. Certains appareils permettent de réaliser ces deux analyses au cours du même examen.',
+      },
+    ],
+    ctaTitle: 'Vous présentez un astigmatisme ou une suspicion de kératocône ?',
+    ctaText: 'La topographie cornéenne permet une analyse détaillée de votre cornée afin de dépister certaines anomalies et d’orienter une prise en charge adaptée.',
+    related: ['keratocone', 'lentilles-de-contact', 'chirurgie-refractive'],
+    meta: {
+      title: 'Topographie cornéenne à Fès – Dr Elaouni Rajae',
+      description:
+        'Topographie cornéenne : examen rapide et indolore pour dépister le kératocône et préparer une chirurgie réfractive. Dr Elaouni Rajae, ophtalmologue à Fès.',
+    },
+  },
+  {
+    slug: 'biometrie-oculaire',
+    icon: 'audioWaveform',
+    name: 'Biométrie oculaire',
+    label: 'Examen',
+    validated: ['what', 'signs', 'steps'],
+    card: 'La biométrie oculaire est un examen rapide, indolore et non invasif qui permet de mesurer avec précision les différentes dimensions de l’œil, notamment sa longueur axiale et la courbure de la cornée.',
+    whatTitle: 'Qu’est-ce que la biométrie oculaire ?',
+    what: [
+      'La biométrie oculaire est un examen rapide, indolore et non invasif qui permet de mesurer avec précision les différentes dimensions de l’œil, notamment sa longueur axiale et la courbure de la cornée.',
+      'Elle joue un rôle essentiel dans le bilan préopératoire de la cataracte, en permettant de calculer la puissance de l’implant intraoculaire destiné à remplacer le cristallin naturel.',
+      'La biométrie permet également de surveiller l’évolution de la myopie, notamment chez l’enfant, grâce à la mesure de la longueur axiale de l’œil.',
+    ],
+    whatImage: { name: '12-biometrie-oculaire', alt: 'Patient pendant un examen de biométrie oculaire' },
+    signsTitle: 'Quand est-elle prescrite ?',
+    signs: [],
+    signCards: [
+      ['aperture', 'Chirurgie de la cataracte', 'Mesures précises des dimensions oculaires pour calculer la puissance de l’implant intraoculaire et optimiser le résultat visuel après l’intervention.'],
+      ['glasses', 'Chirurgie réfractive', 'Analyse de certains paramètres anatomiques de l’œil dans le cadre du bilan préopératoire, notamment pour la planification de certaines chirurgies par implants intraoculaires.'],
+      ['baby', 'Myopie évolutive chez l’enfant', 'Mesure et surveillance de la longueur axiale de l’œil afin d’évaluer la progression de la myopie et l’efficacité des stratégies de freination myopique.'],
+    ],
+    stepsTitle: 'Comment se déroule l’examen ?',
+    steps: [
+      ['Préparation', 'Le patient est installé devant l’appareil de biométrie oculaire, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est généralement nécessaire.'],
+      ['Acquisition des mesures', 'Le patient fixe une cible lumineuse pendant que l’appareil mesure les paramètres oculaires, notamment la longueur axiale et, selon l’équipement, la courbure cornéenne. L’examen est rapide, sans contact avec l’œil et indolore lorsqu’il est réalisé par biométrie optique.'],
+      ['Analyse des résultats', 'Les mesures sont analysées par l’ophtalmologue afin de calculer la puissance de l’implant intraoculaire ou de surveiller l’évolution de la longueur axiale, selon l’indication.'],
+      ['Après l’examen', 'Le patient peut reprendre immédiatement ses activités habituelles. Les résultats permettent d’orienter la prise en charge et de planifier les étapes suivantes si nécessaire.'],
+    ],
+    doctor: UK_CATARACTE,
+    faq: [
+      {
+        q: 'La biométrie oculaire est-elle douloureuse ?',
+        a: 'Non. La biométrie optique est un examen indolore, sans contact avec l’œil et ne nécessitant aucune injection.',
+      },
+      {
+        q: 'Pourquoi réaliser une biométrie avant une chirurgie de la cataracte ?',
+        a: 'La biométrie permet de calculer la puissance de l’implant qui remplacera le cristallin opacifié. Elle est indispensable pour choisir un implant adapté aux caractéristiques de chaque œil et optimiser la vision après l’intervention.',
+      },
+      {
+        q: 'Peut-on réaliser une biométrie en cas de cataracte très dense ou d’hémorragie intravitréenne ?',
+        a: 'Certaines situations, notamment une cataracte très dense, une hémorragie intravitréenne ou d’autres opacités des milieux oculaires, peuvent empêcher la réalisation des mesures par biométrie optique. Notre cabinet dispose également d’un équipement de biométrie échographique par contact, permettant de mesurer la longueur axiale de l’œil lorsque la biométrie optique n’est pas réalisable. Cette technique complémentaire permet d’obtenir les mesures nécessaires au calcul de la puissance de l’implant intraoculaire, même lorsque les milieux oculaires sont opaques.',
+      },
+      {
+        q: 'La biométrie permet-elle de surveiller la myopie chez l’enfant ?',
+        a: 'Oui. La mesure régulière de la longueur axiale permet de suivre la croissance de l’œil et d’évaluer la progression de la myopie, en complément des examens de réfraction.',
+      },
+      {
+        q: 'Faut-il dilater les pupilles avant une biométrie ?',
+        a: 'Non, la dilatation n’est généralement pas nécessaire pour réaliser une biométrie optique. Elle peut toutefois être indiquée dans le cadre d’un examen ophtalmologique complémentaire.',
+      },
+    ],
+    ctaTitle: 'Vous préparez une chirurgie de la cataracte ?',
+    ctaText: 'La biométrie oculaire permet de réaliser les mesures indispensables au calcul de votre implant intraoculaire et à la préparation de votre intervention.',
+    related: ['cataracte', 'implant-icl', 'echographie-oculaire'],
+    meta: {
+      title: 'Biométrie oculaire à Fès – Dr Elaouni Rajae',
+      description:
+        'Biométrie oculaire optique et échographique : calcul de l’implant avant une chirurgie de la cataracte, suivi de la myopie. Dr Elaouni Rajae à Fès.',
+    },
+  },
+  {
+    slug: 'microscopie-speculaire',
+    icon: 'layers',
+    name: 'Microscopie spéculaire',
+    label: 'Examen',
+    validated: ['what', 'signs', 'steps'],
+    card: 'La microscopie spéculaire est un examen rapide, indolore et non invasif qui permet d’analyser les cellules endothéliales de la cornée, situées sur sa face interne.',
+    whatTitle: 'Qu’est-ce que la microscopie spéculaire ?',
+    what: [
+      'La microscopie spéculaire est un examen rapide, indolore et non invasif qui permet d’analyser les cellules endothéliales de la cornée, situées sur sa face interne.',
+      'Ces cellules jouent un rôle essentiel dans le maintien de la transparence cornéenne en régulant son hydratation.',
+      'Cet examen permet de mesurer leur densité, d’étudier leur taille et leur forme, et de détecter d’éventuelles anomalies pouvant compromettre la transparence de la cornée.',
+    ],
+    whatImage: { name: '13-microscopie-speculaire', alt: 'Appareil de microscopie spéculaire' },
+    signsTitle: 'Quand est-elle prescrite ?',
+    signs: [],
+    signCards: [
+      ['aperture', 'Bilan préopératoire de la cataracte', 'Évaluation de la densité et de la qualité des cellules endothéliales avant une chirurgie de la cataracte, notamment chez les patients présentant des facteurs de risque de décompensation cornéenne.'],
+      ['focus', 'Dystrophies cornéennes', 'Diagnostic et surveillance de certaines maladies de l’endothélium cornéen, notamment la dystrophie endothéliale de Fuchs, pouvant entraîner un œdème et une baisse de vision.'],
+      ['circleDot', 'Chirurgie réfractive par implant phaque ICL', "Évaluation de la densité des cellules endothéliales avant l'implantation d'une lentille intraoculaire et surveillance à long terme après l'intervention."],
+      ['shieldCheck', 'Surveillance après chirurgie oculaire', 'Contrôle de l’état de l’endothélium cornéen après certaines interventions intraoculaires ou une greffe de cornée, afin de dépister une éventuelle perte cellulaire.'],
+    ],
+    stepsTitle: 'Comment se déroule l’examen ?',
+    steps: [
+      ['Préparation', 'Le patient est installé devant l’appareil de microscopie spéculaire, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est nécessaire.'],
+      ['Acquisition des images', 'Le patient fixe une cible lumineuse pendant que l’appareil réalise des photographies agrandies des cellules endothéliales de la cornée. L’examen est rapide, sans contact avec l’œil et indolore.'],
+      ['Analyse des résultats', 'L’ophtalmologue analyse la densité cellulaire, la variation de taille des cellules (polymégathisme) et la variation de leur forme (pléomorphisme), afin d’évaluer l’état de l’endothélium cornéen.'],
+      ['Après l’examen', 'Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, une surveillance régulière ou des examens complémentaires peuvent être proposés.'],
+    ],
+    doctor: UK_CATARACTE,
+    faq: [
+      {
+        q: 'La microscopie spéculaire est-elle douloureuse ?',
+        a: 'Non. Il s’agit d’un examen indolore, sans contact avec l’œil, ne nécessitant aucune injection ni dilatation pupillaire.',
+      },
+      {
+        q: 'Pourquoi réaliser une microscopie spéculaire avant une chirurgie de la cataracte ?',
+        a: 'La chirurgie de la cataracte peut entraîner une perte de cellules endothéliales. Cet examen permet d’évaluer leur réserve avant l’intervention et d’identifier les patients présentant un risque accru d’œdème cornéen postopératoire.',
+      },
+      {
+        q: 'Les cellules endothéliales de la cornée se régénèrent-elles ?',
+        a: 'Les cellules endothéliales humaines possèdent une capacité de régénération très limitée dans les conditions physiologiques. Lorsque leur nombre diminue, les cellules restantes s’étalent pour maintenir la fonction de l’endothélium. Une perte importante peut entraîner un œdème cornéen et une baisse de vision.',
+      },
+      {
+        q: 'Quelle est la différence entre la microscopie spéculaire et la pachymétrie cornéenne ?',
+        a: 'La microscopie spéculaire analyse les cellules endothéliales de la cornée, tandis que la pachymétrie mesure son épaisseur. Ces deux examens sont complémentaires pour évaluer la santé cornéenne.',
+      },
+    ],
+    ctaTitle: 'Vous préparez une chirurgie oculaire ou présentez une maladie de la cornée ?',
+    ctaText: 'La microscopie spéculaire permet d’évaluer la santé de votre endothélium cornéen et d’orienter une prise en charge adaptée.',
+    related: ['cataracte', 'implant-icl', 'keratocone'],
+    meta: {
+      title: 'Microscopie spéculaire à Fès – Dr Elaouni Rajae',
+      description:
+        'Microscopie spéculaire : analyse des cellules endothéliales de la cornée avant une chirurgie de la cataracte ou un implant ICL. Dr Elaouni Rajae à Fès.',
+    },
+  },
 ];
 
 export const CTA_DEFAULT_TEXT = CTA_TEXT;
@@ -859,7 +1315,13 @@ export function serviceAvailable(slug, lang = 'fr') {
 // Version AR = textes de services-content.ar.js + éléments non textuels du FR
 // (icônes, images, liens, réglages). Tout contenu FR contenant du texte doit avoir
 // sa traduction : sinon le build s'arrête (jamais de texte français sur une page AR).
-const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure'];
+const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure', 'whatImage', 'stepsImage', 'ctaText'];
+
+// Image d'une section (whatImage / stepsImage) : fichier du FR, alt et légende de l'AR
+const localizedMedia = (fr, ar, fail, what) => {
+  if (!ar.alt || (fr.caption && !ar.caption)) fail(`alt / légende de ${what}`);
+  return { ...fr, alt: ar.alt, ...(fr.caption ? { caption: ar.caption } : {}) };
+};
 
 export function localizedService(slug, lang = 'fr') {
   const base = serviceBySlug(slug);
@@ -884,6 +1346,8 @@ export function localizedService(slug, lang = 'fr') {
       return [t, d, imgs.map((p, k) => ({ ...p, alt: alts[k] }))];
     }),
   };
+  if (base.whatImage) out.whatImage = localizedMedia(base.whatImage, ar.whatImage, fail, 'whatImage');
+  if (base.stepsImage) out.stepsImage = localizedMedia(base.stepsImage, ar.stepsImage, fail, 'stepsImage');
   if (base.signCards) out.signCards = base.signCards.map(([icon], i) => [icon, ...ar.signCards[i]]);
   if (base.callouts) {
     out.callouts = base.callouts.map((c, i) =>
@@ -903,7 +1367,16 @@ export function localizedService(slug, lang = 'fr') {
 // Groupes pour la page index /fr/services/
 export const serviceGroups = [
   { title: 'Consultation et suivi', slugs: ['consultation-depistage', 'ophtalmologie-pediatrique', 'glaucome', 'retine'] },
-  { title: 'Chirurgie et traitements', slugs: ['cataracte', 'chirurgie-refractive', 'strabisme', 'laser'] },
+  {
+    title: 'Chirurgie et traitements',
+    slugs: ['cataracte', 'chirurgie-refractive', 'implant-icl', 'strabisme', 'pterygion', 'chalazion', 'injections-intravitreennes', 'laser'],
+  },
   { title: 'Cornée et lentilles', slugs: ['keratocone', 'lentilles-de-contact'] },
-  { title: 'Examens au cabinet', slugs: ['echographie-oculaire', 'retinographie', 'oct'] },
+  {
+    title: 'Examens au cabinet',
+    slugs: [
+      'echographie-oculaire', 'retinographie', 'oct',
+      'angiographie-retinienne', 'topographie-corneenne', 'biometrie-oculaire', 'microscopie-speculaire',
+    ],
+  },
 ];

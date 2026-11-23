@@ -21,6 +21,7 @@ SRC_ORIG = ROOT / "assets-source"
 SRC_MAQ = ROOT / "maquette" / "images"
 TS = SRC_ORIG / "tsawer-site"  # images fournies avec le cahier des modifications (PDF)
 TS_AR = SRC_ORIG / "tsawer-site-ar"  # versions arabes des images avec texte (affiches)
+IS = SRC_ORIG / "images-site"  # images des 8 nouvelles pages (contenu de images-site.zip)
 
 # nom final → fichier source (identifié visuellement ; attention : certains
 # noms de fichiers de maquette/images/ sont inversés, ne pas s'y fier)
@@ -71,6 +72,21 @@ IMAGES = {
     "adaptation-lentilles": TS / "11-lentilles-adaptation" / "adaptation-lentilles-hero.png",  # lentille sur le doigt
     "lentille-sclerale-pose": TS / "10-keratocone" / "lentille-sclerale-pose.png",
     "lentille-sclerale": TS / "10-keratocone" / "lentille-sclerale.png",
+    # --- Nouvelles pages Chirurgie / Explorations (Instructions_nouvelles_pages_site.pdf) ---
+    # Noms identiques aux fichiers livrés (images-site.zip), sans l'extension
+    "01-icl-implant": IS / "01-icl-implant.jpg",
+    "02-icl-schema-oeil": IS / "02-icl-schema-oeil.jpg",
+    "03-pterygion-photo": IS / "03-pterygion-photo.jpg",
+    "04-pterygion-chirurgie": IS / "04-pterygion-chirurgie.jpg",
+    "05-chalazion-photo": IS / "05-chalazion-photo.jpg",
+    "06-chalazion-cure-chirurgicale": IS / "06-chalazion-cure-chirurgicale.jpg",
+    "07-ivt-schema-injection": IS / "07-ivt-schema-injection.jpg",
+    "08-ivt-geste-injection": IS / "08-ivt-geste-injection.jpg",
+    "09-angiographie-cliche-fluoresceine": IS / "09-angiographie-cliche-fluoresceine.png",
+    "10-angiographie-examen": IS / "10-angiographie-examen.jpg",
+    "11-topographie-corneenne": IS / "11-topographie-corneenne.jpg",
+    "12-biometrie-oculaire": IS / "12-biometrie-oculaire.jpg",
+    "13-microscopie-speculaire": IS / "13-microscopie-speculaire.jpg",
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

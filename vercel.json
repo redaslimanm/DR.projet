@@ -8,46 +8,6 @@
       "source": "/",
       "destination": "/fr/",
       "permanent": false
-    },
-    {
-      "source": "/fr/services/angiographie-retinienne",
-      "destination": "/fr/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/fr/services/angiographie-retinienne/",
-      "destination": "/fr/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/fr/services/topographie-corneenne",
-      "destination": "/fr/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/fr/services/topographie-corneenne/",
-      "destination": "/fr/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/ar/services/angiographie-retinienne",
-      "destination": "/ar/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/ar/services/angiographie-retinienne/",
-      "destination": "/ar/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/ar/services/topographie-corneenne",
-      "destination": "/ar/services/",
-      "statusCode": 301
-    },
-    {
-      "source": "/ar/services/topographie-corneenne/",
-      "destination": "/ar/services/",
-      "statusCode": 301
     }
   ],
   "headers": [

@@ -2,6 +2,7 @@
 // Les marqueurs @picture / @icon produits ici sont traités ensuite par le plugin.
 import { servicesContent, localizedService, serviceAvailable, serviceBySlug } from '../data/services-content.js';
 import { contact } from '../data/site.js';
+import { brandIcon } from './icons.js';
 
 // Textes d'interface du template
 export const UI = {
@@ -11,6 +12,9 @@ export const UI = {
     ctaText: 'Le secrétariat vous répond du lundi au vendredi de 9h à 17h et le samedi de 9h à 13h.',
     call: 'Appeler le', wa: 'Écrire sur WhatsApp', related: 'Services liés',
     equip: 'Examens complémentaires (OCT, échographie)', more: 'En savoir plus',
+    reel: 'Voir le reel sur Instagram',
+    reelNote: 'Vidéo publiée par le Dr Elaouni Rajae sur Instagram. Lecture via Instagram.',
+    reelFrame: 'Reel Instagram du Dr Elaouni Rajae',
   },
   ar: {
     home: 'الرئيسية', services: 'الخدمات', crumb: 'مسار التنقل', rdv: 'احجز موعدك',
@@ -18,6 +22,10 @@ export const UI = {
     ctaText: 'تجيبكم الكتابة من الإثنين إلى الجمعة من 9:00 إلى 17:00، ويوم السبت من 9:00 إلى 13:00.',
     call: 'اتصلوا على', wa: 'راسلونا عبر واتساب', related: 'خدمات ذات صلة',
     equip: 'فحوصات تكميلية (OCT، الإكوغرافيا)', more: 'اكتشف',
+    // TODO AR : textes du bloc reel Instagram (page Chalazion), à valider par la doctoresse
+    reel: 'شاهدوا الفيديو على إنستغرام',
+    reelNote: 'فيديو نشرته الدكتورة العوني رجاء على إنستغرام. التشغيل عبر إنستغرام.',
+    reelFrame: 'فيديو إنستغرام للدكتورة العوني رجاء',
   },
 };
 
@@ -85,12 +93,17 @@ function relatedLink(key, lang) {
 }
 
 // Liste numérotée (déroulement, ou situations détaillées) : [titre, texte, images?]
-// images (optionnel) : [{ name, alt }] affichées sous le texte de l'étape
+// images (optionnel) : [{ name, alt, natural? }] affichées sous le texte de l'étape
+// natural: true → image entière (sans recadrage), 420 px au plus
 function stepsList(items) {
   const media = (imgs) =>
     imgs?.length
-      ? `<div class="step__media">${imgs
-          .map((p) => `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="(min-width: 64em) 260px, 45vw" -->`)
+      ? `<div class="step__media${imgs.some((p) => p.natural) ? ' step__media--natural' : ''}">${imgs
+          .map((p) =>
+            p.natural
+              ? `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="(min-width: 64em) 420px, calc(100vw - 94px)" -->`
+              : `<!-- @picture name="${p.name}" alt="${p.alt}" sizes="(min-width: 64em) 260px, 45vw" -->`,
+          )
           .join('')}</div>`
       : '';
   return `<ol class="steps" role="list">
@@ -109,6 +122,39 @@ const figure = (f) =>
   f
     ? `<figure class="svc-figure"><img src="/src/assets/images/${f.src}" alt="${f.alt}" width="${f.width}" height="${f.height}" loading="lazy" decoding="async"></figure>`
     : '';
+
+// Photo / illustration d'une section (pages ajoutées en nov. 2026) :
+// { name, alt, caption? } — image de src/assets/images/ (AVIF + WebP), légende facultative
+const media = (m, cls, sizes) =>
+  m
+    ? `<figure class="svc-media ${cls}">
+          <!-- @picture name="${m.name}" alt="${m.alt}" sizes="${sizes}" -->${m.caption ? `<figcaption>${m.caption}</figcaption>` : ''}
+        </figure>`
+    : '';
+
+// Reel Instagram (« façade » : l'iframe Instagram n'est créée qu'au clic, cf. src/js/video.js).
+// `reel` absent → rien ; `reel: null` → emplacement prévu mais lien pas encore fourni :
+// placeholder visible en dev seulement (retiré au build) ; `reel: 'https://…/reel/ID/'` → bloc.
+// Logo Instagram (le marqueur @icon ne gère que les icônes au trait) ; dégradé renommé
+// pour ne pas dupliquer l'id « ig-grad » du logo du footer
+const IG_ICON = brandIcon('instagram', { size: 26 }).replace(/ig-grad/g, 'ig-grad-reel');
+
+function reelBlock(s, u) {
+  if (!('reel' in s)) return '';
+  if (!s.reel) {
+    return `<p class="svc-note svc-reel-todo" data-draft><span class="placeholder">[À COMPLÉTER : reel Instagram sur le chalazion — lien à fournir par la doctoresse]</span></p>`;
+  }
+  const id = s.reel.match(/instagram\.com\/(?:reels?|p)\/([\w-]+)/)?.[1];
+  if (!id) throw new Error(`[service] lien de reel Instagram invalide : ${s.reel}`);
+  return `<div class="reel-box">
+          <a class="reel-box__link" href="${s.reel}" data-ig="${id}" data-ig-title="${u.reelFrame}" target="_blank" rel="noopener">
+            <span class="reel-box__icon" aria-hidden="true">${IG_ICON}</span>
+            <span class="reel-box__title">${u.reel}</span>
+            <span class="reel-box__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span>
+          </a>
+          <p class="reel-box__note">${u.reelNote}</p>
+        </div>`;
+}
 
 // Rubrique de mise en garde : cartes numérotées + encadré « À retenir »
 // w = { title, items: [[titre, texte]], note: { lead, text } }
@@ -150,11 +196,13 @@ export function service(page) {
   const slug = page.path.match(/^services\/([\w-]+)\/$/)?.[1];
   const s = slug && localizedService(slug, lang);
   if (!s) throw new Error(`[service] aucun contenu pour /${lang}/${page.path}`);
+  // Photo en tête facultative (pages ajoutées en nov. 2026 : images dans les sections)
+  const hasPhoto = Boolean(s.photos || s.photo);
 
   return `
   <main id="main">
 
-    <section class="svc-hero" aria-labelledby="svc-title">
+    <section class="svc-hero${hasPhoto ? '' : ' svc-hero--flat'}" aria-labelledby="svc-title">
       <div class="container svc-container">
         <nav class="breadcrumb" aria-label="${u.crumb}">
           <ol role="list">
@@ -165,13 +213,15 @@ export function service(page) {
         </nav>
         <p class="label label--plain svc-hero__label">${s.label}</p>
         <h1 id="svc-title">${s.name}</h1>
-        <p class="svc-hero__intro">${todo(s, 'intro')}${ph(s.intro)}</p>
+        ${s.intro ? `<p class="svc-hero__intro">${todo(s, 'intro')}${ph(s.intro)}</p>` : ''}
         <a class="btn btn--gold" href="#contact-rdv" data-open-rdv="${s.slug}" aria-haspopup="dialog">${u.rdv}</a>
       </div>
     </section>
 
     ${
-      s.photos
+      !hasPhoto
+        ? ''
+        : s.photos
         ? `<div class="svc-photos${s.photosLayout === 'equal' ? ' svc-photos--equal' : ''}">
       ${s.photos
         .map(
@@ -194,7 +244,9 @@ export function service(page) {
     <section class="svc-section" aria-labelledby="svc-what">
       <div class="container svc-container">
         <h2 id="svc-what">${s.whatTitle}</h2>
+        ${s.whatImage ? '<div class="svc-what"><div class="svc-what__text">' : ''}
         ${paras(s.what).map((t, i) => `<p class="svc-text">${i === 0 ? todo(s, 'what') : ''}${ph(t)}</p>`).join('\n        ')}
+        ${s.whatImage ? `</div>${media(s.whatImage, 'svc-what__media', '(min-width: 64em) 340px, calc(100vw - 40px)')}</div>` : ''}
         ${figure(s.whatFigure)}
       </div>
     </section>
@@ -225,6 +277,8 @@ export function service(page) {
         <h2 id="svc-steps">${s.stepsTitle}</h2>
         ${todo(s, 'steps') && `<p class="svc-note">${TODO}</p>`}
         ${stepsList(s.steps)}
+        ${media(s.stepsImage, 'svc-media--steps', '(min-width: 64em) 560px, calc(100vw - 40px)')}
+        ${reelBlock(s, u)}
       </div>
     </section>
 
@@ -245,8 +299,9 @@ export function service(page) {
       <div class="container svc-container">
         <div class="cta-box">
           <h2 id="svc-cta">${s.ctaTitle}</h2>
-          <p>${u.ctaText}</p>
+          <p>${s.ctaText || u.ctaText}</p>
           <div class="cta-box__actions">
+            ${s.ctaText ? `<a class="btn btn--gold" href="#contact-rdv" data-open-rdv="${s.slug}" aria-haspopup="dialog"><!-- @icon calendar 18 -->${u.rdv}</a>` : ''}
             <a class="btn btn--white" href="${contact.phoneHref}"><!-- @icon phone 18 -->${u.call} <bdi dir="ltr">${contact.phone}</bdi></a>
             <a class="btn btn--whatsapp-solid" href="${contact.whatsappHref}" target="_blank" rel="noopener"><!-- @icon whatsapp 18 2 -->${u.wa}</a>
           </div>

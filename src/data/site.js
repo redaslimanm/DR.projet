@@ -60,23 +60,64 @@ export const pages = {
   privacy: 'confidentialite/',
 };
 
-// Services (12) : FR + AR (carte de visite). Angiographie et Topographie remplacées
-// par Rétinographie et OCT (cahier de modifications, étape 16). `ar: null` = pas encore
-// traduit : le service n'apparaît pas dans le menu AR.
+// Services du menu « Services ▾ » : FR + AR (carte de visite). `group` = intertitre du
+// menu FR (voir serviceMenuGroups). `ar: null` = pas encore traduit : le service
+// n'apparaît pas dans le menu AR. Menu groupé sous des intertitres en FR et en AR.
+// Le nombre de services affiché sur l'accueil (bande de confiance, compteur, bouton)
+// est calculé à partir de cette liste (partial « services-count »).
+// Historique : Angiographie et Topographie avaient été remplacées par Rétinographie et
+// OCT (cahier de modifications, étape 16) ; elles reviennent en nov. 2026 avec les
+// 8 nouvelles pages (Instructions_nouvelles_pages_site.pdf), les 4 restent en ligne.
 export const services = [
-  { slug: 'cataracte', fr: 'Chirurgie de la cataracte', ar: 'جراحة الجلالة' },
-  { slug: 'chirurgie-refractive', fr: 'Chirurgie réfractive', ar: 'الجراحة الانكسارية' },
-  { slug: 'strabisme', fr: 'Chirurgie du strabisme', ar: 'جراحة الحَوَل' },
-  { slug: 'lentilles-de-contact', fr: 'Adaptation en lentilles de contact', ar: 'العدسات اللاصقة' },
-  { slug: 'keratocone', fr: 'Kératocône et maladies de la cornée', ar: 'القرنيّة المخروطية وأمراض القرنيّة' },
-  { slug: 'retine', fr: 'Maladies de la rétine', ar: 'أمراض الشبكية' },
-  { slug: 'glaucome', fr: 'Glaucome', ar: 'الزرق' },
-  { slug: 'ophtalmologie-pediatrique', fr: 'Ophtalmologie pédiatrique', ar: 'طب العيون عند الأطفال' },
-  { slug: 'echographie-oculaire', fr: 'Échographie oculaire', ar: 'الإكوغرافيا' },
-  { slug: 'retinographie', fr: 'Rétinographie', ar: 'تصوير الشبكية' },
-  { slug: 'oct', fr: 'OCT', ar: 'التصوير المقطعي البصري (OCT)' },
-  { slug: 'laser', fr: 'Laser', ar: 'الليزر' },
+  { slug: 'cataracte', group: 'chirurgie', fr: 'Chirurgie de la cataracte', ar: 'جراحة الجلالة' },
+  { slug: 'chirurgie-refractive', group: 'chirurgie', fr: 'Chirurgie réfractive', ar: 'الجراحة الانكسارية' },
+  { slug: 'strabisme', group: 'chirurgie', fr: 'Chirurgie du strabisme', ar: 'جراحة الحَوَل' },
+  { slug: 'lentilles-de-contact', group: 'suivi', fr: 'Adaptation en lentilles de contact', ar: 'العدسات اللاصقة' },
+  { slug: 'keratocone', group: 'suivi', fr: 'Kératocône et maladies de la cornée', ar: 'القرنيّة المخروطية وأمراض القرنيّة' },
+  { slug: 'retine', group: 'suivi', fr: 'Maladies de la rétine', ar: 'أمراض الشبكية' },
+  { slug: 'glaucome', group: 'suivi', fr: 'Glaucome', ar: 'الزرق' },
+  { slug: 'ophtalmologie-pediatrique', group: 'suivi', fr: 'Ophtalmologie pédiatrique', ar: 'طب العيون عند الأطفال' },
+  { slug: 'echographie-oculaire', group: 'explorations', fr: 'Échographie oculaire', ar: 'الإكوغرافيا' },
+  { slug: 'retinographie', group: 'explorations', fr: 'Rétinographie', ar: 'تصوير الشبكية' },
+  { slug: 'oct', group: 'explorations', fr: 'OCT', ar: 'التصوير المقطعي البصري (OCT)' },
+  { slug: 'laser', group: 'chirurgie', fr: 'Laser', ar: 'الليزر' },
+  // Nouvelles pages (nov. 2026) — TODO AR : noms arabes publiés, en attente de validation (ar-a-faire.md)
+  { slug: 'implant-icl', group: 'chirurgie', fr: 'Chirurgie réfractive par implant ICL', ar: 'الجراحة الانكسارية بزرع عدسة ICL' },
+  { slug: 'pterygion', group: 'chirurgie', fr: 'Chirurgie de ptérygion', ar: 'جراحة الظفرة (Ptérygion)' },
+  { slug: 'chalazion', group: 'chirurgie', fr: 'Chirurgie de chalazion', ar: 'جراحة البَرَدة (Chalazion)' },
+  { slug: 'injections-intravitreennes', group: 'chirurgie', fr: 'Injections intravitréennes (IVT)', ar: 'الحقن داخل الجسم الزجاجي (IVT)' },
+  { slug: 'angiographie-retinienne', group: 'explorations', fr: 'Angiographie rétinienne', ar: 'تصوير أوعية الشبكية (Angiographie)' },
+  { slug: 'topographie-corneenne', group: 'explorations', fr: 'Topographie cornéenne', ar: 'طبوغرافيا القرنية' },
+  { slug: 'biometrie-oculaire', group: 'explorations', fr: 'Biométrie oculaire', ar: 'القياس الحيوي للعين (Biométrie)' },
+  { slug: 'microscopie-speculaire', group: 'explorations', fr: 'Microscopie spéculaire', ar: 'الفحص بالمجهر المرآوي للقرنية' },
 ];
+
+// Intertitres du menu « Services ▾ » (FR). Ordre des liens dans un groupe :
+// celui de `menuOrder` (les autres services du groupe suivent, dans l'ordre de la liste).
+// AR : intertitres proposés (TODO AR, à valider) — menu AR groupé comme le FR depuis le 23/11/2026.
+export const serviceMenuGroups = [
+  {
+    key: 'chirurgie',
+    fr: 'Chirurgie',
+    ar: 'الجراحة', // TODO AR : à valider
+    menuOrder: ['cataracte', 'chirurgie-refractive', 'implant-icl', 'strabisme', 'pterygion', 'chalazion', 'injections-intravitreennes', 'laser'],
+  },
+  {
+    key: 'explorations',
+    fr: 'Explorations',
+    ar: 'الفحوصات', // TODO AR : à valider
+    menuOrder: ['oct', 'retinographie', 'angiographie-retinienne', 'topographie-corneenne', 'biometrie-oculaire', 'microscopie-speculaire', 'echographie-oculaire'],
+  },
+  {
+    key: 'suivi',
+    fr: 'Consultation et suivi',
+    ar: 'الاستشارة والمتابعة', // TODO AR : à valider (choisi pour ne pas ressembler à « الفحوصات »)
+    menuOrder: ['ophtalmologie-pediatrique', 'glaucome', 'retine', 'keratocone', 'lentilles-de-contact'],
+  },
+];
+
+// Nombre de services proposés dans une langue (accueil : « 20 spécialités et examens »…)
+export const servicesCount = (lang) => services.filter((s) => s[lang]).length;
 
 // Textes d'interface
 export const t = {

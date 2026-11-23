@@ -380,5 +380,120 @@
       800,
       1200
     ]
+  },
+  "01-icl-implant": {
+    "width": 1056,
+    "height": 785,
+    "widths": [
+      480,
+      800,
+      1056
+    ]
+  },
+  "02-icl-schema-oeil": {
+    "width": 1055,
+    "height": 1136,
+    "widths": [
+      480,
+      800,
+      1055
+    ]
+  },
+  "03-pterygion-photo": {
+    "width": 1596,
+    "height": 967,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "04-pterygion-chirurgie": {
+    "width": 1030,
+    "height": 1373,
+    "widths": [
+      480,
+      800,
+      1030
+    ]
+  },
+  "05-chalazion-photo": {
+    "width": 1114,
+    "height": 721,
+    "widths": [
+      480,
+      800,
+      1114
+    ]
+  },
+  "06-chalazion-cure-chirurgicale": {
+    "width": 1224,
+    "height": 816,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "07-ivt-schema-injection": {
+    "width": 1150,
+    "height": 972,
+    "widths": [
+      480,
+      800,
+      1150
+    ]
+  },
+  "08-ivt-geste-injection": {
+    "width": 1219,
+    "height": 1103,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "09-angiographie-cliche-fluoresceine": {
+    "width": 454,
+    "height": 457,
+    "widths": [
+      454
+    ]
+  },
+  "10-angiographie-examen": {
+    "width": 995,
+    "height": 720,
+    "widths": [
+      480,
+      800,
+      995
+    ]
+  },
+  "11-topographie-corneenne": {
+    "width": 1150,
+    "height": 1150,
+    "widths": [
+      480,
+      800,
+      1150
+    ]
+  },
+  "12-biometrie-oculaire": {
+    "width": 908,
+    "height": 606,
+    "widths": [
+      480,
+      800,
+      908
+    ]
+  },
+  "13-microscopie-speculaire": {
+    "width": 1153,
+    "height": 769,
+    "widths": [
+      480,
+      800,
+      1153
+    ]
   }
 }

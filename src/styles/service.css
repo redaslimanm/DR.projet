@@ -225,6 +225,77 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
   .related a:hover { border-color: var(--c-gold-light); }
 }
 
+/* ---------- Pages sans photo en tête (nov. 2026) : images dans les sections ---------- */
+/* « Qu'est-ce que… ? » : texte + image (empilés sur mobile, côte à côte sur desktop) */
+.svc-what { display: grid; gap: var(--sp-3); }
+.svc-media { margin: 0; }
+.svc-media img {
+  inline-size: 100%;
+  block-size: auto;
+  border: var(--border-card);
+  border-radius: 16px;
+}
+.svc-media figcaption {
+  margin-block-start: 8px;
+  font-size: 0.8125rem;
+  color: var(--c-text-muted);
+  text-align: center;
+}
+.svc-what__media { max-inline-size: 420px; }
+/* Illustration de « Comment se déroule… ? » : sous les étapes, centrée */
+.svc-media--steps { max-inline-size: 560px; margin-inline: auto; padding-block-start: var(--sp-1); }
+.svc-media--steps img { max-block-size: 620px; object-fit: contain; background: var(--c-white); }
+/* Image entière dans une étape (ex. IVT, étape 3) */
+.step__media--natural { grid-template-columns: minmax(0, 420px); }
+.step__media.step__media--natural img { block-size: auto; }
+
+/* Reel Instagram : carte « façade », l'iframe n'est chargée qu'au clic */
+.reel-box { max-inline-size: 400px; margin: var(--sp-4) auto 0; }
+.reel-box__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-block-size: 64px;
+  padding: var(--sp-2) 20px;
+  background: var(--c-cream);
+  border: var(--border-card);
+  border-radius: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--c-green);
+}
+.reel-box__icon { display: inline-flex; flex: none; color: var(--c-gold-dark); }
+.reel-box__title { flex: 1; }
+.reel-box__play {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 50%;
+  background: var(--c-green);
+  color: var(--c-white);
+}
+.reel-box__play svg { inline-size: 18px; block-size: 18px; margin-inline-start: 2px; }
+/* RTL : le triangle ▶ ne s'inverse pas (convention lecture), décalage optique à gauche */
+html[dir='rtl'] .reel-box__play svg { margin-inline-start: 0; margin-inline-end: 2px; }
+.reel-box__link:focus-visible { outline: 3px solid var(--c-gold); outline-offset: 2px; }
+.reel-box iframe {
+  display: block;
+  inline-size: 100%;
+  block-size: 640px;
+  border: var(--border-card);
+  border-radius: 16px;
+  background: var(--c-white);
+}
+.reel-box__note { margin-block-start: var(--sp-1); text-align: center; font-size: 0.8125rem; color: var(--c-text-muted); }
+.svc-reel-todo { margin-block-start: var(--sp-3); text-align: center; }
+@media (hover: hover) {
+  .reel-box__link:hover { border-color: var(--c-gold-light); }
+}
+
+/* Bandeau final : bouton RDV en plus d'Appeler / WhatsApp */
+.cta-box .btn--gold .icon { flex: none; }
+
 /* =========================================================
    Desktop
    ========================================================= */
@@ -283,4 +354,10 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
   .cta-box .btn { padding-inline: 28px; }
 
   .related { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  /* Pages sans photo en tête : hero sans le débord réservé à la photo */
+  .svc-hero--flat { padding-block-end: var(--sp-8); }
+  .svc-what { grid-template-columns: minmax(0, 1fr) 340px; gap: var(--sp-5); align-items: start; }
+  .svc-what__media { max-inline-size: none; }
+  .cta-box__actions { flex-wrap: wrap; }
 }

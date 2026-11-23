@@ -77,6 +77,8 @@ if (beforeAfter) import('./before-after.js').then((m) => m.initBeforeAfter(befor
 
 // Vidéo YouTube (accueil) : iframe créée au clic seulement
 if (document.querySelector('[data-yt]')) import('./video.js').then((m) => m.initVideos());
+// Reel Instagram (page Chalazion) : même principe
+if (document.querySelector('[data-ig]')) import('./video.js').then((m) => m.initReels());
 
 // Galerie (page Le cabinet) : GLightbox chargé à la demande
 const gallery = document.querySelector('[data-gallery]');

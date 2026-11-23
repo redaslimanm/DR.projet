@@ -13,7 +13,7 @@ const check ='- [ ] Validé tel quel\n- [ ] À corriger — Correction :\n';
 const quote = (t) => `> ${t}\n\n${check}`;
 
 const out = [];
-out.push('## 3. Pages services (13 pages)\n');
+out.push(`## 3. Pages services (${servicesContent.length} pages)\n`);
 out.push(
   'Une page par service, toutes sur le même plan. Les textes sont des **propositions** : vous pouvez tout corriger, remplacer ou supprimer. Les questions fréquentes sont à valider, et leurs réponses à rédiger.\n',
 );
@@ -23,12 +23,15 @@ servicesContent.forEach((s, i) => {
   out.push(`Adresse prévue : \`/fr/services/${s.slug}/\`\n`);
   out.push('**Résumé (carte de la page Services)**\n');
   out.push(quote(s.card));
-  out.push('**Introduction (haut de page)**\n');
-  out.push(quote(s.intro));
+  if (s.intro) {
+    out.push('**Introduction (haut de page)**\n');
+    out.push(quote(s.intro));
+  }
   out.push(`**« ${s.whatTitle} »**\n`);
   out.push(quote(paras(s.what).join('\n>\n> ')));
-  out.push(`**« ${s.signsTitle} » (4 cartes)**\n`);
-  out.push(s.signs.map(([, t], k) => `${k + 1}. ${t}`).join('\n') + '\n\n' + check);
+  const cards = s.signCards ? s.signCards.map(([, t, d]) => `**${t}** — ${d}`) : s.signs.map(([, t]) => t);
+  out.push(`**« ${s.signsTitle} » (${cards.length} cartes)**\n`);
+  out.push(cards.map((t, k) => `${k + 1}. ${t}`).join('\n') + '\n\n' + check);
   out.push(`**« ${s.stepsTitle} » (4 étapes)**\n`);
   out.push(s.steps.map(([t, d], k) => `${k + 1}. **${t}** — ${d}`).join('\n') + '\n\n' + check);
   out.push('**Questions fréquentes**\n');
@@ -43,6 +46,10 @@ servicesContent.forEach((s, i) => {
       )
       .join('\n'),
   );
+  if (s.ctaText) {
+    out.push(`**Bandeau final : « ${s.ctaTitle} »**\n`);
+    out.push(`> ${s.ctaText}\n\n(texte fourni par la doctoresse)\n`);
+  }
   out.push('---\n');
 });
 
@@ -62,6 +69,9 @@ out.push('---\n');
 out.push('## 6. Version arabe\n');
 out.push(
   'Tout le site existe aussi en arabe (`/ar/`). Les textes arabes sont une **traduction** des textes français ci-dessus (fichier `src/data/services-content.ar.js` pour les services, pages dans `ar/`). Une fois les textes français validés, la version arabe devra être **relue par la doctora ou par une personne arabophone** (vocabulaire médical en particulier), puis mise à jour.\n',
+);
+out.push(
+  '**8 pages ajoutées le 23/11/2026** (ICL, ptérygion, chalazion, IVT, angiographie, topographie, biométrie, microscopie spéculaire) : traduction arabe **proposée par nous et déjà publiée**, à valider dans le fichier dédié **`traduction-ar-8-pages.md`** (FR et AR côte à côte, glossaire, intertitres du menu dont « الاستشارة والمتابعة »).\n',
 );
 out.push('- [ ] Traduction arabe relue — Corrections :\n');
 

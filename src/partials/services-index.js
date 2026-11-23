@@ -9,6 +9,9 @@ const VALIDATED_CARDS = new Set([
   'keratocone', 'glaucome', 'retine', 'lentilles-de-contact',
   // textes fournis par la doctoresse (cahier de modifications, étape 16)
   'retinographie', 'oct',
+  // 8 pages ajoutées en nov. 2026 : 1re phrase du texte fourni par la doctoresse
+  'implant-icl', 'pterygion', 'chalazion', 'injections-intravitreennes',
+  'angiographie-retinienne', 'topographie-corneenne', 'biometrie-oculaire', 'microscopie-speculaire',
 ]);
 
 export function servicesIndex(page) {

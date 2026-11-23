@@ -1,4 +1,4 @@
-import { contact, pages, services, t as dict } from '../data/site.js';
+import { contact, pages, services, serviceMenuGroups, t as dict } from '../data/site.js';
 import { icon } from './icons.js';
 import { otherLangHref } from './seo.js';
 import { readFileSync } from 'node:fs';
@@ -54,14 +54,28 @@ export function header(page) {
   const navLink = (key) =>
     `<li class="site-nav__item"><a class="site-nav__link" href="${href(key)}"${current(page, pages[key])}>${t.nav[key]}</a></li>`;
 
-  // Services sans nom dans cette langue (`ar: null`) : absents du menu (AR à 10 jusqu'à l'étape 18)
-  const serviceLinks = services
-    .filter((s) => s[lang])
-    .map(
-      (s) =>
-        `<li><a class="site-nav__sublink" href="${href('services')}${s.slug}/"${current(page, `${pages.services}${s.slug}/`)}>${s[lang]}</a></li>`,
-    )
-    .join('');
+  // Services sans nom dans cette langue (`ar: null`) : absents du menu
+  const serviceLink = (s) =>
+    `<li><a class="site-nav__sublink" href="${href('services')}${s.slug}/"${current(page, `${pages.services}${s.slug}/`)}>${s[lang]}</a></li>`;
+  const available = services.filter((s) => s[lang]);
+  // Menu groupé sous des intertitres (Chirurgie, Explorations, Consultation et suivi)
+  // quand les intertitres existent dans la langue ; sinon liste simple (AR).
+  const grouped = serviceMenuGroups.every((g) => g[lang]);
+  const serviceLinks = grouped
+    ? serviceMenuGroups
+        .map((g, gi) => {
+          const items = available
+            .filter((s) => s.group === g.key)
+            .sort((a, b) => {
+              const rank = (x) => (g.menuOrder.indexOf(x.slug) + 1 || Infinity);
+              return rank(a) - rank(b);
+            });
+          if (!items.length) return '';
+          const id = `sub-group-${gi + 1}`;
+          return `<li class="site-nav__group"><p class="site-nav__group-title" id="${id}">${g[lang]}</p><ul class="site-nav__group-list" role="list" aria-labelledby="${id}">${items.map(serviceLink).join('')}</ul></li>`;
+        })
+        .join('')
+    : available.map(serviceLink).join('');
 
   const langSwitch = `<a href="${altHref}" lang="${t.otherLang}" hreflang="${t.otherLang}">${t.otherLangName}</a>`;
 
@@ -98,7 +112,7 @@ export function header(page) {
             <a class="site-nav__link" href="${href('services')}"${current(page, pages.services)}>${t.nav.services}</a>
             <button class="site-nav__sub-toggle" type="button" aria-expanded="false" aria-controls="sub-services" aria-label="${t.subToggle}" data-sub-toggle>${icon('chevronDown', { size: 16 })}</button>
           </div>
-          <ul class="site-nav__sub" id="sub-services" role="list">
+          <ul class="site-nav__sub${grouped ? ' site-nav__sub--grouped' : ''}" id="sub-services" role="list">
             <li><a class="site-nav__sublink site-nav__sublink--all" href="${href('services')}">${t.allServices}</a></li>
             ${serviceLinks}
           </ul>

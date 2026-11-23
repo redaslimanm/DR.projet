@@ -156,7 +156,7 @@ L'OCT n'a pas de page service à part : il sera présenté dans la page « Équi
 
 <!-- AUTO : section générée par scripts/export-textes.mjs, ne pas modifier à la main -->
 
-## 3. Pages services (13 pages)
+## 3. Pages services (21 pages)
 
 Une page par service, toutes sur le même plan. Les textes sont des **propositions** : vous pouvez tout corriger, remplacer ou supprimer. Les questions fréquentes sont à valider, et leurs réponses à rédiger.
 
@@ -515,12 +515,11 @@ Adresse prévue : `/fr/services/lentilles-de-contact/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Pour qui ? » (4 cartes)**
+**« Pour qui ? » (3 cartes)**
 
-1. Myopie, hypermétropie, astigmatisme
-2. Presbytie (lentilles multifocales)
-3. Kératocône et cornées irrégulières
-4. Sport et activités sans lunettes
+1. **Myopie, hypermétropie et astigmatisme** — Correction des défauts visuels par des lentilles adaptées à la réfraction et aux caractéristiques de l’œil.
+2. **Kératocône et cornées irrégulières** — Adaptation de lentilles spécialisées, notamment rigides et sclérales, permettant d’améliorer la qualité visuelle lorsque les lunettes ne suffisent plus.
+3. **Sport et activités quotidiennes** — Une alternative aux lunettes offrant une plus grande liberté de mouvement, selon l’activité pratiquée.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -939,9 +938,13 @@ Adresse prévue : `/fr/services/retinographie/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Quand est-elle prescrite ? » (4 cartes)**
+**« Quand est-elle prescrite ? » (5 cartes)**
 
-
+1. **Rétinopathie diabétique** — Dépistage et surveillance des anomalies rétiniennes liées au diabète.
+2. **DMLA** — Détection et suivi de certaines anomalies de la macula.
+3. **Glaucome** — Photographie de la papille optique pour documenter et surveiller son aspect.
+4. **Maladies vasculaires rétiniennes** — Recherche d’hémorragies et d’autres anomalies visibles des vaisseaux rétiniens.
+5. **Bilan ophtalmologique** — Documentation de l’état du fond d’œil et comparaison des images au cours du suivi.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -1019,9 +1022,13 @@ Adresse prévue : `/fr/services/oct/`
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
 
-**« Quand est-il prescrit ? » (4 cartes)**
+**« Quand est-il prescrit ? » (5 cartes)**
 
-
+1. **DMLA** — Diagnostic et surveillance des anomalies maculaires, notamment la présence de liquide rétinien.
+2. **Rétinopathie diabétique** — Dépistage et suivi de l’œdème maculaire diabétique.
+3. **Glaucome** — Analyse de l’épaisseur des fibres nerveuses rétiniennes (RNFL) et des cellules ganglionnaires pour aider au diagnostic et au suivi.
+4. **Maladies de la macula** — Diagnostic et surveillance des membranes épirétiniennes, trous maculaires et autres anomalies maculaires.
+5. **Baisse de vision inexpliquée** — Recherche d’anomalies structurelles de la rétine ou du nerf optique.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -1141,6 +1148,580 @@ Adresse prévue : `/fr/services/laser/`
 
 ---
 
+### 3.14 Chirurgie réfractive par implant ICL
+
+Adresse prévue : `/fr/services/implant-icl/`
+
+**Résumé (carte de la page Services)**
+
+> La chirurgie par implant ICL (Implantable Collamer Lens) consiste à placer une lentille artificielle à l’intérieur de l’œil, entre l’iris et le cristallin, sans retirer ce dernier.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que la chirurgie réfractive par implant ICL ? »**
+
+> La chirurgie par implant ICL (Implantable Collamer Lens) consiste à placer une lentille artificielle à l’intérieur de l’œil, entre l’iris et le cristallin, sans retirer ce dernier. Elle permet de corriger certains défauts visuels, notamment la myopie et l’astigmatisme, et constitue une alternative à la chirurgie laser chez certains patients.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Signes qui peuvent motiver une consultation » (4 cartes)**
+
+1. Myopie importante
+2. Astigmatisme associé à une myopie
+3. Contre-indication à la chirurgie laser
+4. Intolérance aux lentilles de contact
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule la prise en charge ? » (4 étapes)**
+
+1. **Consultation et bilan** — Examen ophtalmologique complet pour évaluer le défaut visuel et déterminer l’éligibilité à la chirurgie par implant ICL.
+2. **Examens préopératoires** — Mesures précises de l’œil, notamment la profondeur de la chambre antérieure, la densité des cellules endothéliales et les dimensions oculaires, afin de choisir l’implant adapté.
+3. **Intervention** — Insertion de l’implant ICL à travers une petite incision cornéenne, sous anesthésie locale, tout en conservant le cristallin naturel.
+4. **Suivi** — Contrôles postopératoires pour surveiller la récupération visuelle, la pression intraoculaire et le bon positionnement de l’implant.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**L’intervention est-elle douloureuse ?**
+
+> L’intervention est généralement réalisée sous anesthésie locale, le plus souvent par collyres anesthésiants. Elle est habituellement peu douloureuse, mais une légère gêne peut être ressentie.
+
+(texte fourni par la doctoresse)
+
+**Combien de temps dure la récupération ?**
+
+> L’amélioration visuelle est souvent rapide, dès les premiers jours. La stabilisation de la vision peut prendre plusieurs semaines selon les patients.
+
+(texte fourni par la doctoresse)
+
+**Quelle est la différence entre l’ICL et le LASIK ?**
+
+> Le LASIK corrige la vision en remodelant la cornée à l’aide d’un laser. L’ICL consiste à implanter une lentille à l’intérieur de l’œil sans modifier la forme de la cornée. Le choix dépend du défaut visuel et des caractéristiques de chaque œil.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Vous souhaitez vous libérer de vos lunettes ? »**
+
+> Un bilan ophtalmologique spécialisé permet de déterminer si la chirurgie par implant ICL est adaptée à votre vision.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.15 Chirurgie de ptérygion
+
+Adresse prévue : `/fr/services/pterygion/`
+
+**Résumé (carte de la page Services)**
+
+> Le ptérygion est une excroissance bénigne de la conjonctive qui s’étend progressivement sur la cornée.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que le ptérygion ? »**
+
+> Le ptérygion est une excroissance bénigne de la conjonctive qui s’étend progressivement sur la cornée. Souvent favorisé par l’exposition au soleil, au vent et à la poussière, il peut provoquer une irritation, une rougeur et parfois une baisse de la vision.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Signes qui doivent alerter » (4 cartes)**
+
+1. Rougeur oculaire persistante
+2. Vision floue ou déformée
+3. Sensation de corps étranger ou irritation
+4. Gêne esthétique
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule la prise en charge ? » (4 étapes)**
+
+1. **Consultation et bilan** — Examen ophtalmologique pour évaluer la taille du ptérygion, son évolution et son retentissement sur la vision.
+2. **Préparation préopératoire** — Bilan de la surface oculaire et choix de la technique chirurgicale adaptée.
+3. **Intervention** — Retrait chirurgical du ptérygion, avec réalisation d’une autogreffe conjonctivale ou d’un recouvrement par membrane amniotique, selon les caractéristiques du ptérygion et les besoins de chaque patient.
+4. **Suivi** — Contrôles postopératoires pour surveiller la cicatrisation et dépister une éventuelle récidive.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**L’intervention est-elle douloureuse ?**
+
+> L’intervention est généralement réalisée sous anesthésie locale. Elle est habituellement peu douloureuse, mais une gêne, des picotements ou une sensation de corps étranger peuvent survenir pendant les premiers jours.
+
+(texte fourni par la doctoresse)
+
+**Combien de temps dure la récupération ?**
+
+> La cicatrisation initiale prend généralement une à deux semaines. La rougeur peut persister plusieurs semaines et la récupération complète varie selon les patients.
+
+(texte fourni par la doctoresse)
+
+**Le ptérygion peut-il revenir après l’opération ?**
+
+> Oui, une récidive est possible. L’utilisation d’une autogreffe conjonctivale permet de réduire ce risque. Une protection contre les UV et un suivi régulier sont recommandés.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Votre œil est souvent rouge ou irrité ? »**
+
+> Un examen ophtalmologique permet d’évaluer votre ptérygion et de déterminer si une intervention est nécessaire.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.16 Chirurgie de chalazion
+
+Adresse prévue : `/fr/services/chalazion/`
+
+**Résumé (carte de la page Services)**
+
+> Le chalazion est une inflammation localisée de la paupière, provoquée par l'obstruction d'une glande de Meibomius.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que le chalazion ? »**
+
+> Le chalazion est une inflammation localisée de la paupière, provoquée par l'obstruction d'une glande de Meibomius. Il se manifeste par une petite boule ou un gonflement de la paupière, parfois accompagné d'une rougeur ou d'une gêne. Lorsqu'il persiste malgré un traitement médical adapté, une intervention chirurgicale peut être proposée.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Signes qui doivent alerter » (4 cartes)**
+
+1. Boule ou gonflement de la paupière
+2. Rougeur ou inflammation locale
+3. Gêne ou sensation de lourdeur palpébrale
+4. Chalazion persistant ou récidivant
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule la prise en charge ? » (4 étapes)**
+
+1. **Consultation et bilan** — Examen de la paupière pour confirmer le diagnostic, évaluer le chalazion et rechercher d'éventuels facteurs favorisants.
+2. **Traitement médical initial** — Compresses chaudes et massages palpébraux, associés si nécessaire à un traitement médical adapté.
+3. **Intervention** — En cas de chalazion persistant, une incision et un curetage peuvent être réalisés sous anesthésie locale, généralement par la face interne de la paupière, sans cicatrice cutanée visible.
+4. **Suivi** — Contrôle de la cicatrisation et surveillance de l'évolution, avec conseils d'hygiène palpébrale pour limiter les récidives.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**L'intervention est-elle douloureuse ?**
+
+> L'intervention est généralement réalisée sous anesthésie locale. Une légère gêne peut être ressentie lors de l'anesthésie, mais le geste chirurgical est habituellement peu douloureux.
+
+(texte fourni par la doctoresse)
+
+**Combien de temps dure la récupération ?**
+
+> Un gonflement ou un petit hématome peut persister quelques jours après l'intervention. La récupération se fait généralement en une à deux semaines.
+
+(texte fourni par la doctoresse)
+
+**Un chalazion nécessite-t-il toujours une opération ?**
+
+> Non. De nombreux chalazions régressent avec des soins locaux adaptés. La chirurgie est envisagée principalement lorsque le chalazion persiste, devient gênant ou résiste au traitement initial.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Une boule persistante sur votre paupière ? »**
+
+> Un examen ophtalmologique permet d'identifier la cause et de proposer le traitement le plus adapté.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.17 Injections intravitréennes (IVT)
+
+Adresse prévue : `/fr/services/injections-intravitreennes/`
+
+**Résumé (carte de la page Services)**
+
+> L’injection intravitréenne (IVT) consiste à administrer un médicament directement à l’intérieur de l’œil, dans le vitré.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce qu’une injection intravitréenne (IVT) ? »**
+
+> L’injection intravitréenne (IVT) consiste à administrer un médicament directement à l’intérieur de l’œil, dans le vitré. Elle permet de traiter certaines maladies de la rétine, notamment la dégénérescence maculaire liée à l’âge (DMLA) néovasculaire, l’œdème maculaire diabétique et les occlusions veineuses rétiniennes.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Signes qui doivent alerter » (4 cartes)**
+
+1. Baisse de la vision centrale
+2. Vision déformée (lignes ondulées)
+3. Apparition d’une tache sombre au centre de la vision
+4. Difficulté à lire ou à reconnaître les visages
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule la prise en charge ? » (4 étapes)**
+
+1. **Consultation et bilan** — Examen ophtalmologique complet, associé notamment à une OCT maculaire, pour établir le diagnostic et déterminer l’indication du traitement.
+2. **Préparation** — Désinfection rigoureuse de l’œil et de son environnement, puis instillation de gouttes anesthésiantes pour assurer le confort du patient.
+3. **Injection** — Administration du médicament dans le vitré à l’aide d’une aiguille très fine, dans des conditions strictes d’asepsie. Le geste ne dure que quelques secondes.
+4. **Suivi** — Contrôles ophtalmologiques et OCT pour évaluer la réponse au traitement et adapter le rythme des injections si nécessaire.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**L’injection est-elle douloureuse ?**
+
+> L’injection est réalisée sous anesthésie locale par collyre. Elle est généralement peu douloureuse, mais une légère pression ou une gêne passagère peuvent être ressenties.
+
+(texte fourni par la doctoresse)
+
+**Combien d’injections sont nécessaires ?**
+
+> Le nombre d’injections dépend de la maladie traitée et de sa réponse au traitement. Certaines pathologies nécessitent plusieurs injections espacées de quelques semaines, puis un suivi régulier.
+
+(texte fourni par la doctoresse)
+
+**Peut-on reprendre ses activités après l’injection ?**
+
+> La plupart des activités habituelles peuvent être reprises rapidement. Une légère irritation ou une rougeur peut survenir après le geste. Il est recommandé de ne pas se frotter l’œil et de respecter les consignes postopératoires.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Votre vision devient floue ou déformée ? »**
+
+> Un examen ophtalmologique et une OCT maculaire permettent d’identifier certaines maladies de la rétine et de déterminer si un traitement par injection intravitréenne est indiqué.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.18 Angiographie rétinienne
+
+Adresse prévue : `/fr/services/angiographie-retinienne/`
+
+**Résumé (carte de la page Services)**
+
+> L’angiographie rétinienne est un examen d’imagerie qui permet d’étudier la circulation sanguine dans les vaisseaux de la rétine et de la choroïde.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que l’angiographie rétinienne ? »**
+
+> L’angiographie rétinienne est un examen d’imagerie qui permet d’étudier la circulation sanguine dans les vaisseaux de la rétine et de la choroïde.
+>
+> Elle consiste à réaliser une série de photographies du fond d’œil après l’injection d’un colorant, généralement la fluorescéine, dans une veine du bras.
+>
+> Cet examen permet de détecter certaines anomalies vasculaires, de localiser des zones de mauvaise circulation sanguine ou des fuites de liquide et d’orienter la prise en charge de différentes maladies rétiniennes.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Quand est-elle prescrite ? » (5 cartes)**
+
+1. **Rétinopathie diabétique** — Recherche de zones d’ischémie rétinienne, de fuites vasculaires et de néovaisseaux pour évaluer la sévérité de la maladie.
+2. **DMLA** — Recherche et analyse de néovaisseaux anormaux responsables de certaines formes de dégénérescence maculaire liée à l’âge.
+3. **Occlusions vasculaires rétiniennes** — Évaluation des troubles de la circulation sanguine rétinienne, notamment des zones d’ischémie et des anomalies vasculaires associées.
+4. **Vascularites rétiniennes** — Détection et évaluation des inflammations des vaisseaux rétiniens, permettant de visualiser les fuites vasculaires, les zones d’ischémie et de surveiller l’évolution de la maladie.
+5. **Néovaisseaux du fort myope** — Détection et évaluation des néovaisseaux choroïdiens liés à la forte myopie, responsables de saignements ou de fuites pouvant entraîner une baisse de la vision centrale.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule l’examen ? » (4 étapes)**
+
+1. **Préparation** — Un interrogatoire médical est réalisé afin de rechercher d’éventuels antécédents de réaction au colorant. Les pupilles sont généralement dilatées à l’aide de gouttes.
+2. **Injection du colorant** — Un colorant fluorescent est injecté dans une veine du bras. Il circule dans le sang et permet de visualiser les vaisseaux de la rétine.
+3. **Acquisition des images** — Une série de photographies du fond d’œil est réalisée pendant la circulation du colorant, afin d’analyser les vaisseaux rétiniens et de rechercher d’éventuelles anomalies.
+4. **Après l’examen** — Une coloration jaunâtre temporaire de la peau et des urines orangées peuvent apparaître après l’injection de fluorescéine. La dilatation pupillaire peut entraîner une vision floue pendant quelques heures.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**L’angiographie rétinienne est-elle douloureuse ?**
+
+> L’examen est généralement indolore. Seule une légère gêne peut être ressentie lors de l’injection du colorant. Les photographies sont indolores, mais les flashs lumineux peuvent être un peu éblouissants.
+
+(texte fourni par la doctoresse)
+
+**L’injection du colorant présente-t-elle des risques ?**
+
+> L’angiographie à la fluorescéine est généralement bien tolérée. Des nausées passagères peuvent survenir. Des réactions allergiques, parfois graves, restent rares. Il est important de signaler tout antécédent de réaction à la fluorescéine avant l’examen.
+
+(texte fourni par la doctoresse)
+
+**Peut-on conduire après une angiographie rétinienne ?**
+
+> Il est déconseillé de conduire immédiatement après l’examen lorsque les pupilles ont été dilatées, car la vision peut rester floue et sensible à la lumière pendant plusieurs heures.
+
+(texte fourni par la doctoresse)
+
+**Quelle est la différence entre l’OCT et l’angiographie rétinienne ?**
+
+> L’OCT permet d’obtenir des images en coupe des structures de la rétine, sans injection. L’angiographie à la fluorescéine étudie la circulation sanguine rétinienne après injection d’un colorant. Ces deux examens sont complémentaires.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Un examen approfondi de votre rétine est nécessaire ? »**
+
+> L’angiographie rétinienne permet d’explorer certaines anomalies vasculaires et d’orienter le diagnostic et le traitement des maladies de la rétine.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.19 Topographie cornéenne
+
+Adresse prévue : `/fr/services/topographie-corneenne/`
+
+**Résumé (carte de la page Services)**
+
+> La topographie cornéenne est un examen rapide, indolore et non invasif qui permet d’analyser avec précision la forme et la courbure de la cornée, la surface transparente située à l’avant de l’œil.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que la topographie cornéenne ? »**
+
+> La topographie cornéenne est un examen rapide, indolore et non invasif qui permet d’analyser avec précision la forme et la courbure de la cornée, la surface transparente située à l’avant de l’œil.
+>
+> Elle permet de détecter certaines anomalies cornéennes, notamment le kératocône, parfois avant l’apparition de symptômes, et de suivre leur évolution.
+>
+> Selon la technologie utilisée, l’examen peut également fournir une analyse de la face postérieure de la cornée et de son épaisseur (pachymétrie), offrant une évaluation plus complète de sa structure.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Quand est-elle prescrite ? » (4 cartes)**
+
+1. **Kératocône** — Dépistage précoce, diagnostic et surveillance de l’évolution du kératocône, une maladie caractérisée par une déformation progressive de la cornée.
+2. **Bilan de chirurgie réfractive** — Analyse de la forme et de la régularité de la cornée avant une chirurgie réfractive, afin d’évaluer l’éligibilité du patient et de rechercher d’éventuelles contre-indications.
+3. **Astigmatisme** — Évaluation de la courbure cornéenne pour identifier et caractériser les astigmatismes réguliers ou irréguliers.
+4. **Adaptation des lentilles de contact** — Analyse de la forme cornéenne pour orienter l’adaptation de certaines lentilles spécialisées, notamment en cas de kératocône ou de cornée irrégulière.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule l’examen ? » (4 étapes)**
+
+1. **Préparation** — Le patient est installé devant l’appareil de topographie cornéenne, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est nécessaire.
+2. **Acquisition des images** — Le patient fixe une cible lumineuse pendant que l’appareil analyse la forme et la courbure de la cornée. L’examen est rapide, sans contact avec l’œil et indolore.
+3. **Analyse des résultats** — Les cartes cornéennes sont analysées par l’ophtalmologue afin de rechercher d’éventuelles anomalies de courbure, d’épaisseur ou de régularité de la cornée.
+4. **Après l’examen** — Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, une surveillance régulière ou des examens complémentaires peuvent être proposés.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**La topographie cornéenne est-elle douloureuse ?**
+
+> Non. Il s’agit d’un examen indolore, sans contact avec l’œil et ne nécessitant aucune injection.
+
+(texte fourni par la doctoresse)
+
+**Faut-il arrêter les lentilles de contact avant l’examen ?**
+
+> Oui, dans certaines situations. Les lentilles peuvent modifier temporairement la forme de la cornée et fausser les mesures. La durée d'arrêt dépend du type de lentilles et de l'indication de l'examen.
+
+(texte fourni par la doctoresse)
+
+**La topographie permet-elle de dépister un kératocône précoce ?**
+
+> Oui. La topographie, notamment lorsqu’elle est associée à une analyse tomographique de la cornée, permet de détecter des anomalies évocatrices d’un kératocône à un stade précoce, parfois avant l’apparition d’une baisse de vision.
+
+(texte fourni par la doctoresse)
+
+**Quelle est la différence entre la topographie et la pachymétrie cornéenne ?**
+
+> La topographie analyse principalement la forme et la courbure de la cornée, tandis que la pachymétrie mesure son épaisseur. Certains appareils permettent de réaliser ces deux analyses au cours du même examen.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Vous présentez un astigmatisme ou une suspicion de kératocône ? »**
+
+> La topographie cornéenne permet une analyse détaillée de votre cornée afin de dépister certaines anomalies et d’orienter une prise en charge adaptée.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.20 Biométrie oculaire
+
+Adresse prévue : `/fr/services/biometrie-oculaire/`
+
+**Résumé (carte de la page Services)**
+
+> La biométrie oculaire est un examen rapide, indolore et non invasif qui permet de mesurer avec précision les différentes dimensions de l’œil, notamment sa longueur axiale et la courbure de la cornée.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que la biométrie oculaire ? »**
+
+> La biométrie oculaire est un examen rapide, indolore et non invasif qui permet de mesurer avec précision les différentes dimensions de l’œil, notamment sa longueur axiale et la courbure de la cornée.
+>
+> Elle joue un rôle essentiel dans le bilan préopératoire de la cataracte, en permettant de calculer la puissance de l’implant intraoculaire destiné à remplacer le cristallin naturel.
+>
+> La biométrie permet également de surveiller l’évolution de la myopie, notamment chez l’enfant, grâce à la mesure de la longueur axiale de l’œil.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Quand est-elle prescrite ? » (3 cartes)**
+
+1. **Chirurgie de la cataracte** — Mesures précises des dimensions oculaires pour calculer la puissance de l’implant intraoculaire et optimiser le résultat visuel après l’intervention.
+2. **Chirurgie réfractive** — Analyse de certains paramètres anatomiques de l’œil dans le cadre du bilan préopératoire, notamment pour la planification de certaines chirurgies par implants intraoculaires.
+3. **Myopie évolutive chez l’enfant** — Mesure et surveillance de la longueur axiale de l’œil afin d’évaluer la progression de la myopie et l’efficacité des stratégies de freination myopique.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule l’examen ? » (4 étapes)**
+
+1. **Préparation** — Le patient est installé devant l’appareil de biométrie oculaire, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est généralement nécessaire.
+2. **Acquisition des mesures** — Le patient fixe une cible lumineuse pendant que l’appareil mesure les paramètres oculaires, notamment la longueur axiale et, selon l’équipement, la courbure cornéenne. L’examen est rapide, sans contact avec l’œil et indolore lorsqu’il est réalisé par biométrie optique.
+3. **Analyse des résultats** — Les mesures sont analysées par l’ophtalmologue afin de calculer la puissance de l’implant intraoculaire ou de surveiller l’évolution de la longueur axiale, selon l’indication.
+4. **Après l’examen** — Le patient peut reprendre immédiatement ses activités habituelles. Les résultats permettent d’orienter la prise en charge et de planifier les étapes suivantes si nécessaire.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**La biométrie oculaire est-elle douloureuse ?**
+
+> Non. La biométrie optique est un examen indolore, sans contact avec l’œil et ne nécessitant aucune injection.
+
+(texte fourni par la doctoresse)
+
+**Pourquoi réaliser une biométrie avant une chirurgie de la cataracte ?**
+
+> La biométrie permet de calculer la puissance de l’implant qui remplacera le cristallin opacifié. Elle est indispensable pour choisir un implant adapté aux caractéristiques de chaque œil et optimiser la vision après l’intervention.
+
+(texte fourni par la doctoresse)
+
+**Peut-on réaliser une biométrie en cas de cataracte très dense ou d’hémorragie intravitréenne ?**
+
+> Certaines situations, notamment une cataracte très dense, une hémorragie intravitréenne ou d’autres opacités des milieux oculaires, peuvent empêcher la réalisation des mesures par biométrie optique. Notre cabinet dispose également d’un équipement de biométrie échographique par contact, permettant de mesurer la longueur axiale de l’œil lorsque la biométrie optique n’est pas réalisable. Cette technique complémentaire permet d’obtenir les mesures nécessaires au calcul de la puissance de l’implant intraoculaire, même lorsque les milieux oculaires sont opaques.
+
+(texte fourni par la doctoresse)
+
+**La biométrie permet-elle de surveiller la myopie chez l’enfant ?**
+
+> Oui. La mesure régulière de la longueur axiale permet de suivre la croissance de l’œil et d’évaluer la progression de la myopie, en complément des examens de réfraction.
+
+(texte fourni par la doctoresse)
+
+**Faut-il dilater les pupilles avant une biométrie ?**
+
+> Non, la dilatation n’est généralement pas nécessaire pour réaliser une biométrie optique. Elle peut toutefois être indiquée dans le cadre d’un examen ophtalmologique complémentaire.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Vous préparez une chirurgie de la cataracte ? »**
+
+> La biométrie oculaire permet de réaliser les mesures indispensables au calcul de votre implant intraoculaire et à la préparation de votre intervention.
+
+(texte fourni par la doctoresse)
+
+---
+
+### 3.21 Microscopie spéculaire
+
+Adresse prévue : `/fr/services/microscopie-speculaire/`
+
+**Résumé (carte de la page Services)**
+
+> La microscopie spéculaire est un examen rapide, indolore et non invasif qui permet d’analyser les cellules endothéliales de la cornée, situées sur sa face interne.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Qu’est-ce que la microscopie spéculaire ? »**
+
+> La microscopie spéculaire est un examen rapide, indolore et non invasif qui permet d’analyser les cellules endothéliales de la cornée, situées sur sa face interne.
+>
+> Ces cellules jouent un rôle essentiel dans le maintien de la transparence cornéenne en régulant son hydratation.
+>
+> Cet examen permet de mesurer leur densité, d’étudier leur taille et leur forme, et de détecter d’éventuelles anomalies pouvant compromettre la transparence de la cornée.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Quand est-elle prescrite ? » (4 cartes)**
+
+1. **Bilan préopératoire de la cataracte** — Évaluation de la densité et de la qualité des cellules endothéliales avant une chirurgie de la cataracte, notamment chez les patients présentant des facteurs de risque de décompensation cornéenne.
+2. **Dystrophies cornéennes** — Diagnostic et surveillance de certaines maladies de l’endothélium cornéen, notamment la dystrophie endothéliale de Fuchs, pouvant entraîner un œdème et une baisse de vision.
+3. **Chirurgie réfractive par implant phaque ICL** — Évaluation de la densité des cellules endothéliales avant l'implantation d'une lentille intraoculaire et surveillance à long terme après l'intervention.
+4. **Surveillance après chirurgie oculaire** — Contrôle de l’état de l’endothélium cornéen après certaines interventions intraoculaires ou une greffe de cornée, afin de dépister une éventuelle perte cellulaire.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**« Comment se déroule l’examen ? » (4 étapes)**
+
+1. **Préparation** — Le patient est installé devant l’appareil de microscopie spéculaire, le menton et le front positionnés sur un support. Aucune dilatation des pupilles n’est nécessaire.
+2. **Acquisition des images** — Le patient fixe une cible lumineuse pendant que l’appareil réalise des photographies agrandies des cellules endothéliales de la cornée. L’examen est rapide, sans contact avec l’œil et indolore.
+3. **Analyse des résultats** — L’ophtalmologue analyse la densité cellulaire, la variation de taille des cellules (polymégathisme) et la variation de leur forme (pléomorphisme), afin d’évaluer l’état de l’endothélium cornéen.
+4. **Après l’examen** — Le patient peut reprendre immédiatement ses activités habituelles. Selon les résultats, une surveillance régulière ou des examens complémentaires peuvent être proposés.
+
+- [ ] Validé tel quel
+- [ ] À corriger — Correction :
+
+**Questions fréquentes**
+
+**La microscopie spéculaire est-elle douloureuse ?**
+
+> Non. Il s’agit d’un examen indolore, sans contact avec l’œil, ne nécessitant aucune injection ni dilatation pupillaire.
+
+(texte fourni par la doctoresse)
+
+**Pourquoi réaliser une microscopie spéculaire avant une chirurgie de la cataracte ?**
+
+> La chirurgie de la cataracte peut entraîner une perte de cellules endothéliales. Cet examen permet d’évaluer leur réserve avant l’intervention et d’identifier les patients présentant un risque accru d’œdème cornéen postopératoire.
+
+(texte fourni par la doctoresse)
+
+**Les cellules endothéliales de la cornée se régénèrent-elles ?**
+
+> Les cellules endothéliales humaines possèdent une capacité de régénération très limitée dans les conditions physiologiques. Lorsque leur nombre diminue, les cellules restantes s’étalent pour maintenir la fonction de l’endothélium. Une perte importante peut entraîner un œdème cornéen et une baisse de vision.
+
+(texte fourni par la doctoresse)
+
+**Quelle est la différence entre la microscopie spéculaire et la pachymétrie cornéenne ?**
+
+> La microscopie spéculaire analyse les cellules endothéliales de la cornée, tandis que la pachymétrie mesure son épaisseur. Ces deux examens sont complémentaires pour évaluer la santé cornéenne.
+
+(texte fourni par la doctoresse)
+
+**Bandeau final : « Vous préparez une chirurgie oculaire ou présentez une maladie de la cornée ? »**
+
+> La microscopie spéculaire permet d’évaluer la santé de votre endothélium cornéen et d’orienter une prise en charge adaptée.
+
+(texte fourni par la doctoresse)
+
+---
+
 ## 4. Page « Équipements & examens »
 
 Les textes de la lampe à fente, du rétinographe et de l’OCT sont ceux des sections 1.3 et 2.
@@ -1172,5 +1753,7 @@ Les textes de la lampe à fente, du rétinographe et de l’OCT sont ceux des se
 ## 6. Version arabe
 
 Tout le site existe aussi en arabe (`/ar/`). Les textes arabes sont une **traduction** des textes français ci-dessus (fichier `src/data/services-content.ar.js` pour les services, pages dans `ar/`). Une fois les textes français validés, la version arabe devra être **relue par la doctora ou par une personne arabophone** (vocabulaire médical en particulier), puis mise à jour.
+
+**8 pages ajoutées le 23/11/2026** (ICL, ptérygion, chalazion, IVT, angiographie, topographie, biométrie, microscopie spéculaire) : traduction arabe **proposée par nous et déjà publiée**, à valider dans le fichier dédié **`traduction-ar-8-pages.md`** (FR et AR côte à côte, glossaire, intertitres du menu dont « الاستشارة والمتابعة »).
 
 - [ ] Traduction arabe relue — Corrections :
