@@ -901,6 +901,8 @@ export const servicesContentAr = {
       ['المتابعة', 'مراقبة الالتئام وتطور الحالة، مع نصائح حول نظافة الجفون للحدّ من تكرار البَرَدة.'],
     ],
     stepsImage: { alt: 'العلاج الجراحي للبَرَدة (شقّ وكشط)', caption: 'العلاج الجراحي للبَرَدة' },
+    // TODO AR : titre de la vidéo (khota A), à valider par la doctoresse — fichier vidéo : FR
+    reelVideo: { title: 'فيديو الدكتورة العوني رجاء حول البَرَدة (Chalazion)' },
     doctor: GENERAL,
     faq: [
       {

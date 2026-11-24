@@ -1,7 +1,7 @@
 // Template page service (maquette 03) — rendu à partir de src/data/services-content.js.
 // Les marqueurs @picture / @icon produits ici sont traités ensuite par le plugin.
 import { servicesContent, localizedService, serviceAvailable, serviceBySlug } from '../data/services-content.js';
-import { contact } from '../data/site.js';
+import { contact, socials } from '../data/site.js';
 import { brandIcon } from './icons.js';
 
 // Textes d'interface du template
@@ -12,9 +12,11 @@ export const UI = {
     ctaText: 'Le secrétariat vous répond du lundi au vendredi de 9h à 17h et le samedi de 9h à 13h.',
     call: 'Appeler le', wa: 'Écrire sur WhatsApp', related: 'Services liés',
     equip: 'Examens complémentaires (OCT, échographie)', more: 'En savoir plus',
-    reel: 'Voir le reel sur Instagram',
-    reelNote: 'Vidéo publiée par le Dr Elaouni Rajae sur Instagram. Lecture via Instagram.',
-    reelFrame: 'Reel Instagram du Dr Elaouni Rajae',
+    // Lecteur vidéo (khota A)
+    reelWarn: 'Cette vidéo contient des images opératoires. Cliquer pour regarder.',
+    reelNoJs: 'Attention : cette vidéo contient des images opératoires.',
+    reelInsta: 'Voir sur Instagram',
+    newTab: ' (nouvel onglet)',
   },
   ar: {
     home: 'الرئيسية', services: 'الخدمات', crumb: 'مسار التنقل', rdv: 'احجز موعدك',
@@ -22,10 +24,11 @@ export const UI = {
     ctaText: 'تجيبكم الكتابة من الإثنين إلى الجمعة من 9:00 إلى 17:00، ويوم السبت من 9:00 إلى 13:00.',
     call: 'اتصلوا على', wa: 'راسلونا عبر واتساب', related: 'خدمات ذات صلة',
     equip: 'فحوصات تكميلية (OCT، الإكوغرافيا)', more: 'اكتشف',
-    // TODO AR : textes du bloc reel Instagram (page Chalazion), à valider par la doctoresse
-    reel: 'شاهدوا الفيديو على إنستغرام',
-    reelNote: 'فيديو نشرته الدكتورة العوني رجاء على إنستغرام. التشغيل عبر إنستغرام.',
-    reelFrame: 'فيديو إنستغرام للدكتورة العوني رجاء',
+    // TODO AR : textes du lecteur vidéo (khota A, page Chalazion), à valider par la doctoresse
+    reelWarn: 'يحتوي هذا الفيديو على صور من عملية جراحية. انقروا للمشاهدة.',
+    reelNoJs: 'تنبيه: يحتوي هذا الفيديو على صور من عملية جراحية.',
+    reelInsta: 'شاهدوا على إنستغرام',
+    newTab: ' (نافذة جديدة)',
   },
 };
 
@@ -132,28 +135,44 @@ const media = (m, cls, sizes) =>
         </figure>`
     : '';
 
-// Reel Instagram (« façade » : l'iframe Instagram n'est créée qu'au clic, cf. src/js/video.js).
-// `reel` absent → rien ; `reel: null` → emplacement prévu mais lien pas encore fourni :
-// placeholder visible en dev seulement (retiré au build) ; `reel: 'https://…/reel/ID/'` → bloc.
-// Logo Instagram (le marqueur @icon ne gère que les icônes au trait) ; dégradé renommé
-// pour ne pas dupliquer l'id « ig-grad » du logo du footer
-const IG_ICON = brandIcon('instagram', { size: 26 }).replace(/ig-grad/g, 'ig-grad-reel');
+// Reel du chalazion (khota A, khota-a.md). Instagram bloque l'intégration du post
+// (« Age-restricted ») : la vidéo est hébergée sur le site et lue sur place.
+//   `reel` absent → rien ; `reel: null` → placeholder en dev (lien à fournir) ;
+//   `reel` + `reelVideo` → lecteur de style Instagram + bouton « Voir sur Instagram ».
+// Lecteur : cadre 9:16, en-tête (logo + compte), poster avec avertissement « images
+// opératoires » et bouton ▶ ; aucune lecture automatique (preload="none") ; démarre en muet
+// avec les contrôles (src/js/reel.js). Aucun compteur (likes, vues…) n'est affiché.
+const IG_ICON = brandIcon('instagram', { size: 20 }).replace(/ig-grad/g, 'ig-grad-reel');
+const IG_ACCOUNT = socials.instagram.match(/instagram\.com\/([\w.]+)/)?.[1] ?? 'instagram';
+const PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>';
 
 function reelBlock(s, u) {
   if (!('reel' in s)) return '';
   if (!s.reel) {
     return `<p class="svc-note svc-reel-todo" data-draft><span class="placeholder">[À COMPLÉTER : reel Instagram sur le chalazion — lien à fournir par la doctoresse]</span></p>`;
   }
-  const id = s.reel.match(/instagram\.com\/(?:reels?|p)\/([\w-]+)/)?.[1];
-  if (!id) throw new Error(`[service] lien de reel Instagram invalide : ${s.reel}`);
-  return `<div class="reel-box">
-          <a class="reel-box__link" href="${s.reel}" data-ig="${id}" data-ig-title="${u.reelFrame}" target="_blank" rel="noopener">
-            <span class="reel-box__icon" aria-hidden="true">${IG_ICON}</span>
-            <span class="reel-box__title">${u.reel}</span>
-            <span class="reel-box__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span>
-          </a>
-          <p class="reel-box__note">${u.reelNote}</p>
-        </div>`;
+  const insta = `<a class="btn btn--secondary reel__insta" href="${s.reel}" target="_blank" rel="noopener" aria-label="${u.reelInsta}${u.newTab}">${u.reelInsta}<!-- @icon externalLink 16 --></a>`;
+  const v = s.reelVideo;
+  if (!v) return `<div class="reel">${insta}</div>`;
+  return `<figure class="reel" data-reel>
+          <div class="reel__frame">
+            <div class="reel__top">
+              <span class="reel__logo" aria-hidden="true">${IG_ICON}</span>
+              <span class="reel__account" dir="ltr">${IG_ACCOUNT}</span>
+            </div>
+            <div class="reel__media">
+              <video class="reel__video" src="${v.src}" poster="/src/assets/images/${v.poster}-720.webp" width="720" height="1280" preload="none" playsinline muted controls aria-label="${v.title}" data-reel-video></video>
+              <button class="reel__cover" type="button" aria-label="${v.title}. ${u.reelWarn}" data-reel-play>
+                <!-- @picture name="${v.poster}" alt="" sizes="320px" -->
+                <span class="reel__play" aria-hidden="true">${PLAY}</span>
+                <span class="reel__warning" aria-hidden="true">${u.reelWarn}</span>
+              </button>
+            </div>
+          </div>
+          <noscript><p class="reel__nojs">${u.reelNoJs}</p><style>.reel__cover{display:none}</style></noscript>
+          <figcaption class="visually-hidden">${v.title}</figcaption>
+          ${insta}
+        </figure>`;
 }
 
 // Rubrique de mise en garde : cartes numérotées + encadré « À retenir »

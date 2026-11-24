@@ -43,7 +43,7 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
 - **Conventions** : CNSS, CNOPS, mutuelles — **ne plus les afficher** (demande de la doctoresse : les patients pourraient croire que les honoraires sont réduits). Encore présentes dans les badges du hero en attendant sa réponse. Ne pas écrire « assurances ».
 - **Tarifs** : ne PAS les afficher (demande de la cliente)
 - **Réseaux sociaux** : Instagram https://www.instagram.com/dr.rajaeelaouni/ · Facebook https://www.facebook.com/profile.php?id=61591732495481
-- **Fiche Google Maps** : https://maps.app.goo.gl/p44UvxS9aQ613Bay7 (carte intégrée chargée au clic). Avis Google : à brancher automatiquement plus tard (le client fera le lien site ↔ fiche) — jamais d’avis saisis à la main.
+- **Fiche Google Maps** : https://maps.app.goo.gl/p44UvxS9aQ613Bay7 — place_id `ChIJiZbDE0-Lnw0RafsoVqjYiZ8` (carte intégrée chargée au clic, sans clé API : URL `maps.google.com/maps?cid=…&output=embed`, voir `maps` dans `src/data/site.js`). Avis Google : affichés à partir d'un export (`src/data/reviews.json`, voir « Avis Google » plus bas) — jamais d’avis saisis ou modifiés à la main.
 
 ### Parcours (texte validé, issu de sa carte de visite)
 
@@ -151,7 +151,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ (FR : liens rangés sous les intert
 7. Plateau technique : 3 cartes équipements
 8. Le cabinet : galerie (réception, salles d'attente, espace diplômes)
 9. Citation : « La vision est l'art de voir l'invisible. » — Jonathan Swift (phrase écrite sur le mur du cabinet)
-10. Avis patients : note Google + 3 avis → placeholders `[À INTÉGRER]`, jamais d'avis inventés
+10. Avis patients (« Avis de nos patients ») : note moyenne, étoiles, nombre d'avis, cartes des avis Google (carrousel mobile, grille desktop) + « Voir tous les avis sur Google » / « Laisser un avis » — généré depuis `src/data/reviews.json` (partial `reviews`)
 11. Infos pratiques (horaires, documents, annulation) + FAQ (4 questions, en `<details>`)
 12. Contact : adresse + repères, téléphone, WhatsApp, email, carte Google Maps, plan d'accès (image tirée de la carte de visite)
 13. Footer (fond `#23392B`, logo blanc)
@@ -176,7 +176,7 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 8. CTA appel + WhatsApp
 9. Services liés
 
-Champs facultatifs (pages de nov. 2026) : pas de `photo` → pas de photo en tête ; pas d'`intro` → rien sous le H1 ; `whatImage` (image + légende à côté de « Qu'est-ce que… ») ; `stepsImage` (illustration sous les étapes) ; image d'étape `natural: true` (non recadrée) ; `ctaText` (texte du bandeau + bouton « Prendre rendez-vous ») ; `reel` (reel Instagram en façade, `null` = lien à fournir).
+Champs facultatifs (pages de nov. 2026) : pas de `photo` → pas de photo en tête ; pas d'`intro` → rien sous le H1 ; `whatImage` (image + légende à côté de « Qu'est-ce que… ») ; `stepsImage` (illustration sous les étapes) ; image d'étape `natural: true` (non recadrée) ; `ctaText` (texte du bandeau + bouton « Prendre rendez-vous ») ; `reel` (lien du reel Instagram, `null` = lien à fournir) + `reelVideo` (vidéo hébergée lue sur place, voir « Khota A »).
 
 ## Plan d'animations
 
@@ -256,6 +256,25 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
 `scripts/optimize-images.py`. Version arabe à parité (`parite-fr-ar.md`, `ar-a-faire.md`). Les commentaires
 `<!-- TODO … -->` des pages HTML sont retirés au build (jamais publiés).
 
-## Khota A (plan en attente)
+## Avis Google (section « Avis de nos patients », accueil FR + AR)
 
-Quand je dis « appliquer khota A » : lis `khota-a.md` (racine du projet) en entier et exécute-le tel quel, étape par étape. C'est le plan pour héberger sur le site le reel du chalazion bloqué par Instagram. Sans cette phrase, ne l'applique pas.
+- **Source** : `src/data/reviews.json` = export des avis de la fiche Google (tableau d'objets : `author`, `author_url`, `rating`, `text`, …). Lu au build, **sans API ni clé**. Règles dans `src/data/reviews.js`, rendu dans `src/partials/reviews.js`, carrousel dans `src/js/reviews.js`.
+- **Mettre à jour les avis** : remplacer `src/data/reviews.json` par le nouvel export (même format), puis relancer `npm run build` (et `npm run check:seo`). Rien d'autre à modifier : note moyenne, nombre d'avis et ordre sont recalculés.
+- **Règles appliquées automatiquement** :
+  - avis sans texte (`text` vide ou `null`) : non affichés, mais comptés dans la note et le nombre d'avis ;
+  - auteurs exclus : liste `EXCLUDED_AUTHORS` de `src/data/reviews.js` (actuellement « laila elaouni ») — ni affichés ni comptés ; ajouter un nom à cette liste pour en exclure un autre ;
+  - texte affiché tel quel (aucune correction) ; pas de date (relative, deviendrait fausse) ; pas de photo Google (avatar avec l'initiale) ; pas de réponse du cabinet (`owner_response`) ;
+  - ordre : les avis les plus longs en premier ; nom de l'auteur = lien vers `author_url` (`rel="noopener nofollow"`) ;
+  - sur la page AR, le texte des avis reste en français (`lang="fr"`) ; l'interface est en arabe (`TODO AR`, `ar-a-faire.md`).
+- **Interdit** : aucun JSON-LD `AggregateRating` ni `Review` (règles Google sur les avis auto-publiés).
+- **Affichage** : en-tête « note moyenne + étoiles + Avis Google · N avis » à gauche, flèches ‹ › (38 px) à droite ; une seule ligne de cartes de 280 px (scroll-snap, barre fine), texte complet ; points de pagination dessous ; boutons secondaires « Voir tous les avis sur Google » / « Laisser un avis » (icône lien externe). Avatars : initiale sur fond pastel, 4 couleurs en alternance (violet, vert d'eau, corail, bleu). Seules les étoiles sont dorées.
+- **Carrousel contrôlé par l'utilisateur uniquement** (`src/js/reviews.js`, vanilla) : aucun défilement automatique, aucune boucle, pas de bouton Pause. Flèches = une carte, désactivées au début / à la fin ; points cliquables, mis à jour au défilement ; doigt, molette / trackpad, flèches du clavier (bande focusable) ; sens inversé en RTL. Sans JS : bande défilante seule.
+
+## Khota A — appliquée le 24/11/2026
+
+Plan dans `khota-a.md`. Le reel du chalazion (Instagram bloque son intégration : post « Age-restricted ») est **hébergé sur le site** et lu sur place, sur `/fr/services/chalazion/` et `/ar/services/chalazion/` :
+- Vidéo source : `assets-source/videos/reel-chalazion.mp4` (H.264 720×1280, 2,3 Mo, `moov` en tête = faststart) ; copie web identique : `src/assets/videos/reel-chalazion.mp4` (pas de réencodage : la vidéo respectait déjà les critères ; pas de WebM, ffmpeg absent du poste).
+- Poster : `assets-source/videos/reel-chalazion-poster.png` (image à 7,5 s, titre « Chalazion », aucune image opératoire) → `reel-chalazion-poster` en AVIF + WebP (`optimize-images.py`).
+- Données : `reel` (lien Instagram) + `reelVideo` (`src`, `poster`, `title`) dans `services-content.js` ; titre AR dans `services-content.ar.js`. Rendu : `reelBlock` de `src/partials/service.js` ; lecture : `src/js/reel.js` ; styles `.reel*` dans `service.css`.
+- Règles : `preload="none"`, aucune lecture automatique, avertissement « images opératoires » sur le poster, lecture au clic en muet avec contrôles (`playsinline`), bouton « Voir sur Instagram » ; aucun faux compteur. L'ancienne iframe Instagram au clic a été supprimée.
+- Pour changer de vidéo : remplacer les deux fichiers MP4 (même nom), extraire un nouveau poster si besoin, relancer `optimize-images.py reel-chalazion-poster` puis le build.

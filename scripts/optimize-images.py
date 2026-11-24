@@ -87,6 +87,13 @@ IMAGES = {
     "11-topographie-corneenne": IS / "11-topographie-corneenne.jpg",
     "12-biometrie-oculaire": IS / "12-biometrie-oculaire.jpg",
     "13-microscopie-speculaire": IS / "13-microscopie-speculaire.jpg",
+    # --- Bloc avant / après de la page Cataracte (photos sans texte, 620×670) ---
+    # (les .webp de assets-source/demo.html ne servent qu'à la maquette)
+    "cataracte-avant": SRC_ORIG / "cataracte-avant.jpg",
+    "cataracte-apres": SRC_ORIG / "cataracte-apres.jpg",
+    # --- Khota A : aperçu (poster) du reel chalazion hébergé sur le site ---
+    # image extraite de la vidéo à 7,5 s (titre « Chalazion », aucune image opératoire)
+    "reel-chalazion-poster": SRC_ORIG / "videos" / "reel-chalazion-poster.png",
 }
 
 # Recadrages (gauche, haut, droite, bas) en px retirés des bords

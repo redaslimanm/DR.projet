@@ -22,7 +22,7 @@ const T = {
 
 export function map({ lang }) {
   const t = T[lang];
-  return `<div class="map-embed" data-map-embed="${maps.embed}" data-map-title="${t.iframe}">
+  return `<div class="map-embed" data-map-embed="${maps.embed(lang).replace(/&/g, '&amp;')}" data-map-title="${t.iframe}">
             <!-- @icon map 28 1.6 -->
             <p class="map-embed__title">${t.title}</p>
             <button class="btn btn--outline map-embed__btn" type="button" hidden>${t.btn}</button>

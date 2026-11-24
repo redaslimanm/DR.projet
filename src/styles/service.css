@@ -249,49 +249,90 @@ html[dir='rtl'] .link-underline .icon { transform: scaleX(-1); }
 .step__media--natural { grid-template-columns: minmax(0, 420px); }
 .step__media.step__media--natural img { block-size: auto; }
 
-/* Reel Instagram : carte « façade », l'iframe n'est chargée qu'au clic */
-.reel-box { max-inline-size: 400px; margin: var(--sp-4) auto 0; }
-.reel-box__link {
+/* Reel du chalazion hébergé sur le site (khota A, src/js/reel.js) : cadre 9:16 de style
+   Instagram, poster + avertissement « images opératoires » + ▶, puis lecture sur place */
+.reel {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 14px;
-  min-block-size: 64px;
-  padding: var(--sp-2) 20px;
-  background: var(--c-cream);
-  border: var(--border-card);
-  border-radius: 16px;
-  font-weight: var(--fw-semibold);
-  color: var(--c-green);
-}
-.reel-box__icon { display: inline-flex; flex: none; color: var(--c-gold-dark); }
-.reel-box__title { flex: 1; }
-.reel-box__play {
-  display: grid;
-  flex: none;
-  place-items: center;
-  inline-size: 44px;
-  block-size: 44px;
-  border-radius: 50%;
-  background: var(--c-green);
-  color: var(--c-white);
-}
-.reel-box__play svg { inline-size: 18px; block-size: 18px; margin-inline-start: 2px; }
-/* RTL : le triangle ▶ ne s'inverse pas (convention lecture), décalage optique à gauche */
-html[dir='rtl'] .reel-box__play svg { margin-inline-start: 0; margin-inline-end: 2px; }
-.reel-box__link:focus-visible { outline: 3px solid var(--c-gold); outline-offset: 2px; }
-.reel-box iframe {
-  display: block;
   inline-size: 100%;
-  block-size: 640px;
-  border: var(--border-card);
-  border-radius: 16px;
+  max-inline-size: 320px;
+  margin: var(--sp-4) auto 0;
+}
+.reel__frame {
+  inline-size: 100%;
+  overflow: hidden;
   background: var(--c-white);
+  border: 1px solid var(--c-border-2);
+  border-radius: 18px;
 }
-.reel-box__note { margin-block-start: var(--sp-1); text-align: center; font-size: 0.8125rem; color: var(--c-text-muted); }
-.svc-reel-todo { margin-block-start: var(--sp-3); text-align: center; }
+.reel__top { display: flex; align-items: center; gap: 8px; padding: 10px 12px; }
+.reel__logo { display: inline-flex; flex: none; }
+.reel__account { font-family: var(--ff-sans); font-size: 0.8125rem; font-weight: var(--fw-semibold); color: var(--c-text); }
+.reel__media { position: relative; aspect-ratio: 9 / 16; background: #000; }
+.reel__video { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; background: #000; }
+.reel__video:focus-visible { outline: 3px solid var(--c-gold); outline-offset: -3px; }
+.reel__cover {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: #000;
+  color: var(--c-white);
+  cursor: pointer;
+}
+.reel__cover[hidden] { display: none; }
+.reel__cover picture,
+.reel__cover img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.reel__cover::after { /* voile pour lire l'avertissement */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.05) 40%, rgb(0 0 0 / 0.6));
+}
+.reel__play {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  display: grid;
+  place-items: center;
+  inline-size: 64px;
+  block-size: 64px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--c-green);
+  transform: translate(-50%, -50%);
+}
+html[dir='rtl'] .reel__play { transform: translate(50%, -50%); }
+.reel__play svg { inline-size: 26px; block-size: 26px; margin-inline-start: 3px; }
+/* RTL : le triangle ▶ ne s'inverse pas (convention lecture), décalage optique conservé */
+html[dir='rtl'] .reel__play svg { margin-inline-start: 0; margin-inline-end: 3px; }
+.reel__warning {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 12px;
+  inset-block-end: 14px;
+  padding: 10px 12px;
+  background: rgb(0 0 0 / 0.62);
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: var(--fw-semibold);
+  line-height: 1.45;
+  text-align: center;
+}
+.reel__cover:focus-visible { outline: 3px solid var(--c-gold); outline-offset: -3px; }
 @media (hover: hover) {
-  .reel-box__link:hover { border-color: var(--c-gold-light); }
+  .reel__cover:hover .reel__play { background: var(--c-white); }
 }
+@media (prefers-reduced-motion: no-preference) {
+  .reel__play { transition: background-color var(--dur-fast) ease; }
+}
+.reel__nojs { font-size: 0.8125rem; font-weight: var(--fw-semibold); text-align: center; color: var(--c-text-2); }
+.reel__insta .icon { flex: none; }
+.svc-reel-todo { margin-block-start: var(--sp-3); text-align: center; }
 
 /* Bandeau final : bouton RDV en plus d'Appeler / WhatsApp */
 .cta-box .btn--gold .icon { flex: none; }

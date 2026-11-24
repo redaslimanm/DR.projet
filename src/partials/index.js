@@ -4,11 +4,12 @@ import { head } from './head.js';
 import { service } from './service.js';
 import { servicesIndex } from './services-index.js';
 import { map } from './map.js';
+import { reviews } from './reviews.js';
 import { servicesCount } from '../data/site.js';
 
 // services-count : nombre de services du menu dans la langue de la page (accueil)
 const partials = {
-  head, header, footer, service, 'services-index': servicesIndex, map,
+  head, header, footer, service, 'services-index': servicesIndex, map, reviews,
   'services-count': (page) => String(servicesCount(page.lang)),
 };
 

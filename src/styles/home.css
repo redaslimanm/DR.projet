@@ -237,8 +237,7 @@
 .about .btn { inline-size: 100%; }
 
 /* ===================== Plateau technique (carrousel mobile) ===================== */
-.equip-track,
-.reviews-track {
+.equip-track {
   display: flex;
   gap: 12px;
   margin: 0;
@@ -249,8 +248,7 @@
   overscroll-behavior-x: contain;
   scrollbar-width: none;
 }
-.equip-track::-webkit-scrollbar,
-.reviews-track::-webkit-scrollbar { display: none; }
+.equip-track::-webkit-scrollbar { display: none; }
 
 .equip-card {
   flex: 0 0 260px;
@@ -331,28 +329,177 @@
   color: var(--c-gold-light);
 }
 
-/* ===================== Avis patients (carrousel mobile) ===================== */
-.review-card {
-  flex: 0 0 calc(100% - 2 * var(--gutter));
-  padding: 22px;
-  background: var(--c-cream-soft);
-  border: 1px dashed var(--c-gold-light);
-  border-radius: var(--radius-card);
-  scroll-snap-align: start;
+/* ===================== Avis patients (carrousel, src/js/reviews.js) ===================== */
+/* En-tête : note moyenne + étoiles + « Avis Google · N avis » | flèches ‹ › */
+.reviews-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-block-end: 18px;
 }
-
-.review-card__text {
-  margin-block-end: 12px;
-  font-size: var(--fs-small);
-  font-style: italic;
-  color: var(--c-text-2);
-}
-
-.review-card__author {
-  font-size: 0.8125rem;
+.reviews-score { display: flex; flex: 1 1 100%; align-items: center; gap: 12px; }
+.reviews-score__avg {
+  font-family: var(--ff-serif);
+  font-size: 3rem;
   font-weight: var(--fw-semibold);
+  line-height: 1;
   color: var(--c-green);
 }
+.reviews-score__side { display: flex; flex-direction: column; gap: 4px; }
+.reviews-score__meta { font-size: 0.8125rem; color: var(--c-text-3); }
+
+.reviews-nav { display: flex; gap: 8px; margin-inline-start: auto; }
+.reviews-nav[hidden] { display: none; }
+.reviews-nav__btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 38px;
+  block-size: 38px;
+  padding: 0;
+  border: 1px solid var(--c-border-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--c-green);
+  cursor: pointer;
+  transition: opacity var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+.reviews-nav__btn::after { content: ''; position: absolute; inset: -3px; } /* zone tactile 44 px */
+html[dir='rtl'] .reviews-nav__btn .icon { transform: scaleX(-1); } /* ‹ › inversées en RTL */
+.reviews-nav__btn:disabled { opacity: 0.35; cursor: default; }
+.reviews-nav__btn:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 2px; }
+@media (hover: hover) {
+  .reviews-nav__btn:not(:disabled):hover { border-color: var(--c-green); }
+}
+
+/* Étoiles (seul élément doré) : rangée grise + rangée dorée coupée à la note */
+.stars { position: relative; display: inline-flex; inline-size: max-content; line-height: 0; }
+.stars svg { inline-size: 18px; block-size: 18px; fill: currentColor; }
+.stars__base { display: inline-flex; gap: 2px; color: var(--c-border-2); }
+.stars__fill {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: inline-flex;
+  gap: 2px;
+  overflow: hidden;
+  color: #E2A93B; /* jaune-or des étoiles */
+}
+.stars--sm svg { inline-size: 13px; block-size: 13px; }
+.stars--sm .stars__base, .stars--sm .stars__fill { gap: 1px; }
+
+/* Bande défilante : une ligne, scroll-snap, barre fine */
+.reviews-track {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 2px var(--gutter) 12px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-border-2) transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reviews-track { scroll-behavior: smooth; }
+}
+.reviews-track::-webkit-scrollbar { block-size: 6px; }
+.reviews-track::-webkit-scrollbar-thumb { background: var(--c-border-2); border-radius: 999px; }
+.reviews-track:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 2px; border-radius: 12px; }
+
+.review-card {
+  display: flex;
+  flex: 0 0 280px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--c-white);
+  border: 1px solid var(--c-border-2);
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+.review-card__head { display: flex; align-items: center; gap: 10px; }
+.review-card__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 50%;
+  font-family: var(--ff-sans);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+}
+/* 4 couleurs en alternance : fond pastel, lettre foncée de la même teinte */
+.review-card__avatar--0 { background: #EDE7F6; color: #4F378B; } /* violet */
+.review-card__avatar--1 { background: #DDF2EE; color: #1D6457; } /* vert d'eau */
+.review-card__avatar--2 { background: #FDE5DE; color: #A23C22; } /* corail */
+.review-card__avatar--3 { background: #E1ECFA; color: #24548F; } /* bleu */
+.review-card__who { display: flex; flex-direction: column; gap: 3px; min-inline-size: 0; }
+.review-card__name {
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+a.review-card__name { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+.review-card__text {
+  font-size: 0.84375rem;
+  line-height: 1.6;
+  color: var(--c-text-2);
+}
+@media (hover: hover) {
+  a.review-card__name:hover { text-decoration-color: currentColor; }
+}
+
+/* Points de pagination : ronds gris 8 px, le point actif devient une pilule */
+.reviews-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  min-block-size: 8px;
+  margin-block-start: 14px;
+  padding-inline: var(--gutter);
+}
+.reviews-dots[hidden] { display: none; }
+.reviews-dot {
+  position: relative;
+  inline-size: 8px;
+  block-size: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--c-footer-muted);
+  cursor: pointer;
+}
+.reviews-dot::after { content: ''; position: absolute; inset: -8px -3px; } /* zone cliquable */
+.reviews-dot[aria-current] { inline-size: 20px; background: var(--c-green); }
+.reviews-dot:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .reviews-dot { transition: inline-size var(--dur) var(--ease-out), background-color var(--dur) ease; }
+}
+
+/* Boutons sous le carrousel (style secondaire du site) */
+.reviews-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-block-start: var(--sp-3);
+}
+.reviews-actions .icon { flex: none; }
+
+/* Page AR : avis (en français), noms et initiales gardent la police latine du site ;
+   la note passe en Tajawal (Cormorant n'est pas chargée sur les pages AR) */
+html[lang='ar'] :is(.review-card [lang='fr'], .review-card__name, .review-card__avatar) { font-family: var(--ff-sans); }
+html[lang='ar'] .reviews-score__avg { font-family: var(--ff-ar); font-weight: 800; }
 
 /* ===================== Infos pratiques + FAQ ===================== */
 .practical {
@@ -493,7 +640,7 @@
   .hero__actions { max-inline-size: 460px; }
   .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .trust__list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .review-card { flex-basis: 360px; }
+  .reviews-score { flex: 0 1 auto; } /* note et flèches sur une seule ligne */
 }
 
 /* =========================================================
@@ -640,17 +787,10 @@
   .quote__icon { block-size: 54px; margin-block-end: 26px; }
   .quote blockquote p { font-size: 2.625rem; }
 
-  /* Avis */
-  .reviews-track {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    padding: 0;
-    overflow: visible;
-  }
-  .review-card { padding: 28px; border-radius: var(--radius-card-lg); }
-  .review-card__text { margin-block-end: 18px; font-size: var(--fs-body); }
-  .review-card__author { font-size: var(--fs-small); }
+  /* Avis : la bande reste dans le conteneur (3 à 4 cartes visibles) */
+  .reviews-track { padding-inline: 0; scroll-padding-inline: 0; }
+  .reviews-dots { padding-inline: 0; }
+  .reviews-score__avg { font-size: 3.5rem; }
 
   /* Infos pratiques */
   .practical { flex-direction: row; gap: 56px; }
@@ -678,8 +818,7 @@
 /* =========================================================
    Carrousels mobiles (CSS scroll-snap) : focus clavier + points
    ========================================================= */
-.equip-track:focus-visible,
-.reviews-track:focus-visible {
+.equip-track:focus-visible {
   outline: 2px solid var(--c-gold);
   outline-offset: -2px;
   border-radius: 20px;
@@ -693,7 +832,6 @@
   padding-inline: calc(var(--gutter) - 8px);
 }
 .carousel-dots[hidden] { display: none; }
-.reviews-track + .carousel-dots { justify-content: center; }
 
 /* Cible tactile 28 × 28 px, barre visible 8 × 4 px (22 px si active) */
 .carousel-dots__dot {

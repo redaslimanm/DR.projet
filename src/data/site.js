@@ -40,10 +40,22 @@ export const socials = {
 
 // Fiche Google Maps du cabinet (fournie par le client) + carte intégrée.
 // La carte n'est chargée qu'au clic (performance + données envoyées à Google).
+// Intégration SANS clé API : `maps.google.com/maps?cid=…&output=embed` (CID = identifiant de la
+// fiche, extrait du place_id ChIJiZbDE0-Lnw0RafsoVqjYiZ8). Testé le 23/11/2026 : affiche la fiche
+// du cabinet avec son repère. Le format `?q=place_id:…&output=embed` affiche une carte du monde,
+// et l'ancienne recherche par nom ne montrait pas de repère → ne pas les réutiliser.
+const PLACE_ID = 'ChIJiZbDE0-Lnw0RafsoVqjYiZ8';
+const CID = '11495957741351533417';
 export const maps = {
+  placeId: PLACE_ID,
   place: 'https://maps.app.goo.gl/p44UvxS9aQ613Bay7',
-  embed:
-    'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sCabinet+d%27ophtalmologie+Dr.+Elaouni+Rajae,+69+Av.+des+Forces+Arm%C3%A9es+Royales,+F%C3%A8s+30000!6i17',
+  // Carte intégrée, dans la langue de la page
+  embed: (lang) => `https://maps.google.com/maps?cid=${CID}&hl=${lang}&output=embed`,
+  // Itinéraire vers le cabinet (s'ouvre dans Google Maps)
+  directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Cabinet d'ophtalmologie Dr. Elaouni Rajae")}&destination_place_id=${PLACE_ID}`,
+  // Avis Google : tous les avis / laisser un avis
+  reviews: `https://search.google.com/local/reviews?placeid=${PLACE_ID}`,
+  writeReview: `https://search.google.com/local/writereview?placeid=${PLACE_ID}`,
 };
 
 // Pages du site (slug identique en FR et AR → le switch de langue garde la page)

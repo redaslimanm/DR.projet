@@ -495,5 +495,29 @@
       800,
       1153
     ]
+  },
+  "cataracte-avant": {
+    "width": 620,
+    "height": 670,
+    "widths": [
+      480,
+      620
+    ]
+  },
+  "cataracte-apres": {
+    "width": 620,
+    "height": 670,
+    "widths": [
+      480,
+      620
+    ]
+  },
+  "reel-chalazion-poster": {
+    "width": 720,
+    "height": 1280,
+    "widths": [
+      480,
+      720
+    ]
   }
 }

@@ -983,6 +983,14 @@ export const servicesContent = [
     // Reel Instagram sur le chalazion (demande de la doctoresse, PDF page 7), lien fourni le
     // 24/11/2026. URL complète attendue ; reel: null = emplacement vide (placeholder en dev).
     reel: 'https://www.instagram.com/reel/DfAYsQQRq_N/',
+    // Khota A (khota-a.md) : Instagram bloque l'intégration (post « Age-restricted ») → vidéo
+    // hébergée sur le site, lue sur place, + bouton « Voir sur Instagram » (lien `reel`).
+    // Source : assets-source/videos/reel-chalazion.mp4 (H.264 720×1280, 2,3 Mo, faststart).
+    reelVideo: {
+      src: '/src/assets/videos/reel-chalazion.mp4',
+      poster: 'reel-chalazion-poster', // image extraite à 7,5 s (aucune image opératoire)
+      title: 'Vidéo du Dr Elaouni Rajae sur le chalazion',
+    },
     doctor: GENERAL,
     faq: [
       {
@@ -1315,7 +1323,7 @@ export function serviceAvailable(slug, lang = 'fr') {
 // Version AR = textes de services-content.ar.js + éléments non textuels du FR
 // (icônes, images, liens, réglages). Tout contenu FR contenant du texte doit avoir
 // sa traduction : sinon le build s'arrête (jamais de texte français sur une page AR).
-const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure', 'whatImage', 'stepsImage', 'ctaText'];
+const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure', 'whatImage', 'stepsImage', 'ctaText', 'reelVideo'];
 
 // Image d'une section (whatImage / stepsImage) : fichier du FR, alt et légende de l'AR
 const localizedMedia = (fr, ar, fail, what) => {
@@ -1346,6 +1354,11 @@ export function localizedService(slug, lang = 'fr') {
       return [t, d, imgs.map((p, k) => ({ ...p, alt: alts[k] }))];
     }),
   };
+  // Vidéo hébergée (khota A) : fichier et poster du FR, titre de l'AR
+  if (base.reelVideo) {
+    if (!ar.reelVideo?.title) fail('reelVideo.title');
+    out.reelVideo = { ...base.reelVideo, title: ar.reelVideo.title };
+  }
   if (base.whatImage) out.whatImage = localizedMedia(base.whatImage, ar.whatImage, fail, 'whatImage');
   if (base.stepsImage) out.stepsImage = localizedMedia(base.stepsImage, ar.stepsImage, fail, 'stepsImage');
   if (base.signCards) out.signCards = base.signCards.map(([icon], i) => [icon, ...ar.signCards[i]]);

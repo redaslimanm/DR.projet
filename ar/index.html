@@ -339,33 +339,8 @@
     </section>
 
     <!-- ===================== 10. Avis patients ===================== -->
-    <section class="section" id="avis" aria-labelledby="reviews-title">
-      <div class="container">
-        <div class="section-head section-head--center">
-          <p class="label label--plain">آراء المرضى</p>
-          <h2 id="reviews-title">يثقون بنا</h2>
-          <p class="section-head__intro">تقييم Google: <span class="placeholder">[À INTÉGRER : note]</span> / 5 · <span class="placeholder">[À INTÉGRER : nombre]</span> رأي</p>
-        </div>
-      </div>
-
-      <div class="container container--bleed-mobile carousel" data-carousel>
-        <ul class="reviews-track" role="list" tabindex="0" aria-label="آراء المرضى (مرّروا أفقياً)">
-          <li class="review-card">
-            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°1]</span></p>
-            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
-          </li>
-          <li class="review-card">
-            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°2]</span></p>
-            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
-          </li>
-          <li class="review-card">
-            <p class="review-card__text"><span class="placeholder">[À INTÉGRER : avis Google n°3]</span></p>
-            <p class="review-card__author"><span class="placeholder">[Prénom du patient]</span></p>
-          </li>
-        </ul>
-        <div class="carousel-dots" data-dots role="group" aria-label="اختيار بطاقة"></div>
-      </div>
-    </section>
+    <!-- Avis Google : src/data/reviews.json (règles src/data/reviews.js, rendu src/partials/reviews.js) -->
+    <!-- @partial reviews -->
 
     <!-- ===================== 11. Infos pratiques + FAQ ===================== -->
     <section class="section section--cream" id="infos" aria-labelledby="infos-title">
@@ -462,7 +437,7 @@
         <div class="contact__map">
           <!-- @partial map -->
           <!-- @picture name="plan-acces" alt="مخطط الوصول إلى العيادة بشارع الجيش الملكي، بين بيوغناش و Eight Pool" sizes="(min-width: 64em) 680px, calc(100vw - 40px)" class="contact__plan" -->
-          <a class="btn btn--outline btn--block" href="https://maps.app.goo.gl/p44UvxS9aQ613Bay7" target="_blank" rel="noopener">
+          <a class="btn btn--outline btn--block" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cabinet%20d%27ophtalmologie%20Dr.%20Elaouni%20Rajae&amp;destination_place_id=ChIJiZbDE0-Lnw0RafsoVqjYiZ8" target="_blank" rel="noopener">
             <!-- @icon navigation 18 -->المسار على Google Maps
           </a>
         </div>

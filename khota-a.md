@@ -1,5 +1,7 @@
 # Khota A : reel du chalazion hébergé sur le site
 
+> **Appliquée le 24/11/2026** (FR + AR). Écarts : vidéo fournie dans `assets-source/chalazion.mp4` (et non à la racine) ; pas de réencodage ni de WebM — ffmpeg absent, et la vidéo respectait déjà les critères (H.264, 720 px, 2,3 Mo, faststart). Détails dans CLAUDE.md, section « Khota A ».
+
 Contexte : Instagram bloque l'intégration du reel https://www.instagram.com/reel/DfAYsQQRq_N/ (post « Age-restricted »). On héberge donc la vidéo sur le site, dans un lecteur de style Instagram, avec un bouton vers Instagram.
 
 **Pages concernées : la page chalazion FR (`/fr/services/chalazion/`) ET la page chalazion AR (`/ar/services/chalazion/`, ajoutée le 23/11/2026).** Même vidéo, même lecteur ; seuls les textes changent (voir 2 bis).

@@ -77,8 +77,13 @@ if (beforeAfter) import('./before-after.js').then((m) => m.initBeforeAfter(befor
 
 // Vidéo YouTube (accueil) : iframe créée au clic seulement
 if (document.querySelector('[data-yt]')) import('./video.js').then((m) => m.initVideos());
-// Reel Instagram (page Chalazion) : même principe
-if (document.querySelector('[data-ig]')) import('./video.js').then((m) => m.initReels());
+// Avis patients (accueil) : carrousel (flèches, points, clavier)
+const reviewsSection = document.querySelector('[data-reviews]');
+if (reviewsSection) import('./reviews.js').then((m) => m.initReviews(reviewsSection));
+
+// Reel du chalazion hébergé sur le site (khota A) : lecture au clic sur le poster
+const reel = document.querySelector('[data-reel]');
+if (reel) import('./reel.js').then((m) => m.initReel(reel));
 
 // Galerie (page Le cabinet) : GLightbox chargé à la demande
 const gallery = document.querySelector('[data-gallery]');

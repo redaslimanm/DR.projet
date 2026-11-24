@@ -18,23 +18,3 @@ export function initVideos() {
     });
   });
 }
-
-// Reel Instagram « façade » : carte hébergée sur le site, l'iframe Instagram n'est
-// créée qu'au clic → aucun appel à Instagram avant l'action du visiteur.
-// Sans JS : le lien ouvre le reel sur Instagram.
-export function initReels() {
-  document.querySelectorAll('[data-ig]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.instagram.com/reel/${link.dataset.ig}/embed/`;
-      iframe.title = link.dataset.igTitle || 'Reel Instagram';
-      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      iframe.allowFullscreen = true;
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      link.replaceWith(iframe);
-      iframe.focus({ preventScroll: true });
-    });
-  });
-}

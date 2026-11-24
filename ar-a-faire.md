@@ -39,10 +39,23 @@ doctoresse** (relecture : `traduction-ar-8-pages.md`).
       « الفحوصات », « الاستشارة والمتابعة ». « الاستشارة والمتابعة » remplace aussi
       « الفحص والمتابعة » comme titre de groupe sur `/ar/services/` (`serviceGroupsAr`), pour ne
       pas ressembler à « الفحوصات ». À valider (fichier de relecture, section 1).
-- [ ] **Bloc reel Instagram (page Chalazion AR)** : textes « شاهدوا الفيديو على إنستغرام » et
-      la note (objet `UI.ar` de `src/partials/service.js`, `TODO AR`). Le lecteur Instagram reste
-      en erreur (post « Age-restricted ») jusqu'à l'application de **khota A** (`khota-a.md`),
-      qui couvre aussi la page AR.
+- [ ] **Section « Avis de nos patients » (accueil AR, 23/11/2026)** — textes d'interface proposés
+      par nous (`T.ar` de `src/partials/reviews.js`, `TODO AR`), à valider : label « آراء المرضى »
+      (existant), titre « آراء مرضانا », « آراء Google · 18 رأياً », boutons « عرض جميع الآراء على
+      Google » et « أضيفوا رأيكم », libellés d'accessibilité : flèches « الرأي السابق » /
+      « الرأي التالي », points « التنقل بين الآراء » / « الانتقال إلى الرأي {n} », bande
+      « آراء مرضانا: استعملوا أسهم لوحة المفاتيح للتمرير », « التقييم المتوسط: … من 5 »,
+      « … من 5 نجوم », « حساب … على Google (نافذة جديدة) », « (نافذة جديدة) ». Le texte des avis
+      reste en français (tel quel).
+- [ ] **Politique de confidentialité AR** : paragraphe « خريطة Google Maps » complété (lien vers
+      la politique de Google, avis recopiés de Google), `TODO AR` + badge [À VALIDER] — même
+      validation que le texte FR.
+- [ ] **Lecteur vidéo du chalazion (khota A, page Chalazion AR, 24/11/2026)** : avertissement
+      « يحتوي هذا الفيديو على صور من عملية جراحية. انقروا للمشاهدة. », version sans JavaScript
+      « تنبيه: يحتوي هذا الفيديو على صور من عملية جراحية. », bouton « شاهدوا على إنستغرام »,
+      « (نافذة جديدة) » (objet `UI.ar` de `src/partials/service.js`) et titre de la vidéo
+      « فيديو الدكتورة العوني رجاء حول البَرَدة (Chalazion) » (`reelVideo` de `chalazion` dans
+      `services-content.ar.js`) — `TODO AR`, à valider par la doctoresse.
 
 - [ ] **Point client 1** (« … » après « cristallin » / « العدسة ») : mettre à jour FR + AR.
 - [ ] **Point client 2** (durée de consultation) : unifier accueil, FAQ et page Consultation
