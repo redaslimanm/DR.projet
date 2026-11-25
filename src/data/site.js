@@ -3,10 +3,12 @@
 // Une seule source : modifier ici met à jour toutes les pages.
 // =========================================================
 
-// Domaine du site (sans / final) : utilisé pour canonical, hreflang, Open Graph,
-// sitemap.xml et robots.txt. [À COMPLÉTER : domaine définitif]
-export const SITE_URL_PLACEHOLDER = 'https://www.domaine-a-definir.ma';
-export const SITE_URL = (process.env.SITE_URL || SITE_URL_PLACEHOLDER).replace(/\/$/, '');
+// Domaine du site (sans / final) : SOURCE UNIQUE de toutes les URL absolues — canonical,
+// hreflang, Open Graph (og:url, og:image), JSON-LD, sitemap.xml et robots.txt.
+// Domaine définitif (mise en ligne) : https://www.ophtalmo-fes.com (sans www → redirigé vers www).
+// La variable d'environnement SITE_URL, si elle est définie, remplace cette valeur.
+export const SITE_URL_DEFAULT = 'https://www.ophtalmo-fes.com';
+export const SITE_URL = (process.env.SITE_URL || SITE_URL_DEFAULT).replace(/\/$/, '');
 
 export const contact = {
   phone: '05 32 39 18 18',

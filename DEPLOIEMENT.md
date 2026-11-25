@@ -25,7 +25,7 @@ Réglages à saisir (identiques partout) :
 - **Commande de build** : `npm run build`
 - **Dossier publié** : `dist`
 - **Version de Node** : 22
-- **Variable d'environnement** `SITE_URL` : l'adresse définitive, ex. `https://www.dr-elaouni.ma` (sans `/` final). Tant qu'elle n'est pas définie, le site utilise une adresse provisoire dans les balises SEO.
+- **Domaine** : `https://www.ophtalmo-fes.com`, défini dans `src/data/site.js` (`SITE_URL_DEFAULT`). La variable d'environnement `SITE_URL` n'est **pas nécessaire** ; si elle existe dans Vercel, elle doit valoir exactement `https://www.ophtalmo-fes.com` (sinon elle remplace le domaine).
 - **Variable d'environnement** `SHOW_DRAFT_BADGES` (facultative) : `true` affiche les badges de travail `[À VALIDER]` / `[À COMPLÉTER]` et les blocs `data-draft` (FR et AR) ; `false` les retire. Sans variable : affichés avec `npm run dev`, **retirés au build** (production). Les textes restent dans le code et dans `textes-a-valider.md`.
 
 Chaque `git push` sur `master` redéploie le site automatiquement (environ 1 minute). Les autres branches donnent des adresses de prévisualisation (pratique pour faire valider un changement par la doctora).

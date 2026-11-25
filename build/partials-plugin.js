@@ -143,11 +143,11 @@ export default function partialsPlugin({ root, pages = [] }) {
 
     async closeBundle() {
       if (server || !outDir) return;
-      const { SITE_URL, SITE_URL_PLACEHOLDER } = await load('/src/data/site.js');
+      const { SITE_URL, SITE_URL_DEFAULT } = await load('/src/data/site.js');
       const n = writeSeoFiles(outDir, pages, SITE_URL);
       console.log(`\n  [seo] sitemap.xml (${n} URL) + robots.txt écrits pour ${SITE_URL}`);
-      if (SITE_URL === SITE_URL_PLACEHOLDER) {
-        console.warn('  [seo] ⚠ domaine provisoire : définir SITE_URL (src/data/site.js ou variable d’environnement) avant la mise en ligne\n');
+      if (SITE_URL !== SITE_URL_DEFAULT) {
+        console.warn(`  [seo] ⚠ SITE_URL (variable d'environnement) = ${SITE_URL}, différent du domaine du site (${SITE_URL_DEFAULT})\n`);
       }
     },
 

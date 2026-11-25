@@ -217,7 +217,7 @@ Performance ≥ 90 · Accessibilité ≥ 95 · SEO = 100 · accueil < 1,5 Mo · 
 
 SEO local : schema.org `Physician` / `MedicalClinic` (adresse, téléphone, horaires, géo), `sitemap.xml`, `robots.txt`, titres et meta descriptions par page.
 
-Mise en place (étape 8) : domaine dans `SITE_URL` (`src/data/site.js`, ou variable d'environnement `SITE_URL`) — provisoire tant que le domaine n'est pas choisi. Le build génère `sitemap.xml` et `robots.txt` ; contrôle avec `npm run check:seo`. Coordonnées GPS et réseaux sociaux non renseignés dans le schema tant qu'ils ne sont pas fournis. Exemple accueil :
+Mise en place (étape 8) : domaine définitif **https://www.ophtalmo-fes.com** (sans www → redirigé vers www), défini à un seul endroit : `SITE_URL_DEFAULT` dans `src/data/site.js` (la variable d'environnement `SITE_URL`, si elle existe, la remplace). Toutes les URL absolues en dépendent (canonical, hreflang, og:url / og:image, JSON-LD, sitemap.xml, robots.txt). Le build génère `sitemap.xml` et `robots.txt` ; contrôle avec `npm run check:seo`.
 - Title : `Ophtalmologue à Fès – Dr Elaouni Rajae | Avenue des FAR`
 - Description : `Cabinet d'ophtalmologie à Fès : consultation, dépistage, chirurgie de la cataracte, kératocône, glaucome. Adultes et enfants. Tél. 05 32 39 18 18.`
 
