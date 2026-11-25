@@ -41,7 +41,7 @@ doctoresse** (relecture : `traduction-ar-8-pages.md`).
       pas ressembler à « الفحوصات ». À valider (fichier de relecture, section 1).
 - [ ] **Section « Avis de nos patients » (accueil AR, 23/11/2026)** — textes d'interface proposés
       par nous (`T.ar` de `src/partials/reviews.js`, `TODO AR`), à valider : label « آراء المرضى »
-      remplacé le 25/11/2026 par « آراء Google موثّقة », titre « ماذا يقول مرضانا » (avant : « آراء مرضانا »), « آراء Google + 18 رأياً », boutons « عرض جميع الآراء على
+      remplacé le 25/11/2026 par le titre « آراء Google 100% موثّقة » et le sous-titre « ماذا يقول مرضانا » (avant : « آراء مرضانا »), « آراء Google + 18 رأياً », boutons « عرض جميع الآراء على
       Google » et « أضيفوا رأيكم », libellés d'accessibilité : flèches « الرأي السابق » /
       « الرأي التالي », points « التنقل بين الآراء » / « الانتقال إلى الرأي {n} », bande
       « آراء مرضانا: استعملوا أسهم لوحة المفاتيح للتمرير », « التقييم المتوسط: … من 5 »,

@@ -151,7 +151,7 @@ Menu : Accueil · Dr Elaouni · Services ▾ (FR : liens rangés sous les intert
 7. Plateau technique : 3 cartes équipements
 8. Le cabinet : galerie (réception, salles d'attente, espace diplômes)
 9. Citation : « La vision est l'art de voir l'invisible. » — Jonathan Swift (phrase écrite sur le mur du cabinet)
-10. Avis patients (libellé « Avis Google vérifiés », titre « Ce que disent nos patients ») : note moyenne, étoiles, nombre d'avis, cartes des avis Google (carrousel mobile, grille desktop) + « Voir tous les avis sur Google » / « Laisser un avis » — généré depuis `src/data/reviews.json` (partial `reviews`)
+10. Avis patients (titre h2 « Avis Google 100% Vérifiés » — « 100% » en vert émeraude, arc tracé sous « Vérifiés », coche — puis sous-titre « Ce que disent nos patients ») : note moyenne, étoiles, nombre d'avis, cartes des avis Google (carrousel mobile, grille desktop) + « Voir tous les avis sur Google » / « Laisser un avis » — généré depuis `src/data/reviews.json` (partial `reviews`)
 11. Infos pratiques (horaires, documents, annulation) + FAQ (4 questions, en `<details>`)
 12. Contact : adresse + repères, téléphone, WhatsApp, email, carte Google Maps, plan d'accès (image tirée de la carte de visite)
 13. Footer (fond `#23392B`, logo blanc)

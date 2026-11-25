@@ -393,6 +393,82 @@ html[dir='rtl'] .reviews-nav__btn .icon { transform: scaleX(-1); } /* ‹ › in
 .stars--sm svg { inline-size: 13px; block-size: 13px; }
 .stars--sm .stars__base, .stars--sm .stars__fill { gap: 1px; }
 
+/* Titre « Avis Google 100% Vérifiés » (25/11/2026) : Montserrat 400, sur une ligne,
+   « 100% » + arc + coche en vert émeraude ; « Avis Google » / « Vérifiés » en vert du site.
+   Émeraude assombri (#15845C au lieu de #1A9A6C) : contraste ≥ 4,5:1 sur blanc pour « 100% »
+   en petite taille. Taille min 1.3rem (au lieu de 2rem) pour tenir sur une ligne à 360 px. */
+.rv-title {
+  --accent: #15845C;
+  --text: var(--c-green);
+  --bg: transparent;
+  margin: 0;
+  padding-block: 0.15em 0.45em; /* place pour l'arc sous « Vérifiés » */
+  background: var(--bg);
+  font-family: var(--ff-sans);
+  font-size: clamp(1.15rem, 4.2vw, 2.75rem); /* réduit le 25/11/2026 (avant : jusqu'à 4rem) */
+  font-weight: var(--fw-regular);
+  line-height: 1.15;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: var(--text);
+}
+/* « .section-head h2 { text-wrap: balance } » réactive le retour à la ligne : une seule ligne */
+.section-head .rv-title { text-wrap: nowrap; white-space: nowrap; }
+/* La tête centrée est limitée à 680 px : le titre (≈ 860 px à 64 px) a besoin de toute la largeur */
+.reviews .section-head--center { max-inline-size: none; }
+html[lang='ar'] .rv-title { font-family: var(--ff-ar); font-size: clamp(1.15rem, 4.2vw, 2.75rem); font-weight: 500; }
+.rv-title__g {
+  display: inline-block;
+  inline-size: 0.85em;
+  block-size: 0.85em;
+  margin-inline-end: 0.35em;
+  vertical-align: -0.1em; /* centré sur la ligne de texte */
+}
+.rv-title__accent { color: var(--accent); }
+.rv-title__word { position: relative; display: inline-block; }
+.rv-title__arc {
+  position: absolute;
+  inset-inline-start: -0.12em;
+  inset-block-end: -0.2em; /* ≈ 0,35 em sous la ligne de base */
+  inline-size: calc(100% + 0.5em); /* jusqu'au niveau de la coche */
+  block-size: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+html[dir='rtl'] .rv-title__arc { transform: scaleX(-1); } /* tracé dans le sens de lecture */
+.rv-title__arc path {
+  fill: none;
+  stroke: #FBBC05; /* jaune du « o » de Google (demande du 25/11/2026) */
+  stroke-width: 6px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.rv-title__check {
+  display: inline-block;
+  inline-size: 0.55em;
+  block-size: 0.55em;
+  margin-inline-start: 0.4em;
+  vertical-align: 0.02em; /* centrée sur la hauteur des minuscules / capitales */
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Tracé de l'arc quand la section apparaît (html.anim = JS + pas de prefers-reduced-motion) */
+html.anim .rv-title__arc path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.anim .section-head.is-in .rv-title__arc path { animation: rv-arc 0.8s ease-out 0.25s forwards; }
+@keyframes rv-arc { to { stroke-dashoffset: 0; } }
+.rv-subtitle {
+  margin-block-start: 6px;
+  font-family: var(--ff-serif);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-2);
+}
+html[lang='ar'] .rv-subtitle { font-family: var(--ff-ar); font-weight: 700; }
+
 /* Bande défilante : une ligne, scroll-snap, barre fine */
 .reviews-track {
   display: flex;
