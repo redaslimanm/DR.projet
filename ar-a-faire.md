@@ -47,6 +47,9 @@ doctoresse** (relecture : `traduction-ar-8-pages.md`).
       « آراء مرضانا: استعملوا أسهم لوحة المفاتيح للتمرير », « التقييم المتوسط: … من 5 »,
       « … من 5 نجوم », « حساب … على Google (نافذة جديدة) », « (نافذة جديدة) ». Le texte des avis
       reste en français (tel quel).
+- [ ] **Chiffres de l'accueil AR (25/11/2026)** : libellé « تخصصات وفحوصات » remplacé par
+      « علاجات وفحوصات متخصصة » (FR : « soins et examens spécialisés »), `ar/index.html`,
+      `TODO AR`. À valider.
 - [ ] **Politique de confidentialité AR** : paragraphe « خريطة Google Maps » complété (lien vers
       la politique de Google, avis recopiés de Google), `TODO AR` + badge [À VALIDER] — même
       validation que le texte FR.

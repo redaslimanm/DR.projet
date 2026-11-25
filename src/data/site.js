@@ -130,7 +130,7 @@ export const serviceMenuGroups = [
   },
 ];
 
-// Nombre de services proposés dans une langue (accueil : « 20 spécialités et examens »…)
+// Nombre de services proposés dans une langue (accueil : « 20 soins et examens spécialisés »…)
 export const servicesCount = (lang) => services.filter((s) => s[lang]).length;
 
 // Textes d'interface
