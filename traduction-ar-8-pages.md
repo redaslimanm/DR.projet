@@ -427,5 +427,75 @@ Adresse : `/fr/services/microscopie-speculaire/` ↔ `/ar/services/microscopie-s
 
 ---
 
+## 11. Corrections du 25/11/2026 (« dernière modification site web »)
+
+Docteure, voici la traduction arabe proposée pour vos dernières corrections : la durée de la
+consultation (15 à 20 minutes en moyenne) et les 9 questions de la FAQ glaucome. Le texte
+français est le vôtre ; le texte arabe est notre proposition, déjà en ligne en attendant votre
+validation. Termes utilisés : « الزرق » (glaucome), « ضغط العين » (tension oculaire),
+« المجال البصري » (champ visuel), « قياس سمك القرنية » (pachymétrie), « فحص زاوية العين
+(Gonioscopie) » (gonioscopie).
+
+| Bloc | Français (votre texte) | Arabe (traduction proposée) |
+|---|---|---|
+| Consultation — FAQ durée : question | Combien de temps dure une consultation ophtalmologique ? | كم يستغرق فحص العيون؟ |
+| Consultation — FAQ durée : réponse | La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement 15 à 20 minutes en moyenne, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires. | تختلف المدة حسب سبب الاستشارة والفحوصات اللازمة. ويستغرق الفحص المعتاد عادةً من 15 إلى 20 دقيقة في المتوسط، وقد يطول في حالة توسيع البؤبؤ أو إجراء فحوصات تكميلية. |
+| Glaucome — FAQ 1 : question | Le glaucome donne-t-il des symptômes ? | هل يسبب الزرق أعراضاً؟ |
+| Glaucome — FAQ 1 : réponse | Le glaucome chronique évolue généralement sans douleur ni symptôme perceptible au début. La perte du champ visuel est progressive et peut passer inaperçue pendant plusieurs années, d'où l'importance du dépistage. | يتطور الزرق المزمن عادةً دون ألم ودون أعراض ملحوظة في البداية. ويكون فقدان المجال البصري تدريجياً، وقد يمر دون أن يُلاحَظ لعدة سنوات، ومن هنا تأتي أهمية الكشف المبكر. |
+| Glaucome — FAQ 2 : question | À partir de quel âge faut-il se faire dépister ? | ابتداءً من أي سن يجب الخضوع للكشف؟ |
+| Glaucome — FAQ 2 : réponse | Un dépistage régulier est particulièrement recommandé à partir de 40 ans, ou plus tôt en présence de facteurs de risque, notamment des antécédents familiaux de glaucome. | يُنصح بالكشف المنتظم خاصة ابتداءً من سن 40، أو قبل ذلك في حال وجود عوامل خطر، خاصة وجود حالات زرق في العائلة. |
+| Glaucome — FAQ 3 : question | Peut-on avoir un glaucome avec une tension oculaire normale ? | هل يمكن الإصابة بالزرق مع ضغط عين طبيعي؟ |
+| Glaucome — FAQ 3 : réponse | Oui. Il existe des glaucomes à pression normale. La mesure de la pression oculaire seule ne suffit donc pas à exclure un glaucome. | نعم. توجد حالات زرق بضغط طبيعي. لذلك فإن قياس ضغط العين وحده لا يكفي لاستبعاد الإصابة بالزرق. |
+| Glaucome — FAQ 4 : question | Une tension oculaire élevée signifie-t-elle forcément que j’ai un glaucome ? | هل يعني ارتفاع ضغط العين بالضرورة الإصابة بالزرق؟ |
+| Glaucome — FAQ 4 : réponse | Non. Une pression oculaire élevée constitue un facteur de risque, mais ne signifie pas nécessairement qu'il existe une atteinte du nerf optique. | لا. فارتفاع ضغط العين عامل خطر، لكنه لا يعني بالضرورة وجود إصابة في العصب البصري. |
+| Glaucome — FAQ 5 : question | Le glaucome peut-il rendre aveugle ? | هل يمكن أن يؤدي الزرق إلى العمى؟ |
+| Glaucome — FAQ 5 : réponse | Oui, en l’absence de prise en charge, le glaucome peut entraîner une perte irréversible de la vision. Un diagnostic précoce et un traitement adapté permettent généralement de ralentir son évolution et de préserver la vision. | نعم، في غياب التكفل، قد يؤدي الزرق إلى فقدان لا رجعة فيه للبصر. ويسمح التشخيص المبكر والعلاج الملائم عادةً بإبطاء تطوره والحفاظ على البصر. |
+| Glaucome — FAQ 6 : question | Le glaucome est-il héréditaire ? | هل الزرق وراثي؟ |
+| Glaucome — FAQ 6 : réponse | Les antécédents familiaux de glaucome augmentent le risque de développer cette maladie. Un dépistage régulier est particulièrement recommandé chez les personnes ayant un parent, un frère ou une sœur atteint de glaucome. | وجود حالات زرق في العائلة يزيد من خطر الإصابة بهذا المرض. ويُنصح بالكشف المنتظم خاصة لدى الأشخاص الذين لديهم أحد الوالدين أو أخ أو أخت مصاب بالزرق. |
+| Glaucome — FAQ 7 : question | Quels examens permettent de diagnostiquer un glaucome ? | ما هي الفحوصات التي تسمح بتشخيص الزرق؟ |
+| Glaucome — FAQ 7 : réponse | Le diagnostic repose sur plusieurs examens : mesure de la pression intraoculaire, examen du nerf optique, pachymétrie cornéenne, gonioscopie, OCT du nerf optique et champ visuel. | يعتمد التشخيص على عدة فحوصات: قياس الضغط داخل العين، وفحص العصب البصري، وقياس سمك القرنية، وفحص زاوية العين (Gonioscopie)، والتصوير المقطعي البصري (OCT) للعصب البصري، وفحص المجال البصري. |
+| Glaucome — FAQ 8 : question | Peut-on guérir définitivement du glaucome ? | هل يمكن الشفاء نهائياً من الزرق؟ |
+| Glaucome — FAQ 8 : réponse | Les lésions du nerf optique liées au glaucome sont irréversibles. Cependant, les traitements par collyres, laser ou chirurgie permettent de contrôler la maladie et de limiter sa progression. | إصابات العصب البصري المرتبطة بالزرق لا رجعة فيها. غير أن العلاج بالقطرات أو الليزر أو الجراحة يسمح بالتحكم في المرض والحد من تطوره. |
+| Glaucome — FAQ 9 : question | Puis-je arrêter mes gouttes si ma tension oculaire est redevenue normale ? | هل يمكن التوقف عن القطرات إذا عاد ضغط العين إلى حالته الطبيعية؟ |
+| Glaucome — FAQ 9 : réponse | Non. La normalisation de la pression oculaire est souvent liée à l’efficacité du traitement. Toute modification ou interruption doit être décidée avec votre ophtalmologue. | لا. فعودة ضغط العين إلى حالته الطبيعية ترتبط غالباً بفعالية العلاج. وأي تعديل للعلاج أو توقف عنه يجب أن يتقرر بالاتفاق مع طبيب العيون الذي يتابعكم. |
+
+- [ ] Validé tel quel
+- [ ] À corriger — Corrections :
+
+---
+
+## 12. Maquettes du 25/11/2026 (bande verte, consultation, glaucome)
+
+Docteure, voici la traduction arabe proposée pour les éléments de vos maquettes : la bande verte
+de l'accueil, les 6 étapes de la consultation, l'encadré « maladie silencieuse » de la page
+glaucome et la durée de consultation sur l'accueil et la page FAQ. Le texte arabe est notre
+proposition, déjà en ligne en attendant votre validation. Les étapes 1 et 3 reprennent des
+textes arabes déjà validés.
+
+| Bloc | Français (votre texte) | Arabe (traduction proposée) |
+|---|---|---|
+| Bande verte — élément 1 : titre | 20+ Soins et examens spécialisés | +20 رعاية وفحوصات متخصصة |
+| Bande verte — élément 1 : sous-titre | Une prise en charge complète | تكفل شامل |
+| Bande verte — élément 2 : titre | Formation internationale | تكوين دولي |
+| Bande verte — élément 2 : sous-titre | Diplômes du Royaume-Uni et d’Espagne | دبلومات من المملكة المتحدة وإسبانيا |
+| Bande verte — élément 3 : titre | Membre de la SFO | عضوة في SFO |
+| Bande verte — élément 3 : sous-titre | Société Française d’Ophtalmologie | الجمعية الفرنسية لطب العيون |
+| Bande verte — élément 4 : titre | Plateau technique de pointe | تجهيزات تقنية متطورة |
+| Bande verte — élément 4 : sous-titre | Explorations oculaires spécialisées sur place | فحوصات متخصصة للعين بالعيادة |
+| Consultation — étape 1 | **Échange** — Vos antécédents, vos symptômes et vos besoins visuels. | **حوار** — سوابقكم المرضية، أعراضكم واحتياجاتكم البصرية. |
+| Consultation — étape 2 | **Bilan visuel** — Évaluation de l’acuité visuelle et de la réfraction (mesure de la vue). | **تقييم البصر** — تقييم حدة البصر ودرجة الانكسار (قياس النظر). |
+| Consultation — étape 3 | **Examen des yeux** — Examen à la lampe à fente des paupières, de la cornée et du cristallin… | **فحص العينين** — فحص الجفون والقرنية والجسم البلوري (العدسة) بواسطة المصباح الشقي… |
+| Consultation — étape 4 | **Examen de la rétine (si besoin)** — Dilatation pupillaire pour une évaluation approfondie de la rétine (fond d’œil). | **فحص الشبكية (عند الحاجة)** — توسيع البؤبؤ من أجل تقييم معمّق للشبكية (فحص قاع العين). |
+| Consultation — étape 5 | **Mesure de la pression oculaire** — Dépistage d’une hypertension oculaire ou d’un glaucome. | **قياس ضغط العين** — الكشف عن ارتفاع ضغط العين أو عن الزرق. |
+| Consultation — étape 6 | **Examens complémentaires (si besoin)** — Selon votre situation : OCT, champ visuel, rétinographie, et autres examens du cabinet. | **فحوصات تكميلية (عند الحاجة)** — حسب حالتكم: التصوير المقطعي البصري (OCT)، فحص المجال البصري، تصوير الشبكية، وغيرها من الفحوصات المتوفرة بالعيادة. |
+| Glaucome — encadré : titre | Le glaucome : une maladie silencieuse qui menace la vision | الزرق: مرض صامت يهدد البصر |
+| Glaucome — encadré : texte | N'attendez pas l'apparition de symptômes pour consulter. Le dépistage précoce est essentiel pour préserver votre vision. | لا تنتظروا ظهور الأعراض لاستشارة الطبيب. فالكشف المبكر ضروري للحفاظ على بصركم. |
+| Accueil et page FAQ — « Combien de temps dure une consultation ? » | 15 à 20 minutes en moyenne, voire plus selon les examens complémentaires nécessaires. | من 15 إلى 20 دقيقة في المتوسط، وقد تزيد حسب الفحوصات التكميلية اللازمة. |
+
+- [ ] Validé tel quel
+- [ ] À corriger — Corrections :
+
+---
+
 *Fichier généré à partir des textes du site (`src/data/services-content.js` et
 `src/data/services-content.ar.js`) le 2026-11-23.*

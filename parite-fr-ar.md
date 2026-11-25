@@ -47,14 +47,14 @@ Tableau d'origine (23 pages) :
 | 1 | Accueil | ✅ | 17 images (dont le logo CHU ophtalmologie), 12 services, compteurs 12 / 3 / 3 |
 | 2 | Dr Elaouni | ✅ | |
 | 3 | Services | ✅ | 13 cartes dans les deux langues |
-| 4 | Consultation et dépistage | ✅ | encadrés + 8 FAQ (TODO client 1 et 2 dans les deux langues) |
+| 4 | Consultation et dépistage | ✅ | encadrés, 6 étapes illustrées (25/11/2026), 8 FAQ ; points client 1 et 2 réglés |
 | 5 | Cataracte | ✅ | 2 photos, 3 FAQ |
 | 6 | Chirurgie réfractive | ✅ | 4 étapes, 6 FAQ |
 | 7 | Strabisme | ✅ | affiche en version arabe (`strabisme-hero-ar`) |
 | 8 | Lentilles de contact | ✅ | 3 cartes, rubrique « gestes à ne jamais faire » + « À retenir », 3 FAQ |
 | 9 | Kératocône | ✅ | schéma SVG arabe, images des étapes 3 et 4, 4 FAQ |
 | 10 | Maladies de la rétine | ✅ | 5 FAQ, services liés identiques |
-| 11 | Glaucome | ✅ | sans FAQ dans les deux langues (réponses non fournies) |
+| 11 | Glaucome | ✅ | 9 FAQ + encadré « maladie silencieuse » dans les deux langues (FR de la doctoresse, AR proposée à valider) ; JSON-LD 9 / 9 |
 | 12 | Ophtalmologie pédiatrique | ✅ | affiche en version arabe (`pediatrie-hero-ar`) |
 | 13 | Échographie oculaire | ✅ | 3 FAQ |
 | 14 | Laser | ✅ | 4 situations, 4 étapes, 3 FAQ |

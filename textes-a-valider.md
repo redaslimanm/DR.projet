@@ -200,9 +200,11 @@ Adresse prévue : `/fr/services/consultation-depistage/`
 **« Comment se déroule la consultation ? » (4 étapes)**
 
 1. **Échange** — Vos antécédents, vos symptômes et vos besoins visuels.
-2. **Mesure de la vision** — Évaluation de l’acuité visuelle et de la réfraction.
+2. **Bilan visuel** — Évaluation de l’acuité visuelle et de la réfraction (mesure de la vue).
 3. **Examen des yeux** — Examen à la lampe à fente des paupières, de la cornée et du cristallin…
-4. **Conclusion** — Explication des résultats, ordonnance si besoin et suivi adapté.
+4. **Examen de la rétine** — Dilatation pupillaire pour une évaluation approfondie de la rétine (fond d’œil).
+5. **Mesure de la pression oculaire** — Dépistage d’une hypertension oculaire ou d’un glaucome.
+6. **Examens complémentaires** — Selon votre situation : OCT, champ visuel, rétinographie, et autres examens du cabinet.
 
 - [ ] Validé tel quel
 - [ ] À corriger — Correction :
@@ -235,7 +237,7 @@ Adresse prévue : `/fr/services/consultation-depistage/`
 
 **Combien de temps dure une consultation ophtalmologique ?**
 
-> La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement entre 20 et 30 minutes, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.
+> La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement 15 à 20 minutes en moyenne, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.
 
 (texte fourni par la doctoresse)
 
@@ -761,13 +763,59 @@ Adresse prévue : `/fr/services/glaucome/`
 
 **Questions fréquentes**
 
-**Le glaucome donne-t-il des symptômes ?** (non affichée sur le site)
+**Le glaucome donne-t-il des symptômes ?**
 
-Réponse à rédiger :
+> Le glaucome chronique évolue généralement sans douleur ni symptôme perceptible au début. La perte du champ visuel est progressive et peut passer inaperçue pendant plusieurs années, d'où l'importance du dépistage.
 
-**Le glaucome est-il héréditaire ?** (non affichée sur le site)
+(texte fourni par la doctoresse)
 
-Réponse à rédiger :
+**À partir de quel âge faut-il se faire dépister ?**
+
+> Un dépistage régulier est particulièrement recommandé à partir de 40 ans, ou plus tôt en présence de facteurs de risque, notamment des antécédents familiaux de glaucome.
+
+(texte fourni par la doctoresse)
+
+**Peut-on avoir un glaucome avec une tension oculaire normale ?**
+
+> Oui. Il existe des glaucomes à pression normale. La mesure de la pression oculaire seule ne suffit donc pas à exclure un glaucome.
+
+(texte fourni par la doctoresse)
+
+**Une tension oculaire élevée signifie-t-elle forcément que j’ai un glaucome ?**
+
+> Non. Une pression oculaire élevée constitue un facteur de risque, mais ne signifie pas nécessairement qu'il existe une atteinte du nerf optique.
+
+(texte fourni par la doctoresse)
+
+**Le glaucome peut-il rendre aveugle ?**
+
+> Oui, en l’absence de prise en charge, le glaucome peut entraîner une perte irréversible de la vision. Un diagnostic précoce et un traitement adapté permettent généralement de ralentir son évolution et de préserver la vision.
+
+(texte fourni par la doctoresse)
+
+**Le glaucome est-il héréditaire ?**
+
+> Les antécédents familiaux de glaucome augmentent le risque de développer cette maladie. Un dépistage régulier est particulièrement recommandé chez les personnes ayant un parent, un frère ou une sœur atteint de glaucome.
+
+(texte fourni par la doctoresse)
+
+**Quels examens permettent de diagnostiquer un glaucome ?**
+
+> Le diagnostic repose sur plusieurs examens : mesure de la pression intraoculaire, examen du nerf optique, pachymétrie cornéenne, gonioscopie, OCT du nerf optique et champ visuel.
+
+(texte fourni par la doctoresse)
+
+**Peut-on guérir définitivement du glaucome ?**
+
+> Les lésions du nerf optique liées au glaucome sont irréversibles. Cependant, les traitements par collyres, laser ou chirurgie permettent de contrôler la maladie et de limiter sa progression.
+
+(texte fourni par la doctoresse)
+
+**Puis-je arrêter mes gouttes si ma tension oculaire est redevenue normale ?**
+
+> Non. La normalisation de la pression oculaire est souvent liée à l’efficacité du traitement. Toute modification ou interruption doit être décidée avec votre ophtalmologue.
+
+(texte fourni par la doctoresse)
 
 **Le traitement est-il à vie ?** (non affichée sur le site)
 

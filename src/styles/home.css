@@ -126,36 +126,39 @@
 }
 
 /* ===================== Bande de confiance ===================== */
+/* Bande de confiance : design d'origine (bande verte pleine largeur, 4 éléments sur une ligne
+   dès la tablette, 2 colonnes sur mobile) avec les textes de la doctoresse (25/11/2026) :
+   chiffre ou icône doré + titre en gras + sous-titre */
 .trust {
   background: var(--c-green);
   color: var(--c-white);
 }
-
 .trust__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px 14px;
   margin-block: 0;
   padding-block: var(--sp-3);
-  font-size: 0.78125rem; /* 12.5px */
   line-height: 1.4;
 }
-
 .trust__item {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-.trust__number {
+.trust__lead { display: grid; flex: none; place-items: center; color: var(--c-gold-light); }
+.trust__lead--num {
+  display: inline-block;
   font-family: var(--ff-serif);
   font-size: 1.875rem;
   font-weight: var(--fw-semibold);
   line-height: 1;
-  color: var(--c-gold-light);
+  white-space: nowrap;
 }
-
-.trust__icon { flex: none; color: var(--c-gold-light); }
+.trust__number { font: inherit; color: inherit; }
+.trust__text { display: flex; flex-direction: column; gap: 2px; min-inline-size: 0; }
+.trust__title { font-size: 0.8125rem; font-weight: var(--fw-semibold); line-height: 1.3; color: var(--c-white); }
+.trust__sub { font-size: 0.75rem; line-height: 1.35; color: #DCE5DE; }
 
 /* ===================== Services ===================== */
 .services-grid {
@@ -699,13 +702,11 @@ html[lang='ar'] .reviews-score__avg { font-family: var(--ff-ar); font-weight: 80
 
 
   /* Bande de confiance */
-  .trust__list {
-    gap: var(--sp-3);
-    padding-block: 36px;
-    font-size: var(--fs-small);
-  }
+  .trust__list { gap: var(--sp-3); padding-block: 36px; }
   .trust__item { gap: 14px; }
-  .trust__number { font-size: 2.5rem; }
+  .trust__lead--num { font-size: 2.5rem; }
+  .trust__title { font-size: var(--fs-small); }
+  .trust__sub { font-size: 0.8125rem; }
 
   /* Services */
   .services-grid {

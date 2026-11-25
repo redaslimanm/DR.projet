@@ -41,7 +41,7 @@ doctoresse** (relecture : `traduction-ar-8-pages.md`).
       pas ressembler à « الفحوصات ». À valider (fichier de relecture, section 1).
 - [ ] **Section « Avis de nos patients » (accueil AR, 23/11/2026)** — textes d'interface proposés
       par nous (`T.ar` de `src/partials/reviews.js`, `TODO AR`), à valider : label « آراء المرضى »
-      (existant), titre « آراء مرضانا », « آراء Google · 18 رأياً », boutons « عرض جميع الآراء على
+      remplacé le 25/11/2026 par « آراء Google موثّقة », titre « ماذا يقول مرضانا » (avant : « آراء مرضانا »), « آراء Google + 18 رأياً », boutons « عرض جميع الآراء على
       Google » et « أضيفوا رأيكم », libellés d'accessibilité : flèches « الرأي السابق » /
       « الرأي التالي », points « التنقل بين الآراء » / « الانتقال إلى الرأي {n} », bande
       « آراء مرضانا: استعملوا أسهم لوحة المفاتيح للتمرير », « التقييم المتوسط: … من 5 »,
@@ -57,9 +57,20 @@ doctoresse** (relecture : `traduction-ar-8-pages.md`).
       « فيديو الدكتورة العوني رجاء حول البَرَدة (Chalazion) » (`reelVideo` de `chalazion` dans
       `services-content.ar.js`) — `TODO AR`, à valider par la doctoresse.
 
-- [ ] **Point client 1** (« … » après « cristallin » / « العدسة ») : mettre à jour FR + AR.
-- [ ] **Point client 2** (durée de consultation) : unifier accueil, FAQ et page Consultation
-      en FR + AR, puis remettre la question dans le JSON-LD (`schema: false` à retirer).
+- [x] **Point client 1** (« … » après « cristallin » / « العدسة ») : confirmé le 25/11/2026, texte
+      déjà en place en FR + AR (TODO retirés).
+- [x] **Point client 2** (durée de consultation) : « 15 à 20 minutes en moyenne » partout (page
+      Consultation, FAQ de l'accueil, /fr/faq/) le 25/11/2026. AR : « من 15 إلى 20 دقيقة في المتوسط »
+      (`TODO AR`, à valider — relecture section 12). La question de la page Consultation reste exclue
+      du JSON-LD (doublon avec celle de /faq/).
+- [ ] **FAQ glaucome AR (25/11/2026)** : traduction proposée des 9 questions / réponses fournies par la
+      doctoresse (`glaucome.faq` de `src/data/services-content.ar.js`, `TODO AR`) — relecture dans
+      `traduction-ar-8-pages.md`, section 11.
+- [ ] **Maquettes du 25/11/2026 — textes AR proposés** (`TODO AR`, relecture
+      `traduction-ar-8-pages.md`, section 12) : bande verte de l'accueil (`ar/index.html`),
+      6 étapes de la consultation (étapes 2, 4, 5, 6 + étiquette « (عند الحاجة) »,
+      `services-content.ar.js` et `UI.ar.ifNeeded`), encadré glaucome (`faqAlert`), durée sur
+      l'accueil et /ar/faq/.
 - [ ] **Point client 3** (badges CNSS / CNOPS du hero) : même décision en FR + AR.
 - [ ] **Point client 4** (droits de `keratocone-hero`) : même image en FR + AR.
 - [ ] Questions sans réponse (Consultation, Chirurgie réfractive, Rétine, Glaucome) : traduire

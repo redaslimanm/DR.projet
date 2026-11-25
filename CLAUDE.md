@@ -38,7 +38,7 @@ Hébergement : **Vercel** (choisi ; configuration dans `vercel.json`, guide dans
 - **WhatsApp (messages uniquement, PAS d'appels)** : 07 62 97 08 15 → `https://wa.me/212762970815`
 - **Email** : dr.elaouni.rajae@gmail.com
 - **Horaires** : lundi – vendredi 9h – 17h · samedi 9h – 13h · dimanche fermé
-- **Consultation** : durée à confirmer par la cliente (« environ 15 minutes, voire plus » sur l'accueil/FAQ, « 20 à 30 minutes » sur la page Consultation — point client en attente). Urgences acceptées. Adultes et enfants.
+- **Consultation** : « 15 à 20 minutes en moyenne » partout (page Consultation, FAQ de l'accueil, /faq/ — correction de la doctoresse, 25/11/2026). Urgences acceptées. Adultes et enfants. Déroulement en 6 étapes illustrées (icône, étiquette « (si besoin) ») : options `{ icon, ifNeeded }` en 4e élément des étapes (`stepsList` de `service.js`).
 - **Documents à apporter** : CIN uniquement (fiche d'adhésion mutuelle retirée à la demande de la doctoresse)
 - **Conventions** : CNSS, CNOPS, mutuelles — **ne plus les afficher** (demande de la doctoresse : les patients pourraient croire que les honoraires sont réduits). Encore présentes dans les badges du hero en attendant sa réponse. Ne pas écrire « assurances ».
 - **Tarifs** : ne PAS les afficher (demande de la cliente)
@@ -145,13 +145,13 @@ Menu : Accueil · Dr Elaouni · Services ▾ (FR : liens rangés sous les intert
 1. Barre haute (horaires, adresse, switch FR/AR) — desktop uniquement
 2. Header sticky : logo, menu (burger en mobile), bouton RDV
 3. Hero (fond beige) : label « OPHTALMOLOGUE À FÈS », H1 « Prendre soin de vos yeux, à chaque âge de la vie », sous-titre, boutons « Appeler » + « WhatsApp », photos du cabinet en fond. **Photo de la doctora (arche + cercle doré) retirée sur desktop seulement (22/11/2026), gardée sur mobile** ; mobile = version `16f0513` (voile beige + iris doré Three.js mobile seulement) — version d'avant conservée sous le tag git `hero-avec-photo-dr` (à restaurer si la cliente le demande)
-4. Bande de confiance (fond vert) : 12 spécialités · diplômes UK/Espagne · membre SFO · OCT/rétinographe/échographie
+4. Bande de confiance (fond vert pleine largeur, 4 éléments sur une ligne dès la tablette, 2 colonnes sur mobile) — textes de la doctoresse (25/11/2026) : « 20+ Soins et examens spécialisés / Une prise en charge complète » (chiffre calculé depuis `site.js`) · « Formation internationale / Diplômes du Royaume-Uni et d’Espagne » · « Membre de la SFO / Société Française d’Ophtalmologie » · « Plateau technique de pointe / Explorations oculaires spécialisées sur place ». Mêmes éléments sur mobile et desktop (l'ancien badge mobile CNSS a été retiré ; « CNSS · CNOPS » reste dans les badges du hero, point client 3)
 5. Services : 8 cartes numérotées (01, 02…) + « Voir tous les services »
 6. À propos : photo devant l'OCT + texte + liste des diplômes + bouton
 7. Plateau technique : 3 cartes équipements
 8. Le cabinet : galerie (réception, salles d'attente, espace diplômes)
 9. Citation : « La vision est l'art de voir l'invisible. » — Jonathan Swift (phrase écrite sur le mur du cabinet)
-10. Avis patients (« Avis de nos patients ») : note moyenne, étoiles, nombre d'avis, cartes des avis Google (carrousel mobile, grille desktop) + « Voir tous les avis sur Google » / « Laisser un avis » — généré depuis `src/data/reviews.json` (partial `reviews`)
+10. Avis patients (libellé « Avis Google vérifiés », titre « Ce que disent nos patients ») : note moyenne, étoiles, nombre d'avis, cartes des avis Google (carrousel mobile, grille desktop) + « Voir tous les avis sur Google » / « Laisser un avis » — généré depuis `src/data/reviews.json` (partial `reviews`)
 11. Infos pratiques (horaires, documents, annulation) + FAQ (4 questions, en `<details>`)
 12. Contact : adresse + repères, téléphone, WhatsApp, email, carte Google Maps, plan d'accès (image tirée de la carte de visite)
 13. Footer (fond `#23392B`, logo blanc)
@@ -176,7 +176,7 @@ Titre AR du hero : « نعتني بعيونكم في كل مراحل العمر 
 8. CTA appel + WhatsApp
 9. Services liés
 
-Champs facultatifs (pages de nov. 2026) : pas de `photo` → pas de photo en tête ; pas d'`intro` → rien sous le H1 ; `whatImage` (image + légende à côté de « Qu'est-ce que… ») ; `stepsImage` (illustration sous les étapes) ; image d'étape `natural: true` (non recadrée) ; `ctaText` (texte du bandeau + bouton « Prendre rendez-vous ») ; `reel` (lien du reel Instagram, `null` = lien à fournir) + `reelVideo` (vidéo hébergée lue sur place, voir « Khota A »).
+Champs facultatifs (pages de nov. 2026) : pas de `photo` → pas de photo en tête ; pas d'`intro` → rien sous le H1 ; `whatImage` (image + légende à côté de « Qu'est-ce que… ») ; `stepsImage` (illustration sous les étapes) ; image d'étape `natural: true` (non recadrée) ; `ctaText` (texte du bandeau + bouton « Prendre rendez-vous ») ; `reel` (lien du reel Instagram, `null` = lien à fournir) + `reelVideo` (vidéo hébergée lue sur place, voir « Khota A »). `faqAlert` : encadré d'alerte après la FAQ (`{ title, text }`, page Glaucome).
 
 ## Plan d'animations
 
@@ -256,7 +256,7 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
 `scripts/optimize-images.py`. Version arabe à parité (`parite-fr-ar.md`, `ar-a-faire.md`). Les commentaires
 `<!-- TODO … -->` des pages HTML sont retirés au build (jamais publiés).
 
-## Avis Google (section « Avis de nos patients », accueil FR + AR)
+## Avis Google (section « Ce que disent nos patients », accueil FR + AR)
 
 - **Source** : `src/data/reviews.json` = export des avis de la fiche Google (tableau d'objets : `author`, `author_url`, `rating`, `text`, …). Lu au build, **sans API ni clé**. Règles dans `src/data/reviews.js`, rendu dans `src/partials/reviews.js`, carrousel dans `src/js/reviews.js`.
 - **Mettre à jour les avis** : remplacer `src/data/reviews.json` par le nouvel export (même format), puis relancer `npm run build` (et `npm run check:seo`). Rien d'autre à modifier : note moyenne, nombre d'avis et ordre sont recalculés.
@@ -267,7 +267,7 @@ respecte ses couleurs, typos, espacements, ordre des sections et textes. Ne copi
   - ordre : les avis les plus longs en premier ; nom de l'auteur = lien vers `author_url` (`rel="noopener nofollow"`) ;
   - sur la page AR, le texte des avis reste en français (`lang="fr"`) ; l'interface est en arabe (`TODO AR`, `ar-a-faire.md`).
 - **Interdit** : aucun JSON-LD `AggregateRating` ni `Review` (règles Google sur les avis auto-publiés).
-- **Affichage** : en-tête « note moyenne + étoiles + Avis Google · N avis » à gauche, flèches ‹ › (38 px) à droite ; une seule ligne de cartes de 280 px (scroll-snap, barre fine), texte complet ; points de pagination dessous ; boutons secondaires « Voir tous les avis sur Google » / « Laisser un avis » (icône lien externe). Avatars : initiale sur fond pastel, 4 couleurs en alternance (violet, vert d'eau, corail, bleu). Seules les étoiles sont dorées.
+- **Affichage** : en-tête « note moyenne + étoiles + Avis Google + N avis » à gauche, flèches ‹ › (38 px) à droite ; une seule ligne de cartes de 280 px (scroll-snap, barre fine), texte complet ; points de pagination dessous ; boutons secondaires « Voir tous les avis sur Google » / « Laisser un avis » (icône lien externe). Avatars : initiale sur fond pastel, 4 couleurs en alternance (violet, vert d'eau, corail, bleu). Seules les étoiles sont dorées.
 - **Carrousel contrôlé par l'utilisateur uniquement** (`src/js/reviews.js`, vanilla) : aucun défilement automatique, aucune boucle, pas de bouton Pause. Flèches = une carte, désactivées au début / à la fin ; points cliquables, mis à jour au défilement ; doigt, molette / trackpad, flèches du clavier (bande focusable) ; sens inversé en RTL. Sans JS : bande défilante seule.
 
 ## Khota A — appliquée le 24/11/2026

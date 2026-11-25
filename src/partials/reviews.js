@@ -9,9 +9,9 @@ import { maps } from '../data/site.js';
 // (liste dans ar-a-faire.md). Le texte des avis reste dans sa langue d'origine.
 const T = {
   fr: {
-    label: 'Avis patients',
-    title: 'Avis de nos patients',
-    meta: (n) => `Avis Google · ${n} avis`,
+    label: 'Avis Google vérifiés',
+    title: 'Ce que disent nos patients',
+    meta: (n) => `Avis Google + ${n} avis`,
     avg: (x) => x.toFixed(1).replace('.', ','),
     avgLabel: (x) => `Note moyenne : ${x} sur 5`,
     starsLabel: (n) => `${n} étoile${n > 1 ? 's' : ''} sur 5`,
@@ -26,10 +26,11 @@ const T = {
     write: 'Laisser un avis',
   },
   ar: {
-    label: 'آراء المرضى',
-    title: 'آراء مرضانا',
+    // TODO AR : libellé et titre changés le 25/11/2026, traduction à valider
+    label: 'آراء Google موثّقة',
+    title: 'ماذا يقول مرضانا',
     // <bdi> : isole « Google » et le nombre, sinon le RTL les regroupe et inverse l'ordre
-    meta: (n) => `آراء <bdi>Google</bdi> · <bdi>${n}</bdi> ${n >= 3 && n <= 10 ? 'آراء' : 'رأياً'}`,
+    meta: (n) => `آراء <bdi>Google</bdi> + <bdi>${n}</bdi> ${n >= 3 && n <= 10 ? 'آراء' : 'رأياً'}`,
     avg: (x) => x.toFixed(1),
     avgLabel: (x) => `التقييم المتوسط: ${x} من 5`,
     starsLabel: (n) => `${n} من 5 نجوم`,

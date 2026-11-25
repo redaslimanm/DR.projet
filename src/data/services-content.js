@@ -60,13 +60,17 @@ export const servicesContent = [
       },
     ],
     stepsTitle: 'Comment se déroule la consultation ?',
+    // 6 étapes illustrées (maquette de la doctoresse, « dernière modification site web.docx »,
+    // 25/11/2026) : [titre, texte, images (aucune), { icon, ifNeeded }] — ifNeeded = étiquette
+    // « (si besoin) ». Remplace les 4 étapes précédentes (dont « Conclusion »).
     steps: [
-      ['Échange', 'Vos antécédents, vos symptômes et vos besoins visuels.'],
-      ['Mesure de la vision', 'Évaluation de l’acuité visuelle et de la réfraction.'],
-      // TODO client (point 1) : la doctoresse demande « … » après « cristallin ».
-      // Points de suspension seulement, ou d'autres structures (conjonctive, iris…) ? En attente.
-      ['Examen des yeux', 'Examen à la lampe à fente des paupières, de la cornée et du cristallin…'],
-      ['Conclusion', 'Explication des résultats, ordonnance si besoin et suivi adapté.'],
+      ['Échange', 'Vos antécédents, vos symptômes et vos besoins visuels.', null, { icon: 'messageCircleMore' }],
+      ['Bilan visuel', 'Évaluation de l’acuité visuelle et de la réfraction (mesure de la vue).', null, { icon: 'eyeChart' }],
+      // « … » après « cristallin » : demandé par la doctoresse, confirmé le 25/11/2026 (point client 1)
+      ['Examen des yeux', 'Examen à la lampe à fente des paupières, de la cornée et du cristallin…', null, { icon: 'slitLamp' }],
+      ['Examen de la rétine', 'Dilatation pupillaire pour une évaluation approfondie de la rétine (fond d’œil).', null, { icon: 'retina', ifNeeded: true }],
+      ['Mesure de la pression oculaire', 'Dépistage d’une hypertension oculaire ou d’un glaucome.', null, { icon: 'tonometer' }],
+      ['Examens complémentaires', 'Selon votre situation : OCT, champ visuel, rétinographie, et autres examens du cabinet.', null, { icon: 'clipboardCheck', ifNeeded: true }],
     ],
     doctor: GENERAL,
     faq: [
@@ -86,11 +90,12 @@ export const servicesContent = [
         q: 'Faut-il apporter ses anciennes lunettes et ordonnances ?',
         a: 'Oui, il est conseillé d’apporter vos lunettes actuelles, vos anciennes ordonnances et, si vous en disposez, vos examens ophtalmologiques précédents. Cela facilite l’évaluation de l’évolution de votre vision.',
       },
-      // TODO client (point 2) : « entre 20 et 30 minutes » ici, « environ 15 minutes » sur l'accueil et /fr/faq/.
+      // Durée corrigée par la doctoresse le 25/11/2026 : « 15 à 20 minutes en moyenne » (au lieu de
+      // « entre 20 et 30 minutes ») ; l'accueil et /fr/faq/ alignés sur la même durée.
       // Exclue du JSON-LD : même sujet que « Combien de temps dure une consultation ? » de /fr/faq/.
       {
         q: 'Combien de temps dure une consultation ophtalmologique ?',
-        a: 'La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement entre 20 et 30 minutes, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.',
+        a: 'La durée varie selon le motif de consultation et les examens nécessaires. Une consultation habituelle dure généralement 15 à 20 minutes en moyenne, mais elle peut être prolongée en cas de dilatation pupillaire ou d’examens complémentaires.',
         schema: false,
       },
       {
@@ -525,11 +530,53 @@ export const servicesContent = [
       ['Suivi', 'Contrôles réguliers pour adapter le traitement.'],
     ],
     doctor: SFO,
+    // FAQ fournie par la doctoresse (« dernière modification site web.docx », 25/11/2026), mot pour
+    // mot. Remplace les brouillons « …symptômes ? » et « …héréditaire ? » (mêmes questions).
     faq: [
-      { q: 'Le glaucome donne-t-il des symptômes ?', draft: true }, // TODO réponse à fournir par la doctoresse
-      { q: 'Le glaucome est-il héréditaire ?', draft: true }, // TODO réponse à fournir par la doctoresse
+      {
+        q: 'Le glaucome donne-t-il des symptômes ?',
+        a: "Le glaucome chronique évolue généralement sans douleur ni symptôme perceptible au début. La perte du champ visuel est progressive et peut passer inaperçue pendant plusieurs années, d'où l'importance du dépistage.",
+      },
+      {
+        q: 'À partir de quel âge faut-il se faire dépister ?',
+        a: 'Un dépistage régulier est particulièrement recommandé à partir de 40 ans, ou plus tôt en présence de facteurs de risque, notamment des antécédents familiaux de glaucome.',
+      },
+      {
+        q: 'Peut-on avoir un glaucome avec une tension oculaire normale ?',
+        a: 'Oui. Il existe des glaucomes à pression normale. La mesure de la pression oculaire seule ne suffit donc pas à exclure un glaucome.',
+      },
+      {
+        q: 'Une tension oculaire élevée signifie-t-elle forcément que j’ai un glaucome ?',
+        a: "Non. Une pression oculaire élevée constitue un facteur de risque, mais ne signifie pas nécessairement qu'il existe une atteinte du nerf optique.",
+      },
+      {
+        q: 'Le glaucome peut-il rendre aveugle ?',
+        a: 'Oui, en l’absence de prise en charge, le glaucome peut entraîner une perte irréversible de la vision. Un diagnostic précoce et un traitement adapté permettent généralement de ralentir son évolution et de préserver la vision.',
+      },
+      {
+        q: 'Le glaucome est-il héréditaire ?',
+        a: 'Les antécédents familiaux de glaucome augmentent le risque de développer cette maladie. Un dépistage régulier est particulièrement recommandé chez les personnes ayant un parent, un frère ou une sœur atteint de glaucome.',
+      },
+      {
+        q: 'Quels examens permettent de diagnostiquer un glaucome ?',
+        a: 'Le diagnostic repose sur plusieurs examens : mesure de la pression intraoculaire, examen du nerf optique, pachymétrie cornéenne, gonioscopie, OCT du nerf optique et champ visuel.',
+      },
+      {
+        q: 'Peut-on guérir définitivement du glaucome ?',
+        a: 'Les lésions du nerf optique liées au glaucome sont irréversibles. Cependant, les traitements par collyres, laser ou chirurgie permettent de contrôler la maladie et de limiter sa progression.',
+      },
+      {
+        q: 'Puis-je arrêter mes gouttes si ma tension oculaire est redevenue normale ?',
+        a: 'Non. La normalisation de la pression oculaire est souvent liée à l’efficacité du traitement. Toute modification ou interruption doit être décidée avec votre ophtalmologue.',
+      },
+      // Brouillon non affiché (pas dans le document de la doctoresse) — conservé en attente
       { q: 'Le traitement est-il à vie ?', draft: true }, // TODO réponse à fournir par la doctoresse
     ],
+    // Encadré d'alerte juste après la FAQ (maquette de la doctoresse, 25/11/2026)
+    faqAlert: {
+      title: 'Le glaucome : une maladie silencieuse qui menace la vision',
+      text: "N'attendez pas l'apparition de symptômes pour consulter. Le dépistage précoce est essentiel pour préserver votre vision.",
+    },
     ctaTitle: 'Plus de 40 ans ?',
     related: ['@equipements', 'retine', 'laser'],
     meta: {
@@ -1323,7 +1370,7 @@ export function serviceAvailable(slug, lang = 'fr') {
 // Version AR = textes de services-content.ar.js + éléments non textuels du FR
 // (icônes, images, liens, réglages). Tout contenu FR contenant du texte doit avoir
 // sa traduction : sinon le build s'arrête (jamais de texte français sur une page AR).
-const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure', 'whatImage', 'stepsImage', 'ctaText', 'reelVideo'];
+const TRANSLATED = ['callouts', 'situations', 'signCards', 'warnings', 'whatFigure', 'whatImage', 'stepsImage', 'ctaText', 'reelVideo', 'faqAlert'];
 
 // Image d'une section (whatImage / stepsImage) : fichier du FR, alt et légende de l'AR
 const localizedMedia = (fr, ar, fail, what) => {
@@ -1349,7 +1396,8 @@ export function localizedService(slug, lang = 'fr') {
     // étapes : texte AR, images du FR avec leurs alt AR (3e élément)
     steps: ar.steps.map(([t, d, alts], i) => {
       const imgs = base.steps[i][2];
-      if (!imgs) return [t, d];
+      const opts = base.steps[i][3]; // icône / « si besoin » : non textuels, repris du FR
+      if (!imgs) return opts ? [t, d, null, opts] : [t, d];
       if (alts?.length !== imgs.length) fail(`alt des images de l'étape ${i + 1}`);
       return [t, d, imgs.map((p, k) => ({ ...p, alt: alts[k] }))];
     }),

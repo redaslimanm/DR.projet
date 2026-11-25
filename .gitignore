@@ -11,3 +11,6 @@ maquette/*.zip
 .env
 .env.*
 !.env.example
+
+# Documents Word de la cliente (corrections, fiches) — hors Git et hors build
+*.docx

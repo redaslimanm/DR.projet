@@ -59,30 +59,29 @@
     </div>
 
     <!-- ===================== 4. Bande de confiance ===================== -->
+    <!-- Maquette de la doctoresse (« dernière modification site web.docx », 25/11/2026) : 4 éléments,
+         identiques sur mobile et desktop ; le chiffre vient de site.js (partial services-count). -->
     <section class="trust" aria-label="Points forts">
-      <ul class="container trust__list" role="list">
+      <div class="container">
+        <ul class="trust__list" role="list">
         <li class="trust__item">
-          <span class="trust__number"><!-- @partial services-count --></span>
-          <span>spécialités et examens<span class="u-desktop-only-inline"> au cabinet</span></span>
-        </li>
-        <li class="trust__item">
-          <span class="trust__icon"><!-- @icon award 22 1.6 --></span>
-          <span>Diplômes Royaume-Uni et Espagne</span>
+          <span class="trust__lead trust__lead--num"><span class="trust__number"><!-- @partial services-count --></span>+</span>
+          <span class="trust__text"><strong class="trust__title">Soins et examens spécialisés</strong><span class="trust__sub">Une prise en charge complète</span></span>
         </li>
         <li class="trust__item">
-          <span class="trust__icon"><!-- @icon badgeCheck 22 1.6 --></span>
-          <span>Membre de la Société Française d’Ophtalmologie</span>
+          <span class="trust__lead trust__icon"><!-- @icon graduationCap 24 1.6 --></span>
+          <span class="trust__text"><strong class="trust__title">Formation internationale</strong><span class="trust__sub">Diplômes du Royaume-Uni et d’Espagne</span></span>
         </li>
-        <li class="trust__item u-desktop-only">
-          <span class="trust__icon"><!-- @icon scanEye 22 1.6 --></span>
-          <span>OCT, rétinographe et échographie sur place</span>
+        <li class="trust__item">
+          <span class="trust__lead trust__icon"><!-- @icon circleCheck 24 1.6 --></span>
+          <span class="trust__text"><strong class="trust__title">Membre de la SFO</strong><span class="trust__sub">Société Française d’Ophtalmologie</span></span>
         </li>
-        <!-- TODO client (point 3) : même question pour ce badge mobile « CNSS · CNOPS · Mutuelles ». -->
-        <li class="trust__item u-mobile-only">
-          <span class="trust__icon"><!-- @icon shieldCheck 22 1.6 --></span>
-          <span>CNSS · CNOPS · Mutuelles</span>
+        <li class="trust__item">
+          <span class="trust__lead trust__icon"><!-- @icon scanEye 24 1.6 --></span>
+          <span class="trust__text"><strong class="trust__title">Plateau technique de pointe</strong><span class="trust__sub">Explorations oculaires spécialisées sur place</span></span>
         </li>
-      </ul>
+        </ul>
+      </div>
     </section>
 
     <!-- ===================== 5. Services ===================== -->
@@ -385,8 +384,8 @@
             </details>
             <details class="faq__item">
               <summary>Combien de temps dure une consultation ?<span class="faq__icon"><!-- @icon plus 18 --></span></summary>
-              <!-- TODO client (point 2) : durée à harmoniser avec la page Consultation (« entre 20 et 30 minutes »). Garder 15 min ou 20 à 30 min ? -->
-              <p>Environ 15 minutes, voire plus selon les examens complémentaires nécessaires.</p>
+              <!-- Durée alignée sur la page Consultation (« 15 à 20 minutes en moyenne », 25/11/2026) -->
+              <p>15 à 20 minutes en moyenne, voire plus selon les examens complémentaires nécessaires.</p>
             </details>
           </div>
         </div>

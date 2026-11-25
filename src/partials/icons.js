@@ -54,6 +54,18 @@ const paths = {
   chevronLeft: '<path d="m15 18-6-6 6-6"/>',
   chevronRight: '<path d="m9 18 6-6-6-6"/>',
   externalLink: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+  // --- Bande de confiance + étapes de la consultation (maquettes de la doctoresse, 25/11/2026) ---
+  graduationCap: '<path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+  messageCircleMore: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/>',
+  // Échelle d'acuité (E / F P / T O Z) : lettres pleines, sans contour
+  eyeChart: '<g fill="currentColor" stroke="none" font-family="Georgia, \'Times New Roman\', serif" font-weight="700" text-anchor="middle"><text x="12" y="9.4" font-size="10.5">E</text><text x="12" y="16.4" font-size="6.6" letter-spacing="1">F P</text><text x="12" y="22.6" font-size="5.4" letter-spacing=".6">T O Z</text></g>',
+  // Lampe à fente : socle, colonne, tête optique avec oculaire et mentonnière
+  slitLamp: '<path d="M6 21h12"/><path d="M9 21v-2.5h6V21"/><path d="M12 18.5V11"/><rect x="5" y="6" width="10" height="5" rx="1.5"/><circle cx="8.5" cy="8.5" r="1.3"/><path d="M15 7.5h2.5v2H15"/><path d="M19 3.5v9"/><path d="M17.5 3.5H20"/>',
+  // Rétine : globe + vaisseaux qui partent de la papille (côté droit)
+  retina: '<circle cx="12" cy="12" r="9"/><path d="M17.5 12H10"/><path d="M12.5 12 8 7.5"/><path d="M12.5 12 8 16.5"/><path d="M10 12 6.5 10.5"/><path d="M10 12l-3.5 1.5"/><path d="M9.8 9.3 9.6 6.5"/><path d="M9.8 14.7l-.2 2.8"/>',
+  // Tonomètre (pression oculaire) : appareil tenu à la main + rayons
+  tonometer: '<path d="M4 7.5h8.5a3 3 0 0 1 0 6H11l-1.4 7H6.3l1.4-7H6a2 2 0 0 1-2-2z"/><circle cx="12.5" cy="10.5" r=".9"/><path d="M17.5 10.5H20"/><path d="m17 6.5 1.6-1.6"/><path d="m17 14.5 1.6 1.6"/><path d="M15 4.5V2.8"/>',
+  clipboardCheck: '<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m8 12 1.5 1.5L12 11"/><path d="m8 17 1.5 1.5L12 16"/><path d="M14 12h2"/><path d="M14 17h2"/>',
   pencil:
     '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
   circleCheck: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',

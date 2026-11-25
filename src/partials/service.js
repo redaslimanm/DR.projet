@@ -13,6 +13,7 @@ export const UI = {
     call: 'Appeler le', wa: 'Écrire sur WhatsApp', related: 'Services liés',
     equip: 'Examens complémentaires (OCT, échographie)', more: 'En savoir plus',
     // Lecteur vidéo (khota A)
+    ifNeeded: '(si besoin)',
     reelWarn: 'Cette vidéo contient des images opératoires. Cliquer pour regarder.',
     reelNoJs: 'Attention : cette vidéo contient des images opératoires.',
     reelInsta: 'Voir sur Instagram',
@@ -25,6 +26,7 @@ export const UI = {
     call: 'اتصلوا على', wa: 'راسلونا عبر واتساب', related: 'خدمات ذات صلة',
     equip: 'فحوصات تكميلية (OCT، الإكوغرافيا)', more: 'اكتشف',
     // TODO AR : textes du lecteur vidéo (khota A, page Chalazion), à valider par la doctoresse
+    ifNeeded: '(عند الحاجة)', // TODO AR : étiquette des étapes de la consultation, à valider
     reelWarn: 'يحتوي هذا الفيديو على صور من عملية جراحية. انقروا للمشاهدة.',
     reelNoJs: 'تنبيه: يحتوي هذا الفيديو على صور من عملية جراحية.',
     reelInsta: 'شاهدوا على إنستغرام',
@@ -95,10 +97,12 @@ function relatedLink(key, lang) {
   return `<li><a href="/${lang}/services/${s.slug}/">${s.name} <!-- @icon arrowRight 16 --></a></li>`;
 }
 
-// Liste numérotée (déroulement, ou situations détaillées) : [titre, texte, images?]
+// Liste numérotée (déroulement, ou situations détaillées) : [titre, texte, images?, options?]
 // images (optionnel) : [{ name, alt, natural? }] affichées sous le texte de l'étape
 // natural: true → image entière (sans recadrage), 420 px au plus
-function stepsList(items) {
+// options (optionnel) : { icon, ifNeeded } → variante illustrée (numéro, icône dans un carré beige,
+// trait vertical, étiquette « (si besoin) ») — maquette de la doctoresse, page Consultation
+function stepsList(items, u) {
   const media = (imgs) =>
     imgs?.length
       ? `<div class="step__media${imgs.some((p) => p.natural) ? ' step__media--natural' : ''}">${imgs
@@ -109,6 +113,17 @@ function stepsList(items) {
           )
           .join('')}</div>`
       : '';
+  if (items.some((x) => x[3]?.icon)) {
+    return `<ol class="steps steps--icons" role="list">
+          ${items
+            .map(([t, d, imgs, o = {}], i) => {
+              const tag = o.ifNeeded ? ` <span class="step__tag">${u.ifNeeded}</span>` : '';
+              const ic = o.icon ? `<span class="step__icon" aria-hidden="true"><!-- @icon ${o.icon} 30 1.5 --></span>` : '';
+              return `<li class="step"><span class="step__num" aria-hidden="true">${i + 1}</span>${ic}<div class="step__body"><h3>${t}${tag}</h3><p>${ph(d)}</p>${media(imgs)}</div></li>`;
+            })
+            .join('\n          ')}
+        </ol>`;
+  }
   return `<ol class="steps" role="list">
           ${items
             .map(
@@ -195,6 +210,22 @@ function warningsSection(w) {
     </section>`;
 }
 
+// Encadré d'alerte après la FAQ (champ optionnel faqAlert : { title, text }) — page Glaucome
+function faqAlert(a) {
+  if (!a) return '';
+  return `<section class="svc-section svc-section--tight" aria-label="${a.title}">
+      <div class="container svc-container">
+        <div class="svc-alert" role="note">
+          <span class="svc-alert__icon" aria-hidden="true"><!-- @icon triangleAlert 22 1.8 --></span>
+          <div>
+            <p class="svc-alert__title">${a.title}</p>
+            <p class="svc-alert__text">${a.text}</p>
+          </div>
+        </div>
+      </div>
+    </section>`;
+}
+
 // Section FAQ : seulement les questions publiées (pas de draft) ; aucune → pas de section
 function faqSection(s, u) {
   const items = s.faq.filter(isPublished);
@@ -276,7 +307,7 @@ export function service(page) {
         ${todo(s, 'signs') && `<p class="svc-note">${TODO}</p>`}
         ${
           s.situations
-            ? stepsList(s.situations)
+            ? stepsList(s.situations, u)
             : s.signCards
             ? `<ul class="sign-grid sign-grid--3" role="list">
           ${s.signCards
@@ -295,7 +326,7 @@ export function service(page) {
       <div class="container svc-container">
         <h2 id="svc-steps">${s.stepsTitle}</h2>
         ${todo(s, 'steps') && `<p class="svc-note">${TODO}</p>`}
-        ${stepsList(s.steps)}
+        ${stepsList(s.steps, u)}
         ${media(s.stepsImage, 'svc-media--steps', '(min-width: 64em) 560px, calc(100vw - 40px)')}
         ${reelBlock(s, u)}
       </div>
@@ -313,6 +344,7 @@ export function service(page) {
     </section>
 
     ${faqSection(s, u)}
+    ${faqAlert(s.faqAlert)}
 
     <section class="svc-section" id="contact-rdv" aria-labelledby="svc-cta">
       <div class="container svc-container">
