@@ -33,8 +33,13 @@ export function head(page) {
   <meta name="description" content="${esc(m.description)}">
   ${seoTags(page, m)}
   <meta name="theme-color" content="#2F4F3A">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon-512.png">
+  <!-- Favicons : fichiers fixes à la racine (public/), sans hash -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Google Fonts non bloquant (polices de secours ajustées : src/styles/fonts.css) -->
